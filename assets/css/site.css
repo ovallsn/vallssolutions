@@ -95,7 +95,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .video-toggle { position: absolute; z-index: 2; top: 51px; right: 16px; min-height: 40px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.5); border-radius: 2px; background: rgba(17,39,36,.64); color: white; font: inherit; font-size: 11px; cursor: pointer; }
 .video-toggle:hover { background: rgba(17,39,36,.9); }
 .visual-meta { margin-top: 10px; display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 10px; }
-.visual-meta a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
 .proof-strip { padding-block: 25px; display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .proof-strip > div { min-height: 45px; display: flex; align-items: flex-start; gap: 13px; padding-left: clamp(10px,2.5vw,32px); border-left: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.5; }

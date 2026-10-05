@@ -11,3 +11,4 @@
 - Video derivative: 960 x 540 MP4 variant, 23 seconds, 2.17 MB; self-hosted and loaded only when the hero is visible and reduced-motion / Save-Data preferences allow it
 - Poster derivative: Pexels still, 1260 x 750 JPEG, self-hosted fallback
 - Used on: Spanish and English homepages
+- Public attribution: intentionally not displayed, as requested by the owner; source and license remain documented here for internal provenance.
