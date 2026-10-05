@@ -3,15 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { localePrefix, mailtoHref, type Locale } from "@/lib/site";
+import { mailtoHref, type Locale } from "@/lib/site";
 
 type SiteHeaderProps = {
   locale: Locale;
 };
 
 const translatedRoutes: Record<string, string> = {
-  "/": "/en/",
-  "/en/": "/",
+  "/": "/es/",
+  "/es/": "/",
+  "/en/": "/es/",
   "/pricing/": "/en/pricing/",
   "/en/pricing/": "/pricing/",
   "/llc-formation/": "/en/llc-formation/",
@@ -36,19 +37,18 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const english = locale === "en";
-  const prefix = localePrefix(locale);
-  const languageHref = translatedRoutes[pathname] ?? (english ? "/" : "/en/");
+  const languageHref = translatedRoutes[pathname] ?? (english ? "/es/" : "/");
   const nav = english
     ? [
-        { href: "/en/#services", label: "Services" },
-        { href: "/en/#process", label: "How it works" },
+        { href: "/#services", label: "Services" },
+        { href: "/#process", label: "How it works" },
         { href: "/en/llc-formation/", label: "LLC formation" },
         { href: "/en/pricing/", label: "Pricing" },
         { href: "/en/blog/", label: "Blog" },
       ]
     : [
-        { href: "/#servicios", label: "Servicios" },
-        { href: "/#proceso", label: "Cómo funciona" },
+        { href: "/es/#servicios", label: "Servicios" },
+        { href: "/es/#proceso", label: "Cómo funciona" },
         { href: "/llc-formation/", label: "Formación LLC" },
         { href: "/pricing/", label: "Precios" },
         { href: "/blog/", label: "Blog" },
@@ -61,7 +61,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       </a>
       <header className="site-header">
         <div className="nav-shell">
-          <Link className="brand" href={prefix || "/"} aria-label={english ? "Valls Solutions, home" : "Valls Solutions, inicio"}>
+          <Link className="brand" href={english ? "/" : "/es/"} aria-label={english ? "Valls Solutions, home" : "Valls Solutions, inicio"}>
             <span className="brand-mark" aria-hidden="true">V</span>
             <span>Valls <span className="brand-light">Solutions</span></span>
           </Link>

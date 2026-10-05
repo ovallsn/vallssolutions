@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/site";
 export const dynamic = "force-static";
 
 const localizedPages = [
-  { es: "/", en: "/en/", priority: 1 },
+  { es: "/es/", en: "/", priority: 1 },
   { es: "/llc-formation/", en: "/en/llc-formation/", priority: 0.9 },
   { es: "/pricing/", en: "/en/pricing/", priority: 0.8 },
   { es: "/contacto/", en: "/en/contact/", priority: 0.6 },

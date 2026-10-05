@@ -6,10 +6,6 @@ export const WHATSAPP_NUMBER: string | null = null;
 
 export type Locale = "es" | "en";
 
-export function localePrefix(locale: Locale): string {
-  return locale === "en" ? "/en" : "";
-}
-
 export function mailtoHref(locale: Locale, subject?: string): string {
   const body =
     locale === "es"

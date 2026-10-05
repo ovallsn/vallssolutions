@@ -21,7 +21,7 @@ npm run build
 
 ## Public routes
 
-- `/` and `/en/` — Spanish and English home pages
+- `/` — English default homepage; `/es/` — Spanish homepage; `/en/` remains as a non-indexable compatibility alias for the English homepage
 - `/llc-formation/` and `/en/llc-formation/` — formation package details
 - `/pricing/` and `/en/pricing/` — initial price, renewal and state-fee explanation
 - `/contacto/` and `/en/contact/` — email contact, with no public document or sensitive-data collection
@@ -29,7 +29,7 @@ npm run build
 - `/blog/[slug]/` and `/en/blog/[slug]/` — statically generated localized MDX articles
 - `/sitemap.xml` and `/robots.txt` — generated crawl files
 
-Spanish is the default language. The language selector links to each page's translation where one exists. Each localized page has its own title, description, canonical URL and `hreflang` alternatives.
+English is the default homepage language. Spanish is available at `/es/`; the language selector links to each page's translation where one exists. The legacy `/en/` homepage URL canonicalizes to `/` and is excluded from indexing. Each localized page has its own title, description, canonical URL and `hreflang` alternatives.
 
 ## Offer facts — review before changing public copy
 

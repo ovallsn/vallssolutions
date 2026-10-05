@@ -9,7 +9,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
   return (
     <main id="contenido">
       <header className="section-shell page-hero">
-        <p className="breadcrumbs"><Link href={english ? "/en/" : "/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "Pricing" : "Precios"}</p>
+        <p className="breadcrumbs"><Link href={english ? "/" : "/es/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "Pricing" : "Precios"}</p>
         <p className="eyebrow"><span className="eyebrow-line" />{english ? "Wyoming LLC · clear costs" : "LLC en Wyoming · costes claros"}</p>
         <h1>{english ? "One formation price. A clear annual renewal." : "Un precio de formación. Una renovación anual clara."}</h1>
         <p>{english ? "See what is included in the first year, what renews from year two and which state fee is paid separately." : "Consulta qué incluye el primer año, qué se renueva desde el segundo y qué tasa estatal se paga aparte."}</p>

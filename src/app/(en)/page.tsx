@@ -3,17 +3,13 @@ import { HomePage } from "@/components/HomePage";
 import { absoluteUrl, safeJsonLd, SITE_URL } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  ...pageMetadata({
-    locale: "en",
-    path: "/en/",
-    translatedPath: "/es/",
-    canonicalPath: "/",
-    title: "U.S. LLC Formation in English",
-    description: "The English-language Valls Solutions homepage for U.S. LLC formation, EIN handling, Registered Agent service and administrative support.",
-  }),
-  robots: { index: false, follow: true },
-};
+export const metadata: Metadata = pageMetadata({
+  locale: "en",
+  path: "/",
+  translatedPath: "/es/",
+  title: "Form a U.S. LLC",
+  description: "Form a Wyoming LLC for $699, including state formation, EIN, first-year Registered Agent and mailing address. Banking application guidance for U.S. and international founders.",
+});
 
 const organization = {
   "@context": "https://schema.org",
@@ -25,6 +21,6 @@ const organization = {
   mainEntityOfPage: absoluteUrl("/"),
 };
 
-export default function EnglishHomePage() {
+export default function DefaultEnglishHomePage() {
   return <><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(organization) }} /><HomePage locale="en" /></>;
 }

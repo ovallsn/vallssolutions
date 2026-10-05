@@ -1,15 +1,13 @@
 import Link from "next/link";
-import { localePrefix, CONTACT_EMAIL, type Locale } from "@/lib/site";
+import { CONTACT_EMAIL, type Locale } from "@/lib/site";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const english = locale === "en";
-  const prefix = localePrefix(locale);
-
   return (
     <footer className="site-footer">
       <div className="section-shell footer-main">
         <div className="footer-brand-col">
-          <Link className="brand brand-footer" href={prefix || "/"}>
+          <Link className="brand brand-footer" href={english ? "/" : "/es/"}>
             <span className="brand-mark" aria-hidden="true">V</span>
             <span>Valls <span className="brand-light">Solutions</span></span>
           </Link>
@@ -17,16 +15,16 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </div>
         <div className="footer-nav">
           <strong>{english ? "Explore" : "Explora"}</strong>
-          <Link href={`${prefix}/llc-formation/`}>{english ? "LLC formation" : "Formación de LLC"}</Link>
-          <Link href={`${prefix}/pricing/`}>{english ? "Pricing" : "Precios"}</Link>
-          <Link href={`${prefix}/blog/`}>{english ? "Guides and blog" : "Guías y blog"}</Link>
-          <Link href={english ? "/en/#process" : "/#proceso"}>{english ? "How it works" : "Cómo funciona"}</Link>
+          <Link href={english ? "/en/llc-formation/" : "/llc-formation/"}>{english ? "LLC formation" : "Formación de LLC"}</Link>
+          <Link href={english ? "/en/pricing/" : "/pricing/"}>{english ? "Pricing" : "Precios"}</Link>
+          <Link href={english ? "/en/blog/" : "/blog/"}>{english ? "Guides and blog" : "Guías y blog"}</Link>
+          <Link href={english ? "/#process" : "/es/#proceso"}>{english ? "How it works" : "Cómo funciona"}</Link>
           <Link href={english ? "/en/contact/" : "/contacto/"}>{english ? "Contact / support" : "Contacto y soporte"}</Link>
         </div>
         <div className="footer-nav">
           <strong>{english ? "Contact" : "Contacto"}</strong>
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          <Link href={english ? "/" : "/en/"} lang={english ? "es" : "en"} hrefLang={english ? "es" : "en"}>
+          <Link href={english ? "/es/" : "/"} lang={english ? "es" : "en"} hrefLang={english ? "es" : "en"}>
             {english ? "Versión en español" : "English version"}
           </Link>
         </div>

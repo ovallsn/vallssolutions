@@ -16,15 +16,15 @@ export function BlogArticlePage({ locale, post }: { locale: Locale; post: BlogPo
     inLanguage: locale,
     mainEntityOfPage: absoluteUrl(postPath),
     url: absoluteUrl(postPath),
-    author: { "@type": "Organization", name: "Valls Solutions", url: absoluteUrl(english ? "/en/" : "/") },
-    publisher: { "@type": "Organization", name: "Valls Solutions", url: absoluteUrl(english ? "/en/" : "/") },
+    author: { "@type": "Organization", name: "Valls Solutions", url: absoluteUrl(english ? "/" : "/es/") },
+    publisher: { "@type": "Organization", name: "Valls Solutions", url: absoluteUrl(english ? "/" : "/es/") },
   };
 
   return (
     <main id="contenido" className="journal-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: safeJsonLd(structuredData) }} />
       <header className="section-shell page-hero journal-article-head">
-        <p className="breadcrumbs"><Link href={english ? "/en/" : "/"}>{english ? "Home" : "Inicio"}</Link> / <Link href={english ? "/en/blog/" : "/blog/"}>{english ? "Guides" : "Guías"}</Link></p>
+        <p className="breadcrumbs"><Link href={english ? "/" : "/es/"}>{english ? "Home" : "Inicio"}</Link> / <Link href={english ? "/en/blog/" : "/blog/"}>{english ? "Guides" : "Guías"}</Link></p>
         <p className="eyebrow"><span className="eyebrow-line" />{post.category}</p>
         <h1>{post.title}</h1>
         <p className="article-deck">{post.description}</p>

@@ -8,7 +8,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
   return (
     <main id="contenido">
       <header className="section-shell page-hero">
-        <p className="breadcrumbs"><Link href={english ? "/en/" : "/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "Contact" : "Contacto"}</p>
+        <p className="breadcrumbs"><Link href={english ? "/" : "/es/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "Contact" : "Contacto"}</p>
         <p className="eyebrow"><span className="eyebrow-line" />{english ? "A first message is enough" : "Un primer mensaje es suficiente"}</p>
         <h1>{english ? "Ask about forming your U.S. LLC." : "Consulta sobre la formación de tu LLC en EE. UU."}</h1>
         <p>{english ? "Tell us where you live and what your business does. We will explain the service and next steps by email. No call or document upload is required to start." : "Cuéntanos dónde resides y a qué se dedica tu negocio. Te explicaremos el servicio y los siguientes pasos por email. No hace falta reservar una llamada ni subir documentos para empezar."}</p>

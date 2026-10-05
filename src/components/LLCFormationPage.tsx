@@ -11,7 +11,7 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
   return (
     <main id="contenido">
       <header className="section-shell page-hero">
-        <p className="breadcrumbs"><Link href={english ? "/en/" : "/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "LLC formation" : "Formación de LLC"}</p>
+        <p className="breadcrumbs"><Link href={english ? "/" : "/es/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "LLC formation" : "Formación de LLC"}</p>
         <p className="eyebrow"><span className="eyebrow-line" />{english ? "Wyoming LLC formation" : "Formación de LLC en Wyoming"}</p>
         <h1>{english ? "Form a Wyoming LLC with clear next steps." : "Crea tu LLC en Wyoming con cada paso explicado."}</h1>
         <p>{english ? "A formation package for U.S. and international founders, with the state filing, EIN, Registered Agent, mailing address and first Annual Report included." : "Un paquete de formación para fundadores en Estados Unidos y en el extranjero, con presentación estatal, EIN, Registered Agent, dirección postal y primer Annual Report incluidos."}</p>

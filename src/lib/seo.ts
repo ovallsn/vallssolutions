@@ -5,6 +5,7 @@ type PageSeo = {
   locale: Locale;
   path: string;
   translatedPath: string;
+  canonicalPath?: string;
   title: string;
   description: string;
   kind?: "website" | "article";
@@ -14,19 +15,21 @@ export function pageMetadata({
   locale,
   path,
   translatedPath,
+  canonicalPath,
   title,
   description,
   kind = "website",
 }: PageSeo): Metadata {
-  const spanishPath = locale === "es" ? path : translatedPath;
-  const englishPath = locale === "en" ? path : translatedPath;
-  const url = absoluteUrl(path);
+  const canonical = canonicalPath ?? path;
+  const spanishPath = locale === "es" ? canonical : translatedPath;
+  const englishPath = locale === "en" ? canonical : translatedPath;
+  const url = absoluteUrl(canonical);
 
   return {
     title,
     description,
     alternates: {
-      canonical: path,
+      canonical,
       languages: {
         es: absoluteUrl(spanishPath),
         en: absoluteUrl(englishPath),

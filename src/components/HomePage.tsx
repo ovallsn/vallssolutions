@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ContactActions } from "@/components/ContactActions";
 import { HeroVideo } from "@/components/HeroVideo";
 import { PriceCard } from "@/components/PriceCard";
-import { localePrefix, type Locale } from "@/lib/site";
+import { type Locale } from "@/lib/site";
 
 type HomeCopy = {
   eyebrow: string;
@@ -189,7 +189,8 @@ const copy: Record<Locale, HomeCopy> = {
 export function HomePage({ locale }: { locale: Locale }) {
   const english = locale === "en";
   const content = copy[locale];
-  const prefix = localePrefix(locale);
+  const homePrefix = english ? "" : "/es";
+  const routePrefix = english ? "/en" : "";
 
   return (
     <main id="contenido">
@@ -200,7 +201,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <p className="hero-lede">{content.lede}</p>
           <div className="hero-actions">
             <ContactActions locale={locale} emailLabel={english ? "Email us about your LLC" : "Escribirnos sobre mi LLC"} />
-            <Link className="text-link" href={`${prefix}/#${english ? "process" : "proceso"}`}>{english ? "See how it works" : "Ver cómo funciona"}<span aria-hidden="true">↓</span></Link>
+            <Link className="text-link" href={`${homePrefix}/#${english ? "process" : "proceso"}`}>{english ? "See how it works" : "Ver cómo funciona"}<span aria-hidden="true">↓</span></Link>
           </div>
           <p className="hero-price-note"><span className="status-dot" aria-hidden="true" /><span>{content.priceNote}</span></p>
         </div>
@@ -271,7 +272,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <p className="eyebrow"><span className="eyebrow-line" />{content.pricingEyebrow}</p>
           <h2>{content.pricingTitle}</h2>
           <p>{content.pricingBody}</p>
-          <Link className="text-link" href={`${prefix}/pricing/`}>{english ? "See full pricing details" : "Ver el desglose completo"}<span aria-hidden="true">↗</span></Link>
+          <Link className="text-link" href={`${routePrefix}/pricing/`}>{english ? "See full pricing details" : "Ver el desglose completo"}<span aria-hidden="true">↗</span></Link>
         </div>
         <PriceCard locale={locale} />
       </section>
@@ -311,7 +312,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </Link>
           ))}
         </div>
-        <Link className="journal-more" href={`${prefix}/blog/`}>{english ? "Browse all guides" : "Ver todas las guías"} <span aria-hidden="true">↗</span></Link>
+        <Link className="journal-more" href={`${routePrefix}/blog/`}>{english ? "Browse all guides" : "Ver todas las guías"} <span aria-hidden="true">↗</span></Link>
       </section>
 
       <section className="section-shell section-block faq-section" id={english ? "faq" : "preguntas"}>
