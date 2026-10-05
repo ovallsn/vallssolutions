@@ -31,10 +31,6 @@ type HomeCopy = {
   stateTitle: string;
   stateBody: string;
   stateLink: string;
-  experienceEyebrow: string;
-  experienceTitle: string;
-  experienceBody: string;
-  experienceNote: string;
   guidesEyebrow: string;
   guidesTitle: string;
   guidesBody: string;
@@ -52,7 +48,7 @@ const copy: Record<Locale, HomeCopy> = {
     eyebrow: "Formación de LLC para fundadores en EE. UU. y en el extranjero",
     headline: "Tu empresa en Estados Unidos,",
     accent: "con alguien a tu lado.",
-    lede: "Creamos tu LLC de Wyoming, gestionamos el EIN y te orientamos para preparar la solicitud de una cuenta bancaria empresarial. Atención en español o inglés, sin pasos confusos.",
+    lede: "Creamos tu LLC de Wyoming, gestionamos el EIN y te orientamos para preparar la solicitud bancaria. Puedes escribirnos en español o inglés; no necesitas reservar una llamada ni subir documentos para empezar.",
     priceNote: "LLC en Wyoming · $699 total · primer año de Registered Agent incluido",
     servicesEyebrow: "Un servicio, cada etapa explicada",
     servicesTitle: "Más que presentar los documentos.",
@@ -91,10 +87,6 @@ const copy: Record<Locale, HomeCopy> = {
     stateTitle: "¿Wyoming es adecuado para ti?",
     stateBody: "No siempre. Si operas desde otro estado, quizá tengas que registrar allí la LLC o cumplir obligaciones adicionales. Te explicamos el proceso administrativo; para consejo legal o fiscal individual, consulta a un profesional cualificado.",
     stateLink: "Cuéntanos tu caso",
-    experienceEyebrow: "Experiencia práctica",
-    experienceTitle: "Alrededor de 50 LLCs constituidas.",
-    experienceBody: "El objetivo es que sepas qué se tramita, qué queda en tus manos y qué decisiones corresponden al estado, al IRS o al banco.",
-    experienceNote: "Una conversación empieza por email. Los documentos se solicitan solo cuando se acuerda avanzar y por el canal correspondiente.",
     guidesEyebrow: "Guías para decidir con calma",
     guidesTitle: "Entiende la LLC antes de dar el paso.",
     guidesBody: "Guías bilingües sobre Wyoming, impuestos, visados y obligaciones de una empresa estadounidense.",
@@ -120,7 +112,7 @@ const copy: Record<Locale, HomeCopy> = {
     eyebrow: "LLC formation for U.S. and international founders",
     headline: "Start your U.S. company,",
     accent: "with clear support.",
-    lede: "We form your Wyoming LLC, handle the EIN application and guide you through preparing a business bank application. Support in English or Spanish, with clear next steps.",
+    lede: "We form your Wyoming LLC, handle the EIN application and guide you through preparing a business bank application. Email us in English or Spanish; no call or document upload is needed to get started.",
     priceNote: "Wyoming LLC · $699 total · first year of Registered Agent included",
     servicesEyebrow: "One service, each step explained",
     servicesTitle: "More than filing paperwork.",
@@ -159,10 +151,6 @@ const copy: Record<Locale, HomeCopy> = {
     stateTitle: "Is Wyoming right for your business?",
     stateBody: "Not always. If you operate from another state, you may need to register the LLC there or meet additional requirements. We explain the administrative process; consult a qualified professional for individual legal or tax advice.",
     stateLink: "Tell us about your plans",
-    experienceEyebrow: "Practical experience",
-    experienceTitle: "Around 50 LLCs formed.",
-    experienceBody: "Our goal is to make clear what we handle, what stays in your hands and which decisions belong to the state, the IRS or the bank.",
-    experienceNote: "Start with an email. Documents are requested only after we agree to move forward and through the appropriate channel.",
     guidesEyebrow: "Guides to help you decide",
     guidesTitle: "Understand the LLC before you take the next step.",
     guidesBody: "Bilingual guides to Wyoming, taxes, visas and the obligations of running a U.S. company.",
@@ -210,7 +198,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
       <section className="section-shell proof-strip" aria-label={english ? "Service overview" : "Resumen del servicio"}>
         <div><span className="proof-number">01</span><span>{english ? "Total formation price" : "Precio de formación"}<br /><strong>$699 {english ? "one time" : "pago único"}</strong></span></div>
-        <div><span className="proof-number">02</span><span>{english ? "Formation experience" : "Experiencia práctica"}<br /><strong>{english ? "Around 50 LLCs" : "Alrededor de 50 LLCs"}</strong></span></div>
+        <div><span className="proof-number">02</span><span>{english ? "Formation experience" : "Experiencia práctica"}<br /><strong>{english ? "More than 100 LLCs formed" : "Más de 100 LLCs constituidas"}</strong></span></div>
         <div><span className="proof-number">03</span><span>{english ? "Banking" : "Banca"}<br /><strong>{english ? "Guidance, no guarantees" : "Orientación, sin garantías"}</strong></span></div>
         <div><span className="proof-number">04</span><span>{english ? "Languages" : "Idiomas"}<br /><strong>Español · English</strong></span></div>
       </section>
@@ -281,20 +269,6 @@ export function HomePage({ locale }: { locale: Locale }) {
         <span className="location-mark" aria-hidden="true">i</span>
         <div><h2>{content.stateTitle}</h2><p>{content.stateBody}</p></div>
         <a href={`mailto:${english ? "info@vallssolutions.com?subject=Question%20about%20forming%20in%20Wyoming" : "info@vallssolutions.com?subject=Consulta%20sobre%20formar%20en%20Wyoming"}`}>{content.stateLink} <span aria-hidden="true">↗</span></a>
-      </section>
-
-      <section className="section-shell section-block experience-section">
-        <div className="experience-stamp" aria-label={english ? "Around 50 LLCs formed" : "Alrededor de 50 LLCs constituidas"}>
-          <span>{english ? "LLCs formed" : "LLCs constituidas"}</span>
-          <strong>≈50</strong>
-          <span>{english ? "administrative support" : "con apoyo administrativo"}</span>
-        </div>
-        <div className="experience-copy">
-          <p className="eyebrow"><span className="eyebrow-line" />{content.experienceEyebrow}</p>
-          <h2>{content.experienceTitle}</h2>
-          <p>{content.experienceBody}</p>
-          <p>{content.experienceNote}</p>
-        </div>
       </section>
 
       <section className="section-shell section-block journal-section">
