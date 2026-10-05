@@ -35,7 +35,7 @@ The public contact links use info@vallssolutions.com. The site does not collect 
 
 - Wyoming LLC formation, EIN processing, first-year Registered Agent, Wyoming mailing address and the first Annual Report: $699 one time.
 - From year two, Registered Agent renewal, Wyoming mailing address and Annual Report: $449 per year.
-- The Operating Agreement is not included.
+- Operating Agreement inclusion has not been confirmed by the provider; do not advertise it as included. Public package copy omits it.
 - Banking support is application guidance only. The customer submits the application and the financial provider decides whether to open an account.
 
 Review this list against the current provider agreement before changing the public offer.
