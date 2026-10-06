@@ -55,7 +55,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       <header className="site-header">
         <div className="nav-shell">
           <Link className="brand" href={english ? "/" : "/es/"} aria-label={english ? "Valls Solutions, home" : "Valls Solutions, inicio"}>
-            <span className="brand-mark" aria-hidden="true">V</span>
+            <img className="brand-mark" src="/assets/media/valls-monogram.webp" alt="" aria-hidden="true" />
             <span>Valls <span className="brand-light">Solutions</span></span>
           </Link>
           <button

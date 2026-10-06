@@ -42,7 +42,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .site-header { position: sticky; top: 0; z-index: 1000; background: var(--paper); border-bottom: 1px solid rgba(23,44,50,.09); }
 .nav-shell { width: min(1320px, calc(100% - 64px)); min-height: 78px; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-size: 17px; font-weight: 760; letter-spacing: -.04em; text-decoration: none; white-space: nowrap; }
-.brand-mark { width: 34px; height: 34px; display: grid; place-items: center; background: var(--green); color: white; font-family: var(--display); font-size: 24px; font-weight: 400; border-radius: 2px; }
+.brand-mark { width: 44px; height: 44px; display: block; object-fit: contain; flex: 0 0 auto; }
 .brand-light { font-weight: 430; }
 .primary-nav { display: flex; align-items: center; gap: clamp(15px, 2.1vw, 30px); }
 .primary-nav > a:not(.button) { color: var(--ink-soft); font-size: 13px; font-weight: 570; text-decoration: none; transition: color .18s ease; }

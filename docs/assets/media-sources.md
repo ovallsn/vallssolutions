@@ -20,3 +20,13 @@
 - Origin: original typographic artwork created for Valls Solutions on 2026-10-06; no external photos, templates or logos.
 - Typography: system Georgia and Arial, rasterized locally with the existing Sharp installation.
 - Usage: English and Spanish Open Graph/Twitter metadata. No attribution required.
+
+## Valls Solutions logo symbol
+
+- Web asset: public/assets/media/valls-monogram.webp (961 × 743, transparent WebP; approximately 42 KB).
+- High-resolution transparent master: public/assets/media/valls-monogram.png (961 × 743).
+- Editable small-size counterpart: public/assets/favicon.svg (vector mark for browser tabs).
+- Origin: generated for Valls Solutions with OpenAI image generation on 2026-10-06, using the owner's four supplied logo concepts only as inspiration for a monogram direction; original silhouette, no source logo copied. The transparent margins were cropped and a WebP derivative was made for site use.
+- Palette: forest green #174c3e and terracotta #b85f43, aligned to the website design tokens.
+- Usage: website navigation; favicon SVG used by English and Spanish routes. Social preview mark is a simplified inline SVG variation.
+- Attribution: none required.
