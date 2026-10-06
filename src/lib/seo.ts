@@ -26,14 +26,14 @@ export function pageMetadata({
   const url = absoluteUrl(canonical);
 
   return {
-    title,
+    title: { absolute: `${title} | Valls Solutions` },
     description,
     alternates: {
       canonical,
       languages: {
         es: absoluteUrl(spanishPath),
         en: absoluteUrl(englishPath),
-        "x-default": absoluteUrl("/"),
+        "x-default": absoluteUrl(englishPath),
       },
     },
     openGraph: {
@@ -44,7 +44,8 @@ export function pageMetadata({
       url,
       locale: locale === "es" ? "es_ES" : "en_US",
       alternateLocale: locale === "es" ? ["en_US"] : ["es_ES"],
+      images: [{ url: absoluteUrl(`/assets/media/social-${locale}.png`), width: 1200, height: 630, alt: locale === "es" ? "Valls Solutions — Formación de LLC en Estados Unidos" : "Valls Solutions — U.S. LLC formation" }],
     },
-    twitter: { card: "summary_large_image", title, description },
+    twitter: { card: "summary_large_image", title, description, images: [absoluteUrl(`/assets/media/social-${locale}.png`)] },
   };
 }

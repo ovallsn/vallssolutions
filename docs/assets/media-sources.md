@@ -12,3 +12,11 @@
 - Poster derivative: Pexels still, 1260 x 750 JPEG, self-hosted fallback
 - Used on: Spanish and English homepages
 - Public attribution: intentionally not displayed, as requested by the owner; source and license remain documented here for internal provenance.
+
+## Social previews
+
+- Files: public/assets/media/social-en.png and social-es.png (1200 × 630).
+- Editable source: docs/assets/social-en.svg and social-es.svg.
+- Origin: original typographic artwork created for Valls Solutions on 2026-10-06; no external photos, templates or logos.
+- Typography: system Georgia and Arial, rasterized locally with the existing Sharp installation.
+- Usage: English and Spanish Open Graph/Twitter metadata. No attribution required.

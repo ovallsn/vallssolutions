@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { findBlogArticle } from "@/content/blog/catalog";
 import { ContactActions } from "@/components/ContactActions";
 import { HeroVideo } from "@/components/HeroVideo";
 import { PriceCard } from "@/components/PriceCard";
@@ -34,7 +35,6 @@ type HomeCopy = {
   guidesEyebrow: string;
   guidesTitle: string;
   guidesBody: string;
-  guides: Array<{ category: string; title: string; body: string; href: string }>;
   faqEyebrow: string;
   faqTitle: string;
   faqs: Array<{ question: string; answer: string }>;
@@ -46,21 +46,22 @@ type HomeCopy = {
 const copy: Record<Locale, HomeCopy> = {
   es: {
     eyebrow: "Formación de LLC para fundadores en EE. UU. y en el extranjero",
-    headline: "Tu empresa en Estados Unidos,",
-    accent: "con alguien a tu lado.",
-    lede: "Creamos tu LLC de Wyoming, gestionamos el EIN y te orientamos para preparar la solicitud bancaria. Puedes escribirnos en español o inglés; no necesitas reservar una llamada ni subir documentos para empezar.",
+    headline: "Crea tu LLC en EE. UU.",
+    accent: "Nos encargamos del trámite.",
+    lede: "Constitución en Wyoming, EIN, agente registrado y dirección postal. Te acompañamos desde los primeros documentos hasta la preparación de tu solicitud bancaria, en español o inglés.",
     priceNote: "LLC en Wyoming · $699 total · primer año de Registered Agent incluido",
-    servicesEyebrow: "Un servicio, cada etapa explicada",
-    servicesTitle: "Más que presentar los documentos.",
+    servicesEyebrow: "Qué hacemos por ti",
+    servicesTitle: "La base de tu empresa, resuelta.",
     servicesIntro: "Te ayudamos a entender qué toca en cada etapa y qué dependerá del estado, el IRS o el banco.",
     services: [
       { title: "Formación de LLC en Wyoming", body: "Preparamos y presentamos la creación de tu LLC. La tasa estatal de formación está incluida en el precio publicado.", link: "/llc-formation/", label: "Más información sobre formación de LLC" },
-      { title: "EIN", body: "Gestionamos la solicitud del número de identificación fiscal federal. Los datos y los plazos dependen de cada caso y del IRS.", label: "Incluido en el paquete" },
+      { title: "EIN", body: "Gestionamos la solicitud del número de identificación fiscal federal. Los datos y los plazos dependen de cada caso y del IRS.", link: "/blog/ein-o-itin/", label: "Guía del EIN" },
       { title: "Registered Agent y dirección postal", body: "El primer año del Registered Agent y la dirección postal de Wyoming están incluidos en la formación.", label: "Primer año incluido" },
+      { title: "Tu web y correo empresarial", body: "Incluidos en el paquete de creación. La renovación anual mantiene tu web alojada y operativa; si no renuevas, te entregamos los archivos.", link: "/pricing/", label: "Ver qué incluye la web" },
       { title: "Orientación para solicitar una cuenta bancaria", body: "Revisamos contigo los pasos y documentos. Tú presentas la solicitud y el banco decide si la aprueba.", link: "#banca", label: "Acompañamiento administrativo" },
     ],
-    audienceEyebrow: "Dos situaciones, una conversación clara",
-    audienceTitle: "Tu residencia cambia algunos pasos. No te deja fuera.",
+    audienceEyebrow: "Aquí o al otro lado del mundo",
+    audienceTitle: "Un negocio en EE. UU. empieza con tu situación.",
     audienceIntro: "La formación de una LLC puede ser similar; el EIN y los requisitos bancarios pueden variar según tu residencia, actividad y estructura.",
     audience: [
       { label: "01 / Vives en Estados Unidos", title: "La LLC debe encajar con el estado donde operas.", body: "Si trabajas desde tu estado de residencia, puede que debas registrar allí tu empresa aunque la formes en Wyoming. No recomendamos un estado automáticamente." },
@@ -73,8 +74,8 @@ const copy: Record<Locale, HomeCopy> = {
       { title: "Acordamos el servicio y preparamos la LLC", body: "Te explicamos el alcance y los siguientes pasos. Cuando decidamos avanzar, coordinamos la información necesaria por un canal adecuado." },
       { title: "Te orientamos con la solicitud bancaria", body: "Repasamos contigo la información y los documentos. Tú completas la solicitud con el banco o proveedor financiero." },
     ],
-    bankingEyebrow: "Apoyo bancario, sin promesas vacías",
-    bankingTitle: "Te preparamos para solicitar. El banco decide.",
+    bankingEyebrow: "Orientación bancaria",
+    bankingTitle: "Llega a tu solicitud con los documentos preparados.",
     bankingBody: "Te explicamos los pasos y revisamos contigo la documentación para que puedas presentar una solicitud informada. Valls Solutions no abre la cuenta en tu nombre.",
     bankingFacts: [
       "La entidad financiera revisa cada solicitud y toma su propia decisión.",
@@ -83,18 +84,13 @@ const copy: Record<Locale, HomeCopy> = {
     ],
     pricingEyebrow: "Sin sumas sorpresa",
     pricingTitle: "Un precio total para empezar.",
-    pricingBody: "La tasa estatal de formación está dentro de los $699. Desde el segundo año, el servicio de renovación también se explica por separado de la tasa estatal anual.",
+    pricingBody: "Los $699 incluyen la tasa de creación, tu web y correo empresarial. Desde el segundo año, los $449/año cubren la renovación, el Annual Report y su tasa estatal.",
     stateTitle: "¿Wyoming es adecuado para ti?",
     stateBody: "No siempre. Si operas desde otro estado, quizá tengas que registrar allí la LLC o cumplir obligaciones adicionales. Te explicamos el proceso administrativo; para consejo legal o fiscal individual, consulta a un profesional cualificado.",
     stateLink: "Cuéntanos tu caso",
     guidesEyebrow: "Guías para decidir con calma",
     guidesTitle: "Entiende la LLC antes de dar el paso.",
     guidesBody: "Guías bilingües sobre Wyoming, impuestos, visados y obligaciones de una empresa estadounidense.",
-    guides: [
-      { category: "IMPUESTOS · 7 MIN", title: "¿Una LLC puede ayudarte a pagar menos impuestos?", body: "Qué determina su clasificación fiscal y por qué crearla no implica pagar menos automáticamente.", href: "/blog/llc-impuestos/" },
-      { category: "WYOMING · 4 MIN", title: "LLC en Wyoming: ventajas y cuándo no conviene", body: "Una guía equilibrada sobre costes, obligaciones y dónde opera realmente el negocio.", href: "/blog/llc-wyoming/" },
-      { category: "EMPRESA Y VISADOS · 6 MIN", title: "¿Tener una empresa ayuda a obtener un visado en Tailandia?", body: "Qué piden algunas categorías oficiales y por qué una LLC de EE. UU. no garantiza elegibilidad.", href: "/blog/empresa-y-visados-tailandia/" },
-    ],
     faqEyebrow: "Preguntas frecuentes",
     faqTitle: "Respuestas antes de empezar.",
     faqs: [
@@ -102,7 +98,7 @@ const copy: Record<Locale, HomeCopy> = {
       { question: "¿Me abrís una cuenta bancaria?", answer: "No. Te orientamos con los pasos y la documentación, y tú presentas la solicitud. La entidad financiera decide si abre la cuenta." },
       { question: "¿La dirección postal de Wyoming sirve para abrir una cuenta?", answer: "No necesariamente. La dirección postal o del Registered Agent cumple una función distinta de una dirección física de operaciones, y cada banco aplica sus propios criterios." },
       { question: "¿Wyoming es siempre el mejor estado?", answer: "No. Si resides u operas en otro estado, puede que debas registrar allí la empresa. La elección depende de la actividad y de dónde se desarrolla." },
-      { question: "¿Qué incluye la renovación anual de $449?", answer: "Incluye renovación del Registered Agent, dirección postal y gestión del Annual Report. La tasa estatal de Wyoming se paga aparte desde el segundo año y empieza en $60; puede variar según los activos de la LLC en Wyoming." },
+      { question: "¿Qué incluye la renovación anual de $449?", answer: "Incluye Registered Agent, dirección postal de Wyoming, presentación y tasa estatal del Annual Report, y mantenimiento de la web." },
     ],
     closingEyebrow: "Tu siguiente paso",
     closingTitle: "¿Listo para poner tu LLC en marcha?",
@@ -110,21 +106,22 @@ const copy: Record<Locale, HomeCopy> = {
   },
   en: {
     eyebrow: "LLC formation for U.S. and international founders",
-    headline: "Start your U.S. company,",
-    accent: "with clear support.",
-    lede: "We form your Wyoming LLC, handle the EIN application and guide you through preparing a business bank application. Email us in English or Spanish; no call or document upload is needed to get started.",
+    headline: "Start your U.S. LLC.",
+    accent: "We’ll handle the filing.",
+    lede: "Wyoming formation, an EIN, a registered agent and a mailing address. We work with you from the first paperwork to preparing your business bank application, in English or Spanish.",
     priceNote: "Wyoming LLC · $699 total · first year of Registered Agent included",
-    servicesEyebrow: "One service, each step explained",
-    servicesTitle: "More than filing paperwork.",
+    servicesEyebrow: "What we take care of",
+    servicesTitle: "The foundations of your business, sorted.",
     servicesIntro: "We explain what happens at each stage and what depends on the state, the IRS or the bank.",
     services: [
       { title: "Wyoming LLC formation", body: "We prepare and file your LLC formation. The state formation fee is included in the published price.", link: "/en/llc-formation/", label: "Learn about LLC formation" },
-      { title: "EIN", body: "We handle the federal tax identification number application. Information and timing depend on your situation and the IRS.", label: "Included in the package" },
+      { title: "EIN", body: "We handle the federal tax identification number application. Information and timing depend on your situation and the IRS.", link: "/en/blog/ein-vs-itin/", label: "EIN guide" },
       { title: "Registered Agent and mailing address", body: "Your first year of Registered Agent service and Wyoming mailing address are included with formation.", label: "First year included" },
+      { title: "Your website and business email", body: "Included in your formation package. Annual renewal keeps your website hosted and maintained; if you do not renew, we hand over the files.", link: "/en/pricing/", label: "See website inclusions" },
       { title: "Guidance for a business bank application", body: "We review the steps and documents with you. You submit the application and the bank decides whether to approve it.", link: "#banking", label: "Administrative guidance" },
     ],
-    audienceEyebrow: "Two situations, one clear conversation",
-    audienceTitle: "Where you live changes some steps. It does not exclude you.",
+    audienceEyebrow: "Across the country. Across the world.",
+    audienceTitle: "A U.S. business starts with your situation.",
     audienceIntro: "LLC formation may be similar; EIN and banking requirements can vary with your residence, business activity and structure.",
     audience: [
       { label: "01 / You live in the U.S.", title: "Your LLC should fit the state where you operate.", body: "If you work from your home state, you may need to register there even if you form in Wyoming. We do not recommend a state automatically." },
@@ -137,8 +134,8 @@ const copy: Record<Locale, HomeCopy> = {
       { title: "Agree on the service and prepare the LLC", body: "We explain the scope and next steps. Once we decide to move forward, we coordinate the necessary information through an appropriate channel." },
       { title: "Get guidance for the bank application", body: "We review the information and documents with you. You complete the application with the bank or financial provider." },
     ],
-    bankingEyebrow: "Banking support, without empty promises",
-    bankingTitle: "We help you prepare. The bank decides.",
+    bankingEyebrow: "Banking guidance",
+    bankingTitle: "Go into your application with your paperwork ready.",
     bankingBody: "We explain the steps and review the paperwork with you so you can submit an informed application. Valls Solutions does not open the account on your behalf.",
     bankingFacts: [
       "The financial provider reviews each application and makes its own decision.",
@@ -147,18 +144,13 @@ const copy: Record<Locale, HomeCopy> = {
     ],
     pricingEyebrow: "No surprise totals",
     pricingTitle: "One clear price to get started.",
-    pricingBody: "The state formation fee is included in the $699. From year two, the renewal service is shown separately from the state Annual Report tax.",
+    pricingBody: "The $699 includes the state formation fee, your website and business email. From year two, $449/year covers renewal services, your Annual Report and its state tax.",
     stateTitle: "Is Wyoming right for your business?",
     stateBody: "Not always. If you operate from another state, you may need to register the LLC there or meet additional requirements. We explain the administrative process; consult a qualified professional for individual legal or tax advice.",
     stateLink: "Tell us about your plans",
     guidesEyebrow: "Guides to help you decide",
     guidesTitle: "Understand the LLC before you take the next step.",
     guidesBody: "Bilingual guides to Wyoming, taxes, visas and the obligations of running a U.S. company.",
-    guides: [
-      { category: "TAXES · 7 MIN", title: "Can an LLC help you pay less tax?", body: "What determines its tax classification and why formation does not automatically lower your tax bill.", href: "/en/blog/llc-taxes/" },
-      { category: "WYOMING · 4 MIN", title: "Wyoming LLC: advantages and when it may not fit", body: "A balanced guide to costs, obligations and where your business actually operates.", href: "/en/blog/wyoming-llc/" },
-      { category: "BUSINESS AND VISAS · 6 MIN", title: "Can owning a business help with a Thailand visa?", body: "What some official visa categories require—and why a U.S. LLC alone does not guarantee eligibility.", href: "/en/blog/business-owner-thailand-visa/" },
-    ],
     faqEyebrow: "Frequently asked questions",
     faqTitle: "Answers before you get started.",
     faqs: [
@@ -166,7 +158,7 @@ const copy: Record<Locale, HomeCopy> = {
       { question: "Do you open the bank account for me?", answer: "No. We guide you through the steps and paperwork, and you submit the application. The financial provider decides whether to open the account." },
       { question: "Can I use the Wyoming mailing address to open an account?", answer: "Not necessarily. A mailing or Registered Agent address serves a different purpose from a physical operating address, and each bank applies its own criteria." },
       { question: "Is Wyoming always the best state?", answer: "No. If you live or operate in another state, you may need to register the company there. The right choice depends on your activity and where it takes place." },
-      { question: "What does the $449 annual renewal include?", answer: "It includes Registered Agent renewal, mailing address and Annual Report service. Wyoming's state fee is paid separately from year two and starts at $60; the amount can vary based on the LLC's Wyoming assets." },
+      { question: "What does the $449 annual renewal include?", answer: "Includes Registered Agent renewal, Wyoming mailing address, Annual Report filing and state tax, and website maintenance." },
     ],
     closingEyebrow: "Your next step",
     closingTitle: "Ready to get your LLC moving?",
@@ -177,11 +169,12 @@ const copy: Record<Locale, HomeCopy> = {
 export function HomePage({ locale }: { locale: Locale }) {
   const english = locale === "en";
   const content = copy[locale];
+  const guides = (english ? ["wyoming-llc", "ein-vs-itin", "llc-taxes"] : ["llc-wyoming", "ein-o-itin", "llc-impuestos"]).map((slug) => findBlogArticle(locale, slug)!);
   const homePrefix = english ? "" : "/es";
   const routePrefix = english ? "/en" : "";
 
   return (
-    <main id="contenido">
+    <main id="contenido" className="home-page">
       <section className="section-shell hero">
         <div className="hero-copy">
           <p className="eyebrow"><span className="eyebrow-line" />{content.eyebrow}</p>
@@ -192,18 +185,18 @@ export function HomePage({ locale }: { locale: Locale }) {
             <Link className="text-link" href={`${homePrefix}/#${english ? "process" : "proceso"}`}>{english ? "See how it works" : "Ver cómo funciona"}<span aria-hidden="true">↓</span></Link>
           </div>
           <p className="hero-price-note"><span className="status-dot" aria-hidden="true" /><span>{content.priceNote}</span></p>
+          <p className="hero-contact-note">{english ? "Start with an email. No call booking required." : "Empieza por email. Sin reservar una llamada."}</p>
         </div>
         <HeroVideo locale={locale} />
       </section>
 
       <section className="section-shell proof-strip" aria-label={english ? "Service overview" : "Resumen del servicio"}>
-        <div><span className="proof-number">01</span><span>{english ? "Total formation price" : "Precio de formación"}<br /><strong>$699 {english ? "one time" : "pago único"}</strong></span></div>
-        <div><span className="proof-number">02</span><span>{english ? "Formation experience" : "Experiencia práctica"}<br /><strong>{english ? "More than 100 LLCs formed" : "Más de 100 LLCs constituidas"}</strong></span></div>
-        <div><span className="proof-number">03</span><span>{english ? "Banking" : "Banca"}<br /><strong>{english ? "Guidance, no guarantees" : "Orientación, sin garantías"}</strong></span></div>
-        <div><span className="proof-number">04</span><span>{english ? "Languages" : "Idiomas"}<br /><strong>Español · English</strong></span></div>
+        <div><strong className="proof-value">100+</strong><span>{english ? "LLCs formed" : "LLCs constituidas"}<small>{english ? "Experience with the paperwork that matters." : "Experiencia con los trámites de tu empresa."}</small></span></div>
+        <div><strong className="proof-value">$699</strong><span>{english ? "One-time formation package" : "Paquete de formación, pago único"}<small>{english ? "Wyoming state filing fee included." : "Tasa estatal de Wyoming incluida."}</small></span></div>
+        <div><strong className="proof-value proof-language">EN / ES</strong><span>{english ? "Talk to us in your language" : "Hablemos en tu idioma"}<small>{english ? "Direct support by email." : "Atención directa por email."}</small></span></div>
       </section>
 
-      <section className="section-shell section-block" id={english ? "services" : "servicios"}>
+      <section className="section-shell section-block services-layout" id={english ? "services" : "servicios"}>
         <div className="section-intro">
           <p className="eyebrow"><span className="eyebrow-line" />{content.servicesEyebrow}</p>
           <h2>{content.servicesTitle}</h2>
@@ -278,10 +271,10 @@ export function HomePage({ locale }: { locale: Locale }) {
           <p>{content.guidesBody}</p>
         </div>
         <div className="journal-list">
-          {content.guides.map((guide, index) => (
-            <Link className="journal-entry" href={guide.href} key={guide.href}>
-              <span className="journal-index">0{index + 1}</span>
-              <div><p className="journal-category">{guide.category}</p><h3>{guide.title}</h3><p>{guide.body}</p></div>
+          {guides.map((guide, index) => (
+            <Link className="journal-entry" href={`${routePrefix}/blog/${guide.slug}/`} key={guide.slug}>
+              <span className="guide-topic" aria-hidden="true">{["WY", "EIN", "Tax"][index]}</span>
+              <div><p className="journal-category">{guide.category} · {guide.readMinutes} MIN</p><h3>{guide.title}</h3><p>{guide.description}</p></div>
               <span className="journal-arrow" aria-hidden="true">↗</span>
             </Link>
           ))}

@@ -10,10 +10,14 @@ import UsLlcEn from "@/content/blog/articles/en/us-llc.mdx";
 import TaxesEn from "@/content/blog/articles/en/llc-taxes.mdx";
 import UsVisaEn from "@/content/blog/articles/en/llc-us-visa.mdx";
 import ThailandVisaEn from "@/content/blog/articles/en/business-owner-thailand-visa.mdx";
+import EinEs from "@/content/blog/articles/es/ein-o-itin.mdx";
+import EinEn from "@/content/blog/articles/en/ein-vs-itin.mdx";
 
 export type BlogPost = (typeof BLOG_ARTICLES)[number] & { Content: MDXContent };
 
 const contentByKey: Record<string, MDXContent> = {
+  "es/ein-o-itin": EinEs,
+  "en/ein-vs-itin": EinEn,
   "es/llc-wyoming": WyomingEs,
   "es/llc-en-estados-unidos": UsLlcEs,
   "es/llc-impuestos": TaxesEs,

@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/",
   translatedPath: "/es/",
   title: "Form a U.S. LLC",
-  description: "Form a Wyoming LLC for $699, including state filing, EIN, first-year Registered Agent, mailing address and first Annual Report. Banking guidance for U.S. and international founders.",
+  description: "Start your Wyoming LLC for $699 with state filing, EIN, registered agent and mailing address. Personal support for U.S. and international founders.",
 });
 
 const organization = {

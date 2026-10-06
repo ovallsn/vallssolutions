@@ -5,6 +5,7 @@ import type { Locale } from "@/lib/site";
 
 export function HeroVideo({ locale }: { locale: Locale }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const explicitlyPaused = useRef(false);
   const [playing, setPlaying] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
   const english = locale === "en";
@@ -18,12 +19,11 @@ export function HeroVideo({ locale }: { locale: Locale }) {
     const network = navigator as Navigator & { connection?: { saveData?: boolean } };
     if (motionPreference.matches || network.connection?.saveData) return;
 
-    let explicitlyPaused = false;
     let resumeAfterVisibility = false;
     let disposed = false;
 
     const start = async () => {
-      if (disposed || document.hidden || motionPreference.matches || explicitlyPaused || video.src) return;
+      if (disposed || document.hidden || motionPreference.matches || explicitlyPaused.current || video.src) return;
       video.src = "/assets/media/hero-paperwork.mp4";
       video.load();
       try {
@@ -54,6 +54,7 @@ export function HeroVideo({ locale }: { locale: Locale }) {
 
     const onMotionChange = () => {
       if (motionPreference.matches) {
+        setVideoReady(false);
         video.pause();
         video.removeAttribute("src");
         video.load();
@@ -65,7 +66,7 @@ export function HeroVideo({ locale }: { locale: Locale }) {
       if (document.hidden) {
         resumeAfterVisibility = !video.paused;
         video.pause();
-      } else if (resumeAfterVisibility && !explicitlyPaused && !motionPreference.matches) {
+      } else if (resumeAfterVisibility && !explicitlyPaused.current && !motionPreference.matches) {
         resumeAfterVisibility = false;
         void video.play().then(() => setPlaying(true)).catch(() => setPlaying(false));
       }
@@ -87,6 +88,7 @@ export function HeroVideo({ locale }: { locale: Locale }) {
     const video = videoRef.current;
     if (!video) return;
     if (video.paused) {
+      explicitlyPaused.current = false;
       try {
         await video.play();
         setPlaying(true);
@@ -95,6 +97,7 @@ export function HeroVideo({ locale }: { locale: Locale }) {
         setPlaying(false);
       }
     } else {
+      explicitlyPaused.current = true;
       video.pause();
       setPlaying(false);
     }
@@ -113,17 +116,17 @@ export function HeroVideo({ locale }: { locale: Locale }) {
           preload="none"
           aria-hidden="true"
           tabIndex={-1}
+          onError={() => { setPlaying(false); setVideoReady(false); }}
         />
         <div className="video-shade" aria-hidden="true" />
-        <div className="visual-topline"><span>VALLS SOLUTIONS</span><span className="visual-index">01 — 03</span></div>
         {videoReady && (
           <button className="video-toggle" type="button" onClick={toggle} aria-label={playing ? (english ? "Pause background video" : "Pausar vídeo de fondo") : (english ? "Resume background video" : "Reanudar vídeo de fondo")}>
             {playing ? (english ? "Pause video" : "Pausar vídeo") : (english ? "Play video" : "Reanudar vídeo")}
           </button>
         )}
         <figcaption className="visual-caption">
-          <span className="visual-caption-label">{english ? "A clear process" : "Un proceso claro"}</span>
-          <strong>{english ? "From formation to your banking application." : "De la formación a tu solicitud bancaria."}</strong>
+          <span className="visual-caption-label">{english ? "LLC FORMATION" : "FORMACIÓN DE LLC"}</span>
+          <strong>{english ? "Your company starts with a conversation." : "Tu empresa empieza con una conversación."}</strong>
         </figcaption>
       </div>
       <div className="visual-meta"><span>{english ? "One point of contact throughout the process" : "Un contacto directo durante el proceso"}</span></div>

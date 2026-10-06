@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { mailtoHref, type Locale } from "@/lib/site";
+import { BLOG_ARTICLES } from "@/content/blog/catalog";
 
 type SiteHeaderProps = {
   locale: Locale;
@@ -19,25 +20,17 @@ const translatedRoutes: Record<string, string> = {
   "/en/llc-formation/": "/llc-formation/",
   "/contacto/": "/en/contact/",
   "/en/contact/": "/contacto/",
-  "/blog/": "/en/blog/",
-  "/en/blog/": "/blog/",
-  "/blog/llc-impuestos/": "/en/blog/llc-taxes/",
-  "/en/blog/llc-taxes/": "/blog/llc-impuestos/",
-  "/blog/llc-wyoming/": "/en/blog/wyoming-llc/",
-  "/en/blog/wyoming-llc/": "/blog/llc-wyoming/",
-  "/blog/llc-en-estados-unidos/": "/en/blog/us-llc/",
-  "/en/blog/us-llc/": "/blog/llc-en-estados-unidos/",
-  "/blog/llc-visado-estados-unidos/": "/en/blog/llc-us-visa/",
-  "/en/blog/llc-us-visa/": "/blog/llc-visado-estados-unidos/",
-  "/blog/empresa-y-visados-tailandia/": "/en/blog/business-owner-thailand-visa/",
-  "/en/blog/business-owner-thailand-visa/": "/blog/empresa-y-visados-tailandia/",
 };
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const english = locale === "en";
-  const languageHref = translatedRoutes[pathname] ?? (english ? "/es/" : "/");
+  const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  const currentArticle = BLOG_ARTICLES.find((article) => `${article.locale === "en" ? "/en" : ""}/blog/${article.slug}/` === normalizedPath);
+  const languageHref = currentArticle
+    ? `${english ? "" : "/en"}/blog/${currentArticle.translatedSlug}/`
+    : translatedRoutes[normalizedPath] ?? (english ? "/es/" : "/");
   const nav = english
     ? [
         { href: "/#services", label: "Services" },

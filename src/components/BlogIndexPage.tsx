@@ -9,7 +9,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
   return (
     <main id="contenido" className="journal-page">
       <header className="section-shell page-hero journal-article-head">
-        <p className="breadcrumbs">{english ? "Home" : "Inicio"} / {english ? "Guides" : "Guías"}</p>
+        <p className="breadcrumbs"><Link href={english ? "/" : "/es/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "Guides" : "Guías"}</p>
         <p className="eyebrow"><span className="eyebrow-line" />{english ? "The Valls Solutions journal" : "El blog de Valls Solutions"}</p>
         <h1>{english ? "Practical guides to starting a U.S. company." : "Guías prácticas para crear una empresa en Estados Unidos."}</h1>
         <p className="article-deck">{english ? "Clear information on Wyoming LLCs, formation, taxes and business operations—written to help you ask better questions before you start." : "Información clara sobre LLC en Wyoming, constitución, impuestos y gestión empresarial, para que puedas decidir con mejores datos."}</p>

@@ -5,8 +5,8 @@ import type { Locale } from "@/lib/site";
 export function LLCFormationPage({ locale }: { locale: Locale }) {
   const english = locale === "en";
   const items = english
-    ? ["Wyoming state formation filing", "EIN application handling", "First year of Registered Agent service", "First year of Wyoming mailing address", "First Wyoming Annual Report", "Guidance for a business bank application"]
-    : ["Presentación estatal de formación en Wyoming", "Gestión de la solicitud del EIN", "Primer año de Registered Agent", "Primer año de dirección postal de Wyoming", "Primer Annual Report de Wyoming", "Orientación para solicitar una cuenta bancaria empresarial"];
+    ? ["Wyoming state formation filing", "EIN application handling", "First year of Registered Agent service", "First year of Wyoming mailing address", "Website and business email", "Guidance for a business bank application"]
+    : ["Presentación estatal de formación en Wyoming", "Gestión de la solicitud del EIN", "Primer año de Registered Agent", "Primer año de dirección postal de Wyoming", "Página web y correo empresarial", "Orientación para solicitar una cuenta bancaria empresarial"];
 
   return (
     <main id="contenido">
@@ -14,7 +14,7 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
         <p className="breadcrumbs"><Link href={english ? "/" : "/es/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "LLC formation" : "Formación de LLC"}</p>
         <p className="eyebrow"><span className="eyebrow-line" />{english ? "Wyoming LLC formation" : "Formación de LLC en Wyoming"}</p>
         <h1>{english ? "Form a Wyoming LLC with clear next steps." : "Crea tu LLC en Wyoming con cada paso explicado."}</h1>
-        <p>{english ? "A formation package for U.S. and international founders, with the state filing, EIN, Registered Agent, mailing address and first Annual Report included." : "Un paquete de formación para fundadores en Estados Unidos y en el extranjero, con presentación estatal, EIN, Registered Agent, dirección postal y primer Annual Report incluidos."}</p>
+        <p>{english ? "A formation package for U.S. and international founders, with the state filing, EIN, Registered Agent, mailing address, website and business email included. Annual Reports are handled with the annual renewal." : "Un paquete de formación para fundadores en Estados Unidos y en el extranjero, con presentación estatal, EIN, Registered Agent, dirección postal, web y correo empresarial incluidos. El Annual Report corresponde a la renovación anual."}</p>
         <div className="hero-actions"><ContactActions locale={locale} emailLabel={english ? "Email us to get started" : "Escribirnos para empezar"} /><Link className="text-link" href={english ? "/en/pricing/" : "/pricing/"}>{english ? "See package pricing" : "Ver el precio del paquete"}<span aria-hidden="true">↗</span></Link></div>
       </header>
 
@@ -28,7 +28,7 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
           <h2>{english ? "EIN and timing" : "EIN y plazos"}</h2>
           <p>{english ? "The package includes handling the EIN application. The information the IRS requires and its processing time depend on the responsible party and the application method. Formation does not require an ITIN in every case." : "El paquete incluye la gestión de la solicitud del EIN. La información que exige el IRS y el plazo de tramitación dependen del responsable y del método de solicitud. No se requiere un ITIN en todos los casos para constituir una LLC."}</p>
           <h2>{english ? "Annual service renewal" : "Renovación anual del servicio"}</h2>
-          <p>{english ? "From year two, the service renewal is $449/year. It includes Registered Agent renewal, mailing address and Annual Report service. Wyoming's state Annual Report/License Tax is separate, starts at $60 and can vary based on the LLC's Wyoming assets." : "Desde el segundo año, la renovación del servicio cuesta $449/año. Incluye Registered Agent, dirección postal y gestión del Annual Report. La tasa estatal de Wyoming se paga aparte, parte de $60 y puede variar según los activos de la LLC en Wyoming."}</p>
+          <p>{english ? "From year two, renewal is $449/year. Includes Registered Agent renewal, Wyoming mailing address, Annual Report filing and state tax, and website maintenance." : "Desde el segundo año, la renovación cuesta $449/año. Incluye Registered Agent, dirección postal de Wyoming, presentación y tasa estatal del Annual Report, y mantenimiento de la web."}</p>
         </div>
         <aside className="side-panel">
           <p className="eyebrow"><span className="eyebrow-line" />{english ? "Wyoming LLC" : "LLC en Wyoming"}</p>
@@ -36,7 +36,7 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
           <p className="side-price">$699</p>
           <p>{english ? "One-time total to form the LLC." : "Precio total único para constituir la LLC."}</p>
           <p><strong>{english ? "$449/year from year two" : "$449/año desde el segundo año"}</strong></p>
-          <p>{english ? "State Annual Report tax is paid separately from year two." : "La tasa estatal del Annual Report se paga aparte desde el segundo año."}</p>
+          <p>{english ? "Annual Report filing and state tax are included in the renewal." : "La presentación y tasa estatal del Annual Report están incluidas en la renovación."}</p>
           <ContactActions locale={locale} emailLabel={english ? "Ask a question" : "Hacer una consulta"} />
         </aside>
       </section>

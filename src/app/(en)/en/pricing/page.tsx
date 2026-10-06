@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/en/pricing/",
   translatedPath: "/pricing/",
   title: "Wyoming LLC Formation Pricing",
-  description: "See Wyoming LLC pricing: $699 to form, including EIN, first-year Registered Agent, mailing address and first Annual Report. The $449/year service renewal starts in year two; the state fee is separate.",
+  description: "Wyoming LLC formation for $699, including EIN, Registered Agent, address, website and email. Renew for $449/year, including Annual Report filing and state tax.",
 });
 
 export default function EnglishPricingRoute() {

@@ -9,16 +9,14 @@ export function PriceCard({ locale }: { locale: Locale }) {
         "EIN processing",
         "Registered Agent for year one",
         "Wyoming mailing address for year one",
-        "First Wyoming Annual Report",
-        "Guidance for your business bank application",
+        "Website and business email", "Guidance for your business bank application",
       ]
     : [
         "Presentación estatal de la LLC en Wyoming",
         "Gestión del EIN",
         "Registered Agent durante el primer año",
         "Dirección postal de Wyoming durante el primer año",
-        "Primer Annual Report de Wyoming",
-        "Orientación para solicitar una cuenta bancaria empresarial",
+        "Página web y correo empresarial", "Orientación para solicitar una cuenta bancaria empresarial",
       ];
 
   return (
@@ -34,8 +32,8 @@ export function PriceCard({ locale }: { locale: Locale }) {
         {included.map((item) => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}
       </ul>
       <ContactActions locale={locale} emailLabel={english ? "Ask us about your LLC" : "Consultar sobre mi LLC"} />
-      <p className="price-renewal"><strong>{english ? "$449/year from year two." : "$449/año desde el segundo año."}</strong> {english ? "Includes Registered Agent renewal, mailing address and Annual Report service." : "Incluye renovación del Registered Agent, dirección postal y gestión del Annual Report."}</p>
-      <p className="price-legal">{english ? "Wyoming's state Annual Report/License Tax is separate from the renewal service and starts at $60/year; the amount can vary based on the LLC's Wyoming assets." : "La tasa estatal del Annual Report/License Tax de Wyoming se paga aparte desde el segundo año y parte de $60/año; puede variar según los activos de la LLC en Wyoming."}</p>
+      <p className="price-renewal"><strong>{english ? "$449/year from year two." : "$449/año desde el segundo año."}</strong> {english ? "Includes Registered Agent renewal, Wyoming mailing address, Annual Report filing and state tax, and website maintenance." : "Incluye Registered Agent, dirección postal de Wyoming, presentación y tasa estatal del Annual Report, y mantenimiento de la web."}</p>
+      <p className="price-legal">{english ? "Annual Reports start with the first annual renewal; they are not part of the initial formation package." : "El Annual Report corresponde a la primera renovación anual, no al paquete inicial de creación."}</p>
     </div>
   );
 }

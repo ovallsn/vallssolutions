@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/pricing/",
   translatedPath: "/en/pricing/",
   title: "Precios de formación de LLC en Wyoming",
-  description: "Consulta el precio de una LLC en Wyoming: $699 iniciales con EIN, Registered Agent, dirección postal y primer Annual Report. Renovación del servicio de $449/año desde el segundo año; tasa estatal aparte.",
+  description: "LLC en Wyoming por $699 con EIN, agente registrado, dirección, web y correo. Renovación de $449/año con presentación y tasa estatal del Annual Report.",
 });
 
 export default function SpanishPricingRoute() {

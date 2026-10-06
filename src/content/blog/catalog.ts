@@ -13,6 +13,24 @@ export type BlogArticle = {
 export const BLOG_ARTICLES: readonly BlogArticle[] = [
   {
     locale: "es",
+    slug: "ein-o-itin",
+    translatedSlug: "ein-vs-itin",
+    title: "EIN e ITIN: qué necesita tu LLC y qué cambia si vives fuera de EE. UU.",
+    description: "Diferencias entre EIN e ITIN, requisitos de la solicitud online y opciones para responsables sin SSN o ITIN. Guía con fuentes del IRS.",
+    category: "EIN y trámites",
+    readMinutes: 3,
+  },
+  {
+    locale: "en",
+    slug: "ein-vs-itin",
+    translatedSlug: "ein-o-itin",
+    title: "EIN vs. ITIN: what your LLC needs and what changes for non-U.S. founders",
+    description: "Understand EIN and ITIN differences, online application requirements and options without an SSN or ITIN, with official IRS sources.",
+    category: "EIN and paperwork",
+    readMinutes: 3,
+  },
+  {
+    locale: "es",
     slug: "llc-wyoming",
     translatedSlug: "wyoming-llc",
     title: "LLC en Wyoming: ventajas y cuándo no conviene",

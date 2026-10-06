@@ -17,6 +17,7 @@ Open <http://localhost:3000>. Production output is generated in `out/`:
 npm run typecheck
 npm test
 npm run build
+npm run audit:seo
 ```
 
 ## Public routes
@@ -33,9 +34,9 @@ English is the default homepage language. Spanish is available at `/es/`; the la
 
 ## Offer facts — review before changing public copy
 
-- $699 one time for initial Wyoming formation, including the state formation fee, EIN application handling, first-year Registered Agent, first-year Wyoming mailing address, first Annual Report and banking application guidance.
-- $449/year from year two for Registered Agent renewal, mailing address and Annual Report service.
-- Wyoming's Annual Report/License Tax is separate from the $449 service renewal, starts at $60 from year two and may vary with the LLC's Wyoming assets.
+- $699 one time for initial Wyoming formation, including the state formation fee, EIN application handling, first-year Registered Agent, first-year Wyoming mailing address website, business email and banking application guidance. The initial package does not include an Annual Report.
+- $449/year from year two includes Registered Agent, mailing address, Annual Report filing and state tax, plus website hosting and maintenance.
+- If renewal is declined, the website goes offline and its files are handed to the customer. Website/email scope is agreed before starting.
 - Banking support is application guidance only. The customer submits the application and the financial provider makes its own decision.
 - Do not claim that an Operating Agreement is included or that a Wyoming LLC guarantees tax savings, banking approval or visa eligibility.
 - The site does not collect SSNs, ITINs, passport numbers, identity documents or residential addresses.
@@ -49,6 +50,7 @@ Confirm these details against the current provider terms before changing the off
 - Editorial source in Markdown/MDX: `src/content/blog/articles/`
 - Shared styles: `src/app/globals.css` (ported from the former `assets/css/site.css`)
 - Self-hosted hero video and poster: `public/assets/media/`
+- Original English/Spanish social previews: `public/assets/media/social-*.png`; editable SVG sources are in `docs/assets/`.
 - Media provenance is kept in `docs/assets/media-sources.md`, outside the public export.
 - Tax, state-formation, visa and compliance guides cite official sources and should be rechecked before substantive edits.
 
