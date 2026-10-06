@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1340" viewBox="0 0 1600 1340">
+  <title>Valls Solutions — four refined V logo directions</title>
+  <desc>Four vector directions with icon only, horizontal wordmark, monochrome sample, and dark-background application.</desc>
+  <defs>
+    <symbol id="threshold" viewBox="0 0 100 100">
+      <path class="main" d="M14 12h20l16 41 16-41h20L59 85H43L14 12Z"/>
+      <path class="accent" d="M46 39 58 31v39l-9 9-3-40Z"/>
+    </symbol>
+    <symbol id="ribbon" viewBox="0 0 100 100">
+      <path class="main" d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z"/>
+      <path class="accent" d="m59 51 13-31h8L64 61Z"/>
+    </symbol>
+    <symbol id="framework" viewBox="0 0 100 100">
+      <path class="main" d="M15 14h17v27l18 30 18-30V14h17v32L57 86H43L15 46V14Z"/>
+      <path class="accent" d="M42 43h16l-8 12-8-12Z"/>
+    </symbol>
+    <symbol id="signature" viewBox="0 0 100 100">
+      <path class="main" d="M13 13h20l17 40 17-40h20L59 86H43L13 13Z"/>
+      <path class="accent" d="M42 43c8-11 22-7 19 2-2 6-13 8-14 14-1 5 7 7 12 0l6 5c-8 14-27 9-27-3 0-8 8-12 15-16 3-2 1-5-3-4-2 0-4 2-5 4l-3-2Z"/>
+    </symbol>
+    <symbol id="threshold-mono" viewBox="0 0 100 100">
+      <path d="M14 12h20l16 41 16-41h20L59 85H43L14 12Z" fill="#172c32"/>
+      <path d="M46 39 58 31v39l-9 9-3-40Z" fill="#172c32"/>
+    </symbol>
+    <symbol id="threshold-dark" viewBox="0 0 100 100">
+      <path d="M14 12h20l16 41 16-41h20L59 85H43L14 12Z" fill="#f8f6f0"/>
+      <path d="M46 39 58 31v39l-9 9-3-40Z" fill="#d0937a"/>
+    </symbol>
+    <symbol id="ribbon-mono" viewBox="0 0 100 100">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#172c32"/>
+      <path d="m59 51 13-31h8L64 61Z" fill="#172c32"/>
+    </symbol>
+    <symbol id="ribbon-dark" viewBox="0 0 100 100">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#f8f6f0"/>
+      <path d="m59 51 13-31h8L64 61Z" fill="#d0937a"/>
+    </symbol>
+    <symbol id="framework-mono" viewBox="0 0 100 100">
+      <path d="M15 14h17v27l18 30 18-30V14h17v32L57 86H43L15 46V14Z" fill="#172c32"/>
+      <path d="M42 43h16l-8 12-8-12Z" fill="#172c32"/>
+    </symbol>
+    <symbol id="framework-dark" viewBox="0 0 100 100">
+      <path d="M15 14h17v27l18 30 18-30V14h17v32L57 86H43L15 46V14Z" fill="#f8f6f0"/>
+      <path d="M42 43h16l-8 12-8-12Z" fill="#d0937a"/>
+    </symbol>
+    <symbol id="signature-mono" viewBox="0 0 100 100">
+      <path d="M13 13h20l17 40 17-40h20L59 86H43L13 13Z" fill="#172c32"/>
+      <path d="M42 43c8-11 22-7 19 2-2 6-13 8-14 14-1 5 7 7 12 0l6 5c-8 14-27 9-27-3 0-8 8-12 15-16 3-2 1-5-3-4-2 0-4 2-5 4l-3-2Z" fill="#172c32"/>
+    </symbol>
+    <symbol id="signature-dark" viewBox="0 0 100 100">
+      <path d="M13 13h20l17 40 17-40h20L59 86H43L13 13Z" fill="#f8f6f0"/>
+      <path d="M42 43c8-11 22-7 19 2-2 6-13 8-14 14-1 5 7 7 12 0l6 5c-8 14-27 9-27-3 0-8 8-12 15-16 3-2 1-5-3-4-2 0-4 2-5 4l-3-2Z" fill="#d0937a"/>
+    </symbol>
+    <style>
+      .main{fill:var(--logo-main,#174c3e)}
+      .accent{fill:var(--logo-accent,#b85f43)}
+      .display{font-family:Georgia,"Times New Roman",serif}
+      .sans{font-family:Arial,sans-serif}
+      .option{font-size:18px;font-weight:700;letter-spacing:1.2px;fill:#172c32}
+      .note{font-size:13px;fill:#65706e}
+      .label{font-size:12px;font-weight:700;letter-spacing:1.8px}
+    </style>
+  </defs>
+  <rect width="1600" height="1340" fill="#f8f6f0"/>
+  <text x="52" y="68" class="display" font-size="42" fill="#172c32">Valls Solutions</text>
+  <text x="54" y="103" class="sans" font-size="14" letter-spacing="2.1" fill="#60716d">FOUR REFINED DIRECTIONS · ICON, WORDMARK &amp; COLOR APPLICATIONS</text>
+  <path d="M52 124H1548" stroke="#dcded6"/>
+
+  <!-- Direction 01: closest refinement of the current V and doorway accent. -->
+  <g>
+    <rect x="48" y="150" width="740" height="550" rx="4" fill="#fffefa" stroke="#dfded6"/>
+    <text x="78" y="193" class="sans" font-size="12" font-weight="700" letter-spacing="2" fill="#b85f43">01</text>
+    <text x="116" y="193" class="sans option">OPEN THRESHOLD</text>
+    <text x="78" y="220" class="sans note">Closest to your V · cleaner inner spacing and balance</text>
+    <rect x="76" y="241" width="176" height="194" rx="3" fill="#f4f2eb"/>
+    <text x="91" y="265" class="sans label" fill="#172c32">ICON ONLY</text>
+    <use href="#threshold" x="117" y="271" width="94" height="94"/>
+    <use href="#threshold" x="99" y="382" width="18" height="18"/>
+    <use href="#threshold" x="145" y="379" width="24" height="24"/>
+    <use href="#threshold" x="195" y="375" width="32" height="32"/>
+    <text x="96" y="423" class="sans" font-size="9" fill="#69726f">16</text><text x="148" y="423" class="sans" font-size="9" fill="#69726f">24</text><text x="201" y="423" class="sans" font-size="9" fill="#69726f">32 PX</text>
+    <rect x="268" y="241" width="492" height="194" rx="3" fill="#fffefa"/>
+    <text x="290" y="265" class="sans label" fill="#172c32">HORIZONTAL WORDMARK</text>
+    <use href="#threshold" x="296" y="286" width="74" height="74"/>
+    <text x="387" y="334" class="display" font-size="34" letter-spacing="-0.7" fill="#172c32">Valls Solutions</text>
+    <path d="M290 394H735" stroke="#e1e0d9"/>
+    <text x="290" y="416" class="sans" font-size="11" fill="#69726f">Deep green + muted terracotta</text>
+    <rect x="76" y="457" width="302" height="213" rx="3" fill="#efeee8"/>
+    <text x="93" y="482" class="sans label" fill="#172c32">MONOCHROME · ONE INK</text>
+    <use href="#threshold-mono" x="103" y="510" width="58" height="58"/>
+    <text x="174" y="550" class="display" font-size="23" fill="#172c32">Valls Solutions</text>
+    <text x="93" y="644" class="sans note">Print, embossing and small marks</text>
+    <rect x="394" y="457" width="366" height="213" rx="3" fill="#153832"/>
+    <text x="412" y="482" class="sans label" fill="#f8f6f0">DARK BACKGROUND</text>
+    <use href="#threshold-dark" x="418" y="510" width="58" height="58"/>
+    <text x="489" y="550" class="display" font-size="25" fill="#f8f6f0">Valls Solutions</text>
+    <text x="412" y="644" class="sans" font-size="11" fill="#deded5">Warm white mark + copper accent</text>
+  </g>
+
+  <!-- Direction 02: single gesture with an understated copper edge. -->
+  <g>
+    <rect x="812" y="150" width="740" height="550" rx="4" fill="#fffefa" stroke="#dfded6"/>
+    <text x="842" y="193" class="sans" font-size="12" font-weight="700" letter-spacing="2" fill="#b85f43">02</text>
+    <text x="880" y="193" class="sans option">SINGLE RIBBON</text>
+    <text x="842" y="220" class="sans note">One confident gesture · the simplest silhouette at small sizes</text>
+    <rect x="840" y="241" width="176" height="194" rx="3" fill="#f4f2eb"/>
+    <text x="855" y="265" class="sans label" fill="#172c32">ICON ONLY</text>
+    <use href="#ribbon" x="881" y="271" width="94" height="94"/>
+    <use href="#ribbon" x="863" y="382" width="18" height="18"/>
+    <use href="#ribbon" x="909" y="379" width="24" height="24"/>
+    <use href="#ribbon" x="959" y="375" width="32" height="32"/>
+    <text x="860" y="423" class="sans" font-size="9" fill="#69726f">16</text><text x="912" y="423" class="sans" font-size="9" fill="#69726f">24</text><text x="965" y="423" class="sans" font-size="9" fill="#69726f">32 PX</text>
+    <rect x="1032" y="241" width="492" height="194" rx="3" fill="#fffefa"/>
+    <text x="1054" y="265" class="sans label" fill="#172c32">HORIZONTAL WORDMARK</text>
+    <use href="#ribbon" x="1060" y="286" width="74" height="74"/>
+    <text x="1151" y="334" class="display" font-size="34" letter-spacing="-0.7" fill="#172c32">Valls Solutions</text>
+    <path d="M1054 394H1499" stroke="#e1e0d9"/>
+    <text x="1054" y="416" class="sans" font-size="11" fill="#69726f">A lighter, more fluid interpretation</text>
+    <rect x="840" y="457" width="302" height="213" rx="3" fill="#efeee8"/>
+    <text x="857" y="482" class="sans label" fill="#172c32">MONOCHROME · ONE INK</text>
+    <use href="#ribbon-mono" x="867" y="510" width="58" height="58"/>
+    <text x="938" y="550" class="display" font-size="23" fill="#172c32">Valls Solutions</text>
+    <text x="857" y="644" class="sans note">Print, embossing and small marks</text>
+    <rect x="1158" y="457" width="366" height="213" rx="3" fill="#153832"/>
+    <text x="1176" y="482" class="sans label" fill="#f8f6f0">DARK BACKGROUND</text>
+    <use href="#ribbon-dark" x="1182" y="510" width="58" height="58"/>
+    <text x="1253" y="550" class="display" font-size="25" fill="#f8f6f0">Valls Solutions</text>
+    <text x="1176" y="644" class="sans" font-size="11" fill="#deded5">Warm white mark + copper accent</text>
+  </g>
+
+  <!-- Direction 03: structural shoulders resolve into the V. -->
+  <g>
+    <rect x="48" y="736" width="740" height="550" rx="4" fill="#fffefa" stroke="#dfded6"/>
+    <text x="78" y="779" class="sans" font-size="12" font-weight="700" letter-spacing="2" fill="#b85f43">03</text>
+    <text x="116" y="779" class="sans option">FORM &amp; FRAME</text>
+    <text x="78" y="806" class="sans note">An open structure that resolves into a V</text>
+    <rect x="76" y="827" width="176" height="194" rx="3" fill="#f4f2eb"/>
+    <text x="91" y="851" class="sans label" fill="#172c32">ICON ONLY</text>
+    <use href="#framework" x="117" y="857" width="94" height="94"/>
+    <use href="#framework" x="99" y="968" width="18" height="18"/>
+    <use href="#framework" x="145" y="965" width="24" height="24"/>
+    <use href="#framework" x="195" y="961" width="32" height="32"/>
+    <text x="96" y="1009" class="sans" font-size="9" fill="#69726f">16</text><text x="148" y="1009" class="sans" font-size="9" fill="#69726f">24</text><text x="201" y="1009" class="sans" font-size="9" fill="#69726f">32 PX</text>
+    <rect x="268" y="827" width="492" height="194" rx="3" fill="#fffefa"/>
+    <text x="290" y="851" class="sans label" fill="#172c32">HORIZONTAL WORDMARK</text>
+    <use href="#framework" x="296" y="872" width="74" height="74"/>
+    <text x="387" y="920" class="display" font-size="34" letter-spacing="-0.7" fill="#172c32">Valls Solutions</text>
+    <path d="M290 980H735" stroke="#e1e0d9"/>
+    <text x="290" y="1002" class="sans" font-size="11" fill="#69726f">More architectural · still open and approachable</text>
+    <rect x="76" y="1043" width="302" height="213" rx="3" fill="#efeee8"/>
+    <text x="93" y="1068" class="sans label" fill="#172c32">MONOCHROME · ONE INK</text>
+    <use href="#framework-mono" x="103" y="1096" width="58" height="58"/>
+    <text x="174" y="1136" class="display" font-size="23" fill="#172c32">Valls Solutions</text>
+    <text x="93" y="1230" class="sans note">Print, embossing and small marks</text>
+    <rect x="394" y="1043" width="366" height="213" rx="3" fill="#153832"/>
+    <text x="412" y="1068" class="sans label" fill="#f8f6f0">DARK BACKGROUND</text>
+    <use href="#framework-dark" x="418" y="1096" width="58" height="58"/>
+    <text x="489" y="1136" class="display" font-size="25" fill="#f8f6f0">Valls Solutions</text>
+    <text x="412" y="1230" class="sans" font-size="11" fill="#deded5">Warm white mark + copper accent</text>
+  </g>
+
+  <!-- Direction 04: distinctive inner signature, kept inside a clear V. -->
+  <g>
+    <rect x="812" y="736" width="740" height="550" rx="4" fill="#fffefa" stroke="#dfded6"/>
+    <text x="842" y="779" class="sans" font-size="12" font-weight="700" letter-spacing="2" fill="#b85f43">04</text>
+    <text x="880" y="779" class="sans option">V SIGNATURE</text>
+    <text x="842" y="806" class="sans note">A more individual accent · maintains a clear V outline</text>
+    <rect x="840" y="827" width="176" height="194" rx="3" fill="#f4f2eb"/>
+    <text x="855" y="851" class="sans label" fill="#172c32">ICON ONLY</text>
+    <use href="#signature" x="881" y="857" width="94" height="94"/>
+    <use href="#signature" x="863" y="968" width="18" height="18"/>
+    <use href="#signature" x="909" y="965" width="24" height="24"/>
+    <use href="#signature" x="959" y="961" width="32" height="32"/>
+    <text x="860" y="1009" class="sans" font-size="9" fill="#69726f">16</text><text x="912" y="1009" class="sans" font-size="9" fill="#69726f">24</text><text x="965" y="1009" class="sans" font-size="9" fill="#69726f">32 PX</text>
+    <rect x="1032" y="827" width="492" height="194" rx="3" fill="#fffefa"/>
+    <text x="1054" y="851" class="sans label" fill="#172c32">HORIZONTAL WORDMARK</text>
+    <use href="#signature" x="1060" y="872" width="74" height="74"/>
+    <text x="1151" y="920" class="display" font-size="34" letter-spacing="-0.7" fill="#172c32">Valls Solutions</text>
+    <path d="M1054 980H1499" stroke="#e1e0d9"/>
+    <text x="1054" y="1002" class="sans" font-size="11" fill="#69726f">A quieter signature detail inside the V</text>
+    <rect x="840" y="1043" width="302" height="213" rx="3" fill="#efeee8"/>
+    <text x="857" y="1068" class="sans label" fill="#172c32">MONOCHROME · ONE INK</text>
+    <use href="#signature-mono" x="867" y="1096" width="58" height="58"/>
+    <text x="938" y="1136" class="display" font-size="23" fill="#172c32">Valls Solutions</text>
+    <text x="857" y="1230" class="sans note">Print, embossing and small marks</text>
+    <rect x="1158" y="1043" width="366" height="213" rx="3" fill="#153832"/>
+    <text x="1176" y="1068" class="sans label" fill="#f8f6f0">DARK BACKGROUND</text>
+    <use href="#signature-dark" x="1182" y="1096" width="58" height="58"/>
+    <text x="1253" y="1136" class="display" font-size="25" fill="#f8f6f0">Valls Solutions</text>
+    <text x="1176" y="1230" class="sans" font-size="11" fill="#deded5">Warm white mark + copper accent</text>
+  </g>
+</svg>
