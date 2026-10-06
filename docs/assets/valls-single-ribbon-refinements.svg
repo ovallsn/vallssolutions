@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <title>Valls Solutions — Single Ribbon detail refinements</title>
+  <desc>Three small terracotta accent refinements while keeping the Single Ribbon V silhouette unchanged.</desc>
+  <defs>
+    <symbol id="base" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#174c3e"/>
+      <path d="m59 51 13-31h8L64 61Z" fill="#b85f43"/>
+    </symbol>
+    <symbol id="wider" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#174c3e"/>
+      <path d="m56.4 51 15.6-31h8L63.4 61Z" fill="#b85f43"/>
+    </symbol>
+    <symbol id="spaced" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#174c3e"/>
+      <path d="m57.5 51 13-31h8L62.5 61Z" fill="#b85f43"/>
+    </symbol>
+    <symbol id="base-mono" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#172c32"/>
+      <path d="m59 51 13-31h8L64 61Z" fill="#172c32"/>
+    </symbol>
+    <symbol id="wider-mono" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#172c32"/>
+      <path d="m56.4 51 15.6-31h8L63.4 61Z" fill="#172c32"/>
+    </symbol>
+    <symbol id="spaced-mono" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#172c32"/>
+      <path d="m57.5 51 13-31h8L62.5 61Z" fill="#172c32"/>
+    </symbol>
+    <symbol id="base-dark" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#f8f6f0"/>
+      <path d="m59 51 13-31h8L64 61Z" fill="#d0937a"/>
+    </symbol>
+    <symbol id="wider-dark" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#f8f6f0"/>
+      <path d="m56.4 51 15.6-31h8L63.4 61Z" fill="#d0937a"/>
+    </symbol>
+    <symbol id="spaced-dark" viewBox="10 8 80 84">
+      <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#f8f6f0"/>
+      <path d="m57.5 51 13-31h8L62.5 61Z" fill="#d0937a"/>
+    </symbol>
+    <style>
+      .serif{font-family:Georgia,"Times New Roman",serif}
+      .sans{font-family:Arial,sans-serif}
+      .caption{font-size:12px;letter-spacing:1.6px;font-weight:700}
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#f8f6f0"/>
+  <text x="56" y="63" class="serif" font-size="40" fill="#172c32">Single Ribbon — final detail study</text>
+  <text x="58" y="98" class="sans" font-size="14" letter-spacing="1.2" fill="#60716d">THE OUTER V STAYS THE SAME · THREE OPTICAL REFINEMENTS OF THE COPPER ACCENT</text>
+
+  <g>
+    <rect x="48" y="132" width="488" height="700" rx="4" fill="#fffefa" stroke="#dfded6"/>
+    <text x="76" y="171" class="sans caption" fill="#b85f43">A · CURRENT ACCENT</text>
+    <text x="76" y="197" class="sans" font-size="13" fill="#65706e">The reference shape; no geometry changed</text>
+    <rect x="76" y="220" width="432" height="205" rx="3" fill="#f4f2eb"/>
+    <text x="96" y="247" class="sans caption" fill="#172c32">ICON ONLY · LIGHT</text>
+    <use href="#base" x="232" y="263" width="120" height="126"/>
+    <use href="#base" x="158" y="393" width="16" height="17"/><text x="159" y="419" class="sans" font-size="9" fill="#69726f">16</text>
+    <use href="#base" x="244" y="390" width="24" height="25"/><text x="251" y="419" class="sans" font-size="9" fill="#69726f">24</text>
+    <use href="#base" x="344" y="386" width="32" height="34"/><text x="353" y="419" class="sans" font-size="9" fill="#69726f">32 PX</text>
+    <text x="96" y="461" class="sans caption" fill="#172c32">HORIZONTAL WORDMARK</text>
+    <use href="#base" x="105" y="481" width="62" height="65"/>
+    <text x="183" y="525" class="serif" font-size="32" fill="#172c32">Valls Solutions</text>
+    <rect x="76" y="570" width="207" height="225" rx="3" fill="#efeee8"/>
+    <text x="91" y="596" class="sans" font-size="10" letter-spacing="1.3" font-weight="700" fill="#172c32">MONOCHROME</text>
+    <use href="#base-mono" x="97" y="627" width="44" height="46"/><text x="151" y="659" class="serif" font-size="19" fill="#172c32">Valls Solutions</text>
+    <text x="91" y="771" class="sans" font-size="10" fill="#69726f">Single ink · light background</text>
+    <rect x="301" y="570" width="207" height="225" rx="3" fill="#153832"/>
+    <text x="316" y="596" class="sans" font-size="10" letter-spacing="1.3" font-weight="700" fill="#f8f6f0">DARK APPLICATION</text>
+    <use href="#base-dark" x="322" y="627" width="44" height="46"/><text x="376" y="659" class="serif" font-size="19" fill="#f8f6f0">Valls Solutions</text>
+    <text x="316" y="771" class="sans" font-size="10" fill="#deded5">Cream + muted terracotta</text>
+  </g>
+
+  <g>
+    <rect x="556" y="132" width="488" height="700" rx="4" fill="#fffefa" stroke="#b85f43" stroke-width="2"/>
+    <rect x="852" y="148" width="168" height="27" rx="13" fill="#efe3db"/>
+    <text x="869" y="166" class="sans" font-size="10" letter-spacing="1" font-weight="700" fill="#884833">RECOMMENDED</text>
+    <text x="584" y="171" class="sans caption" fill="#b85f43">B · +12.5% COPPER DETAIL</text>
+    <text x="584" y="197" class="sans" font-size="13" fill="#65706e">Widens toward the inner edge; outer V stays unchanged</text>
+    <rect x="584" y="220" width="432" height="205" rx="3" fill="#f4f2eb"/>
+    <text x="604" y="247" class="sans caption" fill="#172c32">ICON ONLY · LIGHT</text>
+    <use href="#wider" x="740" y="263" width="120" height="126"/>
+    <use href="#wider" x="666" y="393" width="16" height="17"/><text x="667" y="419" class="sans" font-size="9" fill="#69726f">16</text>
+    <use href="#wider" x="752" y="390" width="24" height="25"/><text x="759" y="419" class="sans" font-size="9" fill="#69726f">24</text>
+    <use href="#wider" x="852" y="386" width="32" height="34"/><text x="861" y="419" class="sans" font-size="9" fill="#69726f">32 PX</text>
+    <text x="604" y="461" class="sans caption" fill="#172c32">HORIZONTAL WORDMARK</text>
+    <use href="#wider" x="613" y="481" width="62" height="65"/>
+    <text x="691" y="525" class="serif" font-size="32" fill="#172c32">Valls Solutions</text>
+    <rect x="584" y="570" width="207" height="225" rx="3" fill="#efeee8"/>
+    <text x="599" y="596" class="sans" font-size="10" letter-spacing="1.3" font-weight="700" fill="#172c32">MONOCHROME</text>
+    <use href="#wider-mono" x="605" y="627" width="44" height="46"/><text x="659" y="659" class="serif" font-size="19" fill="#172c32">Valls Solutions</text>
+    <text x="599" y="771" class="sans" font-size="10" fill="#69726f">Single ink · light background</text>
+    <rect x="809" y="570" width="207" height="225" rx="3" fill="#153832"/>
+    <text x="824" y="596" class="sans" font-size="10" letter-spacing="1.3" font-weight="700" fill="#f8f6f0">DARK APPLICATION</text>
+    <use href="#wider-dark" x="830" y="627" width="44" height="46"/><text x="884" y="659" class="serif" font-size="19" fill="#f8f6f0">Valls Solutions</text>
+    <text x="824" y="771" class="sans" font-size="10" fill="#deded5">Cream + muted terracotta</text>
+  </g>
+
+  <g>
+    <rect x="1064" y="132" width="488" height="700" rx="4" fill="#fffefa" stroke="#dfded6"/>
+    <text x="1092" y="171" class="sans caption" fill="#b85f43">C · INSET</text>
+    <text x="1092" y="197" class="sans" font-size="13" fill="#65706e">Moves the detail inward while keeping its original width</text>
+    <rect x="1092" y="220" width="432" height="205" rx="3" fill="#f4f2eb"/>
+    <text x="1112" y="247" class="sans caption" fill="#172c32">ICON ONLY · LIGHT</text>
+    <use href="#spaced" x="1248" y="263" width="120" height="126"/>
+    <use href="#spaced" x="1174" y="393" width="16" height="17"/><text x="1175" y="419" class="sans" font-size="9" fill="#69726f">16</text>
+    <use href="#spaced" x="1260" y="390" width="24" height="25"/><text x="1267" y="419" class="sans" font-size="9" fill="#69726f">24</text>
+    <use href="#spaced" x="1360" y="386" width="32" height="34"/><text x="1369" y="419" class="sans" font-size="9" fill="#69726f">32 PX</text>
+    <text x="1112" y="461" class="sans caption" fill="#172c32">HORIZONTAL WORDMARK</text>
+    <use href="#spaced" x="1121" y="481" width="62" height="65"/>
+    <text x="1199" y="525" class="serif" font-size="32" fill="#172c32">Valls Solutions</text>
+    <rect x="1092" y="570" width="207" height="225" rx="3" fill="#efeee8"/>
+    <text x="1107" y="596" class="sans" font-size="10" letter-spacing="1.3" font-weight="700" fill="#172c32">MONOCHROME</text>
+    <use href="#spaced-mono" x="1113" y="627" width="44" height="46"/><text x="1167" y="659" class="serif" font-size="19" fill="#172c32">Valls Solutions</text>
+    <text x="1107" y="771" class="sans" font-size="10" fill="#69726f">Single ink · light background</text>
+    <rect x="1317" y="570" width="207" height="225" rx="3" fill="#153832"/>
+    <text x="1332" y="596" class="sans" font-size="10" letter-spacing="1.3" font-weight="700" fill="#f8f6f0">DARK APPLICATION</text>
+    <use href="#spaced-dark" x="1338" y="627" width="44" height="46"/><text x="1392" y="659" class="serif" font-size="19" fill="#f8f6f0">Valls Solutions</text>
+    <text x="1332" y="771" class="sans" font-size="10" fill="#deded5">Cream + muted terracotta</text>
+  </g>
+  <text x="54" y="870" class="sans" font-size="12" fill="#65706e">The icon crop tightens the margins equally around the unchanged outer V, giving it more presence at 16–24 px.</text>
+</svg>
