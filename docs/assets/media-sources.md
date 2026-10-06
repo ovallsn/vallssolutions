@@ -21,12 +21,23 @@
 - Typography: system Georgia and Arial, rasterized locally with the existing Sharp installation.
 - Usage: English and Spanish Open Graph/Twitter metadata. No attribution required.
 
-## Valls Solutions logo symbol
+## Previous generated logo symbol (retained, not in active use)
 
 - Web asset: public/assets/media/valls-monogram.webp (961 × 743, transparent WebP; approximately 42 KB).
 - High-resolution transparent master: public/assets/media/valls-monogram.png (961 × 743).
-- Editable small-size counterpart: public/assets/favicon.svg (vector mark for browser tabs).
+- The raster symbol is retained as a historical working asset; it is no longer referenced by the website or favicon.
 - Origin: generated for Valls Solutions with OpenAI image generation on 2026-10-06, using the owner's four supplied logo concepts only as inspiration for a monogram direction; original silhouette, no source logo copied. The transparent margins were cropped and a WebP derivative was made for site use.
 - Palette: forest green #174c3e and terracotta #b85f43, aligned to the website design tokens.
-- Usage: website navigation; favicon SVG used by English and Spanish routes. Social preview mark is a simplified inline SVG variation.
+- Former usage: website navigation and the prior favicon. The active vector mark is documented below.
 - Attribution: none required.
+
+## Selected Single Ribbon logo
+
+- Master mark: `public/assets/media/valls-single-ribbon.svg`.
+- Variants: `public/assets/media/valls-single-ribbon-mono.svg`, `public/assets/media/valls-single-ribbon-reverse.svg`, `public/assets/media/valls-logo-horizontal.svg`, and `public/assets/media/valls-logo-horizontal-dark.svg`.
+- Email signature exports: transparent PNGs at `public/assets/media/valls-logo-horizontal.png` and `public/assets/media/valls-logo-horizontal-dark.png` (1080 × 250; display at about 360 × 83 px for a 3× source).
+- Favicon: `public/assets/favicon.svg`; social preview masters: `docs/assets/social-en.svg` and `docs/assets/social-es.svg`, rasterized to `public/assets/media/social-en.png` and `social-es.png`.
+- Origin: original vector paths drawn for Valls Solutions on 2026-10-06, based on the owner's selection of direction 02, “Single Ribbon.” No third-party logo or asset is used.
+- Palette: deep green `#174c3e`, terracotta `#b85f43`, warm paper `#f8f6f0`; reverse mark uses cream `#f8f6f0` and muted copper `#d0937a`.
+- Usage: English and Spanish website navigation and footer, favicon, social previews, email signatures, and documents.
+- Attribution: none required. This is not a trademark clearance.

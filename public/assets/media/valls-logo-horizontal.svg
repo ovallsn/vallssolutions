@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="250" viewBox="0 0 1080 250" role="img" aria-labelledby="title desc">
+  <title id="title">Valls Solutions</title>
+  <desc id="desc">Valls Solutions wordmark with the Single Ribbon V symbol.</desc>
+  <g transform="translate(18 31) scale(2.14)">
+    <path d="M18 15h17l15 38 15-38h17L57 85H43L18 15Z" fill="#174c3e"/>
+    <path d="m56.4 51 15.6-31h8L63.4 61Z" fill="#b85f43"/>
+  </g>
+  <text x="223" y="157" fill="#172c32" font-family="Georgia, 'Times New Roman', serif" font-size="78" letter-spacing="-2.2">Valls Solutions</text>
+</svg>

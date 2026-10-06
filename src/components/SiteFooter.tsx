@@ -8,8 +8,8 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       <div className="section-shell footer-main">
         <div className="footer-brand-col">
           <Link className="brand brand-footer" href={english ? "/" : "/es/"}>
-            <span className="brand-mark" aria-hidden="true">V</span>
-            <span>Valls <span className="brand-light">Solutions</span></span>
+            <img className="brand-mark" src="/assets/media/valls-single-ribbon-reverse.svg" alt="" aria-hidden="true" />
+            <span className="brand-wordmark">Valls Solutions</span>
           </Link>
           <p>{english ? "Wyoming LLC formation and administrative support for founders in the U.S. and abroad." : "Formación de LLC en Wyoming y apoyo administrativo para fundadores en Estados Unidos y en el extranjero."}</p>
         </div>
