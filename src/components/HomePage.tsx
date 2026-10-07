@@ -50,9 +50,9 @@ type HomeCopy = {
 const copy: Record<Locale, HomeCopy> = {
   en: {
     eyebrow: "Wyoming LLC formation for U.S. and international founders",
-    headline: "Start your U.S. LLC.",
-    accent: "Build what’s next.",
-    lede: "Wyoming LLC formation, EIN, Registered Agent, mailing address, website and business email. One package, with direct support from your first question to your bank application.",
+    headline: "Start a U.S. LLC.",
+    accent: "From anywhere.",
+    lede: "A guided Wyoming LLC package for U.S. and international founders: formation, EIN application handling, first-year Registered Agent and mailing address, a company website and business email, plus business banking guidance.",
     primaryCta: "Start your LLC",
     secondaryCta: "See what is included",
     priceLine: "$699 one-time · $449/year from year two",
@@ -194,8 +194,8 @@ const copy: Record<Locale, HomeCopy> = {
     eyebrow:
       "Formación de LLC en Wyoming para fundadores en EE. UU. y en el extranjero",
     headline: "Tu LLC en EE. UU.",
-    accent: "Tu próximo paso.",
-    lede: "Creamos tu LLC en Wyoming con EIN, agente registrado, dirección postal, web y correo empresarial. Un paquete, con atención directa desde tu primera consulta hasta la preparación bancaria.",
+    accent: "Donde estés.",
+    lede: "Un paquete guiado para emprendedores de EE. UU. y de otros países: creación en Wyoming, gestión del EIN, agente registrado y dirección postal el primer año, web, correo empresarial y orientación bancaria.",
     primaryCta: "Empezar mi LLC",
     secondaryCta: "Ver qué incluye",
     priceLine: "$699 pago único · $449/año desde el segundo año",
@@ -424,44 +424,38 @@ export function HomePage({ locale }: { locale: Locale }) {
                 <span aria-hidden="true">↓</span>
               </Link>
             </div>
-            <div className="premium-hero-price">
-              <strong>$699</strong>
-              <span>
-                {english ? "Formation package" : "Paquete de creación"}
-                <small>
-                  {english
-                    ? "Wyoming state formation fee included"
-                    : "Tasa estatal de creación incluida"}
-                </small>
-              </span>
+            <div className="premium-hero-prices" aria-label={english ? "Package pricing" : "Precios del paquete"}>
+              <div className="premium-hero-price">
+                <strong>$699</strong>
+                <span>
+                  {english ? "one-time formation" : "pago único de creación"}
+                  <small>
+                    {english
+                      ? "Wyoming filing fee included"
+                      : "Tasa estatal de Wyoming incluida"}
+                  </small>
+                </span>
+              </div>
+              <div className="premium-hero-price premium-hero-renewal">
+                <strong>$449</strong>
+                <span>
+                  {english ? "per year from year two" : "al año desde el segundo año"}
+                  <small>
+                    {english
+                      ? "Annual Report and state tax included"
+                      : "Incluye Annual Report y tasa estatal"}
+                  </small>
+                </span>
+              </div>
             </div>
             <p className="premium-hero-note">
               {english
-                ? "$449/year from year two. Start by email; a call is optional."
-                : "$449/año desde el segundo año. Empieza por email; la llamada es opcional."}
+                ? "Start by email. A call is available if it helps."
+                : "Empieza por email. Podemos hablar por llamada si te ayuda."}
             </p>
           </div>
           <div className="premium-hero-media">
             <HeroVideo locale={locale} />
-            <div className="hero-package-preview">
-              <div>
-                <span className="eyebrow">
-                  {english
-                    ? "YOUR COMPANY STARTER PACKAGE"
-                    : "EL PUNTO DE PARTIDA DE TU EMPRESA"}
-                </span>
-                <strong>
-                  {english
-                    ? "Built for your next chapter."
-                    : "Preparado para tu siguiente etapa."}
-                </strong>
-              </div>
-              <div className="preview-tags">
-                <span>LLC + EIN</span>
-                <span>{english ? "Website & email" : "Web y correo"}</span>
-                <span>{english ? "Human support" : "Atención personal"}</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -754,9 +748,6 @@ export function HomePage({ locale }: { locale: Locale }) {
           >
             <span className="eyebrow">
               {english ? "THE STARTING POINT" : "EL PUNTO DE PARTIDA"}
-            </span>
-            <span className="journal-feature-letter" aria-hidden="true">
-              LLC
             </span>
             <h3>{llcGuide.title}</h3>
             <p>{llcGuide.description}</p>
