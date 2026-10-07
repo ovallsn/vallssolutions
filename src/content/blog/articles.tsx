@@ -1,5 +1,10 @@
 import type { MDXContent } from "mdx/types";
-import { BLOG_ARTICLES, findBlogArticle, listBlogArticles, type Locale } from "@/content/blog/catalog";
+import {
+  BLOG_ARTICLES,
+  findBlogArticle,
+  listBlogArticles,
+  type Locale,
+} from "@/content/blog/catalog";
 import WyomingEs from "@/content/blog/articles/es/llc-wyoming.mdx";
 import UsLlcEs from "@/content/blog/articles/es/llc-en-estados-unidos.mdx";
 import TaxesEs from "@/content/blog/articles/es/llc-impuestos.mdx";
@@ -15,9 +20,22 @@ import EinEn from "@/content/blog/articles/en/ein-vs-itin.mdx";
 import NeedLlcEs from "@/content/blog/articles/es/necesito-una-llc.mdx";
 import NeedLlcEn from "@/content/blog/articles/en/do-i-need-an-llc.mdx";
 
+import PracticalGuide0EN from "@/content/blog/articles/en/choosing-llc-formation-service.mdx";
+import PracticalGuide0ES from "@/content/blog/articles/es/elegir-servicio-creacion-llc.mdx";
+import PracticalGuide1EN from "@/content/blog/articles/en/business-bank-account-llc.mdx";
+import PracticalGuide1ES from "@/content/blog/articles/es/cuenta-bancaria-llc.mdx";
+import PracticalGuide2EN from "@/content/blog/articles/en/wyoming-llc-annual-renewal.mdx";
+import PracticalGuide2ES from "@/content/blog/articles/es/renovacion-anual-llc-wyoming.mdx";
+
 export type BlogPost = (typeof BLOG_ARTICLES)[number] & { Content: MDXContent };
 
 const contentByKey: Record<string, MDXContent> = {
+  "en/choosing-llc-formation-service": PracticalGuide0EN,
+  "es/elegir-servicio-creacion-llc": PracticalGuide0ES,
+  "en/business-bank-account-llc": PracticalGuide1EN,
+  "es/cuenta-bancaria-llc": PracticalGuide1ES,
+  "en/wyoming-llc-annual-renewal": PracticalGuide2EN,
+  "es/renovacion-anual-llc-wyoming": PracticalGuide2ES,
   "es/ein-o-itin": EinEs,
   "en/ein-vs-itin": EinEn,
   "es/necesito-una-llc": NeedLlcEs,
@@ -41,8 +59,14 @@ export function listBlogPosts(locale: Locale): BlogPost[] {
   }));
 }
 
-export function findBlogPost(locale: Locale, slug: string): BlogPost | undefined {
+export function findBlogPost(
+  locale: Locale,
+  slug: string,
+): BlogPost | undefined {
   const article = findBlogArticle(locale, slug);
   if (!article) return undefined;
-  return { ...article, Content: contentByKey[`${article.locale}/${article.slug}`] };
+  return {
+    ...article,
+    Content: contentByKey[`${article.locale}/${article.slug}`],
+  };
 }
