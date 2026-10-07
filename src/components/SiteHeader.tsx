@@ -12,7 +12,10 @@ type SiteHeaderProps = {
 };
 
 const translatedRoutes: Record<string, string> = Object.fromEntries(
-  Object.values(ROUTES).flatMap(({ en, es }) => [[en, es], [es, en]]),
+  Object.values(ROUTES).flatMap(({ en, es }) => [
+    [en, es],
+    [es, en],
+  ]),
 );
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
@@ -20,25 +23,31 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   const pathname = usePathname();
   const english = locale === "en";
   const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
-  const currentArticle = BLOG_ARTICLES.find((article) => blogPath(article.locale, article.slug) === normalizedPath);
+  const currentArticle = BLOG_ARTICLES.find(
+    (article) => blogPath(article.locale, article.slug) === normalizedPath,
+  );
   const languageHref = currentArticle
     ? blogPath(english ? "es" : "en", currentArticle.translatedSlug)
-    : translatedRoutes[normalizedPath] ?? (english ? "/es/" : "/");
+    : (translatedRoutes[normalizedPath] ?? (english ? "/es/" : "/"));
   const nav = english
     ? [
         { href: "/llc-formation/", label: "LLC formation" },
         { href: "/pricing/", label: "Pricing" },
-        { href: "/#process", label: "How it works" },
         { href: "/blog/", label: "Guides" },
         { href: "/about/", label: "About" },
       ]
     : [
         { href: "/es/crear-llc/", label: "Formación LLC" },
         { href: "/es/precios/", label: "Precios" },
-        { href: "/es/#proceso", label: "Cómo funciona" },
         { href: "/es/blog/", label: "Guías" },
         { href: "/es/nosotros/", label: "Nosotros" },
       ];
+  const isActiveLink = (href: string) => {
+    const route = href.split("#")[0];
+    return route.endsWith("/blog/")
+      ? normalizedPath.startsWith(route)
+      : normalizedPath === route;
+  };
 
   return (
     <>
@@ -47,36 +56,116 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       </a>
       <header className="site-header">
         <div className="nav-shell">
-          <Link className="brand" href={english ? "/" : "/es/"} aria-label={english ? "Valls Solutions, home" : "Valls Solutions, inicio"}>
-            <img className="brand-mark" src="/assets/media/valls-single-ribbon.svg" alt="" aria-hidden="true" />
+          <Link
+            className="brand"
+            href={english ? "/" : "/es/"}
+            aria-label={
+              english ? "Valls Solutions, home" : "Valls Solutions, inicio"
+            }
+          >
+            <img
+              className="brand-mark"
+              src="/assets/media/valls-single-ribbon.svg"
+              alt=""
+              aria-hidden="true"
+            />
             <span className="brand-wordmark">Valls Solutions</span>
           </Link>
-          <button
-            className="menu-toggle"
-            type="button"
-            aria-expanded={menuOpen}
-            aria-controls="primary-nav"
-            onClick={() => setMenuOpen((open) => !open)}
+          <nav
+            className={`primary-nav${menuOpen ? " is-open" : ""}`}
+            id="primary-nav"
+            aria-label={english ? "Main navigation" : "Navegación principal"}
           >
-            <span className="sr-only">{menuOpen ? (english ? "Close menu" : "Cerrar menú") : (english ? "Open menu" : "Abrir menú")}</span>
-            <span className="menu-lines" aria-hidden="true" />
-          </button>
-          <nav className={`primary-nav${menuOpen ? " is-open" : ""}`} id="primary-nav" aria-label={english ? "Main navigation" : "Navegación principal"}>
             {nav.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</Link>
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActiveLink(item.href) ? "page" : undefined}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
             ))}
             {CLIENT_PORTAL_URL && (
-              <a href={CLIENT_PORTAL_URL} target="_blank" rel="noopener noreferrer">
+              <a
+                href={CLIENT_PORTAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {english ? "Client portal" : "Área de clientes"}
               </a>
             )}
-            <Link className="language-link" href={languageHref} lang={english ? "es" : "en"} hrefLang={english ? "es" : "en"} onClick={() => setMenuOpen(false)}>
-              {english ? <>ES <span>Español</span></> : <>EN <span>English</span></>}
-            </Link>
-            <a className="button button-small button-dark nav-cta" href={mailtoHref(locale)}>
+            <a
+              className="button button-small button-dark nav-cta"
+              href={mailtoHref(locale)}
+            >
               {english ? "Get started" : "Empezar"}
             </a>
           </nav>
+          <div className="header-tools">
+            <div
+              className="language-switch"
+              role="group"
+              aria-label={english ? "Choose language" : "Cambiar idioma"}
+            >
+              {english ? (
+                <span
+                  className="language-option is-current"
+                  lang="en"
+                  aria-current="true"
+                >
+                  EN
+                </span>
+              ) : (
+                <Link
+                  className="language-option"
+                  href={languageHref}
+                  lang="en"
+                  hrefLang="en"
+                  aria-label="Switch to English"
+                >
+                  EN
+                </Link>
+              )}
+              {!english ? (
+                <span
+                  className="language-option is-current"
+                  lang="es"
+                  aria-current="true"
+                >
+                  ES
+                </span>
+              ) : (
+                <Link
+                  className="language-option"
+                  href={languageHref}
+                  lang="es"
+                  hrefLang="es"
+                  aria-label="Cambiar a español"
+                >
+                  ES
+                </Link>
+              )}
+            </div>
+            <button
+              className="menu-toggle"
+              type="button"
+              aria-expanded={menuOpen}
+              aria-controls="primary-nav"
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span className="sr-only">
+                {menuOpen
+                  ? english
+                    ? "Close menu"
+                    : "Cerrar menú"
+                  : english
+                    ? "Open menu"
+                    : "Abrir menú"}
+              </span>
+              <span className="menu-lines" aria-hidden="true" />
+            </button>
+          </div>
         </div>
       </header>
     </>

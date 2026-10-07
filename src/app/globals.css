@@ -44,11 +44,16 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; white-space: nowrap; }
 .brand-mark { width: 44px; height: 44px; display: block; object-fit: contain; flex: 0 0 auto; }
 .brand-wordmark { font-family: var(--display); font-size: 21px; font-weight: 400; letter-spacing: -.035em; }
-.primary-nav { display: flex; align-items: center; gap: clamp(15px, 2.1vw, 30px); }
+.primary-nav { margin-left: auto; display: flex; align-items: center; gap: clamp(15px, 2.1vw, 30px); }
 .primary-nav > a:not(.button) { color: var(--ink-soft); font-size: 13px; font-weight: 570; text-decoration: none; transition: color .18s ease; }
 .primary-nav > a:not(.button):hover { color: var(--orange-deep); }
-.language-link { display: inline-flex; align-items: baseline; gap: 5px; }
-.language-link span { color: var(--muted); font-size: 11px; }
+.primary-nav > a[aria-current="page"] { color: var(--green); text-decoration: underline; text-decoration-color: var(--orange); text-decoration-thickness: 2px; text-underline-offset: 7px; }
+.header-tools { margin-left: clamp(16px, 2vw, 28px); display: flex; align-items: center; gap: 19px; }
+.language-switch { min-height: 44px; padding: 3px; display: inline-flex; align-items: center; gap: 2px; background: var(--paper-deep); border: 1px solid var(--line); border-radius: 4px; }
+.language-option { min-width: 38px; min-height: 36px; padding-inline: 7px; display: inline-flex; align-items: center; justify-content: center; border-radius: 2px; color: var(--ink-soft); font-size: 11px; font-weight: 700; letter-spacing: .04em; text-decoration: none; transition: background .18s ease, color .18s ease; }
+.language-option:hover { color: var(--green); }
+.language-option.is-current { background: var(--green); color: var(--white); }
+.footer-contact-note { color: #b7c4be; font-size: 11px; }
 .menu-toggle { display: none; width: 46px; height: 46px; align-items: center; justify-content: center; background: transparent; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); cursor: pointer; }
 .menu-lines, .menu-lines::before, .menu-lines::after { display: block; width: 18px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .18s ease; }
 .menu-lines { position: relative; }
@@ -312,6 +317,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .nav-shell { width: min(100% - 44px, var(--shell)); }
   .primary-nav { gap: 15px; }
   .primary-nav > a:not(.button) { font-size: 12px; }
+  .header-tools { margin-left: 14px; gap: 12px; }
   .hero { grid-template-columns: minmax(0,1fr) minmax(0,.83fr); gap: 35px; padding-top: 53px; }
   .hero-media { min-height: 420px; }
   .proof-strip > div { padding-left: 20px; }
@@ -324,12 +330,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 @media (max-width: 720px) {
   html { scroll-padding-top: 76px; }
   .section-shell { width: min(var(--shell), calc(100% - 40px)); }
-  .nav-shell { width: calc(100% - 32px); min-height: 68px; }
-  .menu-toggle { display: flex; }
+  .nav-shell { width: calc(100% - 32px); min-height: 72px; gap: 8px; }
+  .menu-toggle { display: flex; width: 44px; height: 44px; flex: 0 0 44px; }
+  .header-tools { margin-left: 0; gap: 7px; }
   .primary-nav { position: absolute; top: calc(100% + 1px); left: 0; right: 0; padding: 13px 20px 20px; display: none; align-items: stretch; gap: 0; flex-direction: column; background: var(--paper); border-bottom: 1px solid var(--line); box-shadow: 0 17px 22px rgba(17,43,43,.08); }
   .primary-nav.is-open { display: flex; }
   .primary-nav > a:not(.button) { min-height: 47px; display: flex; align-items: center; font-size: 14px; border-bottom: 1px solid var(--line); }
-  .language-link span { font-size: 12px; }
   .nav-cta { margin-top: 14px; }
   .hero { padding-top: 40px; padding-bottom: 48px; display: flex; flex-direction: column; align-items: stretch; gap: 34px; }
   .hero-copy { padding-block: 0; }
@@ -637,6 +643,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .premium-lede { font-size: 15px; }
   .premium-price-summary { padding: 28px; }
   .premium-section-heading { gap: 40px; }
+}
+@media (max-width: 350px) {
+  .nav-shell { gap: 5px; }
+  .brand { gap: 7px; }
+  .brand-mark { width: 38px; height: 38px; }
+  .brand-wordmark { font-size: 18px; }
+  .header-tools { gap: 5px; }
+  .language-option { min-width: 35px; padding-inline: 4px; }
 }
 @media (max-width: 860px) {
   .premium-hero, .premium-offer, .premium-trust, .premium-audience, .premium-banking { grid-template-columns: 1fr; }
