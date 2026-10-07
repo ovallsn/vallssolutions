@@ -8,11 +8,11 @@ export function PricingPage({ locale }: { locale: Locale }) {
 
   return (
     <main id="contenido">
-      <header className="section-shell page-hero">
+      <header className="section-shell page-hero pricing-hero">
         <p className="breadcrumbs"><Link href={english ? "/" : "/es/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "Pricing" : "Precios"}</p>
-        <p className="eyebrow"><span className="eyebrow-line" />{english ? "Wyoming LLC · clear costs" : "LLC en Wyoming · costes claros"}</p>
-        <h1>{english ? "One formation price. A clear annual renewal." : "Un precio de formación. Una renovación anual clara."}</h1>
-        <p>{english ? "See what is included in the first year, what renews from year two, with the Annual Report state tax included." : "Consulta qué incluye el primer año, qué se renueva desde el segundo, con la tasa estatal del Annual Report incluida."}</p>
+        <p className="eyebrow"><span className="eyebrow-line" />{english ? "Wyoming LLC · clear pricing" : "LLC en Wyoming · precios claros"}</p>
+        <h1>{english ? "One formation price. One clear annual renewal." : "Un precio de formación y una renovación anual clara."}</h1>
+        <p>{english ? "Know what is included in the $699 formation package and the $449 annual renewal from year two." : "Conoce qué incluye el paquete de formación de $699 y la renovación anual de $449 desde el segundo año."}</p>
       </header>
 
       <section className="section-shell page-section pricing-page-grid">
@@ -21,33 +21,64 @@ export function PricingPage({ locale }: { locale: Locale }) {
           <p className="eyebrow eyebrow-light"><span className="eyebrow-line" />{english ? "From year two" : "Desde el segundo año"}</p>
           <h2>{english ? "Annual service renewal" : "Renovación anual del servicio"}</h2>
           <p className="annual-price">$449<span>{english ? "/year" : "/año"}</span></p>
-          <p>{english ? "Includes Registered Agent renewal, Wyoming mailing address, Annual Report filing and state tax, and website maintenance." : "Incluye Registered Agent, dirección postal de Wyoming, presentación y tasa estatal del Annual Report, y mantenimiento de la web."}</p>
+          <p>{english ? "Your ongoing Wyoming company essentials, in one annual service." : "Los servicios esenciales para mantener tu empresa en Wyoming, en una renovación anual."}</p>
           <ul>
-            <li>{english ? "Registered Agent service" : "Servicio de Registered Agent"}</li>
+            <li>{english ? "Registered Agent service" : "Agente registrado (Registered Agent)"}</li>
             <li>{english ? "Wyoming mailing address" : "Dirección postal de Wyoming"}</li>
-            <li>{english ? "Annual Report filing and state tax" : "Presentación y tasa estatal del Annual Report"}</li>
+            <li>{english ? "Annual Report filing and state tax" : "Presentación y tasa estatal del informe anual (Annual Report)"}</li>
             <li>{english ? "Website hosting and maintenance" : "Alojamiento y mantenimiento de la web"}</li>
           </ul>
-          <p className="annual-state-fee"><strong>{english ? "State tax included." : "Tasa estatal incluida."}</strong> {english ? "The $449 renewal includes filing your Wyoming Annual Report and paying its state tax." : "Los $449 de renovación incluyen presentar el Annual Report de Wyoming y pagar su tasa estatal."}</p>
-          <ContactActions locale={locale} emailLabel={english ? "Ask about the renewal" : "Consultar sobre la renovación"} />
+          <p className="annual-state-fee"><strong>{english ? "Annual Report and state tax included." : "Informe anual y tasa estatal incluidos."}</strong> {english ? "The renewal covers the Wyoming Annual Report filing and its state tax." : "La renovación cubre la presentación del informe anual (Annual Report) de Wyoming y su tasa estatal."}</p>
+          <ContactActions locale={locale} emailLabel={english ? "Ask about the annual renewal" : "Consultar sobre la renovación anual"} />
         </div>
       </section>
 
-      <section className="section-shell section-block">
-        <div className="page-highlight"><h2>{english ? "Your website stays with you" : "Los archivos de tu web son tuyos"}</h2><p>{english ? "Your website and business email are included in the $699 formation package. Continuing to host and maintain the website requires the $449 annual renewal. If you do not renew, we take the website offline and give you its files so you can arrange hosting elsewhere. We agree the website and email scope with you before you start." : "El paquete de $699 incluye tu página web y correo empresarial. Para mantener la web alojada y operativa se requiere la renovación anual de $449. Si no renuevas, la web deja de estar publicada y te entregamos sus archivos para que puedas alojarla por tu cuenta. Acordamos contigo el alcance de la web y el correo antes de empezar."}</p></div>
-      </section>
-
-      <section className="section-shell section-block">
+      <section className="section-shell section-block pricing-website">
         <div className="section-intro">
-          <p className="eyebrow"><span className="eyebrow-line" />{english ? "What banking support means" : "Qué significa la orientación bancaria"}</p>
-          <h2>{english ? "Guidance for your application, not an account-opening service." : "Orientación para solicitar, no apertura de la cuenta."}</h2>
+          <p className="eyebrow"><span className="eyebrow-line" />{english ? "Your business website" : "La web de tu empresa"}</p>
+          <h2>{english ? "A web presence is part of your first-year setup." : "Tu presencia web forma parte de la configuración inicial."}</h2>
         </div>
-        <div className="page-highlight"><p>{english ? "We explain the steps and documents for a business account application, including options such as Mercury or Wise when their requirements fit your situation. You apply directly; each provider makes its own decision. An LLC, EIN or mailing address does not guarantee approval." : "Te explicamos los pasos y documentos para solicitar una cuenta empresarial, incluidas opciones como Mercury o Wise si sus requisitos encajan con tu situación. Tú presentas la solicitud y cada proveedor decide. Tener LLC, EIN o dirección postal no garantiza la aprobación."}</p></div>
-        <div className="inline-links">
-          <Link href={english ? "/en/llc-formation/" : "/llc-formation/"}>{english ? "See LLC formation details" : "Ver los detalles de formación de LLC"}</Link>
-          <Link href={english ? "/en/blog/" : "/blog/"}>{english ? "Read our business guides" : "Leer las guías empresariales"}</Link>
+        <div className="page-copy">
+          <p>{english ? "The $699 formation package includes a company website and business email. The $449 annual renewal from year two includes hosting and maintenance for the website. If you do not renew, we take the site offline and provide its files so you can arrange hosting elsewhere." : "El paquete de formación de $699 incluye una página web empresarial y un correo de empresa. La renovación anual de $449 desde el segundo año incluye el alojamiento y mantenimiento de la web. Si no renuevas, la web deja de estar publicada y te entregamos sus archivos para que puedas alojarla en otro lugar."}</p>
+          <p>{english ? "We agree on the website and email scope before beginning so you know what will be delivered." : "Acordamos contigo el alcance de la web y del correo antes de empezar para que sepas qué recibirás."}</p>
         </div>
-        <p className="legal-note">{english ? "Valls Solutions provides company formation and administrative support. We are not a law firm, CPA firm, bank or immigration provider. Legal, tax and immigration requirements depend on each person's situation." : "Valls Solutions presta servicios de formación de empresas y apoyo administrativo. No somos un despacho legal, una firma de CPA, un banco ni un proveedor de servicios migratorios. Los requisitos legales, fiscales y migratorios dependen de cada situación."}</p>
+      </section>
+
+      <section className="banking-section pricing-banking">
+        <div className="section-shell banking-layout">
+          <div>
+            <p className="eyebrow"><span className="eyebrow-line" />{english ? "Business banking preparation" : "Preparación bancaria empresarial"}</p>
+            <h2>{english ? "Guidance for a business bank application is included." : "La orientación para solicitar una cuenta empresarial está incluida."}</h2>
+          </div>
+          <div>
+            <p className="banking-lede">{english ? "We explain the application steps and help you prepare company documents for providers such as Mercury or Wise when appropriate. You submit the application directly; each provider reviews it under its own criteria." : "Te explicamos los pasos y te ayudamos a preparar los documentos de la empresa para proveedores como Mercury o Wise cuando corresponda. Tú presentas la solicitud directamente y cada proveedor la revisa según sus propios criterios."}</p>
+          <p className="banking-scope-note">{english ? "You submit your application directly to the bank or financial platform; we help you prepare the company documents and understand the steps." : "Presentas la solicitud directamente al banco o plataforma financiera; te ayudamos a preparar los documentos de la empresa y a entender los pasos."}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-shell section-block pricing-faq">
+        <div className="section-intro">
+          <p className="eyebrow"><span className="eyebrow-line" />{english ? "Package details" : "Detalles del paquete"}</p>
+          <h2>{english ? "A few details, answered." : "Algunas respuestas importantes."}</h2>
+        </div>
+        <div className="faq-list">
+          <details><summary>{english ? "When does the Annual Report renewal begin?" : "¿Cuándo comienza la renovación del Annual Report?"}</summary><p>{english ? "The first Wyoming Annual Report is filed with the $449 annual renewal, beginning in year two. The renewal includes the filing and state tax." : "El primer informe anual (Annual Report) de Wyoming se presenta con la renovación de $449, desde el segundo año. La renovación incluye la presentación y la tasa estatal."}</p></details>
+          <details><summary>{english ? "Is the Wyoming formation fee included in $699?" : "¿La tasa de formación de Wyoming está incluida en los $699?"}</summary><p>{english ? "Yes. The published $699 package includes the Wyoming state formation filing fee." : "Sí. El paquete publicado de $699 incluye la tasa estatal de formación en Wyoming."}</p></details>
+          <details><summary>{english ? "Do you open the bank account for the company?" : "¿Abrís la cuenta bancaria de la empresa?"}</summary><p>{english ? "We help you prepare the application and explain the process. You apply directly to the provider, which makes its own decision." : "Te ayudamos a preparar la solicitud y te explicamos el proceso. Tú la presentas directamente al proveedor, que toma su propia decisión."}</p></details>
+        </div>
+        <p className="legal-note">{english ? "Valls Solutions provides company formation and administrative support. A qualified professional can advise on legal or tax questions specific to your circumstances." : "Valls Solutions ofrece formación de empresas y apoyo administrativo. Un profesional cualificado puede orientarte sobre cuestiones legales o fiscales de tu situación."}</p>
+      </section>
+
+      <section className="closing-cta">
+        <div className="section-shell closing-layout">
+          <div>
+            <p className="eyebrow eyebrow-light"><span className="eyebrow-line" />{english ? "Ready to start?" : "¿Empezamos?"}</p>
+            <h2>{english ? "Tell us about your LLC plans." : "Cuéntanos tu plan para crear una LLC."}</h2>
+            <p>{english ? "A short email is all you need for the first conversation." : "Un email breve basta para iniciar la conversación."}</p>
+          </div>
+          <ContactActions locale={locale} emailLabel={english ? "Start by email" : "Empezar por email"} />
+        </div>
       </section>
     </main>
   );

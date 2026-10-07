@@ -19,7 +19,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
           <h2>{english ? "Write when it suits you." : "Escríbenos cuando te venga bien."}</h2>
           <p>{english ? "A brief message is enough for us to understand your question." : "Un mensaje breve basta para entender tu consulta."}</p>
           <a className="contact-email" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          <div className="contact-safety"><p>{english ? "Please do not email SSNs, ITINs, passport numbers, dates of birth or identity documents. We only discuss any necessary documents after agreeing on the service and an appropriate channel." : "No envíes SSN, ITIN, números de pasaporte, fechas de nacimiento ni documentos de identidad por email. Solo hablaremos de documentos necesarios después de acordar el servicio y un canal apropiado."}</p></div>
+          <div className="contact-safety"><p>{english ? "For your privacy, keep SSNs, ITINs, passport numbers, dates of birth and identity documents out of email. If a document is needed, we will explain the next step after confirming the service." : "Para proteger tu privacidad, no incluyas SSN, ITIN, números de pasaporte, fechas de nacimiento ni documentos de identidad en el email. Si necesitamos algún documento, te explicaremos cómo continuar después de confirmar el servicio."}</p></div>
         </div>
         <div className="page-copy">
           <h2>{english ? "What to include in your first message" : "Qué incluir en el primer mensaje"}</h2>
@@ -28,7 +28,6 @@ export function ContactPage({ locale }: { locale: Locale }) {
             <li>{english ? "A short description of your business activity" : "Una breve descripción de la actividad del negocio"}</li>
             <li>{english ? "Whether you already have a state in mind" : "Si ya tienes un estado en mente"}</li>
           </ul>
-          <p>{english ? "We offer formation and administrative support. We do not provide legal, tax or immigration advice, and bank account decisions are made by the financial provider." : "Ofrecemos formación y apoyo administrativo. No damos asesoramiento legal, fiscal ni migratorio, y la decisión sobre una cuenta bancaria corresponde al proveedor financiero."}</p>
           <ContactActions locale={locale} emailLabel={english ? "Start an email" : "Preparar un email"} />
         </div>
       </section>

@@ -1,5 +1,7 @@
 export const SITE_URL = "https://vallssolutions.com";
 export const CONTACT_EMAIL = "info@vallssolutions.com";
+// The portal link stays out of the static site until a real customer portal URL is configured.
+export const CLIENT_PORTAL_URL = process.env.NEXT_PUBLIC_CLIENT_PORTAL_URL?.trim() || null;
 
 // Add the verified WhatsApp Business number in international format once it is supplied.
 export const WHATSAPP_NUMBER: string | null = null;

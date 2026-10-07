@@ -4,8 +4,8 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   locale: "en",
-  path: "/en/contact/",
-  translatedPath: "/contacto/",
+  path: "/contact/",
+  translatedPath: "/es/contacto/",
   title: "Contact Valls Solutions about a U.S. LLC",
   description: "Ask by email about forming a Wyoming LLC. Start with a short business description; do not send identity documents or sensitive numbers.",
 });

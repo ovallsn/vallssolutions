@@ -1,16 +1,14 @@
 import type { MetadataRoute } from "next";
 import { BLOG_ARTICLES } from "@/content/blog/catalog";
 import { absoluteUrl } from "@/lib/site";
+import { ROUTES, blogPath } from "@/lib/routes";
 
 export const dynamic = "force-static";
 
-const localizedPages = [
-  { es: "/es/", en: "/", priority: 1 },
-  { es: "/llc-formation/", en: "/en/llc-formation/", priority: 0.9 },
-  { es: "/pricing/", en: "/en/pricing/", priority: 0.8 },
-  { es: "/contacto/", en: "/en/contact/", priority: 0.6 },
-  { es: "/blog/", en: "/en/blog/", priority: 0.8 },
-];
+const priorities = { home: 1, formation: 0.9, pricing: 0.8, about: 0.6, contact: 0.6, blog: 0.8 };
+const localizedPages = Object.entries(ROUTES).map(([key, paths]) => ({
+  ...paths, priority: priorities[key as keyof typeof priorities],
+}));
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = localizedPages.flatMap(({ es, en, priority }) => [
@@ -29,12 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]);
 
   const articles: MetadataRoute.Sitemap = BLOG_ARTICLES.map((article) => {
-    const ownPath = article.locale === "es"
-      ? `/blog/${article.slug}/`
-      : `/en/blog/${article.slug}/`;
-    const translatedPath = article.locale === "es"
-      ? `/en/blog/${article.translatedSlug}/`
-      : `/blog/${article.translatedSlug}/`;
+    const ownPath = blogPath(article.locale, article.slug);
+    const translatedPath = blogPath(article.locale === "es" ? "en" : "es", article.translatedSlug);
     const esPath = article.locale === "es" ? ownPath : translatedPath;
     const enPath = article.locale === "en" ? ownPath : translatedPath;
 

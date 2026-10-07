@@ -4,10 +4,10 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   locale: "en",
-  path: "/en/llc-formation/",
-  translatedPath: "/llc-formation/",
-  title: "Wyoming LLC Formation Service",
-  description: "Form a Wyoming LLC with state filing, EIN, first-year Registered Agent and mailing address. A $699 service for U.S. and international founders.",
+  path: "/llc-formation/",
+  translatedPath: "/es/crear-llc/",
+  title: "Wyoming LLC Formation: Package and Process",
+  description: "See how Wyoming LLC formation works with EIN application handling, first-year Registered Agent and address, website, business email and bank application guidance.",
 });
 
 export default function EnglishLLCFormationRoute() {

@@ -4,10 +4,10 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   locale: "es",
-  path: "/blog/",
-  translatedPath: "/en/blog/",
-  title: "Blog sobre LLC en Wyoming, impuestos y empresas en EE. UU.",
-  description: "Guías claras sobre cómo crear una LLC en Wyoming, obligaciones fiscales, formación de empresas estadounidenses y servicios para emprendedores.",
+  path: "/es/blog/",
+  translatedPath: "/blog/",
+  title: "Guías sobre LLC, Wyoming, EIN e impuestos de EE. UU.",
+  description: "Artículos prácticos sobre cómo crear una LLC en EE. UU., los requisitos de Wyoming, la solicitud del EIN y la clasificación fiscal empresarial.",
 });
 
 export default function BlogPage() {

@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node --experimental-strip-types scripts/write-redirects.mjs",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "audit:seo": "node scripts/audit-export.mjs",
+    "audit:seo": "node --experimental-strip-types scripts/audit-export.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.mjs"
   },
   "dependencies": {

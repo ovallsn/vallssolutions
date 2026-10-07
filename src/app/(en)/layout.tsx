@@ -6,8 +6,8 @@ import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "U.S. LLC Formation | Valls Solutions", template: "%s | Valls Solutions" },
-  description: "Form a Wyoming LLC for $699, including your EIN, first-year Registered Agent and mailing address. Administrative support for U.S. and international founders.",
+  title: { default: "Wyoming LLC Formation | Valls Solutions", template: "%s | Valls Solutions" },
+  description: "Form a Wyoming LLC for $699 with EIN handling, Registered Agent, mailing address, website, business email and guidance for your business bank application.",
   icons: { icon: "/assets/favicon.svg" },
   applicationName: "Valls Solutions",
 };

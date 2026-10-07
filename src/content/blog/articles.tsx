@@ -12,19 +12,23 @@ import UsVisaEn from "@/content/blog/articles/en/llc-us-visa.mdx";
 import ThailandVisaEn from "@/content/blog/articles/en/business-owner-thailand-visa.mdx";
 import EinEs from "@/content/blog/articles/es/ein-o-itin.mdx";
 import EinEn from "@/content/blog/articles/en/ein-vs-itin.mdx";
+import NeedLlcEs from "@/content/blog/articles/es/necesito-una-llc.mdx";
+import NeedLlcEn from "@/content/blog/articles/en/do-i-need-an-llc.mdx";
 
 export type BlogPost = (typeof BLOG_ARTICLES)[number] & { Content: MDXContent };
 
 const contentByKey: Record<string, MDXContent> = {
   "es/ein-o-itin": EinEs,
   "en/ein-vs-itin": EinEn,
+  "es/necesito-una-llc": NeedLlcEs,
+  "en/do-i-need-an-llc": NeedLlcEn,
   "es/llc-wyoming": WyomingEs,
-  "es/llc-en-estados-unidos": UsLlcEs,
+  "es/llc-para-no-residentes": UsLlcEs,
   "es/llc-impuestos": TaxesEs,
   "es/llc-visado-estados-unidos": UsVisaEs,
   "es/empresa-y-visados-tailandia": ThailandVisaEs,
   "en/wyoming-llc": WyomingEn,
-  "en/us-llc": UsLlcEn,
+  "en/llc-for-non-us-residents": UsLlcEn,
   "en/llc-taxes": TaxesEn,
   "en/llc-us-visa": UsVisaEn,
   "en/business-owner-thailand-visa": ThailandVisaEn,

@@ -4,7 +4,7 @@ Bilingual website for Wyoming LLC formation and administrative support for U.S. 
 
 ## Local development
 
-Requirements: Node.js 20.9 or newer and npm.
+Requirements: Node.js 24 or newer and npm (the export scripts use native TypeScript stripping).
 
 ```bash
 npm ci
@@ -22,19 +22,26 @@ npm run audit:seo
 
 ## Public routes
 
-- `/` — English default homepage; `/es/` — Spanish homepage; `/en/` remains as a non-indexable compatibility alias for the English homepage
-- `/llc-formation/` and `/en/llc-formation/` — formation package details
-- `/pricing/` and `/en/pricing/` — initial price, renewal and state-fee explanation
-- `/contacto/` and `/en/contact/` — email contact, with no public document or sensitive-data collection
-- `/blog/` and `/en/blog/` — localized article archives
-- `/blog/[slug]/` and `/en/blog/[slug]/` — statically generated localized MDX articles
+- `/` (English) and `/es/` (Spanish) — homepages
+- `/llc-formation/` and `/es/crear-llc/` — formation package details
+- `/pricing/` and `/es/precios/` — initial price and annual renewal
+- `/about/` and `/es/nosotros/` — experience and service scope
+- `/contact/` and `/es/contacto/` — email contact without document collection
+- `/blog/` and `/es/blog/` — localized article archives
+- `/blog/[slug]/` and `/es/blog/[slug]/` — localized MDX guides
 - `/sitemap.xml` and `/robots.txt` — generated crawl files
 
-English is the default homepage language. Spanish is available at `/es/`; the language selector links to each page's translation where one exists. The legacy `/en/` homepage URL canonicalizes to `/` and is excluded from indexing. Each localized page has its own title, description, canonical URL and `hreflang` alternatives.
+English is the default language; all Spanish content lives under `/es/`. The language selector links to the equivalent page or article. Every canonical page has unique metadata and reciprocal `hreflang`. `src/lib/routes.ts` holds the page paths.
+
+After `next build`, the postbuild script emits compatibility redirects for historical `/en/` pages, old Spanish article paths and `index.html` bookmarks. They point directly to current canonical pages and remain outside the sitemap. GitHub Pages does not support custom HTTP 301/308 rules, so these use immediate HTML refresh plus `location.replace`, a canonical link and a manual fallback link. Unrecognized URLs remain real 404s; do not redirect unrelated URLs to the homepage.
+
+## Future customer portal
+
+The marketing site is a static export and does not provide customer authentication or store LLC records. Header and footer portal links are rendered only when `NEXT_PUBLIC_CLIENT_PORTAL_URL` is set during the build. Configure that public URL after the separate client dashboard is ready; authentication, LLC documents and customer data belong in that secure application.
 
 ## Offer facts — review before changing public copy
 
-- $699 one time for initial Wyoming formation, including the state formation fee, EIN application handling, first-year Registered Agent, first-year Wyoming mailing address website, business email and banking application guidance. The initial package does not include an Annual Report.
+- $699 one time for initial Wyoming formation, including the state formation fee, EIN application handling, first-year Registered Agent, first-year Wyoming mailing address, website, business email and banking application guidance. The initial package does not include an Annual Report.
 - $449/year from year two includes Registered Agent, mailing address, Annual Report filing and state tax, plus website hosting and maintenance.
 - If renewal is declined, the website goes offline and its files are handed to the customer. Website/email scope is agreed before starting.
 - Banking support is application guidance only. The customer submits the application and the financial provider makes its own decision.
@@ -56,6 +63,6 @@ Confirm these details against the current provider terms before changing the off
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/nextjs.yml` builds the static export and publishes it when changes reach `main` or a workflow is started manually. After merging this migration, open **Repository Settings → Pages** and set the publishing source to **GitHub Actions**. The custom-domain `CNAME` file is copied from `public/CNAME` into the export.
+The owner has authorized publishing completed, checked changes directly to `main`. The workflow in `.github/workflows/nextjs.yml` checks types, runs tests, builds the static export, audits SEO and publishes when changes reach `main`. The custom-domain `CNAME` is copied from `public/CNAME` into the export. Pages is configured to publish with GitHub Actions.
 
-The workflow does not change repository settings. If the Pages source is currently set to branch publishing, switch it after merging before expecting the new site to publish.
+Keep the current remote main history, never force-push, and verify both the workflow and public routes after deployment.

@@ -404,3 +404,112 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Homepage: put the offer, proof and practical value ahead of the detail. */
+.home-hero { padding-top: 48px; padding-bottom: 46px; }
+.home-hero .hero-copy { max-width: 650px; }
+.home-hero h1 { max-width: 700px; }
+.home-hero .hero-price-note { margin-top: 20px; }
+.home-hero .hero-contact-note { margin-top: 5px; }
+.home-proof { margin-bottom: 8px; }
+.home-proof > div { gap: 15px; padding-left: 25px; }
+.home-proof .proof-value { min-width: 85px; font-size: 40px; }
+.home-proof .proof-language { min-width: 85px; font-size: 20px; }
+
+.home-why { display: grid; grid-template-columns: minmax(250px, .82fr) minmax(0, 1.18fr); align-items: start; gap: clamp(45px, 8vw, 115px); }
+.home-why-intro { max-width: 500px; }
+.home-why-intro h2, .home-package-copy h2, .about-story h2 { margin: 0; font-family: var(--display); font-size: clamp(36px, 4.2vw, 54px); font-weight: 400; letter-spacing: -.055em; line-height: 1.08; text-wrap: balance; }
+.home-why-intro > p:not(.eyebrow) { margin: 20px 0 23px; color: var(--ink-soft); font-size: 16px; }
+.home-reasons { border-top: 1px solid var(--line); }
+.home-reason { padding: 23px 0; display: grid; grid-template-columns: 36px minmax(0,1fr); gap: 17px; border-bottom: 1px solid var(--line); }
+.home-reason-index { padding-top: 3px; color: var(--orange-deep); font-size: 11px; font-weight: 750; letter-spacing: .12em; }
+.home-reason h3 { margin: 0 0 6px; font-size: 19px; font-weight: 650; letter-spacing: -.025em; }
+.home-reason p { max-width: 650px; margin: 0; color: var(--muted); font-size: 14px; }
+
+.home-package-band { padding-block: 86px; background: var(--green-deep); color: white; }
+.home-package { display: grid; grid-template-columns: minmax(0,.92fr) minmax(360px,.8fr); align-items: start; gap: clamp(45px,8vw,110px); }
+.home-package-copy { max-width: 520px; padding-top: 15px; }
+.home-package-copy h2 { max-width: 500px; }
+.home-package-copy > p:not(.eyebrow) { margin: 21px 0 0; color: #d2ddd7; font-size: 16px; }
+.home-package-note { margin-top: 30px; padding-top: 19px; display: grid; grid-template-columns: 25px 1fr; gap: 10px; border-top: 1px solid rgba(255,255,255,.25); color: #f1b194; }
+.home-package-note p { margin: 0; color: #e1e7e2; font-size: 13px; }
+.home-package-link { margin-top: 24px; color: white; }
+.home-package-link:hover { color: #f0bb9e; }
+.home-package .price-card { box-shadow: 0 18px 65px rgba(0,0,0,.13); }
+
+.home-banking-layout { grid-template-columns: 1fr .92fr; }
+.home-banking-steps { margin: 0; padding: 0; list-style: none; }
+.home-banking-steps > li { padding: 17px 0; display: grid; grid-template-columns: 35px 1fr; gap: 15px; border-bottom: 1px solid #c9cac1; }
+.home-banking-steps > li:first-child { border-top: 1px solid #c9cac1; }
+.home-banking-steps > li > span { color: var(--orange-deep); font-size: 10px; font-weight: 750; }
+.home-banking-steps h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700; }
+.home-banking-steps p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+
+.home-guides .section-intro { margin-bottom: 30px; }
+.featured-guide { min-height: 194px; margin-bottom: 28px; padding: 27px 30px; display: grid; grid-template-columns: 115px minmax(0,1fr) 42px; align-items: center; gap: 25px; background: #e8ede8; border-left: 3px solid var(--green); text-decoration: none; transition: background .18s ease; }
+.featured-guide:hover { background: #dce6df; }
+.featured-guide-label { align-self: stretch; display: flex; align-items: center; color: var(--green); font-family: var(--display); font-size: 25px; font-style: italic; }
+.featured-guide h2, .featured-guide h3 { max-width: 650px; margin: 8px 0 7px; font-family: var(--display); font-size: clamp(24px,3vw,33px); font-weight: 400; letter-spacing: -.035em; line-height: 1.14; }
+.featured-guide p:not(.journal-category) { margin: 0; color: var(--muted); font-size: 13px; }
+.featured-guide .journal-category { margin: 0; color: var(--green); font-size: 9px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.featured-guide .journal-arrow { justify-self: end; }
+.home-page .home-guide-list { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; border-top: 0; }
+.home-guide-list .journal-entry { padding-top: 15px; display: grid; grid-template-columns: minmax(0,1fr) 34px; align-items: start; gap: 10px; border-top: 1px solid var(--line); text-decoration: none; }
+.home-guide-list .journal-entry > .journal-category { grid-column: 1 / -1; margin: 0; color: var(--green); font-size: 9px; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+.home-guide-list .journal-entry h3 { margin: 0 0 8px; color: var(--ink); font-family: var(--display); font-size: 23px; font-weight: 400; letter-spacing: -.03em; line-height: 1.16; }
+.home-guide-list .journal-entry p { margin: 0; color: var(--muted); font-size: 12px; }
+.home-guide-list .journal-arrow { grid-column: 2; grid-row: 2 / span 2; }
+.home-guides .journal-more { margin-top: 28px; }
+
+.about-story { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(45px,9vw,130px); }
+.about-story h2 { max-width: 480px; }
+.about-story-copy { max-width: 720px; }
+.about-story-copy p { margin-top: 0; color: var(--ink-soft); font-size: 16px; }
+.about-points { margin: 30px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.about-points li { padding: 17px 0; border-bottom: 1px solid var(--line); }
+.about-points strong { display: block; margin-bottom: 3px; color: var(--ink); font-size: 15px; }
+.about-points span { display: block; color: var(--muted); font-size: 13px; }
+.about-cta { margin-top: 32px; }
+.price-renewal p { margin: 6px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.formation-details { margin: 28px 0 48px; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.formation-details li { padding: 20px 0; display: grid; grid-template-columns: 34px minmax(0,1fr); gap: 16px; border-bottom: 1px solid var(--line); }
+.formation-details li > span { padding-top: 4px; color: var(--orange-deep); font-size: 10px; font-weight: 750; letter-spacing: .12em; }
+.formation-details h3 { margin: 0 0 5px; color: var(--ink); font-size: 17px; font-weight: 680; }
+.formation-details p { margin: 0; color: var(--muted); font-size: 13px; }
+.formation-side-panel { position: sticky; top: 105px; }
+.formation-side-panel h2 { margin: 0; color: var(--green); font-family: var(--display); font-size: clamp(34px,4vw,46px); font-weight: 400; letter-spacing: -.04em; }
+.formation-side-panel .formation-renewal-price { margin: 18px 0 4px; color: var(--ink); font-size: 14px; }
+.formation-price-divider { height: 1px; margin-top: 22px; background: var(--line); }
+.pricing-website { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(45px,8vw,110px); align-items: start; }
+.pricing-website .section-intro { margin: 0; }
+.pricing-website .page-copy p { margin-top: 0; }
+.pricing-banking .banking-scope-note { margin-top: 18px; padding-top: 14px; border-top: 1px solid #c9cac1; color: var(--ink-soft); font-size: 13px; }
+.pricing-faq .legal-note { margin-top: 25px; }
+
+@media (max-width: 860px) {
+  .home-why, .home-package, .home-banking-layout, .about-story { grid-template-columns: 1fr; }
+  .home-why { gap: 35px; }
+  .home-package { gap: 34px; }
+  .home-package-copy { max-width: 650px; }
+  .home-package .price-card { width: min(100%, 620px); }
+  .home-banking-layout { gap: 35px; }
+  .about-story { gap: 30px; }
+  .pricing-website { grid-template-columns: 1fr; gap: 25px; }
+  .formation-side-panel { position: static; }
+}
+@media (max-width: 720px) {
+  .home-hero { padding-top: 36px; }
+  .home-proof { margin-top: 0; }
+  .home-proof > div { padding-left: 0; }
+  .home-proof .proof-value, .home-proof .proof-language { min-width: 95px; }
+  .home-package-band { padding-block: 65px; }
+  .home-package-copy { padding-top: 0; }
+  .home-package .price-card { padding: 25px 22px; }
+  .home-banking-steps > li { grid-template-columns: 28px 1fr; }
+  .featured-guide { padding: 21px; grid-template-columns: 1fr 34px; gap: 12px; }
+  .featured-guide-label { grid-column: 1 / -1; min-height: 30px; font-size: 19px; }
+  .featured-guide > div { grid-column: 1; grid-row: 2; }
+  .featured-guide .journal-arrow { grid-column: 2; grid-row: 2; }
+  .home-page .home-guide-list { grid-template-columns: 1fr; gap: 22px; }
+  .about-story-copy p { font-size: 15px; }
+}

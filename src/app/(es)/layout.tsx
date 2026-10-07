@@ -6,8 +6,8 @@ import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "Formación de LLC en Estados Unidos | Valls Solutions", template: "%s | Valls Solutions" },
-  description: "Crea tu LLC en Wyoming por $699 con EIN, Registered Agent y dirección postal del primer año. Acompañamiento administrativo para fundadores en EE. UU. y en el extranjero.",
+  title: { default: "Formación de LLC en Wyoming | Valls Solutions", template: "%s | Valls Solutions" },
+  description: "Crea tu LLC en Wyoming por $699 con gestión del EIN, Registered Agent, dirección postal, web, correo empresarial y orientación bancaria.",
   icons: { icon: "/assets/favicon.svg" },
   applicationName: "Valls Solutions",
 };

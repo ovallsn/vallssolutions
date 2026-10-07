@@ -31,6 +31,8 @@ jobs:
         run: npm test
       - name: Build static site
         run: npm run build
+      - name: Audit canonical pages and legacy redirects
+        run: npm run audit:seo
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

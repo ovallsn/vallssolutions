@@ -3,48 +3,41 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { mailtoHref, type Locale } from "@/lib/site";
+import { CLIENT_PORTAL_URL, mailtoHref, type Locale } from "@/lib/site";
 import { BLOG_ARTICLES } from "@/content/blog/catalog";
+import { ROUTES, blogPath } from "@/lib/routes";
 
 type SiteHeaderProps = {
   locale: Locale;
 };
 
-const translatedRoutes: Record<string, string> = {
-  "/": "/es/",
-  "/es/": "/",
-  "/en/": "/es/",
-  "/pricing/": "/en/pricing/",
-  "/en/pricing/": "/pricing/",
-  "/llc-formation/": "/en/llc-formation/",
-  "/en/llc-formation/": "/llc-formation/",
-  "/contacto/": "/en/contact/",
-  "/en/contact/": "/contacto/",
-};
+const translatedRoutes: Record<string, string> = Object.fromEntries(
+  Object.values(ROUTES).flatMap(({ en, es }) => [[en, es], [es, en]]),
+);
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const english = locale === "en";
   const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
-  const currentArticle = BLOG_ARTICLES.find((article) => `${article.locale === "en" ? "/en" : ""}/blog/${article.slug}/` === normalizedPath);
+  const currentArticle = BLOG_ARTICLES.find((article) => blogPath(article.locale, article.slug) === normalizedPath);
   const languageHref = currentArticle
-    ? `${english ? "" : "/en"}/blog/${currentArticle.translatedSlug}/`
+    ? blogPath(english ? "es" : "en", currentArticle.translatedSlug)
     : translatedRoutes[normalizedPath] ?? (english ? "/es/" : "/");
   const nav = english
     ? [
-        { href: "/#services", label: "Services" },
+        { href: "/llc-formation/", label: "LLC formation" },
+        { href: "/pricing/", label: "Pricing" },
         { href: "/#process", label: "How it works" },
-        { href: "/en/llc-formation/", label: "LLC formation" },
-        { href: "/en/pricing/", label: "Pricing" },
-        { href: "/en/blog/", label: "Blog" },
+        { href: "/blog/", label: "Guides" },
+        { href: "/about/", label: "About" },
       ]
     : [
-        { href: "/es/#servicios", label: "Servicios" },
+        { href: "/es/crear-llc/", label: "Formación LLC" },
+        { href: "/es/precios/", label: "Precios" },
         { href: "/es/#proceso", label: "Cómo funciona" },
-        { href: "/llc-formation/", label: "Formación LLC" },
-        { href: "/pricing/", label: "Precios" },
-        { href: "/blog/", label: "Blog" },
+        { href: "/es/blog/", label: "Guías" },
+        { href: "/es/nosotros/", label: "Nosotros" },
       ];
 
   return (
@@ -72,6 +65,11 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             {nav.map((item) => (
               <Link key={item.href} href={item.href} onClick={() => setMenuOpen(false)}>{item.label}</Link>
             ))}
+            {CLIENT_PORTAL_URL && (
+              <a href={CLIENT_PORTAL_URL} target="_blank" rel="noopener noreferrer">
+                {english ? "Client portal" : "Área de clientes"}
+              </a>
+            )}
             <Link className="language-link" href={languageHref} lang={english ? "es" : "en"} hrefLang={english ? "es" : "en"} onClick={() => setMenuOpen(false)}>
               {english ? <>ES <span>Español</span></> : <>EN <span>English</span></>}
             </Link>

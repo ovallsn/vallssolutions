@@ -4,10 +4,10 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   locale: "es",
-  path: "/llc-formation/",
-  translatedPath: "/en/llc-formation/",
-  title: "Formación de LLC en Wyoming",
-  description: "Forma tu LLC en Wyoming con presentación estatal, EIN, Registered Agent y dirección postal del primer año. Servicio de $699 para fundadores en EE. UU. y en el extranjero.",
+  path: "/es/crear-llc/",
+  translatedPath: "/llc-formation/",
+  title: "Formación de LLC en Wyoming: paquete y pasos",
+  description: "Conoce el proceso de formación en Wyoming con gestión del EIN, Registered Agent y dirección del primer año, web, correo y orientación bancaria.",
 });
 
 export default function SpanishLLCFormationRoute() {

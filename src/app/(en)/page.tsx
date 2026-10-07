@@ -7,8 +7,8 @@ export const metadata: Metadata = pageMetadata({
   locale: "en",
   path: "/",
   translatedPath: "/es/",
-  title: "Form a U.S. LLC",
-  description: "Start your Wyoming LLC for $699 with state filing, EIN, registered agent and mailing address. Personal support for U.S. and international founders.",
+  title: "Wyoming LLC Formation with EIN & Banking Guidance",
+  description: "Form a Wyoming LLC for $699 with state filing, EIN handling, Registered Agent, mailing address, website, business email and banking application guidance.",
 });
 
 const organization = {
@@ -17,7 +17,7 @@ const organization = {
   name: "Valls Solutions",
   url: SITE_URL,
   email: "info@vallssolutions.com",
-  description: "Wyoming LLC formation and administrative support for founders in the United States and abroad.",
+  description: "Wyoming LLC formation and administrative support for U.S. and international founders, with EIN application handling and business banking guidance.",
   mainEntityOfPage: absoluteUrl("/"),
 };
 

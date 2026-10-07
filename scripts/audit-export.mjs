@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { legacyRoutes } from "./legacy-routes.mjs";
 
 // Audit the actual static output, including links that span localized routes.
 const origin = "https://vallssolutions.com";
@@ -56,6 +57,7 @@ for (const [value, { html, languages }] of pages) {
     const target = new URL(href.replaceAll("&amp;", "&"), value);
     if (target.origin !== origin) continue;
     assert.ok(fs.existsSync(fileFor(target)), `Broken internal link ${href} in ${value}`);
+    assert.ok(pages.has(`${target.origin}${target.pathname}`), `Internal link uses a legacy/noncanonical page ${href} in ${value}`);
     if (target.hash) {
       const targetHtml = pages.get(`${target.origin}${target.pathname}`)?.html ?? read(target);
       assert.ok(targetHtml.includes(`id="${decodeURIComponent(target.hash.slice(1))}"`), `Broken anchor ${href} in ${value}`);
@@ -64,7 +66,14 @@ for (const [value, { html, languages }] of pages) {
 }
 
 assert.ok(!urls.includes(`${origin}/en/`), "Legacy alias must stay outside sitemap");
-assert.match(read(new URL(`${origin}/en/`)), /name="robots" content="noindex, follow"/);
+for (const [from, to] of legacyRoutes()) {
+  const html = read(new URL(from, origin));
+  assert.ok(!urls.includes(`${origin}${from}`), `Legacy URL in sitemap: ${from}`);
+  assert.match(html, /name="robots" content="noindex, follow"/);
+  assert.ok(html.includes(`rel="canonical" href="${origin}${to}"`), `Legacy canonical mismatch: ${from}`);
+  assert.ok(html.includes(`http-equiv="refresh" content="0;url=${to}"`), `Missing immediate redirect: ${from}`);
+  assert.ok(pages.has(`${origin}${to}`), `Redirect chain or broken target: ${from}`);
+}
 assert.ok(fs.existsSync(path.join(root, "404.html")), "Missing static 404");
 assert.match(fs.readFileSync(path.join(root, "robots.txt"), "utf8"), /Sitemap: https:\/\/vallssolutions.com\/sitemap.xml/);
 console.log(`SEO export audit passed: ${urls.length} canonical pages, unique metadata, reciprocal languages, H1s, JSON-LD syntax, social images and internal links.`);

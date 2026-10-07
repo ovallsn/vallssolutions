@@ -9,17 +9,17 @@ type PageProps = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return listBlogPosts("en").map(({ slug }) => ({ slug }));
+  return listBlogPosts("es").map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const post = findBlogPost("en", slug);
+  const post = findBlogPost("es", slug);
   if (!post) return {};
 
   return pageMetadata({
-    locale: "en",
-    path: `/en/blog/${post.slug}/`,
+    locale: "es",
+    path: `/es/blog/${post.slug}/`,
     translatedPath: `/blog/${post.translatedSlug}/`,
     title: post.title,
     description: post.description,
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function BlogArticleRoute({ params }: PageProps) {
   const { slug } = await params;
-  const post = findBlogPost("en", slug);
+  const post = findBlogPost("es", slug);
   if (!post) notFound();
-  return <BlogArticlePage locale="en" post={post} />;
+  return <BlogArticlePage locale="es" post={post} />;
 }

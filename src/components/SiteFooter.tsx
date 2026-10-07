@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CONTACT_EMAIL, type Locale } from "@/lib/site";
+import { CLIENT_PORTAL_URL, CONTACT_EMAIL, type Locale } from "@/lib/site";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const english = locale === "en";
@@ -15,11 +15,13 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </div>
         <div className="footer-nav">
           <strong>{english ? "Explore" : "Explora"}</strong>
-          <Link href={english ? "/en/llc-formation/" : "/llc-formation/"}>{english ? "LLC formation" : "Formación de LLC"}</Link>
-          <Link href={english ? "/en/pricing/" : "/pricing/"}>{english ? "Pricing" : "Precios"}</Link>
-          <Link href={english ? "/en/blog/" : "/blog/"}>{english ? "Guides and blog" : "Guías y blog"}</Link>
+          <Link href={english ? "/llc-formation/" : "/es/crear-llc/"}>{english ? "LLC formation" : "Formación de LLC"}</Link>
+          <Link href={english ? "/pricing/" : "/es/precios/"}>{english ? "Pricing" : "Precios"}</Link>
+          <Link href={english ? "/about/" : "/es/nosotros/"}>{english ? "About Valls Solutions" : "Sobre Valls Solutions"}</Link>
+          <Link href={english ? "/blog/" : "/es/blog/"}>{english ? "Guides and blog" : "Guías y blog"}</Link>
           <Link href={english ? "/#process" : "/es/#proceso"}>{english ? "How it works" : "Cómo funciona"}</Link>
-          <Link href={english ? "/en/contact/" : "/contacto/"}>{english ? "Contact / support" : "Contacto y soporte"}</Link>
+          <Link href={english ? "/contact/" : "/es/contacto/"}>{english ? "Contact / support" : "Contacto y soporte"}</Link>
+          {CLIENT_PORTAL_URL && <a href={CLIENT_PORTAL_URL} target="_blank" rel="noopener noreferrer">{english ? "Client portal" : "Área de clientes"}</a>}
         </div>
         <div className="footer-nav">
           <strong>{english ? "Contact" : "Contacto"}</strong>
@@ -31,7 +33,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       </div>
       <div className="section-shell footer-bottom">
         <span>© 2026 Valls Solutions LLC</span>
-        <span>{english ? "Company formation and administrative support. We are not a law firm or CPA firm." : "Formación de empresas y apoyo administrativo. No somos un despacho legal ni una firma de CPA."}</span>
+        <span>{english ? "Company formation and administrative support. Consult a qualified professional for legal or tax advice." : "Formación de empresas y apoyo administrativo. Para asesoramiento legal o fiscal, consulta a un profesional cualificado."}</span>
       </div>
     </footer>
   );
