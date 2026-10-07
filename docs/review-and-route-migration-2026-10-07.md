@@ -45,6 +45,11 @@ now show the corresponding English service/archive, consistent with English defa
 Old `/en/` paths and old Spanish article URLs redirect directly to current equivalents.
 Unrelated unknown paths return 404 instead of an irrelevant homepage redirect.
 
+Removed superseded root HTML pages and their old root sitemap/robots files from the
+repository. The Next.js pages, `public/404.html`, generated sitemap/robots and
+postbuild aliases are now the active source of public content. Original static
+source remains recoverable through Git history, without a second set of stale pages.
+
 GitHub Pages does not support custom 301/308 rules. Postbuild emits immediate HTML
 refresh redirects with canonical links, noindex and a manual link, plus JavaScript
 replacement preserving the query string and fragment. This hosting limitation is
