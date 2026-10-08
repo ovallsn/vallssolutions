@@ -1589,3 +1589,9 @@ h1, h2, h3 { overflow-wrap: normal; hyphens: none; }
  .formation-art { height: 510px; }
  .formation-paper dl > div { padding-block: 5px; }
 }
+.pricing-page-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.annual-card { border-radius: var(--panel-radius); border-top-width: 4px; }
+.price-amount { font-family: var(--display); font-weight: 400; letter-spacing: -.05em; }
+.annual-card .annual-price { font-size: clamp(62px,8vw,84px); line-height: 1.06; }
+.annual-card .annual-price > span { font-family: var(--sans); font-size: 18px; letter-spacing: 0; }
+@media (max-width: 720px) { .pricing-page-grid { grid-template-columns: 1fr; } }
