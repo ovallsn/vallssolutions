@@ -425,7 +425,11 @@ export function HomePage({ locale }: { locale: Locale }) {
               {content.headline}{" "}
               <em>{content.accent}</em>
             </h1>
-            <p className="premium-lede">{content.lede}</p>
+            <p className="premium-lede">
+              {english
+                ? "Wyoming LLC formation and business essentials, with personal support for U.S. and international founders."
+                : "Tu LLC en Wyoming y los servicios para empezar, con apoyo personal para emprendedores de EE. UU. y del resto del mundo."}
+            </p>
             <div className="hero-actions">
               <ContactActions locale={locale} emailLabel={content.primaryCta} />
               <Link className="text-link" href="#package">
@@ -434,28 +438,24 @@ export function HomePage({ locale }: { locale: Locale }) {
               </Link>
             </div>
             <p className="founder-price-line">{content.priceLine}</p>
-            <p className="premium-hero-note founder-contact-note">
-              {english
-                ? "Start by email. A call is available if it helps."
-                : "Empieza por email. Podemos hablar por llamada si te ayuda."}
-            </p>
-            <div className="founder-hero-proof" aria-label={english ? "Valls Solutions experience" : "Experiencia de Valls Solutions"}>
-              {content.proof.slice(0, 2).map((item) => (
-                <div key={item.title}>
-                  <strong>{item.value}</strong>
-                  <span>
-                    {item.title}
-                    <small>{item.detail}</small>
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
           <div className="premium-hero-media">
             <HeroVideo locale={locale} />
           </div>
         </div>
+        <Link className="hero-scroll-cue" href="#package">
+          {english ? "Discover your company package" : "Descubre tu paquete de empresa"}
+          <span aria-hidden="true">↓</span>
+        </Link>
       </section>
+      <div className="section-shell founder-proof-band" aria-label={english ? "Valls Solutions experience" : "Experiencia de Valls Solutions"}>
+        {content.proof.map((item) => (
+          <div key={item.title}>
+            <strong>{item.value}</strong>
+            <span>{item.title}<small>{item.detail}</small></span>
+          </div>
+        ))}
+      </div>
       <section className="premium-offer-band" id="package">
         <div className="section-shell premium-offer">
           <div>

@@ -122,7 +122,7 @@ export function HeroVideo({ locale }: { locale: Locale }) {
   };
 
   return (
-    <figure className={`hero-visual${playing ? " is-playing" : ""}`}>
+    <figure className={`hero-visual${videoReady ? " is-playing" : ""}`}>
       <div className="hero-media" data-hero-media>
         <video
           ref={videoRef}
@@ -155,13 +155,9 @@ export function HeroVideo({ locale }: { locale: Locale }) {
                   : "Reanudar vídeo de fondo"
             }
           >
-            {playing
-              ? english
-                ? "Pause video"
-                : "Pausar vídeo"
-              : english
-                ? "Play video"
-                : "Reanudar vídeo"}
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              {playing ? <><rect x="4" y="3" width="3" height="10" rx=".5" /><rect x="9" y="3" width="3" height="10" rx=".5" /></> : <path d="M5 3 13 8 5 13Z" />}
+            </svg>
           </button>
         )}
         <figcaption className="visual-caption">

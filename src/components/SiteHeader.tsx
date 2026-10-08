@@ -62,7 +62,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       <a className="skip-link" href="#contenido">
         {english ? "Skip to content" : "Saltar al contenido"}
       </a>
-      <header className="site-header">
+      <header className={`site-header${normalizedPath === "/" || normalizedPath === "/es/" ? " site-header-home" : ""}`}>
         <div className="nav-shell">
           <Link
             className="brand"
