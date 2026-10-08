@@ -19,3 +19,9 @@ The generic paperwork video has been replaced on the homepage by an original pac
 ## Scope
 
 No route/slugs, metadata or agreed package terms changed. $699 initial formation and $449 annual renewal remain separate; Annual Report applies to renewal. No sensitive-data collection or new dependency added. Existing consent work was preserved.
+
+## Correction: video and complete scroll coverage
+
+The owner clarified that the homepage must retain a video at the top and animate all pricing and information sections during scrolling. The prior static-hero exception is superseded. Restored the existing licensed, self-hosted paperwork footage as a full-width hero background with a protected text overlay, poster fallback and pause control. The original package illustration component is retained unused.
+
+Reviewed the entire 63-second local reference across 16 decoded scene captures from 1 to 61 seconds, including service hover changes, pricing, audience/banking, trust, guides, FAQ, contact and mobile navigation. Its review placeholders and unimplemented contact features are not product capabilities. Extended entry choreography to all homepage sections and the pricing/service/contact pages, with 850ms entrances and 100ms sibling staggering. Registration reruns on route changes. Reduced-motion cancels active transitions; no JavaScript leaves content visible. No third-party code or assets copied.

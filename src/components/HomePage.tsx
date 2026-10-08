@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { findBlogArticle } from "@/content/blog/catalog";
 import { ContactActions } from "@/components/ContactActions";
-import { FormationVisual } from "@/components/FormationVisual";
+import { HeroVideo } from "@/components/HeroVideo";
 import { FormationJourney } from "@/components/FormationJourney";
-import { HomeMotion } from "@/components/HomeMotion";
 import type { Locale } from "@/lib/site";
 
 type HomeCopy = {
@@ -413,7 +412,6 @@ export function HomePage({ locale }: { locale: Locale }) {
       ];
   return (
     <main id="contenido" className="home-page premium-home founder-home">
-      <HomeMotion />
       <section className="premium-hero-band founder-hero-band">
         <div className="section-shell premium-hero founder-hero">
           <div className="premium-hero-copy founder-hero-copy">
@@ -454,7 +452,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
           </div>
           <div className="premium-hero-media">
-            <FormationVisual locale={locale} />
+            <HeroVideo locale={locale} />
           </div>
         </div>
       </section>
