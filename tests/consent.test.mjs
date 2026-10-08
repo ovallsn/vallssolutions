@@ -85,3 +85,69 @@ test("writeConsent stores the deliberate timestamped choice", (t) => {
   assert.equal(api.writeConsent(storage, choice), true);
   assert.deepEqual(JSON.parse(storage.read()), choice);
 });
+
+test("no optional services means no consent prompt", (t) => {
+  const api = requireConsent(t);
+  assert.equal(typeof api.shouldAskForConsent, "function", "expected consent prompt logic");
+  if (typeof api.shouldAskForConsent !== "function") return;
+  assert.equal(api.shouldAskForConsent([], null), false);
+});
+
+test("a new optional service requires a choice", (t) => {
+  const api = requireConsent(t);
+  assert.equal(typeof api.shouldAskForConsent, "function", "expected consent prompt logic");
+  if (typeof api.shouldAskForConsent !== "function") return;
+  assert.equal(api.shouldAskForConsent([{ category: "analytics" }], null), true);
+  assert.equal(api.shouldAskForConsent([{ category: "analytics" }], choice), false);
+});
+
+test("a deliberate category selection receives the current version and timestamp", (t) => {
+  const api = requireConsent(t);
+  assert.equal(typeof api.createConsentChoice, "function", "expected consent choice creation");
+  if (typeof api.createConsentChoice !== "function") return;
+  const selected = { analytics: false, marketing: true };
+  assert.deepEqual(api.createConsentChoice(selected, "2026-10-08T10:00:00.000Z"), {
+    version: api.CONSENT_VERSION,
+    updatedAt: "2026-10-08T10:00:00.000Z",
+    categories: selected,
+  });
+});
+
+test("only accepted services load and revocation runs their cleanup", (t) => {
+  const api = requireConsent(t);
+  assert.equal(typeof api.activateConsentedServices, "function", "expected consent-gated loaders");
+  if (typeof api.activateConsentedServices !== "function") return;
+  const calls = [];
+  const services = [
+    {
+      category: "analytics",
+      load() {
+        calls.push("load:analytics");
+        return () => calls.push("cleanup:analytics");
+      },
+    },
+    {
+      category: "marketing",
+      load() {
+        calls.push("load:marketing");
+        return () => calls.push("cleanup:marketing");
+      },
+    },
+  ];
+
+  const stop = api.activateConsentedServices(services, choice);
+  assert.deepEqual(calls, ["load:analytics"]);
+  stop();
+  assert.deepEqual(calls, ["load:analytics", "cleanup:analytics"]);
+});
+
+test("no optional service loads before consent", (t) => {
+  const api = requireConsent(t);
+  assert.equal(typeof api.activateConsentedServices, "function", "expected consent-gated loaders");
+  if (typeof api.activateConsentedServices !== "function") return;
+  let loads = 0;
+  const stop = api.activateConsentedServices([{ category: "analytics", load: () => loads++ }], null);
+  assert.equal(loads, 0);
+  stop();
+  assert.equal(loads, 0);
+});

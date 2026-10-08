@@ -32,6 +32,20 @@ export function hasOptionalServices(
   return services.length > 0;
 }
 
+export function shouldAskForConsent(
+  services: readonly ConsentService[],
+  choice: ConsentChoice | null,
+): boolean {
+  return hasOptionalServices(services) && choice === null;
+}
+
+export function createConsentChoice(
+  categories: Record<ConsentCategory, boolean>,
+  updatedAt = new Date().toISOString(),
+): ConsentChoice {
+  return { version: CONSENT_VERSION, updatedAt, categories };
+}
+
 function isConsentChoice(value: unknown, version: number): value is ConsentChoice {
   if (typeof value !== "object" || value === null) return false;
 
@@ -88,5 +102,41 @@ export function serviceAllowed(
   service: Pick<ConsentService, "category">,
   choice: ConsentChoice | null,
 ): boolean {
-  return choice?.categories[service.category] === true;
+  return (
+    choice !== null &&
+    isConsentChoice(choice, CONSENT_VERSION) &&
+    choice.categories[service.category] === true
+  );
+}
+
+export function activateConsentedServices(
+  services: readonly ConsentService[],
+  choice: ConsentChoice | null,
+): () => void {
+  const cleanups: Array<() => void> = [];
+
+  for (const service of services) {
+    if (!serviceAllowed(service, choice)) continue;
+
+    try {
+      const cleanup = service.load();
+      if (cleanup) cleanups.push(cleanup);
+    } catch (error) {
+      console.error(`Optional consent service failed to load: ${service.id}`, error);
+    }
+  }
+
+  let stopped = false;
+  return () => {
+    if (stopped) return;
+    stopped = true;
+
+    for (const cleanup of cleanups.reverse()) {
+      try {
+        cleanup();
+      } catch (error) {
+        console.error("Optional consent service cleanup failed", error);
+      }
+    }
+  };
 }
