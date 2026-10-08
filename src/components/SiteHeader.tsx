@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CLIENT_PORTAL_URL, mailtoHref, type Locale } from "@/lib/site";
 import { BLOG_ARTICLES } from "@/content/blog/catalog";
 import { ROUTES, blogPath } from "@/lib/routes";
@@ -20,6 +20,14 @@ const translatedRoutes: Record<string, string> = Object.fromEntries(
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [menuOpen]);
   const pathname = usePathname();
   const english = locale === "en";
   const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;

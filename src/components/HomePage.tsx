@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { findBlogArticle } from "@/content/blog/catalog";
 import { ContactActions } from "@/components/ContactActions";
-import { HeroVideo } from "@/components/HeroVideo";
+import { FormationVisual } from "@/components/FormationVisual";
+import { FormationJourney } from "@/components/FormationJourney";
+import { HomeMotion } from "@/components/HomeMotion";
 import type { Locale } from "@/lib/site";
 
 type HomeCopy = {
@@ -52,7 +54,7 @@ const copy: Record<Locale, HomeCopy> = {
     eyebrow: "Wyoming LLC formation for U.S. and international founders",
     headline: "Form your U.S. LLC.",
     accent: "From anywhere.",
-    lede: "Wyoming LLC formation for founders in the U.S. and abroad—with EIN assistance, first-year business essentials and practical business banking guidance.",
+    lede: "Your Wyoming LLC, EIN, Registered Agent and mailing address—plus a company website, business email and guidance for your bank application. For U.S. and international founders.",
     primaryCta: "Start by email",
     secondaryCta: "See the package",
     priceLine: "$699 one-time · $449/year from year two",
@@ -95,7 +97,7 @@ const copy: Record<Locale, HomeCopy> = {
     offerEyebrow: "The formation package",
     offerTitle: "A clear start for your Wyoming LLC.",
     offerBody:
-      "One guided Wyoming LLC formation package for founders based in the United States or abroad. We explain the scope before we begin and keep the next steps clear as your company is formed.",
+      "The essentials to establish your company, present your business professionally and prepare your next steps. One package, coordinated with one point of contact.",
     offerNote:
       "Your first message can be a short email. No call or document upload is needed to get started.",
     audienceEyebrow: "For founders wherever they live",
@@ -195,7 +197,7 @@ const copy: Record<Locale, HomeCopy> = {
       "Formación de LLC en Wyoming para fundadores en EE. UU. y en el extranjero",
     headline: "Crea tu LLC en EE. UU.",
     accent: "Donde estés.",
-    lede: "Creamos tu LLC en Wyoming tanto si resides en Estados Unidos como en otro país. Incluye gestión del EIN, esenciales del primer año y orientación para preparar tu solicitud bancaria.",
+    lede: "Tu LLC en Wyoming, EIN, agente registrado y dirección postal. También tu web, correo empresarial y orientación bancaria. Para emprendedores en EE. UU. y en el extranjero.",
     primaryCta: "Empezar por email",
     secondaryCta: "Ver el paquete",
     priceLine: "$699 pago único · $449/año desde el segundo año",
@@ -238,7 +240,7 @@ const copy: Record<Locale, HomeCopy> = {
     offerEyebrow: "El paquete de formación",
     offerTitle: "Un comienzo claro para tu LLC en Wyoming.",
     offerBody:
-      "Un paquete guiado para crear una LLC en Wyoming, tanto si resides en Estados Unidos como si vives en otro país. Te explicamos el alcance antes de empezar y mantenemos claros los siguientes pasos durante la creación de tu empresa.",
+      "Los esenciales para crear tu empresa, dar presencia profesional a tu negocio y preparar los siguientes pasos. Un paquete coordinado con un contacto directo.",
     offerNote:
       "Puedes empezar con un email breve. No necesitas reservar una llamada ni subir documentos para hacer la primera consulta.",
     audienceEyebrow: "Para fundadores, vivan donde vivan",
@@ -367,8 +369,12 @@ export function HomePage({ locale }: { locale: Locale }) {
           "Application handling for your federal business identification number.",
         ],
         [
-          "Registered Agent & mailing address",
-          "Both included for year one, with renewal available from year two.",
+          "Registered Agent",
+          "A registered contact for official state correspondence. Year one included.",
+        ],
+        [
+          "Wyoming mailing address",
+          "An address for company correspondence, included for year one. Not a physical office.",
         ],
         [
           "Website & business email",
@@ -389,8 +395,12 @@ export function HomePage({ locale }: { locale: Locale }) {
           "Gestión de la solicitud del número de identificación empresarial del IRS.",
         ],
         [
-          "Agente registrado y dirección postal",
-          "Ambos incluidos el primer año, con renovación desde el segundo.",
+          "Agente registrado",
+          "Un contacto registrado para comunicaciones oficiales. Primer año incluido.",
+        ],
+        [
+          "Dirección postal en Wyoming",
+          "Para la correspondencia de tu empresa. Primer año incluido; no es una oficina física.",
         ],
         [
           "Página web y correo empresarial",
@@ -403,6 +413,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       ];
   return (
     <main id="contenido" className="home-page premium-home founder-home">
+      <HomeMotion />
       <section className="premium-hero-band founder-hero-band">
         <div className="section-shell premium-hero founder-hero">
           <div className="premium-hero-copy founder-hero-copy">
@@ -443,7 +454,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
           </div>
           <div className="premium-hero-media">
-            <HeroVideo locale={locale} />
+            <FormationVisual locale={locale} />
           </div>
         </div>
       </section>
@@ -456,6 +467,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </p>
             <h2>{content.offerTitle}</h2>
             <p className="premium-offer-intro">{content.offerBody}</p>
+          </div>
             <ol className="premium-service-list">
               {services.map(([title, body], i) => (
                 <li key={title}>
@@ -470,8 +482,8 @@ export function HomePage({ locale }: { locale: Locale }) {
                 </li>
               ))}
             </ol>
-          </div>
           <aside className="premium-price-summary">
+            <div className="package-first-year">
             <span className="eyebrow">
               {english
                 ? "WYOMING LLC · YEAR ONE"
@@ -490,6 +502,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               }
             />
             <p className="premium-price-support">{content.offerNote}</p>
+            </div>
             <div className="premium-renewal">
               <span>{english ? "FROM YEAR TWO" : "DESDE EL SEGUNDO AÑO"}</span>
               <strong>
@@ -525,15 +538,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
             <p>{content.processIntro}</p>
           </div>
-          <ol className="process-list">
-            {content.steps.map((step, index) => (
-              <li key={step.title}>
-                <span className="process-number">0{index + 1}</span>
-                <h3>{step.title}</h3>
-                <p>{step.body}</p>
-              </li>
-            ))}
-          </ol>
+          <FormationJourney locale={locale} steps={content.steps} />
           <p className="premium-process-after">
             {english
               ? "Then, we help you prepare for your business account application and put your included website and business email in place."
@@ -590,7 +595,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             ? [
                 [
                   "Experience you can build on",
-                  "Practical familiarity with the formation process, company documents and the steps that follow.",
+                  "More than 100 LLCs formed. Practical experience with company documents, the formation process and the steps that follow.",
                 ],
                 [
                   "Direct answers, in your language",
@@ -604,7 +609,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             : [
                 [
                   "Experiencia para dar el siguiente paso",
-                  "Experiencia práctica con la formación, los documentos de la empresa y los pasos posteriores.",
+                  "Más de 100 LLC constituidas. Experiencia práctica con los documentos, la creación de empresas y los pasos posteriores.",
                 ],
                 [
                   "Respuestas directas, en tu idioma",
