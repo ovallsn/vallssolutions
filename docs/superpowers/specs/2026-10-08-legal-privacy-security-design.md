@@ -12,11 +12,11 @@ Publicar información legal clara en inglés y español, describir con precisió
 
 ## Opciones consideradas
 
-1. **Documentar la configuración actual y añadir consentimiento solo si hace falta.** Publicar las políticas bilingües, comprobar la configuración real de cookies y proteger la respuesta de Cloudflare. Es la recomendación porque el código no contiene formularios ni trackers de marketing y la respuesta normal de la portada no envió `Set-Cookie`.
-2. **Instalar ya un gestor de consentimiento.** Añade banner, persistencia de preferencias y lógica para bloquear scripts. Hoy no hay categorías de seguimiento no esencial verificadas; el gestor añadiría almacenamiento y complejidad sin una finalidad actual.
-3. **Publicar únicamente las políticas.** No cubriría los hallazgos de cabeceras del informe ZAP.
+1. **Implementar ahora el gestor y activarlo al registrar un servicio opcional.** El código queda listo, pero el banner aparece solo cuando exista al menos un servicio analítico o publicitario real que requiera consentimiento. Es la recomendación: prepara la web para el próximo lanzamiento de trackers y evita pedir consentimiento sobre tecnologías aún inexistentes.
+2. **Mostrar ya un banner para servicios futuros.** El visitante no podría saber qué proveedores, cookies y finalidades está aceptando; se descarta porque el consentimiento debe ser informado y específico.
+3. **Instalar una CMP externa.** Añade un proveedor, dependencia y posible coste a una web estática sencilla; no es necesaria para este catálogo pequeño.
 
-Se adopta la opción 1, que el propietario ha autorizado en la conversación. Si se incorpora analítica, publicidad, vídeo embebido u otra tecnología no esencial, se vuelve a auditar y se implementa consentimiento previo antes de cargarla.
+Se adopta la opción 1, de acuerdo con la última instrucción del propietario. Si se incorpora analítica, publicidad, vídeo embebido u otra tecnología no esencial, se actualiza el inventario y se activa consentimiento previo antes de cargarla.
 
 ## Evidencia actual
 
@@ -60,7 +60,16 @@ El RGPD puede aplicarse a una LLC fuera de la UE si ofrece servicios a personas 
 
 ### Cookies y consentimiento
 
-No mostrar un banner de consentimiento solo para las métricas RUM documentadas como carentes de almacenamiento de navegador. Antes de publicar la política, inspeccionar cookies y almacenamiento en una sesión nueva, navegar por las rutas principales y revisar el comportamiento de Cloudflare bajo una visita normal y, si se produce, una verificación anti-bot. Si se confirma una cookie estrictamente necesaria, describirla con evidencia. Si se encuentra una tecnología no esencial, bloquearla hasta el consentimiento y ofrecer aceptar y rechazar al mismo tiempo, con igual nivel y visibilidad, además de una forma permanente y sencilla de cambiar la decisión.
+Implementar una CMP propia, ligera y compatible con la exportación estática, sin instalar una dependencia externa:
+
+- Un componente cliente bilingüe y una pequeña capa de preferencias. Acceder a `localStorage` solo desde `useEffect`/eventos del navegador; no usar la API servidor `cookies()` ni cabeceras de Next.js, que no están disponibles en la exportación estática del proyecto.
+- Definir servicios opcionales en un registro versionado con proveedor, categoría, finalidad, hosts/cookies conocidos y función de carga. En el estado actual el registro queda vacío: no se escribe ninguna preferencia ni se muestra un banner hasta que haya servicios que requieran consentimiento.
+- Cuando se registre el primer servicio opcional, mostrar el banner antes de cargar scripts. `Aceptar todas` y `Rechazar opcionales` deben tener la misma visibilidad; `Configurar` permitirá activar categorías por separado conmutadas inicialmente a desactivado. El contenido del banner se genera a partir de los servicios reales, no de proveedores hipotéticos.
+- Mantener la elección en un objeto de primera parte versionado con fecha y categorías. Documentar este almacenamiento de preferencias antes de activar el gestor. Una actualización del inventario invalida la decisión anterior y vuelve a solicitarla.
+- Cargar scripts de terceros solo después de comprobar el consentimiento de su categoría; no incluirlos estáticamente en los layouts ni usar `beforeInteractive`. Al revocar, guardar la nueva elección, no volver a inicializar los scripts y ejecutar la limpieza de almacenamiento propio declarada por cada proveedor cuando sea posible.
+- Añadir acceso persistente a preferencias en el pie cuando la CMP esté activa. Los rechazos siguen siendo válidos; no se condiciona el acceso a la web a aceptar.
+
+No mostrar un banner solo para las métricas RUM documentadas como carentes de almacenamiento de navegador. Antes de publicar la política, inspeccionar cookies y almacenamiento en una sesión nueva, navegar por las rutas principales y revisar el comportamiento de Cloudflare bajo una visita normal y, si se produce, una verificación anti-bot. Si se confirma una cookie estrictamente necesaria, describirla con evidencia. Si se encuentra una tecnología no esencial, registrarla y activarla solo con la CMP y consentimiento previo.
 
 ### Seguridad web
 
@@ -75,10 +84,11 @@ No mostrar un banner de consentimiento solo para las métricas RUM documentadas 
 
 1. Las ocho rutas legales renderizan en el idioma correcto, con enlaces recíprocos, metadatos únicos, canonical, `hreflang`, sitemap y navegación del pie.
 2. Los textos describen solo tratamientos y condiciones confirmados. No contienen datos de Devil Club ni campos legales inventados.
-3. La decisión sobre banner se apoya en una comprobación de cookies y almacenamiento, no en la presencia de una política genérica.
-4. Las cabeceras se validan en respuestas HTTPS públicas; la CSP se hace cumplir solo tras una fase de observación sin violaciones funcionales.
-5. El informe ZAP se filtra a `vallssolutions.com`, y cada hallazgo que se corrija vuelve a comprobarse.
-6. Las páginas son legibles con teclado y en móvil, y la exportación estática y auditoría local de rutas pasan.
+3. La CMP está implementada, pero con el registro actual vacío no presenta un banner ni escribe preferencias; al registrar un servicio opcional, no lo carga antes del consentimiento y ofrece aceptar/rechazar con igual visibilidad.
+4. La elección se puede revocar desde el pie cuando la CMP está activa; la versión del inventario invalida elecciones antiguas.
+5. Las cabeceras se validan en respuestas HTTPS públicas; la CSP se hace cumplir solo tras una fase de observación sin violaciones funcionales.
+6. El informe ZAP se filtra a `vallssolutions.com`, y cada hallazgo que se corrija vuelve a comprobarse.
+7. Las páginas y el gestor son legibles con teclado y en móvil, y la exportación estática y auditoría local de rutas pasan.
 
 ## Datos pendientes del propietario antes de publicar
 
@@ -86,5 +96,6 @@ No mostrar un banner de consentimiento solo para las métricas RUM documentadas 
 2. Confirmar si los servicios se ofrecen activamente a residentes de la UE/Reino Unido y dónde se dirige y gestiona la empresa para revisar el alcance legal.
 3. Confirmar condiciones vigentes de cobro, impuestos, renovaciones, cancelaciones, reembolsos y entrega/plazos del servicio.
 4. Confirmar la zona y plan de Cloudflare, si RUM está activado para UE/EEE, y si se usan reglas de Bot Fight Mode/Turnstile u otras que puedan establecer cookies.
+5. Antes de activar el banner, confirmar qué servicio opcional se va a incorporar primero y su proveedor, finalidad e inventario real. La CMP puede integrarse sin cargar aún ningún tracker.
 
 Las páginas pueden prepararse como borradores con los hechos confirmados, pero no se publicarán como políticas finales mientras los puntos 1 y 3 sigan sin confirmar. La aplicación de reglas de cabeceras en Cloudflare requiere acceso autenticado al panel/API; el repositorio por sí solo no modifica la configuración de la cuenta.
