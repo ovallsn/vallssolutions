@@ -50,11 +50,11 @@ type HomeCopy = {
 const copy: Record<Locale, HomeCopy> = {
   en: {
     eyebrow: "Wyoming LLC formation for U.S. and international founders",
-    headline: "Start a U.S. LLC.",
+    headline: "Form your U.S. LLC.",
     accent: "From anywhere.",
-    lede: "A guided Wyoming LLC package for U.S. and international founders: formation, EIN application handling, first-year Registered Agent and mailing address, a company website and business email, plus business banking guidance.",
-    primaryCta: "Start your LLC",
-    secondaryCta: "See what is included",
+    lede: "Wyoming LLC formation for founders in the U.S. and abroad—with EIN assistance, first-year business essentials and practical business banking guidance.",
+    primaryCta: "Start by email",
+    secondaryCta: "See the package",
     priceLine: "$699 one-time · $449/year from year two",
     proof: [
       {
@@ -93,7 +93,7 @@ const copy: Record<Locale, HomeCopy> = {
     ],
     guideLink: "Read our guide to U.S. LLCs",
     offerEyebrow: "The formation package",
-    offerTitle: "Your company. Your documents. Your next step.",
+    offerTitle: "A clear start for your Wyoming LLC.",
     offerBody:
       "One guided Wyoming LLC formation package for founders based in the United States or abroad. We explain the scope before we begin and keep the next steps clear as your company is formed.",
     offerNote:
@@ -193,11 +193,11 @@ const copy: Record<Locale, HomeCopy> = {
   es: {
     eyebrow:
       "Formación de LLC en Wyoming para fundadores en EE. UU. y en el extranjero",
-    headline: "Tu LLC en EE. UU.",
+    headline: "Crea tu LLC en EE. UU.",
     accent: "Donde estés.",
-    lede: "Un paquete guiado para emprendedores de EE. UU. y de otros países: creación en Wyoming, gestión del EIN, agente registrado y dirección postal el primer año, web, correo empresarial y orientación bancaria.",
-    primaryCta: "Empezar mi LLC",
-    secondaryCta: "Ver qué incluye",
+    lede: "Creamos tu LLC en Wyoming tanto si resides en Estados Unidos como en otro país. Incluye gestión del EIN, esenciales del primer año y orientación para preparar tu solicitud bancaria.",
+    primaryCta: "Empezar por email",
+    secondaryCta: "Ver el paquete",
     priceLine: "$699 pago único · $449/año desde el segundo año",
     proof: [
       {
@@ -236,7 +236,7 @@ const copy: Record<Locale, HomeCopy> = {
     ],
     guideLink: "Lee nuestra guía sobre LLC en EE. UU.",
     offerEyebrow: "El paquete de formación",
-    offerTitle: "Tu empresa. Tus documentos. Tu siguiente paso.",
+    offerTitle: "Un comienzo claro para tu LLC en Wyoming.",
     offerBody:
       "Un paquete guiado para crear una LLC en Wyoming, tanto si resides en Estados Unidos como si vives en otro país. Te explicamos el alcance antes de empezar y mantenemos claros los siguientes pasos durante la creación de tu empresa.",
     offerNote:
@@ -402,15 +402,15 @@ export function HomePage({ locale }: { locale: Locale }) {
         ],
       ];
   return (
-    <main id="contenido" className="home-page premium-home">
-      <section className="premium-hero-band">
-        <div className="section-shell premium-hero">
-          <div className="premium-hero-copy">
-            <p className="eyebrow eyebrow-light">
+    <main id="contenido" className="home-page premium-home founder-home">
+      <section className="premium-hero-band founder-hero-band">
+        <div className="section-shell premium-hero founder-hero">
+          <div className="premium-hero-copy founder-hero-copy">
+            <p className="eyebrow">
               <span className="eyebrow-line" />
               {english
-                ? "LLC formation · U.S. & international founders"
-                : "Creación de LLC · EE. UU. y emprendedores internacionales"}
+                ? "Wyoming LLC formation · U.S. & international founders"
+                : "Creación de LLC en Wyoming · EE. UU. e internacionales"}
             </p>
             <h1>
               {content.headline}{" "}
@@ -424,92 +424,28 @@ export function HomePage({ locale }: { locale: Locale }) {
                 <span aria-hidden="true">↓</span>
               </Link>
             </div>
-            <div className="premium-hero-prices" aria-label={english ? "Package pricing" : "Precios del paquete"}>
-              <div className="premium-hero-price">
-                <strong>$699</strong>
-                <span>
-                  {english ? "one-time formation" : "pago único de creación"}
-                  <small>
-                    {english
-                      ? "Wyoming filing fee included"
-                      : "Tasa estatal de Wyoming incluida"}
-                  </small>
-                </span>
-              </div>
-              <div className="premium-hero-price premium-hero-renewal">
-                <strong>$449</strong>
-                <span>
-                  {english ? "per year from year two" : "al año desde el segundo año"}
-                  <small>
-                    {english
-                      ? "Annual Report and state tax included"
-                      : "Incluye Annual Report y tasa estatal"}
-                  </small>
-                </span>
-              </div>
-            </div>
-            <p className="premium-hero-note">
+            <p className="founder-price-line">{content.priceLine}</p>
+            <p className="premium-hero-note founder-contact-note">
               {english
                 ? "Start by email. A call is available if it helps."
                 : "Empieza por email. Podemos hablar por llamada si te ayuda."}
             </p>
+            <div className="founder-hero-proof" aria-label={english ? "Valls Solutions experience" : "Experiencia de Valls Solutions"}>
+              {content.proof.slice(0, 2).map((item) => (
+                <div key={item.title}>
+                  <strong>{item.value}</strong>
+                  <span>
+                    {item.title}
+                    <small>{item.detail}</small>
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
           <div className="premium-hero-media">
             <HeroVideo locale={locale} />
           </div>
         </div>
-      </section>
-      <section
-        className="section-shell premium-proof"
-        aria-label={
-          english
-            ? "Our experience and service"
-            : "Nuestra experiencia y servicio"
-        }
-      >
-        <div>
-          <strong>100+</strong>
-          <span>{english ? "LLCs formed" : "LLC constituidas"}</span>
-        </div>
-        <div>
-          <strong>EN / ES</strong>
-          <span>
-            {english ? "Direct bilingual support" : "Atención directa bilingüe"}
-          </span>
-        </div>
-        <div>
-          <strong>{english ? "One package" : "Un paquete"}</strong>
-          <span>
-            {english
-              ? "Formation, business essentials & guidance"
-              : "Creación, esenciales y acompañamiento"}
-          </span>
-        </div>
-      </section>
-      <section className="section-shell section-block premium-benefits">
-        <div className="premium-section-heading">
-          <div>
-            <p className="eyebrow">
-              <span className="eyebrow-line" />
-              {content.whyEyebrow}
-            </p>
-            <h2>{content.whyTitle}</h2>
-          </div>
-          <p>{content.whyIntro}</p>
-        </div>
-        <div className="premium-benefit-list">
-          {content.reasons.map((reason, index) => (
-            <article key={reason.title}>
-              <span className="premium-index">0{index + 1}</span>
-              <h3>{reason.title}</h3>
-              <p>{reason.body}</p>
-            </article>
-          ))}
-        </div>
-        <Link className="text-link" href={`${prefix}/blog/${llcGuide.slug}/`}>
-          {content.guideLink}
-          <span aria-hidden="true">↗</span>
-        </Link>
       </section>
       <section className="premium-offer-band" id="package">
         <div className="section-shell premium-offer">
@@ -574,63 +510,6 @@ export function HomePage({ locale }: { locale: Locale }) {
           </aside>
         </div>
       </section>
-      <section className="section-shell section-block premium-trust">
-        <div className="premium-trust-statement">
-          <p className="eyebrow">
-            <span className="eyebrow-line" />
-            {english ? "WHY VALLS SOLUTIONS" : "POR QUÉ VALLS SOLUTIONS"}
-          </p>
-          <h2>
-            {english
-              ? "The paperwork matters. So does the person helping you."
-              : "Los documentos importan. Quien te acompaña, también."}
-          </h2>
-          <Link
-            className="text-link"
-            href={english ? "/about/" : "/es/nosotros/"}
-          >
-            {english ? "Meet Valls Solutions" : "Conoce Valls Solutions"}
-            <span aria-hidden="true">↗</span>
-          </Link>
-        </div>
-        <div className="premium-trust-points">
-          {(english
-            ? [
-                [
-                  "Experience you can build on",
-                  "More than 100 LLCs formed. Practical familiarity with the formation process, documents and next steps.",
-                ],
-                [
-                  "Direct answers, in your language",
-                  "Communicate in English or Spanish. Get started by email and arrange a call when a conversation helps.",
-                ],
-                [
-                  "An offer you can understand",
-                  "One published formation price, a clear annual renewal and a defined service scope before work begins.",
-                ],
-              ]
-            : [
-                [
-                  "Experiencia para dar el siguiente paso",
-                  "Más de 100 LLC constituidas. Experiencia práctica con el proceso, los documentos y los siguientes pasos.",
-                ],
-                [
-                  "Respuestas directas, en tu idioma",
-                  "Atención en español e inglés. Empieza por email y organiza una llamada cuando te resulte útil.",
-                ],
-                [
-                  "Una oferta que se entiende",
-                  "Un precio de creación publicado, una renovación anual clara y el alcance definido antes de empezar.",
-                ],
-              ]
-          ).map(([title, body]) => (
-            <article key={title}>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
       <section
         className="premium-process-band"
         id={english ? "process" : "proceso"}
@@ -660,6 +539,88 @@ export function HomePage({ locale }: { locale: Locale }) {
               ? "Then, we help you prepare for your business account application and put your included website and business email in place."
               : "Después te ayudamos a preparar la solicitud de la cuenta empresarial y ponemos en marcha la web y el correo incluidos."}
           </p>
+        </div>
+      </section>
+      <section className="section-shell section-block premium-benefits">
+        <div className="premium-section-heading">
+          <div>
+            <p className="eyebrow">
+              <span className="eyebrow-line" />
+              {content.whyEyebrow}
+            </p>
+            <h2>{content.whyTitle}</h2>
+          </div>
+          <p>{content.whyIntro}</p>
+        </div>
+        <div className="premium-benefit-list">
+          {content.reasons.map((reason, index) => (
+            <article key={reason.title}>
+              <span className="premium-index">0{index + 1}</span>
+              <h3>{reason.title}</h3>
+              <p>{reason.body}</p>
+            </article>
+          ))}
+        </div>
+        <Link className="text-link" href={`${prefix}/blog/${llcGuide.slug}/`}>
+          {content.guideLink}
+          <span aria-hidden="true">↗</span>
+        </Link>
+      </section>
+      <section className="section-shell section-block premium-trust">
+        <div className="premium-trust-statement">
+          <p className="eyebrow">
+            <span className="eyebrow-line" />
+            {english ? "WHY VALLS SOLUTIONS" : "POR QUÉ VALLS SOLUTIONS"}
+          </p>
+          <h2>
+            {english
+              ? "The paperwork matters. So does the person helping you."
+              : "Los documentos importan. Quien te acompaña, también."}
+          </h2>
+          <Link
+            className="text-link"
+            href={english ? "/about/" : "/es/nosotros/"}
+          >
+            {english ? "Meet Valls Solutions" : "Conoce Valls Solutions"}
+            <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <div className="premium-trust-points">
+          {(english
+            ? [
+                [
+                  "Experience you can build on",
+                  "Practical familiarity with the formation process, company documents and the steps that follow.",
+                ],
+                [
+                  "Direct answers, in your language",
+                  "Communicate in English or Spanish. Get started by email and arrange a call when a conversation helps.",
+                ],
+                [
+                  "An offer you can understand",
+                  "One published formation price, a clear annual renewal and a defined service scope before work begins.",
+                ],
+              ]
+            : [
+                [
+                  "Experiencia para dar el siguiente paso",
+                  "Experiencia práctica con la formación, los documentos de la empresa y los pasos posteriores.",
+                ],
+                [
+                  "Respuestas directas, en tu idioma",
+                  "Atención en español e inglés. Empieza por email y organiza una llamada cuando te resulte útil.",
+                ],
+                [
+                  "Una oferta que se entiende",
+                  "Un precio de creación publicado, una renovación anual clara y el alcance definido antes de empezar.",
+                ],
+              ]
+          ).map(([title, body]) => (
+            <article key={title}>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
         </div>
       </section>
       <section className="section-shell section-block premium-audience">

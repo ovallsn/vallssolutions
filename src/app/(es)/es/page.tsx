@@ -7,8 +7,8 @@ export const metadata: Metadata = pageMetadata({
   locale: "es",
   path: "/es/",
   translatedPath: "/",
-  title: "Crea tu LLC en Wyoming con EIN y orientación bancaria",
-  description: "Forma tu LLC en Wyoming por $699 con tasa estatal, EIN, Registered Agent, dirección postal, web, correo empresarial y orientación bancaria.",
+  title: "Formación de LLC en Wyoming para fundadores globales",
+  description: "Crea una LLC en Wyoming por $699 desde EE. UU. o el extranjero. Incluye tasa estatal, gestión del EIN, agente registrado, dirección, web, correo y orientación bancaria.",
 });
 
 const organization = {
@@ -17,7 +17,7 @@ const organization = {
   name: "Valls Solutions",
   url: SITE_URL,
   email: "info@vallssolutions.com",
-  description: "Formación de LLC en Wyoming para emprendedores en EE. UU. y en otros países, con gestión del EIN y orientación para solicitar una cuenta empresarial.",
+  description: "Creación de LLC en Wyoming para fundadores de EE. UU. y otros países, con gestión del EIN, esenciales del primer año y orientación para preparar la solicitud bancaria.",
   mainEntityOfPage: absoluteUrl("/es/"),
 };
 

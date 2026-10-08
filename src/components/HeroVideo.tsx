@@ -170,8 +170,8 @@ export function HeroVideo({ locale }: { locale: Locale }) {
           </span>
           <strong>
             {english
-              ? "From an idea to a U.S. company."
-              : "De una idea a una empresa en EE. UU."}
+              ? "A clear process, from filing to next steps."
+              : "Un proceso claro, de la creación al siguiente paso."}
           </strong>
         </figcaption>
       </div>
