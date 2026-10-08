@@ -905,3 +905,48 @@ h1, h2, h3 { overflow-wrap: normal; hyphens: none; }
   .premium-hero-price > span { font-size: 11px; }
   .premium-hero-price small { font-size: 9px; }
 }
+
+/* Give the homepage a distinct editorial masthead rather than another split-card hero. */
+.premium-hero-band { overflow: clip; }
+.premium-hero {
+  width: min(1320px, calc(100% - 64px));
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 38px);
+  padding-block: clamp(34px, 4vw, 52px) 0;
+}
+.premium-hero-copy {
+  width: min(100%, 960px);
+  max-width: none;
+  margin-inline: auto;
+  text-align: center;
+}
+.premium-hero-copy > .eyebrow { justify-content: center; max-width: none; }
+.premium-hero h1 { max-width: 1040px; margin-inline: auto; font-size: clamp(56px, 6.6vw, 84px); line-height: .96; }
+.premium-hero h1 em { margin-top: 7px; }
+.premium-lede { max-width: 780px; margin: 20px auto 0; font-size: clamp(15px, 1.2vw, 16px); }
+.premium-hero .hero-actions { justify-content: center; }
+.premium-hero-prices { width: min(100%, 630px); margin-inline: auto; text-align: left; }
+.premium-hero-note { margin-inline: auto; text-align: center; }
+.premium-hero-media { width: 100%; }
+.premium-hero-media .hero-media {
+  width: 100%;
+  height: clamp(300px, 42vw, 560px);
+  min-height: 0;
+  aspect-ratio: auto;
+  border-radius: 0;
+}
+.premium-hero-media .visual-caption { bottom: clamp(22px, 4vw, 46px); left: clamp(22px, 4vw, 50px); }
+.premium-hero-media .visual-caption strong { max-width: 490px; font-size: clamp(30px, 4vw, 52px); }
+.premium-hero-media .visual-caption-label { font-size: 11px; }
+.premium-hero-media .visual-meta { display: none; }
+
+@media (max-width: 720px) {
+  .premium-hero { width: min(100% - 36px, 620px); gap: 27px; padding-top: 34px; }
+  .premium-hero h1 { max-width: 620px; font-size: clamp(49px, 11.8vw, 66px); line-height: .99; }
+  .premium-lede { max-width: 570px; }
+  .premium-hero .hero-actions { justify-content: center; }
+  .premium-hero-prices { width: min(100%, 460px); }
+  .premium-hero-media .hero-media { height: clamp(250px, 70vw, 370px); }
+  .premium-hero-media .visual-caption { bottom: 20px; left: 21px; right: 21px; }
+  .premium-hero-media .visual-caption strong { max-width: 360px; font-size: clamp(28px, 8vw, 38px); }
+}
