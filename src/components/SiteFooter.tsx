@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConsentPreferencesButton } from "@/components/ConsentManager";
 import { CLIENT_PORTAL_URL, CONTACT_EMAIL, type Locale } from "@/lib/site";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
@@ -60,6 +61,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               ? "Support in English and Spanish"
               : "Atención en español e inglés"}
           </span>
+          <ConsentPreferencesButton locale={locale} />
         </div>
       </div>
       <div className="section-shell footer-bottom">

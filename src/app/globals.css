@@ -220,6 +220,66 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .footer-nav strong { margin-bottom: 7px; color: #ebaa88; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
 .footer-nav a { color: #d2d9d4; font-size: 12px; text-decoration: none; }
 .footer-nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.consent-preferences-button {
+  min-height: 44px;
+  padding: 7px 0;
+  border: 0;
+  background: transparent;
+  color: #d2d9d4;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.consent-preferences-button:hover { color: white; }
+.consent-panel {
+  position: fixed;
+  z-index: 1200;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  max-width: 1040px;
+  margin-inline: auto;
+  padding: 22px 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--green);
+  box-shadow: var(--shadow);
+}
+.consent-panel h2 { margin: 0; font-family: var(--display); font-size: 25px; font-weight: 400; line-height: 1.2; }
+.consent-panel-copy > p { max-width: 650px; margin: 7px 0 0; color: var(--muted); font-size: 13px; }
+.consent-panel h3 { margin: 17px 0 5px; color: var(--ink); font-size: 12px; }
+.consent-provider-list { margin: 0; padding: 0; display: grid; gap: 4px; list-style: none; }
+.consent-provider-list li { display: flex; flex-wrap: wrap; gap: 4px 9px; color: var(--ink-soft); font-size: 11px; }
+.consent-provider-list strong { color: var(--ink); }
+.consent-category-list { margin: 15px 0 0; padding: 10px 12px; border: 1px solid var(--line); }
+.consent-category-list legend { padding-inline: 4px; color: var(--ink); font-size: 11px; font-weight: 700; }
+.consent-category { min-height: 38px; display: flex; align-items: center; gap: 9px; color: var(--ink-soft); font-size: 12px; }
+.consent-category input { width: 18px; height: 18px; accent-color: var(--green); }
+.consent-storage-error { color: #8c2e1e !important; font-weight: 650; }
+.consent-panel-actions { min-width: 185px; display: grid; gap: 8px; }
+.consent-choice-button,
+.consent-configure-button {
+  min-height: 44px;
+  padding: 9px 13px;
+  border: 1px solid var(--green);
+  border-radius: 3px;
+  background: var(--white);
+  color: var(--green-deep);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 680;
+  cursor: pointer;
+}
+.consent-choice-button:hover,
+.consent-configure-button:hover { background: #e6eee8; }
+.consent-configure-button { border-color: var(--line); color: var(--ink-soft); }
 .footer-bottom { min-height: 56px; display: flex; justify-content: space-between; align-items: center; gap: 24px; border-top: 1px solid rgba(255,255,255,.16); color: #aab9b3; font-size: 10px; }
 
 .page-hero { padding-block: 72px 59px; }
@@ -1284,6 +1344,10 @@ h1, h2, h3 { overflow-wrap: normal; hyphens: none; }
   .founder-home .premium-process-band .section-block { padding-block: 66px; }
 }
 @media (max-width: 720px) {
+  .consent-panel { right: 10px; bottom: 10px; left: 10px; max-height: min(80dvh, 680px); padding: 18px; grid-template-columns: 1fr; align-items: stretch; gap: 14px; overflow-y: auto; }
+  .consent-panel h2 { font-size: 22px; }
+  .consent-panel-actions { grid-template-columns: 1fr 1fr; }
+  .consent-panel-actions > button:last-child { grid-column: 1 / -1; }
   .founder-home > section .section-shell { width: min(100% - 36px, 620px); }
   .founder-home .premium-hero {
     width: min(100% - 36px, 620px);
@@ -1330,6 +1394,14 @@ h1, h2, h3 { overflow-wrap: normal; hyphens: none; }
   .founder-hero-proof > div + div { padding-left: 0; border-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .consent-panel *,
+  .consent-panel *::before,
+  .consent-panel *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
   .founder-home *,
   .founder-home *::before,
   .founder-home *::after {

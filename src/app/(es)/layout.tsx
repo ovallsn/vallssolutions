@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
+import { ConsentManager } from "@/components/ConsentManager";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE_URL } from "@/lib/site";
@@ -19,6 +20,7 @@ export default function SpanishLayout({ children }: Readonly<{ children: React.R
         <SiteHeader locale="es" />
         {children}
         <SiteFooter locale="es" />
+        <ConsentManager locale="es" />
       </body>
     </html>
   );
