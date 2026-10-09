@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { CLIENT_PORTAL_URL, type Locale } from "@/lib/site";
 import { BLOG_ARTICLES } from "@/content/blog/catalog";
 import { ROUTES, blogPath } from "@/lib/routes";
@@ -20,6 +21,8 @@ const translatedRoutes: Record<string, string> = Object.fromEntries(
 export function SiteHeader({ locale }: SiteHeaderProps) {
   const pathname = usePathname();
   const english = locale === "en";
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
   const currentArticle = BLOG_ARTICLES.find(
     (article) => blogPath(article.locale, article.slug) === normalizedPath,
@@ -48,13 +51,26 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       ? normalizedPath.startsWith(route)
       : normalizedPath === route;
   };
+  const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
       <a className="skip-link" href="#contenido">
         {english ? "Skip to content" : "Saltar al contenido"}
       </a>
-      <header className={`site-header${normalizedPath === "/" || normalizedPath === "/es/" ? " site-header-home" : ""}`}>
+      <header
+        className={`site-header${normalizedPath === "/" || normalizedPath === "/es/" ? " site-header-home" : ""}`}
+        onKeyDown={(event) => {
+          if (event.key === "Escape" && mobileMenuOpen) {
+            closeMobileMenu();
+            mobileMenuButtonRef.current?.focus();
+          }
+        }}
+      >
         <div className="nav-shell">
           <Link
             className="brand"
@@ -75,12 +91,14 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             id="primary-navigation"
             className="primary-nav"
             aria-label={english ? "Main navigation" : "Navegación principal"}
+            data-mobile-open={mobileMenuOpen}
           >
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={isActiveLink(item.href) ? "page" : undefined}
+                onClick={closeMobileMenu}
               >
                 {item.label}
               </Link>
@@ -90,10 +108,18 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 href={CLIENT_PORTAL_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={closeMobileMenu}
               >
                 {english ? "Client portal" : "Área de clientes"}
               </a>
             )}
+            <Link
+              className="button button-small button-dark nav-cta nav-cta-mobile"
+              href={english ? "/contact/" : "/es/contacto/"}
+              onClick={closeMobileMenu}
+            >
+              {english ? "Start your LLC" : "Empezar mi LLC"}
+            </Link>
           </nav>
           <div className="header-tools">
             <div
@@ -146,6 +172,31 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             >
               {english ? "Start your LLC" : "Empezar mi LLC"}
             </Link>
+            <button
+              ref={mobileMenuButtonRef}
+              className="mobile-menu-toggle"
+              type="button"
+              aria-controls="primary-navigation"
+              aria-expanded={mobileMenuOpen}
+              aria-label={
+                mobileMenuOpen
+                  ? english
+                    ? "Close navigation menu"
+                    : "Cerrar menú de navegación"
+                  : english
+                    ? "Open navigation menu"
+                    : "Abrir menú de navegación"
+              }
+              onClick={() => setMobileMenuOpen((open) => !open)}
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="none">
+                {mobileMenuOpen ? (
+                  <path d="m6 6 12 12M18 6 6 18" />
+                ) : (
+                  <path d="M4 7h16M4 12h16M4 17h16" />
+                )}
+              </svg>
+            </button>
           </div>
         </div>
       </header>
