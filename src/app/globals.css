@@ -13,8 +13,8 @@
   --orange-deep: #a95030;
   --shadow: 0 24px 80px rgba(24, 43, 43, .11);
   --shell: 1180px;
-  --sans: "Segoe UI", Arial, sans-serif;
-  --display: Georgia, "Times New Roman", serif;
+  --sans: var(--font-sans), "DM Sans", system-ui, sans-serif;
+  --display: var(--font-display), "Newsreader", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -24,6 +24,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
+  font-optical-sizing: auto;
   font-size: 16px;
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;

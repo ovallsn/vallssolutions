@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { HomeMotion } from "@/components/HomeMotion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SITE_URL } from "@/lib/site";
+import { displayFont, sansFont } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function SpanishLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es">
+    <html lang="es" className={`${sansFont.variable} ${displayFont.variable}`}>
       <body>
         <SiteHeader locale="es" />
         {children}

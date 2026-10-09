@@ -2,7 +2,10 @@ import Link from "next/link";
 import { findBlogArticle } from "@/content/blog/catalog";
 import { ContactActions } from "@/components/ContactActions";
 import { LeadCaptureSection } from "@/components/LeadCaptureSection";
-import { ChevronIcon } from "@/components/ContactIcons";
+import {
+  FormationServiceIcon,
+  type FormationServiceIconName,
+} from "@/components/ContactIcons";
 import { HeroVideo } from "@/components/HeroVideo";
 import { FormationJourney } from "@/components/FormationJourney";
 import type { Locale } from "@/lib/site";
@@ -25,6 +28,7 @@ type HomeCopy = {
   offerTitle: string;
   offerBody: string;
   offerNote: string;
+  stateChoiceNote: string;
   audienceEyebrow: string;
   audienceTitle: string;
   audienceIntro: string;
@@ -71,7 +75,7 @@ const copy: Record<Locale, HomeCopy> = {
       },
       {
         value: "$699",
-        title: "Clear first-year price",
+        title: "Published price",
         detail: "Wyoming formation fee included.",
       },
     ],
@@ -97,9 +101,11 @@ const copy: Record<Locale, HomeCopy> = {
     offerEyebrow: "The formation package",
     offerTitle: "A clear start for your Wyoming LLC.",
     offerBody:
-      "The essentials to establish your company, present your business professionally and prepare your next steps. One package, coordinated with one point of contact.",
+      "Here is exactly what the $699 Wyoming formation package covers, with one point of contact from filing through banking preparation.",
     offerNote:
       "Your first message can be a short email. No call or document upload is needed to get started.",
+    stateChoiceNote:
+      "This published package is for Wyoming. If you are considering another state, write to us first and we will confirm availability, scope and price.",
     audienceEyebrow: "For founders wherever they live",
     audienceTitle: "Support for founders in the U.S. and around the world.",
     audienceIntro:
@@ -213,7 +219,7 @@ const copy: Record<Locale, HomeCopy> = {
       },
       {
         value: "$699",
-        title: "Precio inicial claro",
+        title: "Precio publicado",
         detail: "Tasa de creación en Wyoming incluida.",
       },
     ],
@@ -239,9 +245,11 @@ const copy: Record<Locale, HomeCopy> = {
     offerEyebrow: "El paquete de formación",
     offerTitle: "Un comienzo claro para tu LLC en Wyoming.",
     offerBody:
-      "Los esenciales para crear tu empresa, dar presencia profesional a tu negocio y preparar los siguientes pasos. Un paquete coordinado con un contacto directo.",
+      "Esto es exactamente lo que cubre el paquete de formación de $699 en Wyoming, con un contacto directo desde la presentación hasta la preparación bancaria.",
     offerNote:
       "Puedes empezar con un email breve. No necesitas reservar una llamada ni subir documentos para hacer la primera consulta.",
+    stateChoiceNote:
+      "El paquete publicado es para Wyoming. Si estás considerando otro estado, escríbenos antes y confirmaremos disponibilidad, alcance y precio.",
     audienceEyebrow: "Para fundadores, vivan donde vivan",
     audienceTitle: "Acompañamiento para crear tu empresa, vivas donde vivas.",
     audienceIntro:
@@ -356,58 +364,74 @@ export function HomePage({ locale }: { locale: Locale }) {
   )
     .map((slug) => findBlogArticle(locale, slug)!)
     .filter(Boolean);
-  const services = english
+  const services: Array<{
+    icon: FormationServiceIconName;
+    title: string;
+    body: string;
+  }> = english
     ? [
-        [
-          "Wyoming LLC formation",
-          "State filing, formation fee and your company formation documents.",
-        ],
-        [
-          "EIN application",
-          "Application handling for your federal business identification number.",
-        ],
-        [
-          "Registered Agent",
-          "A registered contact for official state correspondence. Year one included.",
-        ],
-        [
-          "Wyoming mailing address",
-          "An address for company correspondence, included for year one. Not a physical office.",
-        ],
-        [
-          "Website & business email",
-          "A company website and email to give your business an online presence.",
-        ],
-        [
-          "Business banking guidance",
-          "Support preparing your application; you apply directly to the provider.",
-        ],
+        {
+          icon: "formation",
+          title: "Wyoming LLC formation",
+          body: "State filing, formation fee and your company formation documents.",
+        },
+        {
+          icon: "ein",
+          title: "EIN application",
+          body: "Application handling for your federal business identification number.",
+        },
+        {
+          icon: "agent",
+          title: "Registered Agent",
+          body: "A registered contact for official state correspondence. Year one included.",
+        },
+        {
+          icon: "address",
+          title: "Wyoming mailing address",
+          body: "An address for company correspondence, included for year one. Not a physical office.",
+        },
+        {
+          icon: "website",
+          title: "Website & business email",
+          body: "A company website and business email set up for your business.",
+        },
+        {
+          icon: "banking",
+          title: "Business banking guidance",
+          body: "Support preparing your application; you apply directly to the provider.",
+        },
       ]
     : [
-        [
-          "Creación de la LLC en Wyoming",
-          "Presentación, tasa estatal y documentos de constitución de tu empresa.",
-        ],
-        [
-          "Solicitud del EIN",
-          "Gestión de la solicitud del número de identificación empresarial del IRS.",
-        ],
-        [
-          "Agente registrado",
-          "Un contacto registrado para comunicaciones oficiales. Primer año incluido.",
-        ],
-        [
-          "Dirección postal en Wyoming",
-          "Para la correspondencia de tu empresa. Primer año incluido; no es una oficina física.",
-        ],
-        [
-          "Página web y correo empresarial",
-          "Una web y un correo para dar presencia online a tu negocio.",
-        ],
-        [
-          "Orientación bancaria empresarial",
-          "Ayuda para preparar la solicitud; la presentas directamente al proveedor.",
-        ],
+        {
+          icon: "formation",
+          title: "Creación de la LLC en Wyoming",
+          body: "Presentación, tasa estatal y documentos de constitución de tu empresa.",
+        },
+        {
+          icon: "ein",
+          title: "Solicitud del EIN",
+          body: "Gestión de la solicitud del número de identificación empresarial del IRS.",
+        },
+        {
+          icon: "agent",
+          title: "Agente registrado",
+          body: "Un contacto registrado para comunicaciones oficiales. Primer año incluido.",
+        },
+        {
+          icon: "address",
+          title: "Dirección postal en Wyoming",
+          body: "Para la correspondencia de tu empresa. Primer año incluido; no es una oficina física.",
+        },
+        {
+          icon: "website",
+          title: "Página web y correo empresarial",
+          body: "Una web y un correo empresarial configurados para tu negocio.",
+        },
+        {
+          icon: "banking",
+          title: "Orientación bancaria empresarial",
+          body: "Ayuda para preparar la solicitud; la presentas directamente al proveedor.",
+        },
       ];
   return (
     <main id="contenido" className="home-page premium-home founder-home">
@@ -458,40 +482,50 @@ export function HomePage({ locale }: { locale: Locale }) {
             <h2>{content.offerTitle}</h2>
             <p className="premium-offer-intro">{content.offerBody}</p>
           </div>
-            <ol className="premium-service-list">
-              {services.map(([title, body], i) => (
-                <li key={title}>
-                  <span className="premium-index">0{i + 1}</span>
-                  <div>
-                    <h3>{title}</h3>
-                    <p>{body}</p>
-                  </div>
-                  <span className="service-check" aria-hidden="true">
-                    ✓
-                  </span>
-                </li>
-              ))}
-            </ol>
-          <aside className="premium-price-summary">
+          <p className="service-list-intro">
+            {english
+              ? "Included in the $699 Wyoming package"
+              : "Incluido en el paquete de $699 en Wyoming"}
+          </p>
+          <ol className="premium-service-list">
+            {services.map(({ icon, title, body }) => (
+              <li key={title}>
+                <FormationServiceIcon name={icon} />
+                <div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <p className="state-choice-note">{content.stateChoiceNote}</p>
+        </div>
+        <aside
+          className="premium-price-summary"
+          aria-label={
+            english
+              ? "Wyoming LLC package pricing"
+              : "Precio del paquete de LLC en Wyoming"
+          }
+        >
+          <div className="section-shell premium-price-inner">
             <div className="package-first-year">
-            <span className="eyebrow">
-              {english
-                ? "WYOMING LLC · YEAR ONE"
-                : "LLC EN WYOMING · PRIMER AÑO"}
-            </span>
-            <p className="premium-price">$699</p>
-            <p>
-              {english
-                ? "One-time formation package. State formation fee included."
-                : "Paquete de creación, pago único. Tasa estatal de creación incluida."}
-            </p>
-            <ContactActions
-              locale={locale}
-              ctaLabel={
-                english ? "Start your LLC" : "Empezar mi LLC"
-              }
-            />
-            <p className="premium-price-support">{content.offerNote}</p>
+              <span className="eyebrow">
+                {english
+                  ? "WYOMING LLC · YEAR ONE"
+                  : "LLC EN WYOMING · PRIMER AÑO"}
+              </span>
+              <p className="premium-price">$699</p>
+              <p>
+                {english
+                  ? "One-time formation package. State formation fee included."
+                  : "Paquete de creación, pago único. Tasa estatal de creación incluida."}
+              </p>
+              <ContactActions
+                locale={locale}
+                ctaLabel={english ? "Start your LLC" : "Empezar mi LLC"}
+              />
+              <p className="premium-price-support">{content.offerNote}</p>
             </div>
             <div className="premium-renewal">
               <span>{english ? "FROM YEAR TWO" : "DESDE EL SEGUNDO AÑO"}</span>
@@ -508,10 +542,9 @@ export function HomePage({ locale }: { locale: Locale }) {
               {english
                 ? "All pricing details"
                 : "Todos los detalles del precio"}
-              <ChevronIcon />
             </Link>
-          </aside>
-        </div>
+          </div>
+        </aside>
       </section>
       <section
         className="premium-process-band"
@@ -558,7 +591,6 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
         <Link className="text-link" href={`${prefix}/blog/${llcGuide.slug}/`}>
           {content.guideLink}
-          <ChevronIcon />
         </Link>
       </section>
       <section className="section-shell section-block premium-trust">
@@ -577,7 +609,6 @@ export function HomePage({ locale }: { locale: Locale }) {
             href={english ? "/about/" : "/es/nosotros/"}
           >
             {english ? "Meet Valls Solutions" : "Conoce Valls Solutions"}
-            <ChevronIcon />
           </Link>
         </div>
         <div className="premium-trust-points">
@@ -663,7 +694,6 @@ export function HomePage({ locale }: { locale: Locale }) {
               {english
                 ? "Read the banking preparation guide"
                 : "Lee la guía de preparación bancaria"}
-              <ChevronIcon />
             </Link>
           </div>
           <ol>
@@ -694,7 +724,6 @@ export function HomePage({ locale }: { locale: Locale }) {
           </div>
           <Link className="text-link" href={`${prefix}/blog/`}>
             {content.guidesLink}
-            <ChevronIcon />
           </Link>
         </div>
         <div className="premium-journal-grid">
@@ -709,7 +738,6 @@ export function HomePage({ locale }: { locale: Locale }) {
             <p>{llcGuide.description}</p>
             <span className="text-link">
               {english ? "Read the guide" : "Leer la guía"}
-              <ChevronIcon />
             </span>
           </Link>
           <div className="premium-journal-rows">
@@ -721,7 +749,6 @@ export function HomePage({ locale }: { locale: Locale }) {
                   <h3>{g.title}</h3>
                   <p>{g.description}</p>
                 </div>
-                <ChevronIcon />
               </Link>
             ))}
           </div>

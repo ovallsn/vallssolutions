@@ -2,11 +2,16 @@
 
 import { useState } from "react";
 import type { Locale } from "@/lib/site";
-import { ChevronIcon } from "@/components/ContactIcons";
 
 type Step = { title: string; body: string };
 
-export function FormationJourney({ locale, steps }: { locale: Locale; steps: Step[] }) {
+export function FormationJourney({
+  locale,
+  steps,
+}: {
+  locale: Locale;
+  steps: Step[];
+}) {
   const [selected, setSelected] = useState(0);
   const en = locale === "en";
   const details = en ? [
@@ -23,24 +28,32 @@ export function FormationJourney({ locale, steps }: { locale: Locale; steps: Ste
       <ol className="journey-controls">
         {steps.map((step, index) => (
           <li key={step.title}>
-            <button type="button" aria-expanded={selected === index} aria-controls="journey-detail" onClick={() => setSelected(index)}>
+            <button
+              type="button"
+              aria-expanded={selected === index}
+              aria-controls="journey-detail"
+              onClick={() => setSelected(index)}
+            >
               <span className="journey-number">0{index + 1}</span>
-              <span><strong>{step.title}</strong><small>{step.body}</small></span>
-              <ChevronIcon />
+              <span>
+                <strong>{step.title}</strong>
+                <small>{step.body}</small>
+              </span>
             </button>
           </li>
         ))}
       </ol>
       <div className="journey-detail" id="journey-detail" aria-live="polite" aria-atomic="true">
-        <div className="journey-preview" aria-hidden="true">
-          <span className="art-label">VALLS SOLUTIONS · 0{selected + 1}</span>
-          <img src="/assets/media/valls-single-ribbon.svg" alt="" width="42" height="42" />
-          <strong>{details[selected][2]}</strong>
-          <span>{details[selected][3]}</span>
-          <div className="journey-progress"><i style={{ width: `${((selected + 1) / steps.length) * 100}%` }} /></div>
-        </div>
+        <span className="journey-detail-kicker">{details[selected][2]}</span>
+        <span className="journey-detail-number" aria-hidden="true">
+          0{selected + 1}
+        </span>
         <h3>{details[selected][0]}</h3>
         <p>{details[selected][1]}</p>
+        <span className="journey-detail-meta">{details[selected][3]}</span>
+        <div className="journey-progress" aria-hidden="true">
+          <i style={{ width: `${((selected + 1) / steps.length) * 100}%` }} />
+        </div>
       </div>
     </div>
   );
