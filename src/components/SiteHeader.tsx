@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { CLIENT_PORTAL_URL, type Locale } from "@/lib/site";
 import { BLOG_ARTICLES } from "@/content/blog/catalog";
 import { ROUTES, blogPath } from "@/lib/routes";
@@ -19,15 +18,6 @@ const translatedRoutes: Record<string, string> = Object.fromEntries(
 );
 
 export function SiteHeader({ locale }: SiteHeaderProps) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  useEffect(() => {
-    if (!menuOpen) return;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
-    };
-    document.addEventListener("keydown", closeOnEscape);
-    return () => document.removeEventListener("keydown", closeOnEscape);
-  }, [menuOpen]);
   const pathname = usePathname();
   const english = locale === "en";
   const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
@@ -82,8 +72,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             <span className="brand-wordmark">Valls Solutions</span>
           </Link>
           <nav
-            className={`primary-nav${menuOpen ? " is-open" : ""}`}
-            id="primary-nav"
+            className="primary-nav"
             aria-label={english ? "Main navigation" : "Navegación principal"}
           >
             {nav.map((item) => (
@@ -91,7 +80,6 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 key={item.href}
                 href={item.href}
                 aria-current={isActiveLink(item.href) ? "page" : undefined}
-                onClick={() => setMenuOpen(false)}
               >
                 {item.label}
               </Link>
@@ -105,13 +93,6 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 {english ? "Client portal" : "Área de clientes"}
               </a>
             )}
-            <Link
-              className="button button-small button-dark nav-cta nav-cta-mobile"
-              href={english ? "/contact/" : "/es/contacto/"}
-              onClick={() => setMenuOpen(false)}
-            >
-              {english ? "Start your LLC" : "Empezar mi LLC"}
-            </Link>
           </nav>
           <div className="header-tools">
             <div
@@ -164,24 +145,6 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             >
               {english ? "Start your LLC" : "Empezar mi LLC"}
             </Link>
-            <button
-              className="menu-toggle"
-              type="button"
-              aria-expanded={menuOpen}
-              aria-controls="primary-nav"
-              onClick={() => setMenuOpen((open) => !open)}
-            >
-              <span className="sr-only">
-                {menuOpen
-                  ? english
-                    ? "Close menu"
-                    : "Cerrar menú"
-                  : english
-                    ? "Open menu"
-                    : "Abrir menú"}
-              </span>
-              <span className="menu-lines" aria-hidden="true" />
-            </button>
           </div>
         </div>
       </header>

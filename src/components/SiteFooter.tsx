@@ -11,7 +11,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <Link className="brand brand-footer" href={english ? "/" : "/es/"}>
             <img
               className="brand-mark"
-              src="/assets/media/valls-single-ribbon-reverse.svg"
+              src="/assets/media/valls-single-ribbon.svg"
               alt=""
               aria-hidden="true"
             />
@@ -23,7 +23,10 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               : "Formación de LLC en Wyoming y apoyo administrativo para fundadores en Estados Unidos y en el extranjero."}
           </p>
         </div>
-        <div className="footer-nav">
+        <nav
+          className="footer-nav footer-explore"
+          aria-label={english ? "Explore Valls Solutions" : "Explora Valls Solutions"}
+        >
           <strong>{english ? "Explore" : "Explora"}</strong>
           <Link href={english ? "/llc-formation/" : "/es/crear-llc/"}>
             {english ? "LLC formation" : "Formación de LLC"}
@@ -52,27 +55,37 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               {english ? "Client portal" : "Área de clientes"}
             </a>
           )}
-        </div>
-        <div className="footer-nav">
-          <strong>{english ? "Contact" : "Contacto"}</strong>
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
-          <span className="footer-contact-note">
-            {english
-              ? "Support in English and Spanish"
-              : "Atención en español e inglés"}
-          </span>
+        </nav>
+        <div className="footer-contact-col">
+          <strong className="footer-contact-eyebrow">
+            {english ? "Start with a note" : "Empecemos por un mensaje"}
+          </strong>
+          <a className="footer-email-link" href={`mailto:${CONTACT_EMAIL}`}>
+            {CONTACT_EMAIL}
+          </a>
           <ConsentPreferencesButton locale={locale} />
-          <nav className="footer-legal" aria-label={english ? "Legal information" : "Información legal"}>
-            <Link href={english ? "/legal-notice/" : "/es/aviso-legal/"}>{english ? "Legal notice" : "Aviso legal"}</Link>
-            <Link href={english ? "/privacy/" : "/es/privacidad/"}>{english ? "Privacy" : "Privacidad"}</Link>
-            <Link href={english ? "/cookies/" : "/es/cookies/"}>{english ? "Cookies" : "Cookies"}</Link>
-            <Link href={english ? "/terms/" : "/es/terminos/"}>{english ? "Terms" : "Términos"}</Link>
-          </nav>
         </div>
       </div>
       <div className="section-shell footer-bottom">
-        <span>© 2026 Valls Solutions LLC</span>
-        <span>
+        <span className="footer-copyright">© 2026 Valls Solutions LLC</span>
+        <nav
+          className="footer-legal"
+          aria-label={english ? "Legal information" : "Información legal"}
+        >
+          <Link href={english ? "/legal-notice/" : "/es/aviso-legal/"}>
+            {english ? "Legal notice" : "Aviso legal"}
+          </Link>
+          <Link href={english ? "/privacy/" : "/es/privacidad/"}>
+            {english ? "Privacy" : "Privacidad"}
+          </Link>
+          <Link href={english ? "/cookies/" : "/es/cookies/"}>
+            Cookies
+          </Link>
+          <Link href={english ? "/terms/" : "/es/terminos/"}>
+            {english ? "Terms" : "Términos"}
+          </Link>
+        </nav>
+        <span className="footer-disclaimer">
           {english
             ? "Company formation and administrative support. Consult a qualified professional for legal or tax advice."
             : "Formación de empresas y apoyo administrativo. Para asesoramiento legal o fiscal, consulta a un profesional cualificado."}
