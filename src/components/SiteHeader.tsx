@@ -72,6 +72,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
             <span className="brand-wordmark">Valls Solutions</span>
           </Link>
           <nav
+            id="primary-navigation"
             className="primary-nav"
             aria-label={english ? "Main navigation" : "Navegación principal"}
           >

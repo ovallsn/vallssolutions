@@ -53,7 +53,6 @@ export function PricingPage({ locale }: { locale: Locale }) {
           </div>
           <div>
             <p className="banking-lede">{english ? "We explain the application steps and help you prepare company documents for providers such as Mercury or Wise when appropriate. You submit the application directly; each provider reviews it under its own criteria." : "Te explicamos los pasos y te ayudamos a preparar los documentos de la empresa para proveedores como Mercury o Wise cuando corresponda. Tú presentas la solicitud directamente y cada proveedor la revisa según sus propios criterios."}</p>
-          <p className="banking-scope-note">{english ? "You submit your application directly to the bank or financial platform; we help you prepare the company documents and understand the steps." : "Presentas la solicitud directamente al banco o plataforma financiera; te ayudamos a preparar los documentos de la empresa y a entender los pasos."}</p>
           </div>
         </div>
       </section>

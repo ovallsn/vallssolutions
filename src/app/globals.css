@@ -343,8 +343,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .journal-article-head .article-deck { max-width: 700px; }
 .article-byline { margin-top: 25px; padding-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
 .article-layout { display: grid; grid-template-columns: minmax(0,780px) minmax(210px,280px); gap: clamp(40px,8vw,105px); align-items: start; }
-.article-copy { max-width: 760px; }
+.article-copy { max-width: 760px; min-width: 0; }
 .article-copy p, .article-copy li { color: var(--ink-soft); font-size: 16px; line-height: 1.82; }
+.article-table-scroll { width: 100%; max-width: 100%; margin: 26px 0; overflow-x: auto; overscroll-behavior-inline: contain; -webkit-overflow-scrolling: touch; border-block: 1px solid var(--line); }
+.article-table-scroll:focus-visible { outline: 3px solid var(--orange-deep); outline-offset: 4px; }
+.article-copy table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: 13px; line-height: 1.55; }
+.article-copy th, .article-copy td { padding: 14px 15px; text-align: left; vertical-align: top; }
+.article-copy th { background: var(--paper-deep); color: var(--green-deep); font-size: 11px; font-weight: 750; letter-spacing: .04em; }
+.article-copy td { border-top: 1px solid var(--line); color: var(--ink-soft); }
+.article-copy td:first-child { color: var(--ink); font-weight: 700; }
 .article-copy h2 { margin: 47px 0 13px; font-size: clamp(27px,3.2vw,36px); font-weight: 570; letter-spacing: -.05em; line-height: 1.14; }
 .article-copy h3 { margin: 30px 0 7px; font-size: 20px; font-weight: 650; letter-spacing: -.035em; line-height: 1.25; }
 .article-copy ul, .article-copy ol { padding-left: 22px; }
@@ -361,7 +368,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .article-sidebar ul { padding-left: 17px; }
 .article-sidebar .text-link { font-size: 12px; }
 .article-related { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
-.article-related a { display: block; margin-top: 12px; color: var(--green); font-size: 14px; font-weight: 650; }
+.article-related a:not(.button) { display: block; margin-top: 12px; color: var(--green); font-size: 14px; font-weight: 650; }
 
 .page-hero h1, .section-intro h2, .audience-heading h2, .banking-layout h2, .pricing-copy h2, .closing-layout h2 { font-family: var(--display); font-weight: 400; letter-spacing: -.035em; line-height: 1.13; text-wrap: balance; }
 .article-copy h2 { font-family: var(--display); font-weight: 400; letter-spacing: -.025em; }
@@ -465,7 +472,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   .pricing-page-grid { grid-template-columns: 1fr; }
   .journal-entry { grid-template-columns: 28px minmax(0,1fr) 30px; gap: 10px; }
   .journal-arrow { width: 30px; height: 30px; }
-  .article-layout { grid-template-columns: 1fr; gap: 35px; }
+  .article-layout { grid-template-columns: minmax(0, 1fr); gap: 35px; }
   .article-sidebar { position: static; }
   .article-copy p, .article-copy li { font-size: 15px; }
 }
@@ -558,7 +565,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
 .pricing-website { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(45px,8vw,110px); align-items: start; }
 .pricing-website .section-intro { margin: 0; }
 .pricing-website .page-copy p { margin-top: 0; }
-.pricing-banking .banking-scope-note { margin-top: 18px; padding-top: 14px; border-top: 1px solid #c9cac1; color: var(--ink-soft); font-size: 13px; }
 .pricing-faq .legal-note { margin-top: 25px; }
 
 @media (max-width: 860px) {
@@ -1535,12 +1541,12 @@ h1, h2, h3 { overflow-wrap: normal; hyphens: none; }
  .formation-journey { gap: 24px; }
 }
 @media (max-width: 720px) {
- .site-header { width: calc(100% - 20px); top: 8px; margin-top: 8px; }
- .site-header .nav-shell { width: calc(100% - 24px); min-height: 64px; }
+  .site-header { width: calc(100% - 20px); top: 8px; margin-top: 8px; }
+  .site-header .nav-shell { width: calc(100% - 24px); min-height: 64px; }
  .site-header .brand-wordmark { font-size: 19px; }
  .site-header .brand-mark { width: 30px; height: 30px; }
  .site-header .language-option { min-width: 28px; }
- .site-header .header-tools { gap: 7px; }
+  .site-header .header-tools { gap: 7px; }
  .founder-home .premium-hero { grid-template-columns: 1fr; padding-block: 48px 46px; gap: 35px; }
  .founder-home .premium-hero h1 { font-size: clamp(48px,11.5vw,70px); }
  .founder-home .premium-lede { font-size: 16px; }
@@ -1631,12 +1637,14 @@ h1, h2, h3 { overflow-wrap: normal; hyphens: none; }
 .founder-home .premium-hero-media .video-toggle { top: auto; right: 24px; bottom: 24px; width: 44px; height: 44px; padding: 0; display: grid; place-items: center; background: #0c1f1d66; border-color: #ffffff55; border-radius: 50%; z-index: 3; }
 .hero-scroll-cue { position: absolute; z-index: 3; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; min-height: 44px; color: var(--paper); font-size: 12px; text-decoration: none; }
 .hero-scroll-cue span { font-size: 22px; }
-.founder-proof-band { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); padding-block: 36px; border-bottom: 1px solid var(--line); }
+.founder-proof-band { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); padding-block: 36px; border-bottom: 1px solid var(--line); }
 .founder-proof-band > div { display: flex; align-items: center; justify-content: center; gap: 18px; padding-inline: 20px; }
 .founder-proof-band > div + div { border-left: 1px solid var(--line); }
 .founder-proof-band strong { font: 40px/1 var(--display); color: var(--green); }
 .founder-proof-band span { font-size: 13px; font-weight: 600; }
 .founder-proof-band small { display: block; color: var(--muted); font-size: 11px; font-weight: 400; margin-top: 4px; }
+.founder-home .premium-hero-media .video-toggle-focus-only { opacity: 0; pointer-events: none; transition: opacity .18s ease; }
+.founder-home .premium-hero-media .video-toggle-focus-only:focus-visible { opacity: 1; pointer-events: auto; }
 .founder-home .premium-service-list li { transition: background .3s, border-color .3s, transform .3s, box-shadow .3s; }
 .founder-home .premium-service-list li h3, .founder-home .premium-service-list li p, .founder-home .premium-service-list li span { transition: color .3s; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {

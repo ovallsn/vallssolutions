@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/llc-formation/",
   translatedPath: "/es/crear-llc/",
   title: "Wyoming LLC Formation: Package and Process",
-  description: "See how Wyoming LLC formation works with EIN application handling, first-year Registered Agent and address, website, business email and bank application guidance.",
+  description: "$699 Wyoming LLC formation: filing, EIN, first-year Registered Agent, mailing address, website, email and banking guidance.",
 });
 
 export default function EnglishLLCFormationRoute() {

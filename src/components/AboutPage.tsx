@@ -34,7 +34,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
       <section className="section-shell section-block">
         <div className="page-highlight">
           <h2>{english ? "What happens after formation?" : "¿Qué ocurre después de crear la LLC?"}</h2>
-          <p>{english ? "From year two, the $449 annual renewal includes Registered Agent service, Wyoming mailing address, the Annual Report and its state tax, plus website hosting and maintenance. Banking guidance helps you prepare and submit an application; the financial provider reviews it and makes its own decision." : "Desde el segundo año, la renovación anual de $449 incluye Registered Agent, dirección postal de Wyoming, el Annual Report y su tasa estatal, además del alojamiento y mantenimiento de la web. La orientación bancaria te ayuda a preparar y presentar una solicitud; el proveedor financiero la revisa y toma su propia decisión."}</p>
+          <p>{english ? "From year two, the $449 annual renewal includes Registered Agent service, Wyoming mailing address, the Annual Report and its state tax, plus website hosting and maintenance. We help you prepare a bank application; you submit it directly to the provider, which reviews it under its own requirements." : "Desde el segundo año, la renovación anual de $449 incluye Registered Agent, dirección postal de Wyoming, el Annual Report y su tasa estatal, además del alojamiento y mantenimiento de la web. Te ayudamos a preparar la solicitud bancaria; tú la presentas directamente al proveedor, que la revisa según sus propios requisitos."}</p>
           <Link className="text-link" href={english ? "/pricing/" : "/es/precios/"}>{english ? "See package pricing" : "Ver el precio del paquete"}</Link>
         </div>
       </section>

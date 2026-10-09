@@ -598,7 +598,7 @@
   .footer-disclaimer { max-width: 100%; text-align: left; }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 390px) {
   .site-header .brand-mark { width: 32px; height: 32px; }
   .site-header .brand-wordmark { font-size: 15px; }
   .site-header .header-tools { gap: 5px; }

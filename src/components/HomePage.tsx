@@ -73,11 +73,6 @@ const copy: Record<Locale, HomeCopy> = {
         detail: "Practical formation experience.",
       },
       {
-        value: "EN · ES",
-        title: "Bilingual support",
-        detail: "Speak with us in English or Spanish.",
-      },
-      {
         value: "$699",
         title: "Published price",
         detail: "Wyoming formation fee included.",
@@ -217,11 +212,6 @@ const copy: Record<Locale, HomeCopy> = {
         value: "100+",
         title: "LLC constituidas",
         detail: "Experiencia práctica en formación.",
-      },
-      {
-        value: "ES · EN",
-        title: "Atención bilingüe",
-        detail: "Hablamos contigo en español o inglés.",
       },
       {
         value: "$699",

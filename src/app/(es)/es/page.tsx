@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/es/",
   translatedPath: "/",
   title: "Crear una LLC en Estados Unidos",
-  description: "Crea una LLC en Wyoming por $699 desde EE. UU. o el extranjero. Incluye tasa estatal, EIN, agente y dirección del primer año, web, correo y orientación bancaria.",
+  description: "LLC en Wyoming para fundadores de EE. UU. y otros países. $699 incluye tasa, EIN, agente y dirección postal del primer año, web, correo y guía bancaria.",
 });
 
 const organization = {

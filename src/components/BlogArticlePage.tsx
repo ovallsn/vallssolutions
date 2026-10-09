@@ -3,6 +3,7 @@ import { BlogPost, listBlogPosts } from "@/content/blog/articles";
 import { ContactActions } from "@/components/ContactActions";
 import { ChevronIcon } from "@/components/ContactIcons";
 import { absoluteUrl, safeJsonLd, type Locale } from "@/lib/site";
+import { blogMdxComponents } from "../../mdx-components";
 
 export function BlogArticlePage({
   locale,
@@ -73,7 +74,7 @@ export function BlogArticlePage({
 
       <section className="section-shell article-layout">
         <article className="article-copy">
-          <Content />
+          <Content components={blogMdxComponents} />
           <div className="article-related">
             <h2>{english ? "Continue exploring" : "Sigue leyendo"}</h2>
             {relatedPosts.map((article) => (

@@ -6,11 +6,13 @@ import {
   type Locale,
 } from "@/content/blog/catalog";
 import WyomingEs from "@/content/blog/articles/es/llc-wyoming.mdx";
+import WyomingVsDelawareEs from "@/content/blog/articles/es/wyoming-o-delaware-llc.mdx";
 import UsLlcEs from "@/content/blog/articles/es/llc-en-estados-unidos.mdx";
 import TaxesEs from "@/content/blog/articles/es/llc-impuestos.mdx";
 import UsVisaEs from "@/content/blog/articles/es/llc-visado-estados-unidos.mdx";
 import ThailandVisaEs from "@/content/blog/articles/es/empresa-y-visados-tailandia.mdx";
 import WyomingEn from "@/content/blog/articles/en/wyoming-llc.mdx";
+import WyomingVsDelawareEn from "@/content/blog/articles/en/wyoming-vs-delaware-llc.mdx";
 import UsLlcEn from "@/content/blog/articles/en/us-llc.mdx";
 import TaxesEn from "@/content/blog/articles/en/llc-taxes.mdx";
 import UsVisaEn from "@/content/blog/articles/en/llc-us-visa.mdx";
@@ -41,11 +43,13 @@ const contentByKey: Record<string, MDXContent> = {
   "es/necesito-una-llc": NeedLlcEs,
   "en/do-i-need-an-llc": NeedLlcEn,
   "es/llc-wyoming": WyomingEs,
+  "es/wyoming-o-delaware-llc": WyomingVsDelawareEs,
   "es/llc-para-no-residentes": UsLlcEs,
   "es/llc-impuestos": TaxesEs,
   "es/llc-visado-estados-unidos": UsVisaEs,
   "es/empresa-y-visados-tailandia": ThailandVisaEs,
   "en/wyoming-llc": WyomingEn,
+  "en/wyoming-vs-delaware-llc": WyomingVsDelawareEn,
   "en/llc-for-non-us-residents": UsLlcEn,
   "en/llc-taxes": TaxesEn,
   "en/llc-us-visa": UsVisaEn,

@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/pricing/",
   translatedPath: "/es/precios/",
   title: "Wyoming LLC Cost: $699 Formation + Annual Renewal",
-  description: "Compare the $699 Wyoming LLC formation package with the $449 annual renewal from year two, including Annual Report, Registered Agent, address and website maintenance.",
+  description: "$699 for Wyoming LLC formation; $449/year from year two with Annual Report, state tax, Registered Agent, mailing address and website maintenance.",
 });
 
 export default function EnglishPricingRoute() {

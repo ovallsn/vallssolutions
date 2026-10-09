@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { listBlogPosts } from "@/content/blog/articles";
+import { BLOG_TOPICS } from "@/content/blog/catalog";
 import { ContactActions } from "@/components/ContactActions";
 import { ChevronIcon } from "@/components/ContactIcons";
 import type { Locale } from "@/lib/site";
@@ -10,49 +11,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
   const featuredSlug = english ? "do-i-need-an-llc" : "necesito-una-llc";
   const featured = posts.find((post) => post.slug === featuredSlug);
   const remainingPosts = posts.filter((post) => post.slug !== featuredSlug);
-  const topics = [
-    {
-      id: "formation",
-      title: english
-        ? "Start and structure your company"
-        : "Crea y estructura tu empresa",
-      slugs: english
-        ? [
-            "wyoming-llc",
-            "llc-for-non-us-residents",
-            "ein-vs-itin",
-            "choosing-llc-formation-service",
-          ]
-        : [
-            "llc-wyoming",
-            "llc-para-no-residentes",
-            "ein-o-itin",
-            "elegir-servicio-creacion-llc",
-          ],
-    },
-    {
-      id: "operations",
-      title: english
-        ? "Banking and annual maintenance"
-        : "Banca y mantenimiento anual",
-      slugs: english
-        ? ["business-bank-account-llc", "wyoming-llc-annual-renewal"]
-        : ["cuenta-bancaria-llc", "renovacion-anual-llc-wyoming"],
-    },
-    {
-      id: "planning",
-      title: english
-        ? "Taxes and international business planning"
-        : "Impuestos y planificación internacional",
-      slugs: english
-        ? ["llc-taxes", "business-owner-thailand-visa", "llc-us-visa"]
-        : [
-            "llc-impuestos",
-            "empresa-y-visados-tailandia",
-            "llc-visado-estados-unidos",
-          ],
-    },
-  ];
+  const topics = BLOG_TOPICS;
 
   return (
     <main id="contenido" className="journal-page">
@@ -85,7 +44,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
         >
           {topics.map((topic) => (
             <a key={topic.id} href={`#${topic.id}`}>
-              {topic.title}
+              {topic.title[locale]}
               <ChevronIcon />
             </a>
           ))}
@@ -119,10 +78,10 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
         )}
         {topics.map((topic) => (
           <section className="blog-topic-section" id={topic.id} key={topic.id}>
-            <h2>{topic.title}</h2>
+            <h2>{topic.title[locale]}</h2>
             <div className="journal-list">
               {remainingPosts
-                .filter((post) => topic.slugs.includes(post.slug))
+                .filter((post) => topic.slugs[locale].includes(post.slug))
                 .map((post, index) => (
                   <Link
                     className="journal-entry"

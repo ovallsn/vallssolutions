@@ -69,7 +69,7 @@ export function LeadCaptureForm({ locale }: { locale: Locale }) {
       </p>
       <button className="button button-dark button-full lead-submit" type="submit">
         <ContactIcon name="mail" />
-        {english ? "Send — start my LLC" : "Enviar — empezar mi LLC"}
+        {english ? "Continue by email" : "Continuar por email"}
       </button>
       <p className="lead-price-note">
         {english ? "$699 one time · $449/year from year two" : "$699 pago único · $449/año desde el segundo año"}
