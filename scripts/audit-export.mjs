@@ -125,6 +125,14 @@ for (const [value, expectedPhrases] of Object.entries(serviceTermsCopy)) {
     assert.ok(pages.get(value).html.includes(phrase), `Missing service-record or deletion disclosure on ${value}: ${phrase}`);
   }
 }
+const enquiryFormPrivacyCopy = {
+  [`${origin}/privacy/`]: "The enquiry form prepares an email in your email app; it does not submit your details to Valls Solutions unless you review and send that email. If sent, the message includes your name, email address, country or U.S. state of residence, business activity and any optional details you add.",
+  [`${origin}/es/privacidad/`]: "El formulario de consulta prepara un email en tu aplicación de correo; no envía tus datos a Valls Solutions hasta que revises y envíes ese correo. Si lo envías, el mensaje incluye tu nombre, dirección de email, país o estado de EE. UU. de residencia, actividad empresarial y cualquier detalle adicional que incluyas.",
+};
+for (const [value, expected] of Object.entries(enquiryFormPrivacyCopy)) {
+  assert.ok(pages.has(value), `Missing privacy page: ${value}`);
+  assert.ok(pages.get(value).html.includes(expected), `Missing contact-form disclosure on ${value}`);
+}
 
 assert.ok(!urls.includes(`${origin}/en/`), "Legacy alias must stay outside sitemap");
 for (const [from, to] of legacyRoutes()) {

@@ -95,7 +95,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
           heading: "Information and purposes",
           paragraphs: [
             ["When the website is requested, hosting and security providers may process technical request information such as an IP address, requested page, browser and device details, and request time. This supports delivery, reliability and protection of the website."],
-            ["The website has no customer account, contact form or online payment portal. If you email us, we receive the email address and the message and details you choose to include so we can answer your question and, if requested, discuss a possible service."],
+            ["The website has no customer account or online payment portal. The enquiry form prepares an email in your email app; it does not submit your details to Valls Solutions unless you review and send that email. If sent, the message includes your name, email address, country or U.S. state of residence, business activity and any optional details you add."],
             ["For each customer LLC, a service record is maintained separately from this public website. Website request data, enquiry messages and payment or accounting records are handled separately for the purposes described in this notice. Do not put identity documents, SSNs, ITINs or other sensitive information in an initial enquiry or LLC administrative notes. If a requested service needs a passport or other supporting information, Valls Solutions will tell you what is needed and receive it directly through WhatsApp Business or email; source documents are not stored in the LLC service record."],
           ],
           list: [
@@ -176,7 +176,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
           heading: "Datos y finalidades",
           paragraphs: [
             ["Cuando se solicita una página, los proveedores de alojamiento y seguridad pueden tratar datos técnicos de la conexión, como la dirección IP, la página solicitada, el navegador y dispositivo, y la hora de la solicitud. Se utilizan para servir, mantener y proteger la web."],
-            ["La web no tiene cuentas de cliente, formularios de contacto ni portal de pago. Si nos escribes, recibimos tu dirección de email y el mensaje y datos que decidas incluir para contestarte y, si lo solicitas, hablar de un posible servicio."],
+            ["La web no tiene cuentas de cliente ni portal de pago. El formulario de consulta prepara un email en tu aplicación de correo; no envía tus datos a Valls Solutions hasta que revises y envíes ese correo. Si lo envías, el mensaje incluye tu nombre, dirección de email, país o estado de EE. UU. de residencia, actividad empresarial y cualquier detalle adicional que incluyas."],
             ["Para cada LLC cliente, el expediente de servicio se mantiene separado de esta web pública. Los datos técnicos de las visitas a la web, los mensajes de consulta y los registros de pago o contabilidad se tratan por separado para las finalidades explicadas en este aviso. No incluyas documentos de identidad, SSN, ITIN ni otros datos sensibles en una consulta inicial ni en las notas administrativas de la LLC. Si un servicio solicitado requiere un pasaporte u otra información justificativa, Valls Solutions te indicará qué hace falta y la recibirá directamente por WhatsApp Business o email; los documentos originales no se guardan en el expediente de servicio de la LLC."],
           ],
           list: [
