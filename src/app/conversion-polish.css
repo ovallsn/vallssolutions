@@ -364,21 +364,33 @@
     bottom: 78px;
     width: min(100% - 40px, 620px);
     padding-top: 12px;
-    grid-template-columns: none;
+    display: flex;
+    flex-direction: column;
   }
 
   .founder-home .founder-proof-band > div {
     min-width: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 3px;
-    padding-inline: 10px;
+    flex: 0 0 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 17px;
+    padding: 12px 0;
   }
 
-  .founder-home .founder-proof-band > div:first-child { padding-left: 0; }
-  .founder-home .founder-proof-band strong { font-size: 23px; }
-  .founder-home .founder-proof-band span { font-size: 10px; line-height: 1.35; }
-  .founder-home .founder-proof-band small { margin-top: 3px; font-size: 9px; line-height: 1.35; }
+  .founder-home .founder-proof-band > div + div {
+    border-top: 1px solid rgba(234, 239, 229, .28);
+    border-left: 0;
+  }
+
+  .founder-home .founder-proof-band strong {
+    flex: 0 0 82px;
+    min-width: 0;
+    font-size: 26px;
+  }
+
+  .founder-home .founder-proof-band span { flex: 1 1 auto; font-size: 11px; line-height: 1.4; }
+  .founder-home .founder-proof-band small { margin-top: 3px; font-size: 10px; line-height: 1.4; }
   .founder-home .hero-scroll-cue { bottom: 14px; left: 20px; font-size: 10px; }
   .founder-home .premium-offer-band { padding-block: 62px 70px; }
 
@@ -404,10 +416,10 @@
   .founder-home .premium-hero .contact-actions { flex: 0 0 auto; }
   .founder-home .premium-hero .button { min-height: 48px; padding-inline: 16px; font-size: 12px; }
   .founder-home .founder-proof-band { width: calc(100% - 36px); bottom: 78px; }
-  .founder-home .founder-proof-band > div { padding-inline: 7px; }
+  .founder-home .founder-proof-band > div { padding-inline: 0; }
   .founder-home .founder-proof-band > div:first-child { padding-left: 0; }
-  .founder-home .founder-proof-band strong { font-size: 21px; }
-  .founder-home .founder-proof-band span { font-size: 9px; }
+  .founder-home .founder-proof-band strong { flex-basis: 76px; font-size: 23px; }
+  .founder-home .founder-proof-band span { font-size: 10px; }
   .founder-home .founder-proof-band small { font-size: 9px; line-height: 1.4; }
 }
 
