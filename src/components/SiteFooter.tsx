@@ -62,6 +62,12 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               : "Atención en español e inglés"}
           </span>
           <ConsentPreferencesButton locale={locale} />
+          <nav className="footer-legal" aria-label={english ? "Legal information" : "Información legal"}>
+            <Link href={english ? "/legal-notice/" : "/es/aviso-legal/"}>{english ? "Legal notice" : "Aviso legal"}</Link>
+            <Link href={english ? "/privacy/" : "/es/privacidad/"}>{english ? "Privacy" : "Privacidad"}</Link>
+            <Link href={english ? "/cookies/" : "/es/cookies/"}>{english ? "Cookies" : "Cookies"}</Link>
+            <Link href={english ? "/terms/" : "/es/terminos/"}>{english ? "Terms" : "Términos"}</Link>
+          </nav>
         </div>
       </div>
       <div className="section-shell footer-bottom">

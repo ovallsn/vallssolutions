@@ -27,6 +27,7 @@ npm run audit:seo
 - `/pricing/` and `/es/precios/` — initial price and annual renewal
 - `/about/` and `/es/nosotros/` — experience and service scope
 - `/contact/` and `/es/contacto/` — email contact without document collection
+- `/legal-notice/`, `/privacy/`, `/cookies/`, `/terms/` and their `/es/` translations — legal, privacy, cookie and service information
 - `/blog/` and `/es/blog/` — localized article archives
 - `/blog/[slug]/` and `/es/blog/[slug]/` — localized MDX guides
 - `/sitemap.xml` and `/robots.txt` — generated crawl files
@@ -43,6 +44,7 @@ The marketing site is a static export and does not provide customer authenticati
 
 - $699 one time for initial Wyoming formation, including the state formation fee, EIN application handling, first-year Registered Agent, first-year Wyoming mailing address, website, business email and banking application guidance. The initial package does not include an Annual Report.
 - $449/year from year two includes Registered Agent, mailing address, Annual Report filing and state tax, plus website hosting and maintenance.
+- The owner confirms $699 and $449/year are the final amounts charged to customers; no additional tax amount is added at payment. This does not make a claim about the LLC's own tax obligations.
 - If renewal is declined, the website goes offline and its files are handed to the customer. Website/email scope is agreed before starting.
 - Banking support is application guidance only. The customer submits the application and the financial provider makes its own decision.
 - Do not claim that an Operating Agreement is included or that a Wyoming LLC guarantees tax savings, banking approval or visa eligibility.

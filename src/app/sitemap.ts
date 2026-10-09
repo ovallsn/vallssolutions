@@ -5,7 +5,7 @@ import { ROUTES, blogPath } from "@/lib/routes";
 
 export const dynamic = "force-static";
 
-const priorities = { home: 1, formation: 0.9, pricing: 0.8, about: 0.6, contact: 0.6, blog: 0.8 };
+const priorities = { home: 1, formation: 0.9, pricing: 0.8, about: 0.6, contact: 0.6, blog: 0.8, legalNotice: 0.3, privacy: 0.3, cookies: 0.3, terms: 0.3 };
 const localizedPages = Object.entries(ROUTES).map(([key, paths]) => ({
   ...paths, priority: priorities[key as keyof typeof priorities],
 }));

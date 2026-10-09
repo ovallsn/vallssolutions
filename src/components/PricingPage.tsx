@@ -32,6 +32,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
           <ContactActions locale={locale} emailLabel={english ? "Ask about the annual renewal" : "Consultar sobre la renovación anual"} />
         </div>
       </section>
+      <p className="section-shell price-total-note">{english ? "Final price charged by Valls Solutions: $699 once and $449 per year from year two. No additional tax is added at payment." : "Precio final que cobra Valls Solutions: 699 USD por la formación y 449 USD al año desde el segundo año. No se añade ningún impuesto adicional al pagar."}</p>
 
       <section className="section-shell section-block pricing-website">
         <div className="section-intro">
