@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { listBlogPosts } from "@/content/blog/articles";
 import { ContactActions } from "@/components/ContactActions";
+import { ChevronIcon } from "@/components/ContactIcons";
 import type { Locale } from "@/lib/site";
 
 export function BlogIndexPage({ locale }: { locale: Locale }) {
@@ -85,7 +86,7 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
           {topics.map((topic) => (
             <a key={topic.id} href={`#${topic.id}`}>
               {topic.title}
-              <span aria-hidden="true"> ↓</span>
+              <ChevronIcon />
             </a>
           ))}
         </nav>
@@ -111,8 +112,8 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
               <h2>{featured.title}</h2>
               <p>{featured.description}</p>
             </div>
-            <span className="journal-arrow" aria-hidden="true">
-              ↗
+            <span className="journal-arrow">
+              <ChevronIcon />
             </span>
           </Link>
         )}
@@ -139,8 +140,8 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
                       <h3>{post.title}</h3>
                       <p>{post.description}</p>
                     </div>
-                    <span className="journal-arrow" aria-hidden="true">
-                      ↗
+                    <span className="journal-arrow">
+                      <ChevronIcon />
                     </span>
                   </Link>
                 ))}
@@ -171,10 +172,10 @@ export function BlogIndexPage({ locale }: { locale: Locale }) {
           </div>
           <ContactActions
             locale={locale}
-            emailLabel={
+            ctaLabel={
               english
-                ? "Email about LLC formation"
-                : "Escribir sobre la formación de LLC"
+                ? "Ask about LLC formation"
+                : "Consultar sobre la formación de LLC"
             }
           />
         </div>

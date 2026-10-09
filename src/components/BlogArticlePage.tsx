@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BlogPost, listBlogPosts } from "@/content/blog/articles";
 import { ContactActions } from "@/components/ContactActions";
+import { ChevronIcon } from "@/components/ContactIcons";
 import { absoluteUrl, safeJsonLd, type Locale } from "@/lib/site";
 
 export function BlogArticlePage({
@@ -80,7 +81,7 @@ export function BlogArticlePage({
                 href={`${english ? "" : "/es"}/blog/${article.slug}/`}
                 key={article.slug}
               >
-                {article.title} <span aria-hidden="true">↗</span>
+                {article.title} <ChevronIcon />
               </Link>
             ))}
           </div>
@@ -107,7 +108,7 @@ export function BlogArticlePage({
             href={english ? "/llc-formation/" : "/es/crear-llc/"}
           >
             {english ? "LLC formation details" : "Detalles de la formación LLC"}{" "}
-            <span aria-hidden="true">↗</span>
+            <ChevronIcon />
           </Link>
           <div className="article-related">
             <h2>{english ? "Questions?" : "¿Tienes dudas?"}</h2>
@@ -118,8 +119,8 @@ export function BlogArticlePage({
             </p>
             <ContactActions
               locale={locale}
-              emailLabel={
-                english ? "Email Valls Solutions" : "Escribir a Valls Solutions"
+              ctaLabel={
+                english ? "Contact Valls Solutions" : "Contactar con Valls Solutions"
               }
             />
           </div>

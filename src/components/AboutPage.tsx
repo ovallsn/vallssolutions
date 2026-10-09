@@ -27,7 +27,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
             <li><strong>{english ? "One clear package" : "Un paquete claro"}</strong><span>{english ? "The initial price and annual renewal are explained before you begin." : "El precio inicial y la renovación anual se explican antes de empezar."}</span></li>
             <li><strong>{english ? "Direct, bilingual communication" : "Comunicación directa y bilingüe"}</strong><span>{english ? "Start with an email in English or Spanish; a call can be arranged when it helps." : "Empieza por email en español o inglés; podemos reunirnos si resulta útil."}</span></li>
           </ul>
-          <div className="about-cta"><ContactActions locale={locale} emailLabel={english ? "Ask us a question" : "Hacernos una consulta"} /></div>
+          <div className="about-cta"><ContactActions locale={locale} ctaLabel={english ? "Ask us a question" : "Hacernos una consulta"} /></div>
         </div>
       </section>
 
@@ -35,7 +35,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <div className="page-highlight">
           <h2>{english ? "What happens after formation?" : "¿Qué ocurre después de crear la LLC?"}</h2>
           <p>{english ? "From year two, the $449 annual renewal includes Registered Agent service, Wyoming mailing address, the Annual Report and its state tax, plus website hosting and maintenance. Banking guidance helps you prepare and submit an application; the financial provider reviews it and makes its own decision." : "Desde el segundo año, la renovación anual de $449 incluye Registered Agent, dirección postal de Wyoming, el Annual Report y su tasa estatal, además del alojamiento y mantenimiento de la web. La orientación bancaria te ayuda a preparar y presentar una solicitud; el proveedor financiero la revisa y toma su propia decisión."}</p>
-          <Link className="text-link" href={english ? "/pricing/" : "/es/precios/"}>{english ? "See package pricing" : "Ver el precio del paquete"}<span aria-hidden="true">↗</span></Link>
+          <Link className="text-link" href={english ? "/pricing/" : "/es/precios/"}>{english ? "See package pricing" : "Ver el precio del paquete"}</Link>
         </div>
       </section>
     </main>

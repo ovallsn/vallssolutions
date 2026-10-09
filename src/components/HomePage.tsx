@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { findBlogArticle } from "@/content/blog/catalog";
 import { ContactActions } from "@/components/ContactActions";
+import { LeadCaptureSection } from "@/components/LeadCaptureSection";
+import { ChevronIcon } from "@/components/ContactIcons";
 import { HeroVideo } from "@/components/HeroVideo";
 import { FormationJourney } from "@/components/FormationJourney";
 import type { Locale } from "@/lib/site";
@@ -45,7 +47,6 @@ type HomeCopy = {
   closingEyebrow: string;
   closingTitle: string;
   closingBody: string;
-  closingCta: string;
 };
 
 const copy: Record<Locale, HomeCopy> = {
@@ -54,7 +55,7 @@ const copy: Record<Locale, HomeCopy> = {
     headline: "Form your U.S. LLC.",
     accent: "From anywhere.",
     lede: "Your Wyoming LLC, EIN, Registered Agent and mailing address—plus a company website, business email and guidance for your bank application. For U.S. and international founders.",
-    primaryCta: "Start by email",
+    primaryCta: "Start your LLC",
     secondaryCta: "See the package",
     priceLine: "$699 one-time · $449/year from year two",
     proof: [
@@ -189,7 +190,6 @@ const copy: Record<Locale, HomeCopy> = {
     closingTitle: "Let’s make your company happen.",
     closingBody:
       "Tell us where you are based and what you are building. We will explain the package and next steps in English or Spanish.",
-    closingCta: "Email Valls Solutions",
   },
   es: {
     eyebrow:
@@ -197,7 +197,7 @@ const copy: Record<Locale, HomeCopy> = {
     headline: "Crea tu LLC en EE. UU.",
     accent: "Donde estés.",
     lede: "Tu LLC en Wyoming, EIN, agente registrado y dirección postal. También tu web, correo empresarial y orientación bancaria. Para emprendedores en EE. UU. y en el extranjero.",
-    primaryCta: "Empezar por email",
+    primaryCta: "Empezar mi LLC",
     secondaryCta: "Ver el paquete",
     priceLine: "$699 pago único · $449/año desde el segundo año",
     proof: [
@@ -333,7 +333,6 @@ const copy: Record<Locale, HomeCopy> = {
     closingTitle: "Demos forma a tu empresa.",
     closingBody:
       "Cuéntanos dónde resides y qué negocio estás poniendo en marcha. Te explicamos el paquete y los siguientes pasos en español o inglés.",
-    closingCta: "Escribir a Valls Solutions",
   },
 };
 
@@ -431,10 +430,9 @@ export function HomePage({ locale }: { locale: Locale }) {
                 : "Tu LLC en Wyoming y los servicios para empezar, con apoyo personal para emprendedores de EE. UU. y del resto del mundo."}
             </p>
             <div className="hero-actions">
-              <ContactActions locale={locale} emailLabel={content.primaryCta} />
+              <ContactActions locale={locale} ctaLabel={content.primaryCta} />
               <Link className="text-link" href="#package">
                 {content.secondaryCta}
-                <span aria-hidden="true">↓</span>
               </Link>
             </div>
             <p className="founder-price-line">{content.priceLine}</p>
@@ -445,7 +443,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
         <Link className="hero-scroll-cue" href="#package">
           {english ? "Discover your company package" : "Descubre tu paquete de empresa"}
-          <span aria-hidden="true">↓</span>
+          <span className="hero-scroll-rule" aria-hidden="true" />
         </Link>
       </section>
       <div className="section-shell founder-proof-band" aria-label={english ? "Valls Solutions experience" : "Experiencia de Valls Solutions"}>
@@ -495,8 +493,8 @@ export function HomePage({ locale }: { locale: Locale }) {
             </p>
             <ContactActions
               locale={locale}
-              emailLabel={
-                english ? "Start your LLC by email" : "Empezar mi LLC por email"
+              ctaLabel={
+                english ? "Start your LLC" : "Empezar mi LLC"
               }
             />
             <p className="premium-price-support">{content.offerNote}</p>
@@ -516,7 +514,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               {english
                 ? "All pricing details"
                 : "Todos los detalles del precio"}
-              <span aria-hidden="true">↗</span>
+              <ChevronIcon />
             </Link>
           </aside>
         </div>
@@ -566,7 +564,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         </div>
         <Link className="text-link" href={`${prefix}/blog/${llcGuide.slug}/`}>
           {content.guideLink}
-          <span aria-hidden="true">↗</span>
+          <ChevronIcon />
         </Link>
       </section>
       <section className="section-shell section-block premium-trust">
@@ -585,7 +583,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             href={english ? "/about/" : "/es/nosotros/"}
           >
             {english ? "Meet Valls Solutions" : "Conoce Valls Solutions"}
-            <span aria-hidden="true">↗</span>
+            <ChevronIcon />
           </Link>
         </div>
         <div className="premium-trust-points">
@@ -597,7 +595,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                 ],
                 [
                   "Direct answers, in your language",
-                  "Communicate in English or Spanish. Get started by email and arrange a call when a conversation helps.",
+                  "Communicate in English or Spanish. Start with a short email and move at your own pace.",
                 ],
                 [
                   "An offer you can understand",
@@ -611,7 +609,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                 ],
                 [
                   "Respuestas directas, en tu idioma",
-                  "Atención en español e inglés. Empieza por email y organiza una llamada cuando te resulte útil.",
+                  "Atención en español e inglés. Empieza por email y avanza a tu ritmo.",
                 ],
                 [
                   "Una oferta que se entiende",
@@ -671,7 +669,7 @@ export function HomePage({ locale }: { locale: Locale }) {
               {english
                 ? "Read the banking preparation guide"
                 : "Lee la guía de preparación bancaria"}
-              <span aria-hidden="true">↗</span>
+              <ChevronIcon />
             </Link>
           </div>
           <ol>
@@ -702,7 +700,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           </div>
           <Link className="text-link" href={`${prefix}/blog/`}>
             {content.guidesLink}
-            <span aria-hidden="true">↗</span>
+            <ChevronIcon />
           </Link>
         </div>
         <div className="premium-journal-grid">
@@ -717,7 +715,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             <p>{llcGuide.description}</p>
             <span className="text-link">
               {english ? "Read the guide" : "Leer la guía"}
-              <span aria-hidden="true">↗</span>
+              <ChevronIcon />
             </span>
           </Link>
           <div className="premium-journal-rows">
@@ -729,7 +727,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                   <h3>{g.title}</h3>
                   <p>{g.description}</p>
                 </div>
-                <span aria-hidden="true">↗</span>
+                <ChevronIcon />
               </Link>
             ))}
           </div>
@@ -752,19 +750,12 @@ export function HomePage({ locale }: { locale: Locale }) {
           ))}
         </div>
       </section>
-      <section className="closing-cta">
-        <div className="section-shell closing-layout">
-          <div>
-            <p className="eyebrow eyebrow-light">
-              <span className="eyebrow-line" />
-              {content.closingEyebrow}
-            </p>
-            <h2>{content.closingTitle}</h2>
-            <p>{content.closingBody}</p>
-          </div>
-          <ContactActions locale={locale} emailLabel={content.closingCta} />
-        </div>
-      </section>
+      <LeadCaptureSection
+        locale={locale}
+        eyebrow={content.closingEyebrow}
+        title={content.closingTitle}
+        body={content.closingBody}
+      />
     </main>
   );
 }

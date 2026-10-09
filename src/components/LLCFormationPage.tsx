@@ -32,8 +32,8 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
         <h1>{english ? "Form your Wyoming LLC with a clear, guided package." : "Crea tu LLC en Wyoming con un paquete claro y acompañado."}</h1>
         <p>{english ? "For U.S. and international founders. One formation service for your Wyoming filing, EIN application, first-year essentials and business banking preparation." : "Para emprendedores en EE. UU. y en otros países. Un servicio de formación que reúne la presentación en Wyoming, el EIN, los esenciales del primer año y la preparación bancaria empresarial."}</p>
         <div className="hero-actions">
-          <ContactActions locale={locale} emailLabel={english ? "Start your LLC" : "Empezar mi LLC"} />
-          <Link className="text-link" href={english ? "/pricing/" : "/es/precios/"}>{english ? "See package pricing" : "Ver el precio del paquete"}<span aria-hidden="true">↗</span></Link>
+          <ContactActions locale={locale} ctaLabel={english ? "Start your LLC" : "Empezar mi LLC"} />
+          <Link className="text-link" href={english ? "/pricing/" : "/es/precios/"}>{english ? "See package pricing" : "Ver el precio del paquete"}</Link>
         </div>
       </header>
 
@@ -56,7 +56,7 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
           <div className="formation-price-divider" />
           <p className="formation-renewal-price"><strong>{english ? "$449/year from year two" : "$449/año desde el segundo año"}</strong></p>
           <p>{english ? "Registered Agent, mailing address, Annual Report and state tax, plus website hosting and maintenance." : "Registered Agent, dirección postal, Annual Report y tasa estatal, además del alojamiento y mantenimiento de la web."}</p>
-          <ContactActions locale={locale} emailLabel={english ? "Email us to get started" : "Escribir para empezar"} />
+          <ContactActions locale={locale} ctaLabel={english ? "Get started" : "Empezar"} />
         </aside>
       </section>
 
@@ -98,7 +98,7 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
             <h2>{english ? "Build your U.S. company with a clear plan." : "Crea tu empresa en EE. UU. con un plan claro."}</h2>
             <p>{english ? "Tell us where you are based and what your business does. We will explain the package and answer your questions." : "Cuéntanos dónde resides y a qué se dedica tu negocio. Te explicamos el paquete y respondemos tus preguntas."}</p>
           </div>
-          <ContactActions locale={locale} emailLabel={english ? "Email us to get started" : "Escribir para empezar"} />
+          <ContactActions locale={locale} ctaLabel={english ? "Get started" : "Empezar"} />
         </div>
       </section>
     </main>

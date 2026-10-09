@@ -29,7 +29,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
             <li>{english ? "Website hosting and maintenance" : "Alojamiento y mantenimiento de la web"}</li>
           </ul>
           <p className="annual-state-fee"><strong>{english ? "Annual Report and state tax included." : "Informe anual y tasa estatal incluidos."}</strong> {english ? "The renewal covers the Wyoming Annual Report filing and its state tax." : "La renovación cubre la presentación del informe anual (Annual Report) de Wyoming y su tasa estatal."}</p>
-          <ContactActions locale={locale} emailLabel={english ? "Ask about the annual renewal" : "Consultar sobre la renovación anual"} />
+          <ContactActions locale={locale} ctaLabel={english ? "Ask about the annual renewal" : "Consultar sobre la renovación anual"} />
         </div>
       </section>
       <p className="section-shell price-total-note">{english ? "Final price charged by Valls Solutions: $699 once and $449 per year from year two. No additional tax is added at payment." : "Precio final que cobra Valls Solutions: 699 USD por la formación y 449 USD al año desde el segundo año. No se añade ningún impuesto adicional al pagar."}</p>
@@ -78,7 +78,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
             <h2>{english ? "Tell us about your LLC plans." : "Cuéntanos tu plan para crear una LLC."}</h2>
             <p>{english ? "A short email is all you need for the first conversation." : "Un email breve basta para iniciar la conversación."}</p>
           </div>
-          <ContactActions locale={locale} emailLabel={english ? "Start by email" : "Empezar por email"} />
+          <ContactActions locale={locale} ctaLabel={english ? "Ask us a question" : "Hacernos una consulta"} />
         </div>
       </section>
     </main>

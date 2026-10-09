@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
+import "../conversion-polish.css";
 import { ConsentManager } from "@/components/ConsentManager";
 import { SiteFooter } from "@/components/SiteFooter";
 import { HomeMotion } from "@/components/HomeMotion";

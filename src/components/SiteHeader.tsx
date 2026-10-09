@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { CLIENT_PORTAL_URL, mailtoHref, type Locale } from "@/lib/site";
+import { CLIENT_PORTAL_URL, type Locale } from "@/lib/site";
 import { BLOG_ARTICLES } from "@/content/blog/catalog";
 import { ROUTES, blogPath } from "@/lib/routes";
 
@@ -43,12 +43,14 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
         { href: "/pricing/", label: "Pricing" },
         { href: "/blog/", label: "Guides" },
         { href: "/about/", label: "About" },
+        { href: "/contact/", label: "Contact" },
       ]
     : [
         { href: "/es/crear-llc/", label: "Formación LLC" },
         { href: "/es/precios/", label: "Precios" },
         { href: "/es/blog/", label: "Guías" },
         { href: "/es/nosotros/", label: "Nosotros" },
+        { href: "/es/contacto/", label: "Contacto" },
       ];
   const isActiveLink = (href: string) => {
     const route = href.split("#")[0];
@@ -103,12 +105,13 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 {english ? "Client portal" : "Área de clientes"}
               </a>
             )}
-            <a
-              className="button button-small button-dark nav-cta"
-              href={mailtoHref(locale)}
+            <Link
+              className="button button-small button-dark nav-cta nav-cta-mobile"
+              href={english ? "/contact/" : "/es/contacto/"}
+              onClick={() => setMenuOpen(false)}
             >
-              {english ? "Get started" : "Empezar"}
-            </a>
+              {english ? "Start your LLC" : "Empezar mi LLC"}
+            </Link>
           </nav>
           <div className="header-tools">
             <div
@@ -155,6 +158,12 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 </Link>
               )}
             </div>
+            <Link
+              className="button button-small button-dark nav-cta nav-cta-desktop"
+              href={english ? "/contact/" : "/es/contacto/"}
+            >
+              {english ? "Start your LLC" : "Empezar mi LLC"}
+            </Link>
             <button
               className="menu-toggle"
               type="button"

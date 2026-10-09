@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Locale } from "@/lib/site";
+import { ChevronIcon } from "@/components/ContactIcons";
 
 type Step = { title: string; body: string };
 
@@ -25,7 +26,7 @@ export function FormationJourney({ locale, steps }: { locale: Locale; steps: Ste
             <button type="button" aria-expanded={selected === index} aria-controls="journey-detail" onClick={() => setSelected(index)}>
               <span className="journey-number">0{index + 1}</span>
               <span><strong>{step.title}</strong><small>{step.body}</small></span>
-              <span aria-hidden="true">↗</span>
+              <ChevronIcon />
             </button>
           </li>
         ))}
