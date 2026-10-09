@@ -142,7 +142,7 @@ export function HeroVideo({ locale }: { locale: Locale }) {
         <div className="video-shade" aria-hidden="true" />
         {videoReady && (
           <button
-            className="video-toggle"
+            className="video-toggle video-toggle-focus-only"
             type="button"
             onClick={toggle}
             aria-label={
@@ -158,6 +158,11 @@ export function HeroVideo({ locale }: { locale: Locale }) {
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
               {playing ? <><rect x="4" y="3" width="3" height="10" rx=".5" /><rect x="9" y="3" width="3" height="10" rx=".5" /></> : <path d="M5 3 13 8 5 13Z" />}
             </svg>
+            <span className="video-toggle-label" aria-hidden="true">
+              {playing
+                ? english ? "Pause video" : "Pausar vídeo"
+                : english ? "Play video" : "Reproducir vídeo"}
+            </span>
           </button>
         )}
         <figcaption className="visual-caption">

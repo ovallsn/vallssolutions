@@ -6,8 +6,8 @@ export const metadata: Metadata = pageMetadata({
   locale: "en",
   path: "/contact/",
   translatedPath: "/es/contacto/",
-  title: "Contact Valls Solutions about a U.S. LLC",
-  description: "Ask by email about forming a Wyoming LLC. Start with a short business description; do not send identity documents or sensitive numbers.",
+  title: "Contact Valls Solutions about U.S. LLC formation",
+  description: "Ask whether we can support your preferred state and confirm scope and price. Start by email; do not send identity documents or sensitive numbers.",
 });
 
 export default function EnglishContactRoute() {

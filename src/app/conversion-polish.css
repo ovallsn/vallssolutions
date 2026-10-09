@@ -653,7 +653,91 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .founder-home .premium-hero-media .video-toggle { transition: none; }
+.founder-home .premium-hero-media .video-toggle { transition: none; }
+}
+
+/* Keep the language proof compact and the video pause control out of the hero. */
+.founder-home .founder-proof-band > div:nth-child(2) > strong {
+  flex: 0 0 auto;
+  min-width: 0;
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: clamp(15px, 1.75vw, 20px);
+  font-weight: 700;
+  letter-spacing: .035em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.founder-home .founder-state-prompt {
+  display: inline-flex;
+  width: fit-content;
+  min-height: 28px;
+  align-items: center;
+  margin-top: 7px;
+  border-bottom: 1px solid rgba(240, 187, 158, .62);
+  color: #f0bb9e;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.4;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  transition: color .18s ease, border-color .18s ease;
+}
+
+.founder-home .founder-state-prompt:hover { color: #fff3e8; border-color: #fff3e8; }
+.founder-home .founder-state-prompt:focus-visible { outline: 2px solid #f0bb9e; outline-offset: 4px; }
+.founder-home .state-choice-note a { color: var(--green); font-weight: 700; text-underline-offset: 3px; }
+.founder-home .state-choice-note a:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+.founder-home .premium-hero-media .video-toggle-focus-only {
+  top: auto;
+  right: 24px;
+  bottom: 24px;
+  left: auto;
+  width: 1px;
+  height: 1px;
+  min-height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.founder-home .premium-hero-media .video-toggle-focus-only:focus {
+  display: inline-flex;
+  width: max-content;
+  min-width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  border: 1px solid rgba(255, 255, 255, .72);
+  border-radius: 999px;
+  background: rgba(12, 31, 29, .94);
+  opacity: 1;
+  pointer-events: auto;
+  outline: 3px solid #f0bb9e;
+  outline-offset: 3px;
+}
+
+.founder-home .premium-hero-media .video-toggle-label { font-size: 12px; line-height: 1; }
+
+@media (max-width: 720px) {
+  .founder-home .founder-state-prompt { max-width: 100%; font-size: 11px; }
+  .founder-home .premium-hero-media .video-toggle-focus-only { right: 20px; bottom: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .founder-home .founder-state-prompt { transition: none; }
 }
 
 /* A distinctive editorial system for the formation homepage. */

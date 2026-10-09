@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   locale: "en",
   path: "/",
   translatedPath: "/es/",
-  title: "Wyoming LLC Formation for U.S. & Global Founders",
+  title: "U.S. LLC Formation for Founders",
   description: "Form a Wyoming LLC for $699 from the U.S. or abroad. Includes the state fee, EIN assistance, first-year Registered Agent and address, website, email and banking guidance.",
 });
 

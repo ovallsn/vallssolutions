@@ -6,8 +6,8 @@ export const metadata: Metadata = pageMetadata({
   locale: "es",
   path: "/es/contacto/",
   translatedPath: "/contact/",
-  title: "Contacto para formar una LLC en Estados Unidos",
-  description: "Consulta por email sobre la formación de una LLC en Wyoming. Empieza con una breve descripción; no envíes documentos de identidad ni números sensibles.",
+  title: "Contacto para crear una LLC en Estados Unidos",
+  description: "Consulta disponibilidad para el estado que tienes en mente y confirma alcance y precio. Escríbenos por email; no envíes documentos ni números sensibles.",
 });
 
 export default function SpanishContactRoute() {

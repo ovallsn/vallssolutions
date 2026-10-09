@@ -14,7 +14,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
         </p>
         <p className="eyebrow"><span className="eyebrow-line" />{english ? "A first message is enough" : "Un primer mensaje es suficiente"}</p>
         <h1>{english ? "Tell us about the U.S. LLC you want to form." : "Cuéntanos qué LLC quieres crear en EE. UU."}</h1>
-        <p>{english ? "Share a few details and we’ll explain the Wyoming LLC package and what comes next. Start by email in English or Spanish—no call or document upload needed." : "Cuéntanos algunos detalles y te explicaremos el paquete de LLC en Wyoming y los siguientes pasos. Puedes empezar por email, en español o inglés, sin llamada ni documentos."}</p>
+        <p>{english ? "Tell us where you’re based, which state you have in mind and what your business does. We’ll confirm availability, scope and price before you decide. Start by email in English or Spanish—no call or document upload needed." : "Cuéntanos dónde resides, qué estado tienes en mente y a qué se dedica tu negocio. Confirmaremos disponibilidad, alcance y precio antes de que decidas. Puedes empezar por email, en español o inglés, sin llamadas ni documentos."}</p>
       </header>
       <LeadCaptureSection
         locale={locale}

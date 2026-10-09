@@ -18,6 +18,8 @@ type HomeCopy = {
   primaryCta: string;
   secondaryCta: string;
   priceLine: string;
+  otherStatePrompt: string;
+  otherStateCta: string;
   proof: Array<{ value: string; title: string; detail: string }>;
   whyEyebrow: string;
   whyTitle: string;
@@ -55,13 +57,15 @@ type HomeCopy = {
 
 const copy: Record<Locale, HomeCopy> = {
   en: {
-    eyebrow: "Wyoming LLC formation for U.S. and international founders",
-    headline: "Form your Wyoming LLC.",
+    eyebrow: "U.S. LLC formation for founders at home and abroad",
+    headline: "Start your U.S. LLC.",
     accent: "With real guidance.",
-    lede: "One bilingual point of contact for Wyoming formation, EIN assistance and help preparing your bank application.",
+    lede: "A bilingual point of contact for formation, EIN assistance and bank-application preparation. The published $699 package is for Wyoming.",
     primaryCta: "Start your LLC",
     secondaryCta: "See the package",
-    priceLine: "$699 one-time · $449/year from year two",
+    priceLine: "Wyoming package: $699 one-time · $449/year from year two",
+    otherStatePrompt: "Considering another state? Ask us before you decide.",
+    otherStateCta: "Ask about another state",
     proof: [
       {
         value: "100+",
@@ -69,7 +73,7 @@ const copy: Record<Locale, HomeCopy> = {
         detail: "Practical formation experience.",
       },
       {
-        value: "EN / ES",
+        value: "EN · ES",
         title: "Bilingual support",
         detail: "Speak with us in English or Spanish.",
       },
@@ -105,16 +109,16 @@ const copy: Record<Locale, HomeCopy> = {
     offerNote:
       "Your first message can be a short email. No call or document upload is needed to get started.",
     stateChoiceNote:
-      "This published package is for Wyoming. If you are considering another state, write to us first and we will confirm availability, scope and price.",
+      "Considering another state? Tell us where your business will operate. We will confirm whether we can support that state's filing and share the scope and price before you decide.",
     audienceEyebrow: "For founders wherever they live",
     audienceTitle: "Support for founders in the U.S. and around the world.",
     audienceIntro:
-      "Valls Solutions works with U.S. citizens, U.S. residents and international founders who want to establish a Wyoming LLC.",
+      "We work with U.S. citizens, U.S. residents and international founders. Our published formation package is for Wyoming; ask us about another state and we will confirm availability and pricing before you decide.",
     audiences: [
       {
         label: "U.S.-based founders",
         title: "Build around where you do business.",
-        body: "We help organize the Wyoming formation and explain the filing steps. If you live or operate in another state, we can discuss what to check before choosing Wyoming.",
+        body: "We help organize the Wyoming formation and explain the filing steps. If another state is on your shortlist, tell us where your business operates and we will confirm whether we can support that filing.",
       },
       {
         label: "Founders abroad",
@@ -199,13 +203,15 @@ const copy: Record<Locale, HomeCopy> = {
   },
   es: {
     eyebrow:
-      "Formación de LLC en Wyoming para fundadores en EE. UU. y en el extranjero",
-    headline: "Forma tu LLC en Wyoming.",
+      "Creación de LLC en EE. UU. para fundadores en cualquier país",
+    headline: "Crea tu LLC en EE. UU.",
     accent: "Con apoyo personal.",
-    lede: "Un contacto bilingüe para crear tu LLC en Wyoming, solicitar el EIN y preparar tu solicitud bancaria.",
+    lede: "Atención en español e inglés durante la formación de tu LLC, la solicitud del EIN y la preparación bancaria. El paquete publicado de $699 es para Wyoming.",
     primaryCta: "Empezar mi LLC",
     secondaryCta: "Ver el paquete",
-    priceLine: "$699 pago único · $449/año desde el segundo año",
+    priceLine: "Paquete de Wyoming: $699 · $449/año desde el segundo año",
+    otherStatePrompt: "¿Tienes otro estado en mente? Consúltanos antes de decidir.",
+    otherStateCta: "Consultar otro estado",
     proof: [
       {
         value: "100+",
@@ -213,7 +219,7 @@ const copy: Record<Locale, HomeCopy> = {
         detail: "Experiencia práctica en formación.",
       },
       {
-        value: "ES / EN",
+        value: "ES · EN",
         title: "Atención bilingüe",
         detail: "Hablamos contigo en español o inglés.",
       },
@@ -249,16 +255,16 @@ const copy: Record<Locale, HomeCopy> = {
     offerNote:
       "Puedes empezar con un email breve. No necesitas reservar una llamada ni subir documentos para hacer la primera consulta.",
     stateChoiceNote:
-      "El paquete publicado es para Wyoming. Si estás considerando otro estado, escríbenos antes y confirmaremos disponibilidad, alcance y precio.",
+      "¿Estás considerando otro estado? Cuéntanos dónde operará tu negocio. Confirmaremos si podemos gestionar esa presentación y te explicaremos el alcance y el precio antes de que decidas.",
     audienceEyebrow: "Para fundadores, vivan donde vivan",
     audienceTitle: "Acompañamiento para crear tu empresa, vivas donde vivas.",
     audienceIntro:
-      "Valls Solutions trabaja con ciudadanos y residentes de EE. UU. y con emprendedores internacionales que quieren crear una LLC en Wyoming.",
+      "Trabajamos con ciudadanos y residentes de EE. UU. y con emprendedores internacionales. El paquete de formación publicado es para Wyoming; consúltanos por otro estado y confirmaremos disponibilidad y precio antes de que decidas.",
     audiences: [
       {
         label: "Fundadores en EE. UU.",
         title: "Ten en cuenta dónde desarrollas la actividad.",
-        body: "Te ayudamos a organizar la formación en Wyoming y explicamos los pasos de presentación. Si resides u operas en otro estado, podemos comentar qué conviene revisar antes de elegir Wyoming.",
+        body: "Te ayudamos a organizar la formación en Wyoming y explicamos los pasos de presentación. Si tienes otro estado en mente, cuéntanos dónde opera tu negocio y confirmaremos si podemos gestionar esa presentación.",
       },
       {
         label: "Fundadores en el extranjero",
@@ -348,6 +354,7 @@ export function HomePage({ locale }: { locale: Locale }) {
   const english = locale === "en";
   const content = copy[locale];
   const prefix = english ? "" : "/es";
+  const contact = english ? "/contact/" : "/es/contacto/";
   const pricing = english ? "/pricing/" : "/es/precios/";
   const llcGuide = findBlogArticle(
     locale,
@@ -454,6 +461,9 @@ export function HomePage({ locale }: { locale: Locale }) {
               </Link>
             </div>
             <p className="founder-price-line">{content.priceLine}</p>
+            <Link className="founder-state-prompt" href={contact}>
+              {content.otherStatePrompt}
+            </Link>
           </div>
           <div className="premium-hero-media">
             <HeroVideo locale={locale} />
@@ -498,7 +508,9 @@ export function HomePage({ locale }: { locale: Locale }) {
               </li>
             ))}
           </ol>
-          <p className="state-choice-note">{content.stateChoiceNote}</p>
+          <p className="state-choice-note">
+            {content.stateChoiceNote} <Link href={contact}>{content.otherStateCta}</Link>
+          </p>
         </div>
         <aside
           className="premium-price-summary"
