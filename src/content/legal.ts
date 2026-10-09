@@ -94,7 +94,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Information and purposes",
           paragraphs: [
-            ["When the website is requested, hosting and security providers may process technical request information such as an IP address, requested page, browser and device details, and request time. This supports delivery, reliability and protection of the website."],
+            ["When you visit the website, service providers may process limited technical information such as your IP address, requested page, browser and device details, and request time. This is used to operate, protect and measure the performance of the website."],
             ["The website has no customer account or online payment portal. The enquiry form prepares an email in your email app; it does not submit your details to Valls Solutions unless you review and send that email. If sent, the message includes your name, email address, country or U.S. state of residence, business activity and any optional details you add."],
             ["For each customer LLC, a service record is maintained separately from this public website. Website request data, enquiry messages and payment or accounting records are handled separately for the purposes described in this notice. Do not put identity documents, SSNs, ITINs or other sensitive information in an initial enquiry or LLC administrative notes. If a requested service needs a passport or other supporting information, Valls Solutions will tell you what is needed and receive it directly through WhatsApp Business or email; source documents are not stored in the LLC service record."],
           ],
@@ -136,11 +136,8 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Providers and disclosures",
           paragraphs: [
-            ["The website is hosted through ", { label: "GitHub Pages", href: "https://docs.github.com/en/pages" }, " and delivered and protected through Cloudflare. Cloudflare Email Routing receives and forwards messages sent to our published address; the mailbox provider that receives a forwarded message also processes it."],
-            ["For an EIN service, information sent by WhatsApp Business or email is processed by the messaging or email providers involved and may be shared with the filing service provider and the IRS as needed. Those providers and the public authority apply their own terms and retention rules. See the ", { label: "WhatsApp Business App Privacy Policy", href: "https://www.whatsapp.com/legal/business-app-privacy-policy" }, " if you choose that channel."],
-            ["Cloudflare Web Analytics is enabled on the site. Cloudflare describes its ", { label: "RUM beacon", href: "https://developers.cloudflare.com/speed/observatory/rum-beacon/" }, " as collecting page-performance measurements, not accessing browser storage, and discarding the visitor IP at the nearest Cloudflare data centre rather than storing it in its core databases or logs. Cloudflare states that its Free plan excludes EU visitor data from RUM by default. These statements describe Cloudflare's service; they do not replace a review of the information you choose to send us."],
-            ["For service payments, Valls Solutions uses a business bank account held with Wise. Wise and the banks involved process transaction data under their own terms and privacy notices. We do not publish account details on this website."],
-            ["We do not use the public website to sell personal information or to run cross-site targeted advertising. We may disclose information to providers supporting the purposes above or where disclosure is required by law."],
+            ["Website hosting, security and performance providers may process limited technical information to operate, protect and measure the website. Email and messaging providers process the messages and documents you choose to send. To provide an EIN service, we share the necessary application information with our filing service provider and the IRS. Payment providers and banks process transaction information. These providers apply their own privacy and retention rules."],
+            ["We do not sell personal information or use it for cross-site targeted advertising. Information may also be disclosed where required by law."],
           ],
         },
         {
@@ -155,7 +152,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
           paragraphs: [
             ["You can email ", { label: "info@vallssolutions.com", href: "mailto:info@vallssolutions.com" }, " to ask about access, correction, deletion, restriction or other rights available under the law that applies to you. We may need to verify your request before acting."],
             ["If you are in the European Union, you may also complain to your local data-protection supervisory authority. Rights and response requirements depend on the law that applies to the processing."],
-            ["See the separate ", { label: "cookie notice", href: "/cookies/" }, " for browser storage and Cloudflare security cookies. This notice may be updated when the website, service providers or data practices change."],
+            ["See the separate ", { label: "cookie notice", href: "/cookies/" }, " for browser storage and security cookies. This notice may be updated when the website, service providers or data practices change."],
           ],
         },
       ],
@@ -175,7 +172,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Datos y finalidades",
           paragraphs: [
-            ["Cuando se solicita una página, los proveedores de alojamiento y seguridad pueden tratar datos técnicos de la conexión, como la dirección IP, la página solicitada, el navegador y dispositivo, y la hora de la solicitud. Se utilizan para servir, mantener y proteger la web."],
+            ["Cuando visitas la web, los proveedores de servicios pueden tratar información técnica limitada, como la dirección IP, la página solicitada, el navegador y dispositivo, y la hora de la solicitud. Se utiliza para mantener, proteger y medir el rendimiento de la web."],
             ["La web no tiene cuentas de cliente ni portal de pago. El formulario de consulta prepara un email en tu aplicación de correo; no envía tus datos a Valls Solutions hasta que revises y envíes ese correo. Si lo envías, el mensaje incluye tu nombre, dirección de email, país o estado de EE. UU. de residencia, actividad empresarial y cualquier detalle adicional que incluyas."],
             ["Para cada LLC cliente, el expediente de servicio se mantiene separado de esta web pública. Los datos técnicos de las visitas a la web, los mensajes de consulta y los registros de pago o contabilidad se tratan por separado para las finalidades explicadas en este aviso. No incluyas documentos de identidad, SSN, ITIN ni otros datos sensibles en una consulta inicial ni en las notas administrativas de la LLC. Si un servicio solicitado requiere un pasaporte u otra información justificativa, Valls Solutions te indicará qué hace falta y la recibirá directamente por WhatsApp Business o email; los documentos originales no se guardan en el expediente de servicio de la LLC."],
           ],
@@ -217,11 +214,8 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Proveedores y comunicaciones de datos",
           paragraphs: [
-            ["La web se aloja mediante ", { label: "GitHub Pages", href: "https://docs.github.com/en/pages" }, " y Cloudflare la distribuye y protege. Cloudflare Email Routing recibe y reenvía los mensajes enviados a nuestra dirección pública; el proveedor del buzón que recibe el mensaje reenviado también lo trata."],
-            ["Para un servicio de EIN, los proveedores de mensajería o correo tratarán los datos que envíes por WhatsApp Business o email. Cuando sea necesario, se compartirán con el proveedor de tramitación y el IRS; cada proveedor y autoridad pública aplica sus propias condiciones y reglas de conservación. Si eliges WhatsApp, consulta la ", { label: "Política de privacidad de WhatsApp Business", href: "https://www.whatsapp.com/legal/business-app-privacy-policy" }, "."],
-            ["Cloudflare Web Analytics está habilitado en la web. Cloudflare describe su ", { label: "beacon RUM", href: "https://developers.cloudflare.com/speed/observatory/rum-beacon/" }, " como un sistema que recoge mediciones de rendimiento de la página, no accede al almacenamiento del navegador y descarta la IP del visitante en el centro de datos de Cloudflare más cercano, sin guardarla en sus bases de datos o registros principales. Cloudflare indica que en su plan Free los datos RUM de visitantes de la UE se excluyen por defecto. Esta información describe el servicio de Cloudflare y no sustituye la revisión de los datos que decidas enviarnos."],
-            ["Para cobrar los servicios, Valls Solutions utiliza una cuenta bancaria empresarial de Wise. Wise y los bancos participantes tratan los datos de la transacción conforme a sus propias condiciones y avisos de privacidad. No publicamos los datos de la cuenta en esta web."],
-            ["La web pública no se utiliza para vender datos personales ni para realizar publicidad dirigida entre sitios. Podemos comunicar datos a proveedores que presten los servicios indicados o cuando lo exija la ley."],
+            ["Los proveedores de alojamiento, seguridad y medición del rendimiento pueden tratar información técnica limitada para mantener y proteger la web y medir su rendimiento. Los proveedores de correo y mensajería tratan los mensajes y documentos que decidas enviar. Para prestar un servicio de EIN, compartimos la información necesaria de la solicitud con nuestro proveedor de tramitación y el IRS. Los proveedores de pago y las entidades bancarias tratan los datos de las transacciones. Cada proveedor aplica sus propias condiciones de privacidad y conservación."],
+            ["No vendemos datos personales ni los utilizamos para publicidad dirigida entre sitios. También podremos comunicarlos cuando lo exija la ley."],
           ],
         },
         {
@@ -236,7 +230,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
           paragraphs: [
             ["Puedes escribir a ", { label: "info@vallssolutions.com", href: "mailto:info@vallssolutions.com" }, " para solicitar acceso, rectificación, supresión, limitación u otros derechos reconocidos por la ley aplicable. Puede ser necesario verificar tu identidad antes de tramitar la solicitud."],
             ["Si resides en la Unión Europea, también puedes presentar una reclamación ante la autoridad de protección de datos de tu país. Los derechos y plazos de respuesta dependen de la normativa aplicable al tratamiento."],
-            ["Consulta el ", { label: "aviso de cookies", href: "/es/cookies/" }, " para conocer el almacenamiento del navegador y las cookies de seguridad de Cloudflare. Actualizaremos este aviso si cambian la web, sus proveedores o los tratamientos."],
+            ["Consulta el ", { label: "aviso de cookies", href: "/es/cookies/" }, " para conocer el almacenamiento del navegador y las cookies de seguridad. Actualizaremos este aviso si cambian la web, sus proveedores o los tratamientos."],
           ],
         },
       ],
@@ -245,24 +239,23 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
   cookies: {
     en: {
       title: "Cookie notice",
-      description: "Current browser storage and conditional Cloudflare security cookies used by this website.",
-      intro: "This notice describes browser storage observed on vallssolutions.com and cookies that Cloudflare may set when a security challenge is triggered.",
-      updated: "Last updated: 8 October 2026",
+      description: "Browser storage and a conditional security cookie used by this website.",
+      intro: "This notice describes browser storage and a security cookie that may be set if a security check is triggered.",
+      updated: "Last updated: 9 October 2026",
       sections: [
         {
           heading: "What we observed",
           paragraphs: [
-            ["Ordinary requests to the homepage, Spanish homepage and contact page on 8 October 2026 returned no Set-Cookie header. The website has no advertising tracker or optional analytics cookie registered in its consent inventory."],
-            ["Cloudflare Web Analytics loads a performance beacon. Cloudflare says that beacon does not store or read cookies, localStorage, sessionStorage or IndexedDB. Cloudflare also says that, on its Free plan, EU visitor RUM data is excluded by default. See the ", { label: "Cloudflare RUM documentation", href: "https://developers.cloudflare.com/speed/observatory/rum-beacon/" }, "."],
+            ["The website does not use advertising cookies or optional analytics cookies. Its performance measurement tool does not read or store cookies or other browser storage."],
           ],
         },
         {
           heading: "Conditional security cookie",
           paragraphs: [
-            ["Cloudflare may issue the following cookie if it presents a security challenge. It was not present in the ordinary page responses checked above. See Cloudflare's ", { label: "clearance-cookie documentation", href: "https://developers.cloudflare.com/cloudflare-challenges/concepts/clearance/" }, "."],
+            ["A security provider may set the following cookie when a visitor passes a security check. It was not present in ordinary page responses we checked."],
           ],
           list: [
-            ["cf_clearance — Cloudflare — remembers that a visitor passed a security challenge, so the visitor does not immediately receive the same challenge again. It is set only when the relevant challenge flow is used. Its lifetime follows the Cloudflare Challenge Passage setting; Cloudflare documents 30 minutes as the default, but the active zone value has not been independently verified."],
+            ["cf_clearance — Cloudflare security service — remembers that a visitor passed a security check so it does not immediately appear again. It is set only when that check is used. Its duration depends on the security settings."],
           ],
         },
         {
@@ -276,24 +269,23 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
     },
     es: {
       title: "Aviso de cookies",
-      description: "Almacenamiento actual del navegador y cookies condicionales de seguridad de Cloudflare.",
-      intro: "Este aviso describe el almacenamiento observado en vallssolutions.com y las cookies que Cloudflare podría instalar si activa una comprobación de seguridad.",
-      updated: "Última actualización: 8 de octubre de 2026",
+      description: "Almacenamiento del navegador y una cookie de seguridad condicional de esta web.",
+      intro: "Este aviso describe el almacenamiento del navegador y una cookie que podría instalarse si se activa una comprobación de seguridad.",
+      updated: "Última actualización: 9 de octubre de 2026",
       sections: [
         {
           heading: "Qué hemos comprobado",
           paragraphs: [
-            ["Las solicitudes normales a la portada, la portada en español y la página de contacto realizadas el 8 de octubre de 2026 no devolvieron la cabecera Set-Cookie. La web no tiene rastreadores publicitarios ni servicios opcionales de cookies registrados en el inventario de consentimiento."],
-            ["Cloudflare Web Analytics carga un beacon de rendimiento. Cloudflare indica que ese beacon no guarda ni lee cookies, localStorage, sessionStorage ni IndexedDB. También indica que en su plan Free los datos RUM de visitantes de la UE se excluyen por defecto. Consulta la ", { label: "documentación de Cloudflare RUM", href: "https://developers.cloudflare.com/speed/observatory/rum-beacon/" }, "."],
+            ["La web no utiliza cookies publicitarias ni cookies opcionales de analítica. La herramienta de medición del rendimiento no lee ni guarda cookies ni otro almacenamiento del navegador."],
           ],
         },
         {
           heading: "Cookie de seguridad condicional",
           paragraphs: [
-            ["Cloudflare puede instalar la siguiente cookie si muestra una comprobación de seguridad. No apareció en las respuestas normales revisadas arriba. Consulta la ", { label: "documentación de Cloudflare sobre la cookie de autorización", href: "https://developers.cloudflare.com/cloudflare-challenges/concepts/clearance/" }, "."],
+            ["Un proveedor de seguridad puede instalar la siguiente cookie cuando un visitante supera una comprobación de seguridad. No apareció en las respuestas normales que revisamos."],
           ],
           list: [
-            ["cf_clearance — Cloudflare — recuerda que el visitante ha superado una comprobación de seguridad para no mostrarle inmediatamente la misma comprobación. Solo se instala cuando se usa ese proceso. Su duración depende de la configuración Challenge Passage de Cloudflare; Cloudflare documenta 30 minutos como valor predeterminado, pero no se ha verificado de forma independiente el valor activo de la zona."],
+            ["cf_clearance — servicio de seguridad de Cloudflare — recuerda que el visitante ha superado una comprobación de seguridad para no mostrarla inmediatamente otra vez. Solo se instala cuando se utiliza esa comprobación. Su duración depende de la configuración de seguridad."],
           ],
         },
         {
@@ -325,7 +317,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
           heading: "Final price and payment",
           paragraphs: [
             ["The total amount Valls Solutions charges is $699 for formation and $449 per year for the annual service from year two. No additional tax amount is added to these prices at payment."],
-            ["Payment instructions are sent privately by email for a bank transfer to Valls Solutions' business account held with Wise. Account details are not published on the website. The website does not process payments."],
+            ["Payment instructions are sent privately by email for a bank transfer to Valls Solutions' business account. Account details are not published on the website. The website does not process payments."],
           ],
         },
         {
@@ -376,7 +368,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
           heading: "Precio final y pago",
           paragraphs: [
             ["El importe total que cobra Valls Solutions es de 699 USD por la formación y 449 USD al año por el servicio anual desde el segundo año. No se añade ningún importe fiscal adicional al pagar estos precios."],
-            ["Enviaremos las instrucciones de pago por email para realizar una transferencia bancaria a la cuenta empresarial de Valls Solutions en Wise. No publicamos los datos de la cuenta en la web. La web no procesa pagos."],
+            ["Enviaremos las instrucciones de pago por email para realizar una transferencia bancaria a la cuenta empresarial de Valls Solutions. No publicamos los datos de la cuenta en la web. La web no procesa pagos."],
           ],
         },
         {
