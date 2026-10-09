@@ -52,9 +52,9 @@ type HomeCopy = {
 const copy: Record<Locale, HomeCopy> = {
   en: {
     eyebrow: "Wyoming LLC formation for U.S. and international founders",
-    headline: "Form your U.S. LLC.",
-    accent: "From anywhere.",
-    lede: "Your Wyoming LLC, EIN, Registered Agent and mailing address—plus a company website, business email and guidance for your bank application. For U.S. and international founders.",
+    headline: "Form your Wyoming LLC.",
+    accent: "With real guidance.",
+    lede: "One bilingual point of contact for Wyoming formation, EIN assistance and help preparing your bank application.",
     primaryCta: "Start your LLC",
     secondaryCta: "See the package",
     priceLine: "$699 one-time · $449/year from year two",
@@ -62,7 +62,7 @@ const copy: Record<Locale, HomeCopy> = {
       {
         value: "100+",
         title: "LLCs formed",
-        detail: "Experience with the formation process.",
+        detail: "Practical formation experience.",
       },
       {
         value: "EN / ES",
@@ -71,8 +71,8 @@ const copy: Record<Locale, HomeCopy> = {
       },
       {
         value: "$699",
-        title: "Clear package price",
-        detail: "Wyoming state formation fee included.",
+        title: "Clear first-year price",
+        detail: "Wyoming formation fee included.",
       },
     ],
     whyEyebrow: "A structure for your business",
@@ -117,7 +117,7 @@ const copy: Record<Locale, HomeCopy> = {
       },
     ],
     processEyebrow: "How it works",
-    processTitle: "You build the business. We guide the setup.",
+    processTitle: "A clear process, with someone to guide you.",
     processIntro:
       "You will know what is happening and what we need from you at each step.",
     steps: [
@@ -194,9 +194,9 @@ const copy: Record<Locale, HomeCopy> = {
   es: {
     eyebrow:
       "Formación de LLC en Wyoming para fundadores en EE. UU. y en el extranjero",
-    headline: "Crea tu LLC en EE. UU.",
-    accent: "Donde estés.",
-    lede: "Tu LLC en Wyoming, EIN, agente registrado y dirección postal. También tu web, correo empresarial y orientación bancaria. Para emprendedores en EE. UU. y en el extranjero.",
+    headline: "Forma tu LLC en Wyoming.",
+    accent: "Con apoyo personal.",
+    lede: "Un contacto bilingüe para crear tu LLC en Wyoming, solicitar el EIN y preparar tu solicitud bancaria.",
     primaryCta: "Empezar mi LLC",
     secondaryCta: "Ver el paquete",
     priceLine: "$699 pago único · $449/año desde el segundo año",
@@ -204,7 +204,7 @@ const copy: Record<Locale, HomeCopy> = {
       {
         value: "100+",
         title: "LLC constituidas",
-        detail: "Experiencia en el proceso de formación.",
+        detail: "Experiencia práctica en formación.",
       },
       {
         value: "ES / EN",
@@ -213,8 +213,8 @@ const copy: Record<Locale, HomeCopy> = {
       },
       {
         value: "$699",
-        title: "Precio claro",
-        detail: "Incluye la tasa estatal de creación en Wyoming.",
+        title: "Precio inicial claro",
+        detail: "Tasa de creación en Wyoming incluida.",
       },
     ],
     whyEyebrow: "Una estructura para tu negocio",
@@ -259,7 +259,7 @@ const copy: Record<Locale, HomeCopy> = {
       },
     ],
     processEyebrow: "Cómo funciona",
-    processTitle: "Tú construyes el negocio. Te guiamos con la creación.",
+    processTitle: "Un proceso claro, con apoyo personal.",
     processIntro:
       "Sabrás qué está ocurriendo y qué necesitamos de ti en cada paso.",
     steps: [
@@ -416,19 +416,13 @@ export function HomePage({ locale }: { locale: Locale }) {
           <div className="premium-hero-copy founder-hero-copy">
             <p className="eyebrow">
               <span className="eyebrow-line" />
-              {english
-                ? "Wyoming LLC formation · U.S. & international founders"
-                : "Creación de LLC en Wyoming · EE. UU. e internacionales"}
+              {content.eyebrow}
             </p>
             <h1>
               {content.headline}{" "}
               <em>{content.accent}</em>
             </h1>
-            <p className="premium-lede">
-              {english
-                ? "Wyoming LLC formation and business essentials, with personal support for U.S. and international founders."
-                : "Tu LLC en Wyoming y los servicios para empezar, con apoyo personal para emprendedores de EE. UU. y del resto del mundo."}
-            </p>
+            <p className="premium-lede">{content.lede}</p>
             <div className="hero-actions">
               <ContactActions locale={locale} ctaLabel={content.primaryCta} />
               <Link className="text-link" href="#package">
@@ -441,19 +435,19 @@ export function HomePage({ locale }: { locale: Locale }) {
             <HeroVideo locale={locale} />
           </div>
         </div>
+        <div className="section-shell founder-proof-band" aria-label={english ? "Valls Solutions experience" : "Experiencia de Valls Solutions"}>
+          {content.proof.map((item) => (
+            <div key={item.title}>
+              <strong>{item.value}</strong>
+              <span>{item.title}<small>{item.detail}</small></span>
+            </div>
+          ))}
+        </div>
         <Link className="hero-scroll-cue" href="#package">
           {english ? "Discover your company package" : "Descubre tu paquete de empresa"}
           <span className="hero-scroll-rule" aria-hidden="true" />
         </Link>
       </section>
-      <div className="section-shell founder-proof-band" aria-label={english ? "Valls Solutions experience" : "Experiencia de Valls Solutions"}>
-        {content.proof.map((item) => (
-          <div key={item.title}>
-            <strong>{item.value}</strong>
-            <span>{item.title}<small>{item.detail}</small></span>
-          </div>
-        ))}
-      </div>
       <section className="premium-offer-band" id="package">
         <div className="section-shell premium-offer">
           <div>
@@ -575,8 +569,8 @@ export function HomePage({ locale }: { locale: Locale }) {
           </p>
           <h2>
             {english
-              ? "The paperwork matters. So does the person helping you."
-              : "Los documentos importan. Quien te acompaña, también."}
+              ? "A real person. Clear answers. Every step explained."
+              : "Una persona de contacto. Respuestas claras. Cada paso explicado."}
           </h2>
           <Link
             className="text-link"
@@ -629,13 +623,13 @@ export function HomePage({ locale }: { locale: Locale }) {
           <p className="eyebrow">
             <span className="eyebrow-line" />
             {english
-              ? "BASED HERE. BUILDING FROM ABROAD."
-              : "DESDE EE. UU. O DESDE OTRO PAÍS."}
+              ? "FOR FOUNDERS IN THE U.S. AND AROUND THE WORLD"
+              : "PARA FUNDADORES EN EE. UU. Y EN OTROS PAÍSES"}
           </p>
           <h2>
             {english
-              ? "LLC formation, wherever you’re based."
-              : "Una LLC, vivas donde vivas."}
+              ? "One clear process, wherever you’re based."
+              : "Un proceso claro, vivas donde vivas."}
           </h2>
           <p>{content.audienceIntro}</p>
         </div>
