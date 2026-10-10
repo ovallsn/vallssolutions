@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/es/contacto/",
   translatedPath: "/contact/",
   title: "Contacto para crear una LLC en Estados Unidos",
-  description: "Consulta disponibilidad para el estado que tienes en mente y confirma alcance y precio. Escríbenos por email; no envíes documentos ni números sensibles.",
+  description: "Contacta con Valls Solutions para crear una LLC en Wyoming u otro estado de EE. UU. Confirmamos el alcance y el precio antes de empezar.",
 });
 
 export default function SpanishContactRoute() {

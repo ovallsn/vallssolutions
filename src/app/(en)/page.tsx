@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/",
   translatedPath: "/es/",
   title: "U.S. LLC Formation for Founders",
-  description: "Wyoming LLCs for U.S. and international founders. $699 includes state filing, EIN, first-year agent and address, website, email and bank guidance.",
+  description: "Form a U.S. LLC as a local or international founder. Wyoming package: $699 once and $449/year from year two; ask us about other states.",
 });
 
 const organization = {
@@ -17,7 +17,7 @@ const organization = {
   name: "Valls Solutions",
   url: SITE_URL,
   email: "info@vallssolutions.com",
-  description: "Wyoming LLC formation for U.S. and international founders, with EIN assistance, first-year business essentials and practical guidance for a business bank application.",
+  description: "U.S. LLC formation in Wyoming and other states for local and international founders, with EIN handling and business bank application guidance.",
   mainEntityOfPage: absoluteUrl("/"),
 };
 

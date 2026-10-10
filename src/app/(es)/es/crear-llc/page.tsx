@@ -6,8 +6,8 @@ export const metadata: Metadata = pageMetadata({
   locale: "es",
   path: "/es/crear-llc/",
   translatedPath: "/llc-formation/",
-  title: "Formación de LLC en Wyoming: paquete y pasos",
-  description: "Conoce el proceso de formación en Wyoming con gestión del EIN, Registered Agent y dirección del primer año, web, correo y orientación bancaria.",
+  title: "Crear una LLC en EE. UU.: servicios y proceso",
+  description: "Creamos LLC en Wyoming y otros estados. El paquete publicado de 699 USD es para Wyoming; consulta el alcance y el precio de otro estado.",
 });
 
 export default function SpanishLLCFormationRoute() {

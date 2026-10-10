@@ -8,18 +8,8 @@ export const sansFont = localFont({
 });
 
 export const displayFont = localFont({
-  src: [
-    {
-      path: "../../public/assets/fonts/newsreader-latin.woff2",
-      weight: "300 700",
-      style: "normal",
-    },
-    {
-      path: "../../public/assets/fonts/newsreader-italic-latin.woff2",
-      weight: "300 700",
-      style: "italic",
-    },
-  ],
+  src: "../../public/assets/fonts/manrope-variable-latin.woff2",
   variable: "--font-display",
   display: "swap",
+  weight: "400 800",
 });

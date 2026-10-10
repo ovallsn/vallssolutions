@@ -10,8 +10,8 @@ import { displayFont, sansFont } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "Wyoming LLC Formation | Valls Solutions", template: "%s | Valls Solutions" },
-  description: "Form a Wyoming LLC for $699 with EIN handling, Registered Agent, mailing address, website, business email and guidance for your business bank application.",
+  title: { default: "U.S. LLC Formation | Valls Solutions", template: "%s | Valls Solutions" },
+  description: "LLC formation in Wyoming and other U.S. states for local and international founders. Our published $699 package is for Wyoming.",
   icons: { icon: "/assets/favicon.svg" },
   applicationName: "Valls Solutions",
 };

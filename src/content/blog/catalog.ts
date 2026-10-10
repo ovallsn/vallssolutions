@@ -113,7 +113,7 @@ export const BLOG_ARTICLES: readonly BlogArticle[] = [
     title: "U.S. LLC for non-U.S. residents: requirements and formation",
     seoTitle: "U.S. LLC for Non-U.S. Residents",
     description:
-      "Form a U.S. LLC from abroad: understand ownership, EIN applications, Wyoming addresses, banking preparation and the $699 formation package.",
+      "Form a U.S. LLC from abroad: understand ownership, state choice, EIN applications, banking preparation and Valls Solutions' Wyoming package.",
     category: "International founders",
     readMinutes: 6,
   },
@@ -124,7 +124,7 @@ export const BLOG_ARTICLES: readonly BlogArticle[] = [
     title: "LLC para no residentes en Estados Unidos: requisitos y creación",
     seoTitle: "LLC para no residentes: requisitos",
     description:
-      "Crea una LLC desde fuera de EE. UU.: conoce los requisitos, el EIN, la dirección en Wyoming, la preparación bancaria y el paquete de $699.",
+      "Crea una LLC desde fuera de EE. UU.: conoce los requisitos, cómo elegir estado, el EIN, la preparación bancaria y el paquete de Wyoming.",
     category: "Emprendedores internacionales",
     readMinutes: 6,
   },
@@ -202,7 +202,7 @@ export const BLOG_ARTICLES: readonly BlogArticle[] = [
     title: "How to choose an LLC formation service: what to compare",
     seoTitle: "Choosing an LLC Formation Service",
     description:
-      "Compare formation packages, first-year services, renewal costs and human support. See what the $699 Valls Solutions package includes.",
+      "Compare LLC formation packages, first-year services, renewal costs and support. See the Wyoming price and how to request another state's quote.",
     category: "Formation services",
     readMinutes: 5,
   },
@@ -213,7 +213,7 @@ export const BLOG_ARTICLES: readonly BlogArticle[] = [
     title: "Cómo elegir un servicio de creación de LLC: qué comparar",
     seoTitle: "Elegir un servicio de creación de LLC",
     description:
-      "Compara paquetes, servicios del primer año, renovación y atención directa. Conoce qué incluye Valls Solutions por $699.",
+      "Compara paquetes de creación de LLC, servicios del primer año, renovación y atención directa. Consulta el precio de Wyoming y otros estados.",
     category: "Servicios de formación",
     readMinutes: 5,
   },

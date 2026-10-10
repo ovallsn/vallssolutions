@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/es/nosotros/",
   translatedPath: "/about/",
   title: "Sobre Valls Solutions | Formación de LLC en EE. UU.",
-  description: "Conoce cómo Valls Solutions ayuda a fundadores en EE. UU. y en otros países a crear una LLC en Wyoming con precios claros y atención bilingüe.",
+  description: "Conoce cómo Valls Solutions ayuda a fundadores locales e internacionales a crear LLC en Wyoming y otros estados, con precio publicado para Wyoming.",
 });
 
 export default function AboutRoute() {

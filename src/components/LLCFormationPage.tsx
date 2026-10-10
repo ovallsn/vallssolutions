@@ -28,9 +28,9 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
     <main id="contenido">
       <header className="section-shell page-hero">
         <p className="breadcrumbs"><Link href={english ? "/" : "/es/"}>{english ? "Home" : "Inicio"}</Link> / {english ? "LLC formation" : "Formación de LLC"}</p>
-        <p className="eyebrow"><span className="eyebrow-line" />{english ? "Wyoming LLC formation" : "Formación de LLC en Wyoming"}</p>
-        <h1>{english ? "Form your Wyoming LLC with a clear, guided package." : "Crea tu LLC en Wyoming con un paquete claro y acompañado."}</h1>
-        <p>{english ? "For U.S. and international founders. One formation service for your Wyoming filing, EIN application, first-year essentials and business banking preparation." : "Para emprendedores en EE. UU. y en otros países. Un servicio de formación que reúne la presentación en Wyoming, el EIN, los esenciales del primer año y la preparación bancaria empresarial."}</p>
+        <p className="eyebrow"><span className="eyebrow-line" />{english ? "U.S. LLC formation" : "Creación de LLC en Estados Unidos"}</p>
+        <h1>{english ? "Form your U.S. LLC with clear, personal support." : "Crea tu LLC en EE. UU. con apoyo claro y personal."}</h1>
+        <p>{english ? "For U.S. and international founders. We form LLCs in Wyoming and other U.S. states. Our published $699 package is for Wyoming; ask us for a quote for another state." : "Para fundadores de EE. UU. y de otros países. Creamos LLC en Wyoming y en otros estados. El paquete publicado de $699 es para Wyoming; consúltanos el precio de otro estado."}</p>
         <div className="hero-actions">
           <ContactActions locale={locale} ctaLabel={english ? "Start your LLC" : "Empezar mi LLC"} />
           <Link className="text-link" href={english ? "/pricing/" : "/es/precios/"}>{english ? "See package pricing" : "Ver el precio del paquete"}</Link>
@@ -39,14 +39,14 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
 
       <section className="section-shell page-columns page-section">
         <div className="page-copy">
-          <h2>{english ? "What is included in your LLC formation" : "Qué incluye la formación de tu LLC"}</h2>
-          <p>{english ? "The $699 one-time package brings the filing and the first-year business essentials together. You will know the scope and next steps before we begin." : "El paquete de $699 pago único reúne la presentación y los servicios esenciales del primer año. Conocerás el alcance y los siguientes pasos antes de empezar."}</p>
+          <h2>{english ? "What the $699 Wyoming package includes" : "Qué incluye el paquete de $699 en Wyoming"}</h2>
+          <p>{english ? "The one-time package combines Wyoming formation and first-year business essentials. We confirm the scope and next steps with you before beginning." : "El paquete de pago único combina la formación en Wyoming y los servicios empresariales esenciales del primer año. Confirmamos contigo el alcance y los siguientes pasos antes de empezar."}</p>
           <ol className="formation-details">
             {details[locale].map((item, index) => <li key={item.title}><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></li>)}
           </ol>
           <h2>{english ? "Made for U.S. and international founders" : "Para fundadores en EE. UU. y en otros países"}</h2>
-          <p>{english ? "You do not need to be a U.S. citizen to form a Wyoming LLC, and an ITIN is not required simply to create the company. The information needed for the EIN application can vary with the responsible party and your circumstances." : "No necesitas ser ciudadano estadounidense para crear una LLC en Wyoming, ni tener un ITIN simplemente para constituir la empresa. La información para el EIN puede variar según el responsable y tu situación."}</p>
-          <div className="page-highlight"><p>{english ? "We will ask where you and your business are based, then explain how a Wyoming formation fits your operating location and any state registration steps." : "Te preguntaremos dónde resides y dónde opera tu negocio; así podremos explicarte cómo encaja la formación en Wyoming y qué trámites estatales pueden corresponder."}</p></div>
+          <p>{english ? "You do not need to be a U.S. citizen or have an ITIN simply to form a U.S. LLC. The information needed for an EIN application can vary with the responsible party and your circumstances." : "No necesitas ser ciudadano estadounidense ni tener un ITIN simplemente para crear una LLC en EE. UU. La información para la solicitud del EIN puede variar según el responsable y tu situación."}</p>
+          <div className="page-highlight"><p>{english ? "Wyoming is our recommended option because it is where we can currently offer our most competitive package price. We also form LLCs in other states; we confirm the services and state-specific price with you before work begins." : "Recomendamos Wyoming porque actualmente es donde podemos ofrecer nuestro precio de paquete más competitivo. También creamos LLC en otros estados; confirmamos contigo los servicios y el precio correspondiente antes de empezar."}</p></div>
         </div>
 
         <aside className="side-panel formation-side-panel">
@@ -81,12 +81,12 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
             ? [
                 { title: "Tell us what you are building", body: "Share your residence, business activity and any questions by email." },
                 { title: "Confirm the scope together", body: "We explain the package and agree on the information needed before beginning." },
-                { title: "We coordinate the formation", body: "We prepare the Wyoming filing and the included EIN and first-year services." },
+                { title: "We coordinate the formation", body: "We prepare the filing in the state you select and coordinate the services in your confirmed package." },
               ]
             : [
                 { title: "Cuéntanos qué negocio estás creando", body: "Indica por email dónde resides, la actividad y cualquier pregunta." },
                 { title: "Confirmamos juntos el alcance", body: "Te explicamos el paquete y acordamos la información necesaria antes de empezar." },
-                { title: "Coordinamos la formación", body: "Preparamos la presentación en Wyoming y los servicios incluidos del EIN y el primer año." },
+                { title: "Coordinamos la formación", body: "Preparamos la presentación en el estado que elijas y coordinamos los servicios del paquete acordado." },
               ]).map((step, index) => <li key={step.title}><span className="process-number">0{index + 1}</span><h3>{step.title}</h3><p>{step.body}</p></li>)}
         </ol>
       </section>

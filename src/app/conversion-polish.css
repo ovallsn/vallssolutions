@@ -756,7 +756,7 @@
 /* A distinctive editorial system for the formation homepage. */
 .founder-home {
   --sans: var(--font-sans), "DM Sans", system-ui, sans-serif;
-  --display: var(--font-display), "Newsreader", Georgia, serif;
+  --display: var(--font-display), "Manrope", system-ui, sans-serif;
 }
 
 .founder-home .text-link {

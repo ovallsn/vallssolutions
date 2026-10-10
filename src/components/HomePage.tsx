@@ -60,11 +60,11 @@ const copy: Record<Locale, HomeCopy> = {
     eyebrow: "U.S. LLC formation for founders at home and abroad",
     headline: "Start your U.S. LLC.",
     accent: "With real guidance.",
-    lede: "Wyoming LLC formation, EIN assistance and practical guidance for your business bank application—in English or Spanish.",
+    lede: "We form LLCs in Wyoming and other U.S. states, with EIN assistance and guidance for a business bank application. Support in English or Spanish.",
     primaryCta: "Start your LLC",
     secondaryCta: "See the package",
     priceLine: "Wyoming package: $699 one-time · $449/year from year two",
-    otherStatePrompt: "Considering another state? Ask us before you decide.",
+    otherStatePrompt: "We recommend Wyoming for its published price. We also form LLCs in other U.S. states; ask for a state-specific quote.",
     otherStateCta: "Ask about another state",
     proof: [
       {
@@ -104,16 +104,16 @@ const copy: Record<Locale, HomeCopy> = {
     offerNote:
       "Your first message can be a short email. No call or document upload is needed to get started.",
     stateChoiceNote:
-      "Considering another state? Tell us where your business will operate. We will confirm whether we can support that state's filing and share the scope and price before you decide.",
+      "We also form LLCs in other U.S. states. Tell us where your business will operate, and we will confirm the scope and price for that state before we begin.",
     audienceEyebrow: "For founders wherever they live",
     audienceTitle: "Support for founders in the U.S. and around the world.",
     audienceIntro:
-      "We work with U.S. citizens, U.S. residents and international founders. Our published formation package is for Wyoming; ask us about another state and we will confirm availability and pricing before you decide.",
+      "We work with U.S. citizens, U.S. residents and international founders. We can form LLCs in other states; the $699 formation and $449 annual renewal prices shown here apply to Wyoming. We confirm scope and pricing for another state before work begins.",
     audiences: [
       {
         label: "U.S.-based founders",
         title: "Build around where you do business.",
-        body: "We help organize the Wyoming formation and explain the filing steps. If another state is on your shortlist, tell us where your business operates and we will confirm whether we can support that filing.",
+        body: "We can coordinate an LLC formation in Wyoming or another U.S. state. Tell us where your business operates and we will confirm the filing scope and price before we begin.",
       },
       {
         label: "Founders abroad",
@@ -131,12 +131,12 @@ const copy: Record<Locale, HomeCopy> = {
         body: "Email your country or state of residence, what your business does and any questions you have.",
       },
       {
-        title: "Review the package together",
-        body: "We confirm the service, price and information needed before beginning the Wyoming filing.",
+        title: "Confirm the state and scope",
+        body: "We agree on the state, included services, price and information needed before beginning the filing.",
       },
       {
         title: "Receive your company documents",
-        body: "We coordinate formation, EIN application handling and the included first-year services.",
+        body: "We coordinate the state filing and the services included in your confirmed package.",
       },
     ],
     bankingEyebrow: "Business banking preparation",
@@ -171,6 +171,11 @@ const copy: Record<Locale, HomeCopy> = {
           "It includes the Wyoming formation filing and state formation fee, EIN application handling, the first year of Registered Agent service and Wyoming mailing address, a company website and business email, and guidance for preparing a business bank application.",
       },
       {
+        question: "Can you form an LLC outside Wyoming?",
+        answer:
+          "Yes. We also form LLCs in other U.S. states. The published $699 formation package and $449 annual renewal apply to Wyoming; we confirm the scope and price for another state before work begins.",
+      },
+      {
         question: "What does the $449 annual renewal include?",
         answer:
           "From year two, the $449 annual renewal includes Registered Agent service, Wyoming mailing address, the Wyoming Annual Report filing and state tax, and website hosting and maintenance. If you do not renew, the website is taken offline and we provide its files.",
@@ -186,9 +191,9 @@ const copy: Record<Locale, HomeCopy> = {
           "We provide guidance and help you prepare the application documents. You submit the application directly, and the financial provider makes the account decision.",
       },
       {
-        question: "Do I need an ITIN to form an LLC?",
+        question: "Do I need an ITIN to form a U.S. LLC?",
         answer:
-          "An ITIN is not required simply to form a Wyoming LLC. EIN application information depends on the responsible party and IRS process.",
+          "An ITIN is not required simply to form a U.S. LLC. EIN application information depends on the responsible party and IRS process.",
       },
     ],
     closingEyebrow: "Your next step",
@@ -201,11 +206,11 @@ const copy: Record<Locale, HomeCopy> = {
       "Creación de LLC en EE. UU. para fundadores en cualquier país",
     headline: "Crea tu LLC en EE. UU.",
     accent: "Con apoyo personal.",
-    lede: "Creamos tu LLC en Wyoming, gestionamos el EIN y te ayudamos a preparar la solicitud bancaria. Atención en español e inglés.",
+    lede: "Creamos LLC en Wyoming y otros estados, con ayuda para el EIN y orientación para solicitar una cuenta empresarial. Atención en español o inglés.",
     primaryCta: "Empezar mi LLC",
     secondaryCta: "Ver el paquete",
     priceLine: "Paquete de Wyoming: $699 · $449/año desde el segundo año",
-    otherStatePrompt: "¿Tienes otro estado en mente? Consúltanos antes de decidir.",
+    otherStatePrompt: "Recomendamos Wyoming por su precio publicado. También creamos LLC en otros estados de EE. UU.; pide un presupuesto por estado.",
     otherStateCta: "Consultar otro estado",
     proof: [
       {
@@ -245,16 +250,16 @@ const copy: Record<Locale, HomeCopy> = {
     offerNote:
       "Puedes empezar con un email breve. No necesitas reservar una llamada ni subir documentos para hacer la primera consulta.",
     stateChoiceNote:
-      "¿Estás considerando otro estado? Cuéntanos dónde operará tu negocio. Confirmaremos si podemos gestionar esa presentación y te explicaremos el alcance y el precio antes de que decidas.",
+      "También creamos LLC en otros estados de EE. UU. Cuéntanos dónde operará tu negocio y confirmaremos el alcance y el precio antes de empezar.",
     audienceEyebrow: "Para fundadores, vivan donde vivan",
     audienceTitle: "Acompañamiento para crear tu empresa, vivas donde vivas.",
     audienceIntro:
-      "Trabajamos con ciudadanos y residentes de EE. UU. y con emprendedores internacionales. El paquete de formación publicado es para Wyoming; consúltanos por otro estado y confirmaremos disponibilidad y precio antes de que decidas.",
+      "Trabajamos con ciudadanos y residentes de EE. UU. y con emprendedores internacionales. También creamos LLC en otros estados; los precios publicados de $699 por la formación y $449 al año corresponden a Wyoming. Confirmaremos el alcance y el presupuesto de otro estado antes de empezar.",
     audiences: [
       {
         label: "Fundadores en EE. UU.",
         title: "Ten en cuenta dónde desarrollas la actividad.",
-        body: "Te ayudamos a organizar la formación en Wyoming y explicamos los pasos de presentación. Si tienes otro estado en mente, cuéntanos dónde opera tu negocio y confirmaremos si podemos gestionar esa presentación.",
+        body: "Podemos coordinar la creación de LLC en Wyoming o en otro estado de EE. UU. Cuéntanos dónde opera tu negocio y confirmaremos el trámite y el precio antes de empezar.",
       },
       {
         label: "Fundadores en el extranjero",
@@ -272,12 +277,12 @@ const copy: Record<Locale, HomeCopy> = {
         body: "Escríbenos tu país o estado de residencia, a qué se dedica tu negocio y tus preguntas.",
       },
       {
-        title: "Revisamos juntos el paquete",
-        body: "Confirmamos el servicio, el precio y la información necesaria antes de iniciar la presentación en Wyoming.",
+        title: "Confirmamos el estado y el alcance",
+        body: "Acordamos el estado, los servicios incluidos, el precio y la información necesaria antes de iniciar la presentación.",
       },
       {
         title: "Recibe los documentos de tu empresa",
-        body: "Coordinamos la formación, la gestión de la solicitud del EIN y los servicios incluidos del primer año.",
+        body: "Coordinamos la presentación estatal y los servicios incluidos en el paquete acordado.",
       },
     ],
     bankingEyebrow: "Preparación bancaria empresarial",
@@ -312,6 +317,11 @@ const copy: Record<Locale, HomeCopy> = {
           "Incluye la presentación de la formación en Wyoming y su tasa estatal, la gestión de la solicitud del EIN, el primer año de Registered Agent y dirección postal de Wyoming, una página web y un correo empresarial, y orientación para preparar una solicitud bancaria empresarial.",
       },
       {
+        question: "¿Podéis crear una LLC fuera de Wyoming?",
+        answer:
+          "Sí. También creamos LLC en otros estados de EE. UU. El paquete publicado de $699 y la renovación anual de $449 corresponden a Wyoming; confirmaremos el alcance y el precio de otro estado antes de empezar.",
+      },
+      {
         question: "¿Qué incluye la renovación anual de $449?",
         answer:
           "Desde el segundo año, incluye Registered Agent, dirección postal de Wyoming, presentación y tasa estatal del Annual Report, y alojamiento y mantenimiento de la página web. Si no renuevas, la web deja de estar publicada y te entregamos sus archivos.",
@@ -328,9 +338,9 @@ const copy: Record<Locale, HomeCopy> = {
           "Te orientamos y te ayudamos a preparar los documentos de la solicitud. Tú la presentas directamente y el proveedor financiero decide sobre la apertura de la cuenta.",
       },
       {
-        question: "¿Necesito un ITIN para crear una LLC?",
+        question: "¿Necesito un ITIN para crear una LLC en EE. UU.?",
         answer:
-          "No necesitas un ITIN simplemente para crear una LLC en Wyoming. La información para solicitar el EIN depende del responsable y del proceso del IRS.",
+          "No necesitas un ITIN simplemente para crear una LLC en Estados Unidos. La información para solicitar el EIN depende del responsable y del proceso del IRS.",
       },
     ],
     closingEyebrow: "El siguiente paso",
@@ -369,8 +379,8 @@ export function HomePage({ locale }: { locale: Locale }) {
     ? [
         {
           icon: "formation",
-          title: "Wyoming LLC formation",
-          body: "State filing, formation fee and your company formation documents.",
+          title: "LLC formation",
+          body: "We coordinate the state filing and confirm the documents for your selected state.",
         },
         {
           icon: "ein",
@@ -401,8 +411,8 @@ export function HomePage({ locale }: { locale: Locale }) {
     : [
         {
           icon: "formation",
-          title: "Creación de la LLC en Wyoming",
-          body: "Presentación, tasa estatal y documentos de constitución de tu empresa.",
+          title: "Creación de LLC",
+          body: "Coordinamos la presentación estatal y confirmamos los documentos para el estado que elijas.",
         },
         {
           icon: "ein",

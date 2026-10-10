@@ -10,8 +10,8 @@ import { displayFont, sansFont } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "Formación de LLC en Wyoming | Valls Solutions", template: "%s | Valls Solutions" },
-  description: "Crea tu LLC en Wyoming por $699 con gestión del EIN, Registered Agent, dirección postal, web, correo empresarial y orientación bancaria.",
+  title: { default: "Crear una LLC en Estados Unidos | Valls Solutions", template: "%s | Valls Solutions" },
+  description: "Creamos LLC en Wyoming y otros estados de EE. UU. para fundadores locales e internacionales. El paquete publicado de 699 USD es para Wyoming.",
   icons: { icon: "/assets/favicon.svg" },
   applicationName: "Valls Solutions",
 };

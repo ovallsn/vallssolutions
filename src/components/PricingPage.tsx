@@ -32,7 +32,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
           <ContactActions locale={locale} ctaLabel={english ? "Ask about the annual renewal" : "Consultar sobre la renovación anual"} />
         </div>
       </section>
-      <p className="section-shell price-total-note">{english ? "Final price charged by Valls Solutions: $699 once and $449 per year from year two. No additional tax is added at payment." : "Precio final que cobra Valls Solutions: 699 USD por la formación y 449 USD al año desde el segundo año. No se añade ningún impuesto adicional al pagar."}</p>
+      <p className="section-shell price-total-note">{english ? "Final price charged by Valls Solutions: $699 once and $449 per year from year two for Wyoming. No additional tax is added at payment. We also form LLCs in other U.S. states; contact us for that state’s scope and price." : "Precio final que cobra Valls Solutions para Wyoming: 699 USD por la formación y 449 USD al año desde el segundo año. No se añade ningún impuesto adicional al pagar. También creamos LLC en otros estados; consúltanos su alcance y precio."}</p>
 
       <section className="section-shell section-block pricing-website">
         <div className="section-intro">

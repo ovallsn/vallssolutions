@@ -1,5 +1,13 @@
 # Media provenance
 
+## Website typography
+
+- File: `public/assets/fonts/manrope-variable-latin.woff2`.
+- Family: Manrope variable, weight axis 400–800; used for display typography across the site. DM Sans remains the body font.
+- Source: Google Fonts, https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap (Manrope v20 Latin WOFF2); upstream license at https://github.com/google/fonts/blob/main/ofl/manrope/OFL.txt.
+- License: SIL Open Font License 1.1. A copy is included at `public/assets/fonts/OFL-Manrope.txt`.
+- Self-hosted through `next/font/local`; no third-party font request is made by site visitors.
+
 ## Hero video and poster
 
 - Asset files: hero-paperwork.mp4 and hero-paperwork-poster.jpg

@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/es/",
   translatedPath: "/",
   title: "Crear una LLC en Estados Unidos",
-  description: "LLC en Wyoming para fundadores de EE. UU. y otros países. $699 incluye tasa, EIN, agente y dirección postal del primer año, web, correo y guía bancaria.",
+  description: "Crea una LLC en EE. UU. desde dentro o fuera del país. Paquete de Wyoming: 699 USD y 449 USD/año desde el segundo año; consulta otros estados.",
 });
 
 const organization = {
@@ -17,7 +17,7 @@ const organization = {
   name: "Valls Solutions",
   url: SITE_URL,
   email: "info@vallssolutions.com",
-  description: "Creación de LLC en Wyoming para fundadores de EE. UU. y otros países, con gestión del EIN, esenciales del primer año y orientación para preparar la solicitud bancaria.",
+  description: "Creación de LLC en Wyoming y otros estados para fundadores de EE. UU. y del extranjero, con gestión del EIN y orientación bancaria empresarial.",
   mainEntityOfPage: absoluteUrl("/es/"),
 };
 

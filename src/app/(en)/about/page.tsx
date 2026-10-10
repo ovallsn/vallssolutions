@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/about/",
   translatedPath: "/es/nosotros/",
   title: "About Valls Solutions | U.S. LLC Formation Support",
-  description: "Learn how Valls Solutions helps U.S. and international founders form a Wyoming LLC with clear pricing and direct bilingual support.",
+  description: "Learn how Valls Solutions supports U.S. and international founders forming LLCs in Wyoming and other states, with published package pricing for Wyoming.",
 });
 
 export default function AboutRoute() {

@@ -302,7 +302,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
     en: {
       title: "Service terms",
       description: "Formation package, final pricing, payment, start time, annual opt-in renewal and service expiry.",
-      intro: "These terms describe Valls Solutions' Wyoming LLC formation and administrative-support packages for customers in the United States and European Union. The exact website and email scope is agreed with you before work begins.",
+      intro: "These terms describe Valls Solutions' published Wyoming LLC formation and administrative-support package for customers in the United States and European Union. We also form LLCs in other states under a separate scope and price confirmed with you before work begins. The exact website and email scope is agreed with you before work begins.",
       updated: "Last updated: 9 October 2026",
       sections: [
         {
@@ -316,7 +316,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Final price and payment",
           paragraphs: [
-            ["The total amount Valls Solutions charges is $699 for formation and $449 per year for the annual service from year two. No additional tax amount is added to these prices at payment."],
+            ["For the Wyoming package, the total amount Valls Solutions charges is $699 for formation and $449 per year for the annual service from year two. No additional tax amount is added to these prices at payment."],
             ["Payment instructions are sent privately by email for a bank transfer to Valls Solutions' business account. Account details are not published on the website. The website does not process payments."],
           ],
         },
@@ -353,7 +353,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
     es: {
       title: "Condiciones del servicio",
       description: "Paquete de formación, precio final, pago, inicio, renovación anual voluntaria y fin del servicio.",
-      intro: "Estas condiciones describen los paquetes de constitución de LLC en Wyoming y apoyo administrativo de Valls Solutions para clientes de Estados Unidos y la Unión Europea. Acordamos contigo el alcance exacto de la web y el correo antes de empezar.",
+      intro: "Estas condiciones describen el paquete publicado de formación de LLC en Wyoming y apoyo administrativo de Valls Solutions para clientes de Estados Unidos y la Unión Europea. También creamos LLC en otros estados con un alcance y un precio confirmados contigo antes de empezar. Acordamos contigo el alcance exacto de la web y el correo antes de empezar.",
       updated: "Última actualización: 9 de octubre de 2026",
       sections: [
         {
@@ -367,7 +367,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Precio final y pago",
           paragraphs: [
-            ["El importe total que cobra Valls Solutions es de 699 USD por la formación y 449 USD al año por el servicio anual desde el segundo año. No se añade ningún importe fiscal adicional al pagar estos precios."],
+            ["Para el paquete de Wyoming, el importe total que cobra Valls Solutions es de 699 USD por la formación y 449 USD al año por el servicio anual desde el segundo año. No se añade ningún importe fiscal adicional al pagar estos precios."],
             ["Enviaremos las instrucciones de pago por email para realizar una transferencia bancaria a la cuenta empresarial de Valls Solutions. No publicamos los datos de la cuenta en la web. La web no procesa pagos."],
           ],
         },

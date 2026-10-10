@@ -96,13 +96,13 @@ export function BlogArticlePage({
           </p>
           <h2>
             {english
-              ? "Make your Wyoming LLC happen."
-              : "Pon en marcha tu LLC en Wyoming."}
+              ? "Start your U.S. LLC."
+              : "Crea tu LLC en Estados Unidos."}
           </h2>
           <p>
             {english
-              ? "The $699 package brings formation and the first-year essentials together. From year two, the annual renewal is $449."
-              : "El paquete de $699 reúne la formación y los servicios esenciales del primer año. Desde el segundo, la renovación anual cuesta $449."}
+              ? "Our published $699 formation package and $449 annual renewal are for Wyoming. We also form LLCs in other states; email us to confirm the scope and price."
+              : "El paquete publicado de $699 y la renovación anual de $449 corresponden a Wyoming. También creamos LLC en otros estados; escríbenos para confirmar el alcance y el precio."}
           </p>
           <Link
             className="text-link"

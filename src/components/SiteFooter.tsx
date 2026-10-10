@@ -19,8 +19,8 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           </Link>
           <p>
             {english
-              ? "Wyoming LLC formation and administrative support for founders in the U.S. and abroad."
-              : "Formación de LLC en Wyoming y apoyo administrativo para fundadores en Estados Unidos y en el extranjero."}
+              ? "U.S. LLC formation and business support for founders in the U.S. and around the world."
+              : "Creación de LLC en Estados Unidos y apoyo empresarial para fundadores de cualquier país."}
           </p>
         </div>
         <nav

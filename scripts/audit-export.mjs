@@ -85,8 +85,8 @@ for (const value of legalRoutes) {
 }
 
 const finalPriceCopy = {
-  [`${origin}/pricing/`]: "Final price charged by Valls Solutions: $699 once and $449 per year from year two. No additional tax is added at payment.",
-  [`${origin}/es/precios/`]: "Precio final que cobra Valls Solutions: 699 USD por la formación y 449 USD al año desde el segundo año. No se añade ningún impuesto adicional al pagar.",
+  [`${origin}/pricing/`]: "Final price charged by Valls Solutions: $699 once and $449 per year from year two for Wyoming. No additional tax is added at payment.",
+  [`${origin}/es/precios/`]: "Precio final que cobra Valls Solutions para Wyoming: 699 USD por la formación y 449 USD al año desde el segundo año. No se añade ningún impuesto adicional al pagar.",
 };
 for (const [value, expected] of Object.entries(finalPriceCopy)) {
   assert.ok(pages.has(value), `Missing pricing page: ${value}`);

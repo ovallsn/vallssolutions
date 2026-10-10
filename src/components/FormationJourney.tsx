@@ -17,12 +17,12 @@ export function FormationJourney({
   const en = locale === "en";
   const details: [string, string, string, string][] = en ? [
     ["A conversation, not a complicated form.", "Tell us where you live, what your business does and the company name you have in mind. We answer your questions before you decide.", "Your first step", "Email · English or Spanish"],
-    ["The scope is clear before we start.", "Review the $699 package, the included services and the $449 renewal from year two. We explain the information needed to move forward.", "Your formation package", "$699 · Wyoming formation fee included"],
-    ["Your company takes shape.", "We coordinate the Wyoming filing and EIN application handling, then help organize your banking application and company website. Processing times depend on the authorities and providers.", "Your business essentials", "LLC · EIN · Address · Website"],
+    ["The scope is clear before we start.", "Review the Wyoming package or ask for another state. We confirm the included services, filing scope and price before work begins.", "Your formation plan", "$699 · Wyoming package"],
+    ["Your company takes shape.", "We coordinate the filing in your selected state. The Wyoming package includes EIN application handling and first-year services; other state-specific services are confirmed in your quote.", "Your business essentials", "LLC · EIN · Address · Website"],
   ] : [
     ["Una conversación, sin formularios complicados.", "Cuéntanos dónde resides, a qué se dedica tu negocio y qué nombre tienes en mente. Respondemos tus preguntas antes de que decidas.", "Tu primer paso", "Email · Español o inglés"],
-    ["El alcance queda claro antes de empezar.", "Revisa el paquete de $699, los servicios incluidos y la renovación de $449 desde el segundo año. Te explicamos la información necesaria para avanzar.", "Tu paquete de creación", "$699 · Tasa de creación de Wyoming incluida"],
-    ["Tu empresa empieza a tomar forma.", "Coordinamos la presentación en Wyoming y la gestión del EIN; después te ayudamos con la solicitud bancaria y la web. Los plazos dependen de autoridades y proveedores.", "Los esenciales de tu negocio", "LLC · EIN · Dirección · Web"],
+    ["El alcance queda claro antes de empezar.", "Revisa el paquete de Wyoming o consúltanos por otro estado. Confirmamos los servicios, el trámite y el precio antes de empezar.", "Tu plan de formación", "$699 · Paquete de Wyoming"],
+    ["Tu empresa empieza a tomar forma.", "Coordinamos la presentación en el estado que elijas. El paquete de Wyoming incluye la gestión del EIN y los servicios del primer año; los servicios de otro estado se confirman en el presupuesto.", "Los esenciales de tu negocio", "LLC · EIN · Dirección · Web"],
   ];
 
   function selectStep(index: number) {

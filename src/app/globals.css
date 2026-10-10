@@ -14,7 +14,7 @@
   --shadow: 0 24px 80px rgba(24, 43, 43, .11);
   --shell: 1180px;
   --sans: var(--font-sans), "DM Sans", system-ui, sans-serif;
-  --display: var(--font-display), "Newsreader", Georgia, serif;
+  --display: var(--font-display), "Manrope", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }

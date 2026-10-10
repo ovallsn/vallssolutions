@@ -14,7 +14,7 @@ export function mailtoHref(locale: Locale, subject?: string): string {
       ? "Hola,\n\nQuiero información sobre la formación de una LLC.\n\nPaís de residencia:\nActividad del negocio:\nEstado que estoy considerando:\n\nNo adjuntaré documentos de identidad ni datos sensibles por este medio."
       : "Hello,\n\nI would like information about forming an LLC.\n\nCountry of residence:\nBusiness activity:\nState I am considering:\n\nI will not attach identity documents or sensitive data to this email.";
 
-  const defaultSubject = locale === "es" ? "Consulta sobre LLC en Wyoming" : "Question about a Wyoming LLC";
+  const defaultSubject = locale === "es" ? "Consulta para crear una LLC en EE. UU." : "Question about forming a U.S. LLC";
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject ?? defaultSubject)}&body=${encodeURIComponent(body)}`;
 }
 
@@ -23,8 +23,8 @@ export function whatsappHref(locale: Locale): string | null {
   const phone = WHATSAPP_NUMBER.replace(/\D/g, "");
   const message =
     locale === "es"
-      ? "Hola, quiero información sobre la formación de una LLC en Wyoming."
-      : "Hello, I would like information about forming a Wyoming LLC.";
+      ? "Hola, quiero información sobre la creación de una LLC en Estados Unidos."
+      : "Hello, I would like information about forming an LLC in the United States.";
   return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 }
 
