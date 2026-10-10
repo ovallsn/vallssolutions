@@ -39,9 +39,10 @@ export function HomeMotion() {
     const animations = new Map<Element, Animation>();
     const elements = Array.from(document.querySelectorAll<HTMLElement>(targets));
     // Prepare offscreen content before it can scroll into view. Without JS it stays visible.
+    // Keep each element's authored transform (for example, horizontal centering) intact.
     elements.forEach((element) => {
       const animation = element.animate(
-        [{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "translateY(0)" }],
+        [{ opacity: 0, translate: "0 18px" }, { opacity: 1, translate: "0 0" }],
         { duration: 620, fill: "both", easing: "cubic-bezier(.22,1,.36,1)" },
       );
       animation.pause();
