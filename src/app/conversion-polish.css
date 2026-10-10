@@ -350,12 +350,13 @@
     align-items: center;
   }
 
-  .founder-home .premium-hero-copy { max-width: 590px; }
-  .founder-home .premium-hero-copy > .eyebrow { max-width: 100%; margin-bottom: 18px; font-size: 9px; }
-  .founder-home .premium-hero h1 { max-width: 590px; font-size: clamp(45px, 11.4vw, 66px); line-height: 1.02; }
-  .founder-home .premium-lede { max-width: 540px; margin-top: 18px; font-size: 15px; line-height: 1.65; }
-  .founder-home .premium-hero .hero-actions { margin-top: 21px; gap: 15px; }
-  .founder-home .founder-price-line { margin-top: 15px; font-size: 11px; }
+  .founder-home .premium-hero-copy { max-width: 590px; margin-inline: auto; text-align: center; }
+  .founder-home .premium-hero-copy > .eyebrow { max-width: 100%; margin: 0 auto 18px; justify-content: center; font-size: 9px; }
+  .founder-home .premium-hero h1 { max-width: 590px; margin-inline: auto; font-size: clamp(45px, 11.4vw, 66px); line-height: 1.02; text-align: center; }
+  .founder-home .premium-lede { max-width: 540px; margin: 18px auto 0; font-size: 15px; line-height: 1.65; text-align: center; }
+  .founder-home .premium-hero .hero-actions { justify-content: center; margin-top: 21px; gap: 15px; }
+  .founder-home .founder-price-line { margin-top: 15px; font-size: 11px; text-align: center; }
+  .founder-home .founder-state-prompt { margin-inline: auto; }
   .founder-home .premium-hero-media .video-shade {
     background: linear-gradient(90deg, rgba(5, 21, 18, .72), rgba(5, 21, 18, .62)), linear-gradient(180deg, rgba(5, 21, 18, .16), rgba(5, 21, 18, .58));
   }
@@ -896,7 +897,7 @@
 }
 
 .founder-home .premium-renewal > span { color: #d4ded7; }
-.founder-home .premium-renewal strong { margin-block: 16px; color: var(--paper); font-size: clamp(48px, 6vw, 68px); }
+.founder-home .premium-renewal strong { margin-block: 16px; color: var(--paper); font-size: clamp(68px, 8vw, 92px); }
 .founder-home .premium-renewal p { max-width: 430px; color: #d4ded7; font-size: 13px; line-height: 1.7; }
 .founder-home .premium-price-summary > .premium-price-inner > .text-link {
   grid-column: 1 / -1;
@@ -1003,9 +1004,9 @@
   .founder-home .premium-price-inner { grid-template-columns: 1fr; gap: 28px; }
   .founder-home .premium-price-inner { width: calc(100% - 40px); }
   .founder-home .premium-price-summary { padding-block: 42px; }
-  .founder-home .premium-price-summary .premium-price { font-size: 72px; }
+  .founder-home .premium-price-summary .premium-price,
+  .founder-home .premium-renewal strong { font-size: 72px; }
   .founder-home .premium-renewal { padding: 24px 0 0; border-top: 1px solid #587069; border-left: 0; }
-  .founder-home .premium-renewal strong { font-size: 56px; }
   .founder-home .premium-price-summary > .premium-price-inner > .text-link { grid-column: 1; }
   .founder-home .formation-journey { grid-template-columns: 1fr; gap: 28px; }
   .founder-home .journey-controls button { padding-inline: 8px; }
