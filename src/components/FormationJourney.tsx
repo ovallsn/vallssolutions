@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import type { Locale } from "@/lib/site";
 
 type Step = { title: string; body: string };
@@ -13,8 +13,9 @@ export function FormationJourney({
   steps: Step[];
 }) {
   const [selected, setSelected] = useState(0);
+  const mobileTrack = useRef<HTMLDivElement>(null);
   const en = locale === "en";
-  const details = en ? [
+  const details: [string, string, string, string][] = en ? [
     ["A conversation, not a complicated form.", "Tell us where you live, what your business does and the company name you have in mind. We answer your questions before you decide.", "Your first step", "Email · English or Spanish"],
     ["The scope is clear before we start.", "Review the $699 package, the included services and the $449 renewal from year two. We explain the information needed to move forward.", "Your formation package", "$699 · Wyoming formation fee included"],
     ["Your company takes shape.", "We coordinate the Wyoming filing and EIN application handling, then help organize your banking application and company website. Processing times depend on the authorities and providers.", "Your business essentials", "LLC · EIN · Address · Website"],
@@ -23,6 +24,22 @@ export function FormationJourney({
     ["El alcance queda claro antes de empezar.", "Revisa el paquete de $699, los servicios incluidos y la renovación de $449 desde el segundo año. Te explicamos la información necesaria para avanzar.", "Tu paquete de creación", "$699 · Tasa de creación de Wyoming incluida"],
     ["Tu empresa empieza a tomar forma.", "Coordinamos la presentación en Wyoming y la gestión del EIN; después te ayudamos con la solicitud bancaria y la web. Los plazos dependen de autoridades y proveedores.", "Los esenciales de tu negocio", "LLC · EIN · Dirección · Web"],
   ];
+
+  function selectStep(index: number) {
+    const next = Math.max(0, Math.min(index, steps.length - 1));
+    setSelected(next);
+    mobileTrack.current?.scrollTo({
+      left: next * mobileTrack.current.clientWidth,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  }
+
+  function handleMobileScroll() {
+    const track = mobileTrack.current;
+    if (!track || !track.clientWidth) return;
+    const next = Math.max(0, Math.min(Math.round(track.scrollLeft / track.clientWidth), steps.length - 1));
+    setSelected((current) => current === next ? current : next);
+  }
   return (
     <div className="formation-journey">
       <ol className="journey-controls">
@@ -32,7 +49,7 @@ export function FormationJourney({
               type="button"
               aria-expanded={selected === index}
               aria-controls="journey-detail"
-              onClick={() => setSelected(index)}
+              onClick={() => selectStep(index)}
             >
               <span className="journey-number">0{index + 1}</span>
               <span>
@@ -53,6 +70,49 @@ export function FormationJourney({
         <span className="journey-detail-meta">{details[selected][3]}</span>
         <div className="journey-progress" aria-hidden="true">
           <i style={{ width: `${((selected + 1) / steps.length) * 100}%` }} />
+        </div>
+      </div>
+      <div className="journey-mobile">
+        <div className="journey-mobile-controls">
+          <button type="button" onClick={() => selectStep(selected - 1)} disabled={selected === 0}>
+            {en ? "Previous" : "Anterior"}
+          </button>
+          <span aria-live="polite" aria-atomic="true">
+            {en ? "Step " : "Paso "}{selected + 1} {en ? "of" : "de"} {steps.length}
+          </span>
+          <button type="button" onClick={() => selectStep(selected + 1)} disabled={selected === steps.length - 1}>
+            {en ? "Next" : "Siguiente"}
+          </button>
+        </div>
+        <p className="journey-swipe-hint">
+          {en ? "Swipe to explore each step" : "Desliza para ver cada paso"}
+        </p>
+        <div className="journey-mobile-progress" aria-hidden="true">
+          <i style={{ width: String(((selected + 1) / steps.length) * 100) + "%" }} />
+        </div>
+        <div
+          className="journey-mobile-track"
+          ref={mobileTrack}
+          role="region"
+          aria-roledescription="carousel"
+          aria-label={en ? "LLC formation steps" : "Pasos para crear tu LLC"}
+          tabIndex={0}
+          onScroll={handleMobileScroll}
+        >
+          {steps.map((step, index) => (
+            <article
+              className="journey-mobile-slide"
+              key={step.title}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={(en ? "Step " : "Paso ") + (index + 1) + (en ? " of " : " de ") + steps.length + ": " + step.title}
+            >
+              <span className="journey-mobile-step">{en ? "STEP " : "PASO "}0{index + 1} · {step.title}</span>
+              <h3>{details[index][0]}</h3>
+              <p>{details[index][1]}</p>
+              <span className="journey-detail-meta">{details[index][3]}</span>
+            </article>
+          ))}
         </div>
       </div>
     </div>

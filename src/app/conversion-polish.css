@@ -1101,3 +1101,198 @@
   .site-header .header-tools { gap: 5px; }
   .site-header .language-option { min-width: 31px; padding-inline: 4px; }
 }
+
+/* Keep paired content aligned from its top edge across public routes. */
+.premium-section-heading,
+.premium-offer,
+.banking-layout {
+  align-items: start;
+}
+
+.founder-home .premium-service-list li > div {
+  align-items: start;
+}
+
+/* The two public prices share a title slot so both amounts begin on one line. */
+.price-card .price-label {
+  min-height: 50px;
+  margin: 14px 0 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.annual-card > h2 {
+  min-height: 50px;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+@media (min-width: 721px) {
+  .annual-card {
+    padding-top: 36px;
+  }
+}
+
+.journey-mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .founder-home .formation-journey {
+    display: block;
+    align-items: start;
+  }
+
+  .founder-home .journey-controls,
+  .founder-home .journey-detail {
+    display: none;
+  }
+
+  .founder-home .journey-mobile {
+    display: block;
+  }
+
+  .journey-mobile-track {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    touch-action: pan-x pan-y;
+    border-block: 1px solid #cbd1c5;
+  }
+
+  .journey-mobile-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .journey-mobile-track:focus-visible {
+    outline: 3px solid var(--orange-deep);
+    outline-offset: 4px;
+  }
+
+  .journey-mobile-slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    padding: 22px 8px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .journey-mobile-step {
+    color: var(--orange-deep);
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: .12em;
+  }
+
+  .journey-mobile-slide h3 {
+    max-width: 31rem;
+    margin: 11px 0 7px;
+    color: var(--ink);
+    font: 400 clamp(23px, 5vw, 29px)/1.18 var(--display);
+    letter-spacing: -.025em;
+  }
+
+  .journey-mobile-slide > p {
+    max-width: 42rem;
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .journey-mobile-slide .journey-detail-meta {
+    display: block;
+    margin-top: 15px;
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .journey-mobile-controls {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .journey-mobile-controls button {
+    min-width: 76px;
+    min-height: 44px;
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid var(--green);
+    background: transparent;
+    color: var(--green-deep);
+    font: inherit;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .journey-mobile-controls button:last-child {
+    text-align: right;
+  }
+
+  .journey-mobile-controls button:disabled {
+    border-bottom-color: transparent;
+    color: #7b8581;
+    cursor: default;
+  }
+
+  .journey-mobile-progress {
+    height: 2px;
+    background: #d1d9cc;
+  }
+
+  .journey-mobile-progress i {
+    display: block;
+    height: 100%;
+    background: var(--orange);
+    transition: width .3s ease;
+  }
+
+  .journey-swipe-hint {
+    margin: 0 0 5px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: .02em;
+    text-align: left;
+  }
+
+  .founder-home .journey-mobile-controls button {
+    padding-inline: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .price-card .price-label {
+    min-height: 0;
+    margin: 20px 0 0;
+    display: block;
+  }
+
+  .annual-card > h2 {
+    min-height: 0;
+    margin: 0 0 7px;
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-mobile-progress i {
+    transition: none;
+  }
+
+  .journey-mobile-track {
+    scroll-behavior: auto;
+  }
+}

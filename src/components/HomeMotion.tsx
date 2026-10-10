@@ -5,33 +5,29 @@ import { usePathname } from "next/navigation";
 
 const targets = [
   "main > .page-hero",
-  ".founder-proof-band > div",
-  ".premium-offer > div:first-child",
-  ".premium-service-list li",
-  ".premium-price-summary",
-  ".premium-section-heading",
-  ".journey-controls li",
-  ".journey-detail",
-  ".premium-process-after",
-  ".premium-benefit-list article",
-  ".premium-trust-statement",
-  ".premium-trust-points article",
-  ".premium-audience > div:first-child",
-  ".premium-audience article",
-  ".premium-banking > div:first-child",
-  ".premium-banking li",
-  ".premium-journal-feature",
-  ".premium-journal-rows > a",
-  "main .section-intro",
-  "main .faq-list details",
+  ".founder-home .founder-proof-band",
+  ".founder-home .premium-offer",
+  ".founder-home .premium-price-summary",
+  ".founder-home .premium-process-band .section-block",
+  ".founder-home .premium-benefits",
+  ".founder-home .premium-trust",
+  ".founder-home .premium-audience",
+  ".founder-home .premium-banking",
+  ".founder-home .premium-journal",
+  ".founder-home .home-faq",
+  "main .pricing-page-grid",
+  "main .pricing-website",
+  "main .banking-layout",
+  "main .pricing-faq",
+  "main .page-columns",
+  "main .about-story",
+  "main .contact-page-grid",
+  "main .legal-section",
+  "main .blog-featured-guide",
+  "main .blog-topic-section",
+  "main .article-layout",
+  ".lead-capture-layout",
   "main .closing-layout",
-  ".lead-capture-copy",
-  ".lead-contact-methods",
-  ".lead-form-panel",
-  ".pricing-page-grid > div",
-  ".formation-details li",
-  ".contact-panel",
-  "main .page-columns > .page-copy",
 ].join(", ");
 
 // Content stays visible without JavaScript. Only elements entering the viewport animate.
@@ -44,13 +40,9 @@ export function HomeMotion() {
     const elements = Array.from(document.querySelectorAll<HTMLElement>(targets));
     // Prepare offscreen content before it can scroll into view. Without JS it stays visible.
     elements.forEach((element) => {
-      const siblings = element.parentElement ? Array.from(element.parentElement.children) : [];
-      const delay = element.matches("li, article, .premium-journal-rows > a, .founder-proof-band > div")
-        ? Math.max(0, siblings.indexOf(element) % 3) * 120
-        : 0;
       const animation = element.animate(
-        [{ opacity: 0, transform: "translateY(32px)" }, { opacity: 1, transform: "translateY(0)" }],
-        { duration: 760, delay, fill: "both", easing: "cubic-bezier(.22,1,.36,1)" },
+        [{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "translateY(0)" }],
+        { duration: 620, fill: "both", easing: "cubic-bezier(.22,1,.36,1)" },
       );
       animation.pause();
       element.setAttribute("data-motion", "pending");
