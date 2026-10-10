@@ -60,7 +60,7 @@ const copy: Record<Locale, HomeCopy> = {
     eyebrow: "U.S. LLC formation for founders at home and abroad",
     headline: "Start your U.S. LLC.",
     accent: "With real guidance.",
-    lede: "A bilingual point of contact for formation, EIN assistance and bank-application preparation. The published $699 package is for Wyoming.",
+    lede: "Wyoming LLC formation, EIN assistance and practical guidance for your business bank application—in English or Spanish.",
     primaryCta: "Start your LLC",
     secondaryCta: "See the package",
     priceLine: "Wyoming package: $699 one-time · $449/year from year two",
@@ -201,7 +201,7 @@ const copy: Record<Locale, HomeCopy> = {
       "Creación de LLC en EE. UU. para fundadores en cualquier país",
     headline: "Crea tu LLC en EE. UU.",
     accent: "Con apoyo personal.",
-    lede: "Atención en español e inglés durante la formación de tu LLC, la solicitud del EIN y la preparación bancaria. El paquete publicado de $699 es para Wyoming.",
+    lede: "Creamos tu LLC en Wyoming, gestionamos el EIN y te ayudamos a preparar la solicitud bancaria. Atención en español e inglés.",
     primaryCta: "Empezar mi LLC",
     secondaryCta: "Ver el paquete",
     priceLine: "Paquete de Wyoming: $699 · $449/año desde el segundo año",
@@ -380,7 +380,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         {
           icon: "agent",
           title: "Registered Agent",
-          body: "A registered contact for official state correspondence. Year one included.",
+          body: "Wyoming Registered Agent service to receive official state notices for your LLC. Year one included.",
         },
         {
           icon: "address",
@@ -412,7 +412,7 @@ export function HomePage({ locale }: { locale: Locale }) {
         {
           icon: "agent",
           title: "Agente registrado",
-          body: "Un contacto registrado para comunicaciones oficiales. Primer año incluido.",
+          body: "Servicio de agente registrado en Wyoming para recibir notificaciones oficiales sobre tu LLC. Primer año incluido.",
         },
         {
           icon: "address",
@@ -517,7 +517,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                   ? "WYOMING LLC · YEAR ONE"
                   : "LLC EN WYOMING · PRIMER AÑO"}
               </span>
-              <p className="premium-price">$699</p>
+              <p className="premium-price premium-price-value">$699</p>
               <p>
                 {english
                   ? "One-time formation package. State formation fee included."
@@ -531,7 +531,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </div>
             <div className="premium-renewal">
               <span>{english ? "FROM YEAR TWO" : "DESDE EL SEGUNDO AÑO"}</span>
-              <strong>
+              <strong className="premium-price-value">
                 $449<small>/{english ? "year" : "año"}</small>
               </strong>
               <p>

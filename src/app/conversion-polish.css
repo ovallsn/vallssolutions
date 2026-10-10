@@ -870,8 +870,8 @@
   width: min(var(--shell), calc(100% - 64px));
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   column-gap: clamp(38px, 8vw, 112px);
   row-gap: 20px;
 }
@@ -888,16 +888,45 @@
 .founder-home .premium-price-summary .button-dark { background: var(--paper); color: var(--green-deep); }
 .founder-home .premium-price-summary .button-dark:hover { background: #e8e1d5; }
 
-.founder-home .premium-renewal {
+.founder-home .premium-price-summary .premium-price-inner .premium-renewal {
   align-self: stretch;
   margin: 0;
-  padding: 10px 0 10px clamp(28px, 5vw, 70px);
+  padding: 0 0 0 clamp(28px, 5vw, 70px);
   border: 0;
   border-left: 1px solid #587069;
 }
 
+.founder-home .premium-price-summary .premium-price-inner .package-first-year > .eyebrow,
+.founder-home .premium-price-summary .premium-price-inner .premium-renewal > span {
+  min-height: 17px;
+  margin: 0 0 18px;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.founder-home .premium-price-summary .premium-price-inner .premium-price-value {
+  display: block;
+  margin: 0 0 12px;
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: clamp(64px, 7.5vw, 84px);
+  font-weight: 400;
+  letter-spacing: -.055em;
+  line-height: 1;
+}
+
+.founder-home .premium-price-summary .premium-price-inner .premium-price-value small {
+  margin-left: 4px;
+  color: inherit;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
 .founder-home .premium-renewal > span { color: #d4ded7; }
-.founder-home .premium-renewal strong { margin-block: 16px; color: var(--paper); font-size: clamp(68px, 8vw, 92px); }
 .founder-home .premium-renewal p { max-width: 430px; color: #d4ded7; font-size: 13px; line-height: 1.7; }
 .founder-home .premium-price-summary > .premium-price-inner > .text-link {
   grid-column: 1 / -1;
@@ -1003,10 +1032,10 @@
   .founder-home .state-choice-note { margin-bottom: 34px; }
   .founder-home .premium-price-inner { grid-template-columns: 1fr; gap: 28px; }
   .founder-home .premium-price-inner { width: calc(100% - 40px); }
+  .founder-home .premium-price-inner { align-items: start; }
   .founder-home .premium-price-summary { padding-block: 42px; }
-  .founder-home .premium-price-summary .premium-price,
-  .founder-home .premium-renewal strong { font-size: 72px; }
-  .founder-home .premium-renewal { padding: 24px 0 0; border-top: 1px solid #587069; border-left: 0; }
+  .founder-home .premium-price-summary .premium-price-inner .premium-price-value { font-size: clamp(56px, 15vw, 68px); }
+  .founder-home .premium-price-summary .premium-price-inner .premium-renewal { padding: 24px 0 0; border-top: 1px solid #587069; border-left: 0; }
   .founder-home .premium-price-summary > .premium-price-inner > .text-link { grid-column: 1; }
   .founder-home .formation-journey { grid-template-columns: 1fr; gap: 28px; }
   .founder-home .journey-controls button { padding-inline: 8px; }
