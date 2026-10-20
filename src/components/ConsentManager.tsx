@@ -9,6 +9,7 @@ import {
   OPTIONAL_SERVICES,
   readConsent,
   serviceAllowed,
+  shouldReloadAfterConsentChange,
   shouldAskForConsent,
   writeConsent,
   type ConsentCategory,
@@ -130,6 +131,11 @@ export function ConsentManager({ locale }: { locale: Locale }) {
 
   function saveChoice(nextCategories: Record<ConsentCategory, boolean>) {
     const nextChoice = createConsentChoice(nextCategories);
+    const mustReloadToStopService = shouldReloadAfterConsentChange(
+      services,
+      storedChoice,
+      nextChoice,
+    );
     let saved = false;
 
     try {
@@ -142,6 +148,11 @@ export function ConsentManager({ locale }: { locale: Locale }) {
       setStoredChoice(null);
       setStorageError(true);
       setIsOpen(true);
+      return;
+    }
+
+    if (mustReloadToStopService) {
+      window.location.reload();
       return;
     }
 

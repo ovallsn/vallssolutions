@@ -14,7 +14,7 @@ function requireConsent(t) {
 }
 
 const choice = {
-  version: 1,
+  version: 2,
   updatedAt: "2026-10-08T10:00:00.000Z",
   categories: { analytics: true, marketing: false },
 };
@@ -28,10 +28,13 @@ function memoryStorage(initialValue = null) {
   };
 }
 
-test("optional service registry starts empty", (t) => {
+test("Plausible is registered as optional analytics with no tracking cookies", (t) => {
   const api = requireConsent(t);
-  assert.deepEqual(api.OPTIONAL_SERVICES, []);
-  assert.equal(api.hasOptionalServices(api.OPTIONAL_SERVICES), false);
+  assert.equal(api.OPTIONAL_SERVICES.length, 1);
+  assert.equal(api.OPTIONAL_SERVICES[0].provider, "Plausible Community Edition (self-hosted)");
+  assert.equal(api.OPTIONAL_SERVICES[0].category, "analytics");
+  assert.deepEqual(api.OPTIONAL_SERVICES[0].cookies, []);
+  assert.equal(api.hasOptionalServices(api.OPTIONAL_SERVICES), true);
 });
 
 test("an explicitly accepted category allows its service", (t) => {
@@ -64,7 +67,11 @@ test("incomplete consent is rejected", (t) => {
 
 test("consent from an older inventory version is rejected", (t) => {
   const api = requireConsent(t);
-  assert.equal(api.readConsent(memoryStorage(JSON.stringify(choice)), 2), null);
+  const oldChoice = { ...choice, version: 1 };
+  const storage = memoryStorage(JSON.stringify(oldChoice));
+  assert.equal(api.readConsent(storage, api.CONSENT_VERSION), null);
+  assert.equal(api.serviceAllowed({ category: "analytics" }, oldChoice), false);
+  assert.equal(api.shouldAskForConsent(api.OPTIONAL_SERVICES, api.readConsent(storage, api.CONSENT_VERSION)), true);
 });
 
 test("readConsent handles storage access errors without granting consent", (t) => {
@@ -150,4 +157,67 @@ test("no optional service loads before consent", (t) => {
   assert.equal(loads, 0);
   stop();
   assert.equal(loads, 0);
+});
+
+test("revoking accepted analytics asks the page to reload, but granting it does not", (t) => {
+  const api = requireConsent(t);
+  const denied = api.createConsentChoice({ analytics: false, marketing: false }, choice.updatedAt);
+  assert.equal(api.shouldReloadAfterConsentChange(api.OPTIONAL_SERVICES, choice, denied), true);
+  assert.equal(api.shouldReloadAfterConsentChange(api.OPTIONAL_SERVICES, denied, choice), false);
+  assert.equal(api.shouldReloadAfterConsentChange(api.OPTIONAL_SERVICES, null, denied), false);
+});
+
+test("Plausible is injected only after analytics consent and removed on cleanup", (t) => {
+  const api = requireConsent(t);
+  const scripts = [];
+  const fakeWindow = {};
+  const fakeDocument = {
+    createElement(tagName) {
+      assert.equal(tagName, "script");
+      return {
+        id: "",
+        src: "",
+        async: false,
+        remove() {
+          const index = scripts.indexOf(this);
+          if (index !== -1) scripts.splice(index, 1);
+        },
+      };
+    },
+    getElementById(id) {
+      return scripts.find((script) => script.id === id) ?? null;
+    },
+    head: {
+      appendChild(script) {
+        scripts.push(script);
+        return script;
+      },
+    },
+  };
+  const previousWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+  const previousDocument = Object.getOwnPropertyDescriptor(globalThis, "document");
+  Object.defineProperty(globalThis, "window", { configurable: true, value: fakeWindow });
+  Object.defineProperty(globalThis, "document", { configurable: true, value: fakeDocument });
+
+  try {
+    const accepted = api.createConsentChoice({ analytics: true, marketing: false }, choice.updatedAt);
+    const denied = api.createConsentChoice({ analytics: false, marketing: false }, choice.updatedAt);
+    api.activateConsentedServices(api.OPTIONAL_SERVICES, denied);
+    assert.equal(scripts.length, 0);
+
+    const stop = api.activateConsentedServices(api.OPTIONAL_SERVICES, accepted);
+    assert.equal(scripts.length, 1);
+    assert.equal(scripts[0].src, "https://analytics.vallssolutions.com/js/pa-5gRs7a0cB_ymMrWk9a9Bc.js");
+    assert.equal(scripts[0].async, true);
+    assert.equal(typeof fakeWindow.plausible, "function");
+
+    stop();
+    assert.equal(scripts.length, 0);
+    assert.equal(fakeWindow.plausible, undefined);
+  } finally {
+    if (previousWindow) Object.defineProperty(globalThis, "window", previousWindow);
+    else delete globalThis.window;
+    if (previousDocument) Object.defineProperty(globalThis, "document", previousDocument);
+    else delete globalThis.document;
+  }
 });

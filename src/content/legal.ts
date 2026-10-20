@@ -83,7 +83,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
       title: "Privacy notice",
       description: "How Valls Solutions handles website, enquiry and service-related personal information.",
       intro: "This notice describes personal information handled through the public website, enquiries and services. An LLC service record contains the business and contact fields and final official formation and EIN records described below. Passport copies and temporary application material are handled separately; website requests, email messages and payment records are separate records.",
-      updated: "Last updated: 9 October 2026",
+      updated: "Last updated: 20 October 2026",
       sections: [
         {
           heading: "Who is responsible and how to contact us",
@@ -94,7 +94,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Information and purposes",
           paragraphs: [
-            ["When you visit the website, service providers may process limited technical information such as your IP address, requested page, browser and device details, and request time. This is used to operate, protect and measure the performance of the website."],
+            ["Website hosting and security providers may process limited technical information such as your IP address, requested page, browser and device details, and request time to operate and protect the website. If you allow Analytics in Cookie preferences, our self-hosted Plausible Community Edition at analytics.vallssolutions.com receives page-view events and, with this site's current settings, outbound-link clicks, file downloads and form submissions. The Plausible script is not loaded unless you allow Analytics; the site stores your choice in browser storage so it can remember your preference."],
             ["The website has no customer account or online payment portal. The enquiry form prepares an email in your email app; it does not submit your details to Valls Solutions unless you review and send that email. If sent, the message includes your name, email address, country or U.S. state of residence, business activity and any optional details you add."],
             ["For each customer LLC, a service record is maintained separately from this public website. Website request data, enquiry messages and payment or accounting records are handled separately for the purposes described in this notice. Do not put identity documents, SSNs, ITINs or other sensitive information in an initial enquiry or LLC administrative notes. If a requested service needs a passport or other supporting information, Valls Solutions will tell you what is needed and receive it directly through WhatsApp Business or email; source documents are not stored in the LLC service record."],
           ],
@@ -130,13 +130,13 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Lawful bases where data-protection law applies",
           paragraphs: [
-            ["For enquiries and requested pre-contract steps, we use information to respond and take the steps you ask us to take. For contracted services, we use it to perform the agreement. We use limited technical information to protect and operate the website based on our legitimate interests, and retain records where required by law."],
+            ["For enquiries and requested pre-contract steps, we use information to respond and take the steps you ask us to take. For contracted services, we use it to perform the agreement. We use limited technical information to protect and operate the website based on our legitimate interests, and retain records where required by law. Optional analytics is loaded only after you allow it in Cookie preferences; you can change or withdraw that choice there."],
           ],
         },
         {
           heading: "Providers and disclosures",
           paragraphs: [
-            ["Website hosting, security and performance providers may process limited technical information to operate, protect and measure the website. Email and messaging providers process the messages and documents you choose to send. To provide an EIN service, we share the necessary application information with our filing service provider and the IRS. Payment providers and banks process transaction information. These providers apply their own privacy and retention rules."],
+            ["Website hosting and security providers may process limited technical information to operate and protect the website. If you allow Analytics, our self-hosted Plausible Community Edition at analytics.vallssolutions.com processes measurement events for this website. Email and messaging providers process the messages and documents you choose to send. To provide an EIN service, we share the necessary application information with our filing service provider and the IRS. Payment providers and banks process transaction information. These providers apply their own privacy and retention rules."],
             ["We do not sell personal information or use it for cross-site targeted advertising. Information may also be disclosed where required by law."],
           ],
         },
@@ -161,7 +161,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
       title: "Aviso de privacidad",
       description: "Cómo trata Valls Solutions los datos personales de la web, las consultas y los servicios.",
       intro: "Este aviso describe los datos personales tratados a través de la web pública, las consultas y los servicios. El expediente de servicio de cada LLC contiene los datos empresariales y de contacto y los documentos oficiales finales de constitución y EIN descritos abajo. Las copias del pasaporte y el material temporal de la solicitud se tratan por separado; los datos de visitas a la web, emails y pagos son registros independientes.",
-      updated: "Última actualización: 9 de octubre de 2026",
+      updated: "Última actualización: 20 de octubre de 2026",
       sections: [
         {
           heading: "Responsable y contacto",
@@ -172,7 +172,7 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Datos y finalidades",
           paragraphs: [
-            ["Cuando visitas la web, los proveedores de servicios pueden tratar información técnica limitada, como la dirección IP, la página solicitada, el navegador y dispositivo, y la hora de la solicitud. Se utiliza para mantener, proteger y medir el rendimiento de la web."],
+            ["Los proveedores de alojamiento y seguridad pueden tratar información técnica limitada, como la dirección IP, la página solicitada, el navegador y dispositivo, y la hora de la solicitud, para mantener y proteger la web. Si permites la analítica en Preferencias de cookies, nuestra instancia autogestionada de Plausible Community Edition en analytics.vallssolutions.com recibe eventos de visita y, con la configuración actual de esta web, clics en enlaces salientes, descargas y envíos de formularios. El script de Plausible no se carga salvo que permitas la analítica; la web guarda tu elección en el almacenamiento del navegador para recordarla."],
             ["La web no tiene cuentas de cliente ni portal de pago. El formulario de consulta prepara un email en tu aplicación de correo; no envía tus datos a Valls Solutions hasta que revises y envíes ese correo. Si lo envías, el mensaje incluye tu nombre, dirección de email, país o estado de EE. UU. de residencia, actividad empresarial y cualquier detalle adicional que incluyas."],
             ["Para cada LLC cliente, el expediente de servicio se mantiene separado de esta web pública. Los datos técnicos de las visitas a la web, los mensajes de consulta y los registros de pago o contabilidad se tratan por separado para las finalidades explicadas en este aviso. No incluyas documentos de identidad, SSN, ITIN ni otros datos sensibles en una consulta inicial ni en las notas administrativas de la LLC. Si un servicio solicitado requiere un pasaporte u otra información justificativa, Valls Solutions te indicará qué hace falta y la recibirá directamente por WhatsApp Business o email; los documentos originales no se guardan en el expediente de servicio de la LLC."],
           ],
@@ -208,13 +208,13 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
         {
           heading: "Bases legales cuando se aplique la normativa de protección de datos",
           paragraphs: [
-            ["Para responder consultas y realizar gestiones previas que solicites, usamos los datos para contestarte y hacer esas gestiones. Para los servicios contratados, los usamos para cumplir el acuerdo. Tratamos datos técnicos limitados para proteger y mantener la web conforme a nuestro interés legítimo, y conservamos registros cuando lo exija la ley."],
+            ["Para responder consultas y realizar gestiones previas que solicites, usamos los datos para contestarte y hacer esas gestiones. Para los servicios contratados, los usamos para cumplir el acuerdo. Tratamos datos técnicos limitados para proteger y mantener la web conforme a nuestro interés legítimo, y conservamos registros cuando lo exija la ley. La analítica opcional solo se carga después de que la permitas en Preferencias de cookies; puedes cambiar o retirar esa elección desde allí."],
           ],
         },
         {
           heading: "Proveedores y comunicaciones de datos",
           paragraphs: [
-            ["Los proveedores de alojamiento, seguridad y medición del rendimiento pueden tratar información técnica limitada para mantener y proteger la web y medir su rendimiento. Los proveedores de correo y mensajería tratan los mensajes y documentos que decidas enviar. Para prestar un servicio de EIN, compartimos la información necesaria de la solicitud con nuestro proveedor de tramitación y el IRS. Los proveedores de pago y las entidades bancarias tratan los datos de las transacciones. Cada proveedor aplica sus propias condiciones de privacidad y conservación."],
+            ["Los proveedores de alojamiento y seguridad pueden tratar información técnica limitada para mantener y proteger la web. Si permites la analítica, nuestra instancia autogestionada de Plausible Community Edition en analytics.vallssolutions.com procesa eventos de medición de esta web. Los proveedores de correo y mensajería tratan los mensajes y documentos que decidas enviar. Para prestar un servicio de EIN, compartimos la información necesaria de la solicitud con nuestro proveedor de tramitación y el IRS. Los proveedores de pago y las entidades bancarias tratan los datos de las transacciones. Cada proveedor aplica sus propias condiciones de privacidad y conservación."],
             ["No vendemos datos personales ni los utilizamos para publicidad dirigida entre sitios. También podremos comunicarlos cuando lo exija la ley."],
           ],
         },
@@ -239,14 +239,14 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
   cookies: {
     en: {
       title: "Cookie notice",
-      description: "Browser storage and a conditional security cookie used by this website.",
-      intro: "This notice describes browser storage and a security cookie that may be set if a security check is triggered.",
-      updated: "Last updated: 9 October 2026",
+      description: "Consent storage, optional analytics and a conditional security cookie used by this website.",
+      intro: "This notice describes the browser storage used to remember your choices, optional analytics that runs only after you allow it, and a security cookie that may be set if a security check is triggered.",
+      updated: "Last updated: 20 October 2026",
       sections: [
         {
-          heading: "What we observed",
+          heading: "Analytics and browser storage",
           paragraphs: [
-            ["The website does not use advertising cookies or optional analytics cookies. Its performance measurement tool does not read or store cookies or other browser storage."],
+            ["The website uses its self-hosted Plausible Community Edition for analytics only if you allow Analytics in Cookie preferences. Plausible's tracking script does not use tracking cookies. The website stores your consent choice in browser local storage under valls-consent so it can remember your preference. The current Plausible settings measure page visits, outbound-link clicks, file downloads and form submissions."],
           ],
         },
         {
@@ -259,9 +259,9 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
           ],
         },
         {
-          heading: "Preferences and future changes",
+          heading: "Preferences and changes",
           paragraphs: [
-            ["There are currently no optional cookie services in the website's consent inventory, so no cookie banner or preference storage is active. If Valls Solutions adds a non-essential cookie or similar browser-storage technology, this notice and the consent controls will be updated before that technology is loaded."],
+            ["Analytics remains off until you allow it. You can change or withdraw your choice with Cookie preferences in the website footer. After you withdraw analytics consent, the page reloads to stop the already-loaded tracker. Marketing is currently off because no marketing service is registered."],
             ["For questions about personal information, read our ", { label: "privacy notice", href: "/privacy/" }, " or contact ", { label: "info@vallssolutions.com", href: "mailto:info@vallssolutions.com" }, "."],
           ],
         },
@@ -269,14 +269,14 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
     },
     es: {
       title: "Aviso de cookies",
-      description: "Almacenamiento del navegador y una cookie de seguridad condicional de esta web.",
-      intro: "Este aviso describe el almacenamiento del navegador y una cookie que podría instalarse si se activa una comprobación de seguridad.",
-      updated: "Última actualización: 9 de octubre de 2026",
+      description: "Almacenamiento del consentimiento, analítica opcional y una cookie de seguridad condicional.",
+      intro: "Este aviso describe el almacenamiento del navegador usado para recordar tus elecciones, la analítica opcional que solo se activa si la permites y una cookie que podría instalarse si se activa una comprobación de seguridad.",
+      updated: "Última actualización: 20 de octubre de 2026",
       sections: [
         {
-          heading: "Qué hemos comprobado",
+          heading: "Analítica y almacenamiento del navegador",
           paragraphs: [
-            ["La web no utiliza cookies publicitarias ni cookies opcionales de analítica. La herramienta de medición del rendimiento no lee ni guarda cookies ni otro almacenamiento del navegador."],
+            ["La web utiliza su instancia autogestionada de Plausible Community Edition para analítica solo si permites la categoría Analítica en Preferencias de cookies. El script de Plausible no utiliza cookies de seguimiento. La web guarda tu elección de consentimiento en el almacenamiento local del navegador, con la clave valls-consent, para poder recordarla. La configuración actual de Plausible mide las visitas, los clics en enlaces salientes, las descargas y los envíos de formularios."],
           ],
         },
         {
@@ -289,9 +289,9 @@ export const LEGAL_DOCUMENTS: Record<LegalDocumentKey, Record<Locale, LegalDocum
           ],
         },
         {
-          heading: "Preferencias y cambios futuros",
+          heading: "Preferencias y cambios",
           paragraphs: [
-            ["Actualmente el inventario de consentimiento de la web no contiene servicios opcionales, por lo que no hay un banner de cookies ni almacenamiento de preferencias activo. Si Valls Solutions incorpora una cookie no esencial u otra tecnología similar, actualizaremos este aviso y los controles de consentimiento antes de cargarla."],
+            ["La analítica permanece desactivada hasta que la permitas. Puedes cambiar o retirar tu elección con Preferencias de cookies, en el pie de la web. Al retirar el consentimiento de analítica, la página se recarga para detener el rastreador ya cargado. La categoría Marketing permanece desactivada porque no hay ningún servicio de marketing registrado."],
             ["Para consultas sobre datos personales, lee el ", { label: "aviso de privacidad", href: "/es/privacidad/" }, " o escribe a ", { label: "info@vallssolutions.com", href: "mailto:info@vallssolutions.com" }, "."],
           ],
         },
