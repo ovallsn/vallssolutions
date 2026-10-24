@@ -1,28 +1,36 @@
+import Link from "next/link";
 import { ContactIcon } from "@/components/ContactIcons";
-import { mailtoHref, whatsappHref, type Locale } from "@/lib/site";
+import { ROUTES } from "@/lib/routes";
+import { whatsappHref, type Locale } from "@/lib/site";
 
 type ContactActionsProps = {
   locale: Locale;
   ctaLabel?: string;
   className?: string;
+  showWhatsApp?: boolean;
 };
 
-export function ContactActions({ locale, ctaLabel, className = "" }: ContactActionsProps) {
+export function ContactActions({
+  locale,
+  ctaLabel,
+  className = "",
+  showWhatsApp = true,
+}: ContactActionsProps) {
   const english = locale === "en";
-  const whatsapp = whatsappHref(locale);
+  const whatsapp = showWhatsApp ? whatsappHref(locale) : null;
 
   return (
     <div className={`contact-actions ${className}`.trim()}>
+      <Link className="button button-dark" href={ROUTES.contact[locale]}>
+        <ContactIcon name="arrow" />
+        {ctaLabel ?? (english ? "Start your LLC" : "Empezar mi LLC")}
+      </Link>
       {whatsapp && (
         <a className="button button-whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer">
           <ContactIcon name="whatsapp" />
-          {english ? "Message us on WhatsApp" : "Escribir por WhatsApp"}
+          {english ? "Chat on WhatsApp" : "Escribir por WhatsApp"}
         </a>
       )}
-      <a className="button button-dark" href={mailtoHref(locale, ctaLabel)}>
-        <ContactIcon name="mail" />
-        {ctaLabel ?? (english ? "Email us" : "Escribir por email")}
-      </a>
     </div>
   );
 }

@@ -17,6 +17,7 @@
 .link-chevron { width: 16px; height: 16px; flex: 0 0 auto; vertical-align: middle; }
 .contact-actions .button { gap: 10px; }
 .contact-actions svg, .lead-contact-icon svg, .lead-privacy-icon svg, .lead-submit svg { width: 18px; height: 18px; flex: 0 0 auto; }
+.contact-icon-whatsapp { transform: scale(1.12); }
 .hero-scroll-cue { gap: 12px; }
 .hero-scroll-rule { width: 25px; height: 1px; background: #e9b08f; }
 
@@ -886,8 +887,18 @@
 .founder-home .premium-price-summary .eyebrow { color: #e6bd9e; }
 .founder-home .premium-price-summary .premium-price { margin: 16px 0 12px; font-size: clamp(68px, 8vw, 92px); }
 .founder-home .premium-price-summary .package-first-year > p:not(.premium-price) { color: #d4ded7; font-size: 14px; }
-.founder-home .premium-price-summary .contact-actions { max-width: 420px; margin-top: 25px; }
-.founder-home .premium-price-summary .premium-price-support { max-width: 390px; color: #c3d2c8; font-size: 12px; line-height: 1.6; }
+.founder-home .premium-price-actions {
+  grid-column: 1 / -1;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid #587069;
+  text-align: center;
+}
+.founder-home .premium-price-actions .contact-actions { max-width: none; margin: 0; justify-content: center; }
+.founder-home .premium-price-actions .button { width: auto; min-width: 220px; justify-content: center; }
+.founder-home .premium-price-summary .premium-price-support { max-width: 470px; margin: 0; color: #c3d2c8; font-size: 12px; line-height: 1.6; }
 .founder-home .premium-price-summary .button-dark { background: var(--paper); color: var(--green-deep); }
 .founder-home .premium-price-summary .button-dark:hover { background: #e8e1d5; }
 
@@ -933,9 +944,8 @@
 .founder-home .premium-renewal p { max-width: 430px; color: #d4ded7; font-size: 13px; line-height: 1.7; }
 .founder-home .premium-price-summary > .premium-price-inner > .text-link {
   grid-column: 1 / -1;
-  justify-self: start;
-  padding-top: 16px;
-  border-top: 1px solid #587069;
+  justify-self: center;
+  padding-top: 0;
   border-bottom-color: #e6bd9e;
   color: var(--paper);
 }

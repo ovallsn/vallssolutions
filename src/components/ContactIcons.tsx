@@ -1,4 +1,4 @@
-type ContactIconName = "mail" | "message" | "whatsapp" | "lock";
+type ContactIconName = "mail" | "message" | "whatsapp" | "lock" | "arrow";
 
 export type FormationServiceIconName =
   | "formation"
@@ -61,7 +61,16 @@ export function FormationServiceIcon({
 
 export function ContactIcon({ name }: { name: ContactIconName }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      className={name === "whatsapp" ? "contact-icon-whatsapp" : undefined}
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={name === "whatsapp" ? 1.9 : 1.7}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       {name === "mail" ? (
         <>
           <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -69,10 +78,12 @@ export function ContactIcon({ name }: { name: ContactIconName }) {
         </>
       ) : name === "message" ? (
         <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-3.4-.8L4 20l1.8-4.4a8 8 0 0 1-.8-3.6A7.5 7.5 0 0 1 12.5 4h.1a7.4 7.4 0 0 1 7.4 7.4v.1Z" />
+      ) : name === "arrow" ? (
+        <path d="M4.5 12h14m-5.5-5.5L18.5 12 13 17.5" />
       ) : name === "whatsapp" ? (
         <>
-          <path d="M20 11.6a7.6 7.6 0 0 1-11.1 6.8L4 20l1.6-4.8A7.6 7.6 0 1 1 20 11.6Z" />
-          <path d="M9 8.5c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.6 1 1.4 1.8 2.5 2.3.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5 0 .5-.2 1-.6 1.3-.5.4-1.2.6-1.8.4-1-.2-2.3-.8-3.6-1.9-1.1-.9-2-2.2-2.3-3.4-.2-.9 0-1.8.5-2.6Z" />
+          <path d="M20.25 11.55a8.2 8.2 0 0 1-12.1 7.3L3.75 20l1.2-4.2a8.2 8.2 0 1 1 15.3-4.25Z" />
+          <path d="M8.7 8.1c.2-.35.45-.45.75-.4l.8.1c.2.05.35.2.45.4l.75 1.65c.1.2.05.4-.1.6l-.55.65c-.15.15-.2.35-.05.6.55 1 1.45 1.9 2.55 2.45.2.1.4.1.55-.1l.65-.75c.15-.2.4-.25.6-.15l1.6.8c.2.1.3.3.3.5-.05.45-.25.9-.65 1.2-.45.35-1 .5-1.6.35-1.1-.3-2.35-.95-3.6-2.05-1.1-.95-1.95-2.25-2.3-3.5-.2-.85 0-1.55.4-2.3Z" />
         </>
       ) : (
         <>

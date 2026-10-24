@@ -102,7 +102,7 @@ const copy: Record<Locale, HomeCopy> = {
     offerBody:
       "Here is exactly what the $699 Wyoming formation package covers, with one point of contact from filing through banking preparation.",
     offerNote:
-      "Your first message can be a short email. No call or document upload is needed to get started.",
+      "Start with a brief email or WhatsApp message. No call or document upload is needed to get started.",
     stateChoiceNote:
       "We also form LLCs in other U.S. states. Tell us where your business will operate, and we will confirm the scope and price for that state before we begin.",
     audienceEyebrow: "For founders wherever they live",
@@ -248,7 +248,7 @@ const copy: Record<Locale, HomeCopy> = {
     offerBody:
       "Esto es exactamente lo que cubre el paquete de formación de $699 en Wyoming, con un contacto directo desde la presentación hasta la preparación bancaria.",
     offerNote:
-      "Puedes empezar con un email breve. No necesitas reservar una llamada ni subir documentos para hacer la primera consulta.",
+      "Puedes empezar con un mensaje breve por email o WhatsApp. No hace falta una llamada ni subir documentos para iniciar la consulta.",
     stateChoiceNote:
       "También creamos LLC en otros estados de EE. UU. Cuéntanos dónde operará tu negocio y confirmaremos el alcance y el precio antes de empezar.",
     audienceEyebrow: "Para fundadores, vivan donde vivan",
@@ -533,11 +533,6 @@ export function HomePage({ locale }: { locale: Locale }) {
                   ? "One-time formation package. State formation fee included."
                   : "Paquete de creación, pago único. Tasa estatal de creación incluida."}
               </p>
-              <ContactActions
-                locale={locale}
-                ctaLabel={english ? "Start your LLC" : "Empezar mi LLC"}
-              />
-              <p className="premium-price-support">{content.offerNote}</p>
             </div>
             <div className="premium-renewal">
               <span>{english ? "FROM YEAR TWO" : "DESDE EL SEGUNDO AÑO"}</span>
@@ -549,6 +544,14 @@ export function HomePage({ locale }: { locale: Locale }) {
                   ? "Registered Agent, mailing address, Annual Report filing and state tax, plus website hosting and maintenance."
                   : "Agente registrado, dirección postal, presentación y tasa estatal del Annual Report, alojamiento y mantenimiento web."}
               </p>
+            </div>
+            <div className="premium-price-actions">
+              <ContactActions
+                locale={locale}
+                ctaLabel={english ? "Start your LLC" : "Empezar mi LLC"}
+                showWhatsApp={false}
+              />
+              <p className="premium-price-support">{content.offerNote}</p>
             </div>
             <Link className="text-link" href={pricing}>
               {english
