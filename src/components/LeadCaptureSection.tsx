@@ -1,6 +1,6 @@
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { ContactIcon } from "@/components/ContactIcons";
-import { CONTACT_EMAIL, type Locale, whatsappHref } from "@/lib/site";
+import { CONTACT_EMAIL, mailtoHref, type Locale, whatsappHref } from "@/lib/site";
 
 type LeadCaptureSectionProps = {
   locale: Locale;
@@ -27,13 +27,13 @@ export function LeadCaptureSection({ locale, eyebrow, title, body }: LeadCapture
 
         <div className="lead-contact-methods">
           <p>{english ? "Prefer to write directly?" : "¿Prefieres escribirnos directamente?"}</p>
-          <a href={`mailto:${CONTACT_EMAIL}`}>
+          <a href={mailtoHref(locale)}>
             <span className="lead-contact-icon"><ContactIcon name="mail" /></span>
             <span><strong>{CONTACT_EMAIL}</strong><small>{english ? "We reply in English or Spanish" : "Respondemos en español o inglés"}</small></span>
           </a>
           {whatsapp && (
             <a href={whatsapp} target="_blank" rel="noopener noreferrer">
-              <span className="lead-contact-icon"><ContactIcon name="message" /></span>
+              <span className="lead-contact-icon"><ContactIcon name="whatsapp" /></span>
               <span><strong>WhatsApp</strong><small>{english ? "Continue the conversation there" : "Continúa la conversación por allí"}</small></span>
             </a>
           )}

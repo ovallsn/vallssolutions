@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { ContactIcon } from "@/components/ContactIcons";
-import { whatsappHref, type Locale } from "@/lib/site";
+import { mailtoHref, whatsappHref, type Locale } from "@/lib/site";
 
 type ContactActionsProps = {
   locale: Locale;
@@ -16,14 +15,14 @@ export function ContactActions({ locale, ctaLabel, className = "" }: ContactActi
     <div className={`contact-actions ${className}`.trim()}>
       {whatsapp && (
         <a className="button button-whatsapp" href={whatsapp} target="_blank" rel="noopener noreferrer">
-          <ContactIcon name="message" />
+          <ContactIcon name="whatsapp" />
           {english ? "Message us on WhatsApp" : "Escribir por WhatsApp"}
         </a>
       )}
-      <Link className="button button-dark" href={english ? "/contact/" : "/es/contacto/"}>
-        <ContactIcon name="message" />
-        {ctaLabel ?? (english ? "Get in touch" : "Contactar")}
-      </Link>
+      <a className="button button-dark" href={mailtoHref(locale, ctaLabel)}>
+        <ContactIcon name="mail" />
+        {ctaLabel ?? (english ? "Email us" : "Escribir por email")}
+      </a>
     </div>
   );
 }

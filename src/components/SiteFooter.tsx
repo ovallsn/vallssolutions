@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { ConsentPreferencesButton } from "@/components/ConsentManager";
-import { CLIENT_PORTAL_URL, CONTACT_EMAIL, type Locale } from "@/lib/site";
+import { ContactIcon } from "@/components/ContactIcons";
+import { CLIENT_PORTAL_URL, CONTACT_EMAIL, mailtoHref, type Locale, whatsappHref } from "@/lib/site";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const english = locale === "en";
+  const whatsapp = whatsappHref(locale);
   return (
     <footer className="site-footer">
       <div className="section-shell footer-main">
@@ -60,9 +62,18 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           <strong className="footer-contact-eyebrow">
             {english ? "Start with a note" : "Empecemos por un mensaje"}
           </strong>
-          <a className="footer-email-link" href={`mailto:${CONTACT_EMAIL}`}>
-            {CONTACT_EMAIL}
-          </a>
+          <div className="footer-contact-links">
+            <a className="footer-contact-link" href={mailtoHref(locale)}>
+              <ContactIcon name="mail" />
+              <span>{CONTACT_EMAIL}</span>
+            </a>
+            {whatsapp && (
+              <a className="footer-contact-link" href={whatsapp} target="_blank" rel="noopener noreferrer">
+                <ContactIcon name="whatsapp" />
+                <span>WhatsApp Business</span>
+              </a>
+            )}
+          </div>
           <ConsentPreferencesButton locale={locale} />
         </div>
       </div>

@@ -1,4 +1,4 @@
-type ContactIconName = "mail" | "message" | "lock";
+type ContactIconName = "mail" | "message" | "whatsapp" | "lock";
 
 export type FormationServiceIconName =
   | "formation"
@@ -69,6 +69,11 @@ export function ContactIcon({ name }: { name: ContactIconName }) {
         </>
       ) : name === "message" ? (
         <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-3.4-.8L4 20l1.8-4.4a8 8 0 0 1-.8-3.6A7.5 7.5 0 0 1 12.5 4h.1a7.4 7.4 0 0 1 7.4 7.4v.1Z" />
+      ) : name === "whatsapp" ? (
+        <>
+          <path d="M20 11.6a7.6 7.6 0 0 1-11.1 6.8L4 20l1.6-4.8A7.6 7.6 0 1 1 20 11.6Z" />
+          <path d="M9 8.5c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.2.1.4-.1.6l-.6.7c-.2.2-.2.4 0 .6.6 1 1.4 1.8 2.5 2.3.2.1.4.1.6-.1l.8-.9c.2-.2.4-.2.6-.1l1.6.8c.2.1.3.3.3.5 0 .5-.2 1-.6 1.3-.5.4-1.2.6-1.8.4-1-.2-2.3-.8-3.6-1.9-1.1-.9-2-2.2-2.3-3.4-.2-.9 0-1.8.5-2.6Z" />
+        </>
       ) : (
         <>
           <rect x="4" y="10" width="16" height="11" rx="2" />

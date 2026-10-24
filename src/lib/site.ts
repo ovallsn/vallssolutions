@@ -3,16 +3,16 @@ export const CONTACT_EMAIL = "info@vallssolutions.com";
 // The portal link stays out of the static site until a real customer portal URL is configured.
 export const CLIENT_PORTAL_URL = process.env.NEXT_PUBLIC_CLIENT_PORTAL_URL?.trim() || null;
 
-// Add the verified WhatsApp Business number in international format once it is supplied.
-export const WHATSAPP_NUMBER: string | null = null;
+// WhatsApp Business number supplied by the owner, in international format.
+export const WHATSAPP_NUMBER: string | null = "+66 63 897 5596";
 
 export type Locale = "es" | "en";
 
 export function mailtoHref(locale: Locale, subject?: string): string {
   const body =
     locale === "es"
-      ? "Hola,\n\nQuiero información sobre la formación de una LLC.\n\nPaís de residencia:\nActividad del negocio:\nEstado que estoy considerando:\n\nNo adjuntaré documentos de identidad ni datos sensibles por este medio."
-      : "Hello,\n\nI would like information about forming an LLC.\n\nCountry of residence:\nBusiness activity:\nState I am considering:\n\nI will not attach identity documents or sensitive data to this email.";
+      ? "Hola,\n\nQuiero información sobre los servicios de Valls Solutions para LLC.\n\nPaís de residencia:\nActividad del negocio:\nEstado que estoy considerando:\n\nNo adjuntaré documentos de identidad ni datos sensibles por este medio."
+      : "Hello,\n\nI would like information about Valls Solutions' LLC services.\n\nCountry of residence:\nBusiness activity:\nState I am considering:\n\nI will not attach identity documents or sensitive data to this email.";
 
   const defaultSubject = locale === "es" ? "Consulta para crear una LLC en EE. UU." : "Question about forming a U.S. LLC";
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject ?? defaultSubject)}&body=${encodeURIComponent(body)}`;
