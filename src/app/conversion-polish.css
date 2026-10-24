@@ -17,7 +17,6 @@
 .link-chevron { width: 16px; height: 16px; flex: 0 0 auto; vertical-align: middle; }
 .contact-actions .button { gap: 10px; }
 .contact-actions svg, .lead-contact-icon svg, .lead-privacy-icon svg, .lead-submit svg { width: 18px; height: 18px; flex: 0 0 auto; }
-.contact-icon-whatsapp { transform: scale(1.12); }
 .hero-scroll-cue { gap: 12px; }
 .hero-scroll-rule { width: 25px; height: 1px; background: #e9b08f; }
 
@@ -168,6 +167,12 @@
   justify-content: flex-start;
   margin-top: 27px;
   gap: 22px;
+}
+
+.founder-home .premium-hero .hero-secondary-action {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
 }
 
 .founder-home .founder-price-line {

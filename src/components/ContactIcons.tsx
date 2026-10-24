@@ -62,7 +62,6 @@ export function FormationServiceIcon({
 export function ContactIcon({ name }: { name: ContactIconName }) {
   return (
     <svg
-      className={name === "whatsapp" ? "contact-icon-whatsapp" : undefined}
       aria-hidden="true"
       viewBox="0 0 24 24"
       fill="none"
@@ -82,10 +81,8 @@ export function ContactIcon({ name }: { name: ContactIconName }) {
         <path d="M4.5 12h14m-5.5-5.5L18.5 12 13 17.5" />
       ) : name === "whatsapp" ? (
         <>
-          <path d="M20 11.5a8 8 0 0 1-8 8 8.6 8.6 0 0 1-4-.98L4 20l1.46-3.72A8 8 0 1 1 20 11.5Z" />
-          <circle cx="8.5" cy="11.75" r=".65" fill="currentColor" stroke="none" />
-          <circle cx="12" cy="11.75" r=".65" fill="currentColor" stroke="none" />
-          <circle cx="15.5" cy="11.75" r=".65" fill="currentColor" stroke="none" />
+          <path d="M20.25 11.55a8.2 8.2 0 0 1-12.1 7.3L3.75 20l1.2-4.2a8.2 8.2 0 1 1 15.3-4.25Z" />
+          <path d="M8.7 8.1c.2-.35.45-.45.75-.4l.8.1c.2.05.35.2.45.4l.75 1.65c.1.2.05.4-.1.6l-.55.65c-.15.15-.2.35-.05.6.55 1 1.45 1.9 2.55 2.45.2.1.4.1.55-.1l.65-.75c.15-.2.4-.25.6-.15l1.6.8c.2.1.3.3.3.5-.05.45-.25.9-.65 1.2-.45.35-1 .5-1.6.35-1.1-.3-2.35-.95-3.6-2.05-1.1-.95-1.95-2.25-2.3-3.5-.2-.85 0-1.55.4-2.3Z" />
         </>
       ) : (
         <>
