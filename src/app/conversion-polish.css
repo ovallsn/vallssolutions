@@ -344,6 +344,14 @@
 @media (max-width: 720px) {
   html { scroll-padding-top: 132px; }
 
+  .founder-home .premium-hero .hero-actions > .hero-secondary-action {
+    flex: 0 0 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .founder-home .premium-hero {
     width: min(100% - 40px, 620px);
     min-height: 100svh;
@@ -414,8 +422,8 @@
 @media (max-width: 420px) {
   .founder-home .premium-hero { width: calc(100% - 36px); padding-block: 132px 188px; }
   .founder-home .premium-hero h1 { font-size: clamp(43px, 11.8vw, 50px); }
-  .founder-home .premium-hero .hero-actions { align-items: flex-start; }
-  .founder-home .premium-hero .contact-actions { flex: 0 0 auto; }
+  .founder-home .premium-hero .hero-actions { align-items: center; }
+  .founder-home .premium-hero .contact-actions { flex: 0 1 auto; max-width: 100%; justify-content: center; }
   .founder-home .premium-hero .button { min-height: 48px; padding-inline: 16px; font-size: 12px; }
   .founder-home .founder-proof-band { width: calc(100% - 36px); bottom: 78px; }
   .founder-home .founder-proof-band > div { padding-inline: 0; }

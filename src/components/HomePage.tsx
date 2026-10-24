@@ -456,9 +456,11 @@ export function HomePage({ locale }: { locale: Locale }) {
             <p className="premium-lede">{content.lede}</p>
             <div className="hero-actions">
               <ContactActions locale={locale} ctaLabel={content.primaryCta} />
-              <Link className="text-link" href="#package">
-                {content.secondaryCta}
-              </Link>
+              <div className="hero-secondary-action">
+                <Link className="text-link" href="#package">
+                  {content.secondaryCta}
+                </Link>
+              </div>
             </div>
             <p className="founder-price-line">{content.priceLine}</p>
             <Link className="founder-state-prompt" href={contact}>
