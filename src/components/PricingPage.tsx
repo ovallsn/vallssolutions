@@ -27,6 +27,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
             <li>{english ? "Wyoming mailing address" : "Dirección postal de Wyoming"}</li>
             <li>{english ? "Annual Report filing and state tax" : "Presentación y tasa estatal del informe anual (Annual Report)"}</li>
             <li>{english ? "Website hosting and maintenance" : "Alojamiento y mantenimiento de la web"}</li>
+            <li>{english ? "Business email service" : "Servicio de correo empresarial"}</li>
           </ul>
           <p className="annual-state-fee"><strong>{english ? "Annual Report and state tax included." : "Informe anual y tasa estatal incluidos."}</strong> {english ? "The renewal covers the Wyoming Annual Report filing and its state tax." : "La renovación cubre la presentación del informe anual (Annual Report) de Wyoming y su tasa estatal."}</p>
           <ContactActions locale={locale} ctaLabel={english ? "Ask about the annual renewal" : "Consultar sobre la renovación anual"} />
@@ -40,7 +41,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
           <h2>{english ? "A web presence is part of your first-year setup." : "Tu presencia web forma parte de la configuración inicial."}</h2>
         </div>
         <div className="page-copy">
-          <p>{english ? "The $699 formation package includes a company website and business email. The $449 annual renewal from year two includes hosting and maintenance for the website. If you do not renew, we take the site offline and provide its files so you can arrange hosting elsewhere." : "El paquete de formación de $699 incluye una página web empresarial y un correo de empresa. La renovación anual de $449 desde el segundo año incluye el alojamiento y mantenimiento de la web. Si no renuevas, la web deja de estar publicada y te entregamos sus archivos para que puedas alojarla en otro lugar."}</p>
+          <p>{english ? "The $699 formation package includes a company website and business email. From year two, the $449 annual renewal includes business email service and website hosting and maintenance. If you do not renew, we take the site offline and provide its files so you can arrange hosting elsewhere." : "El paquete de formación de $699 incluye una página web empresarial y un correo de empresa. Desde el segundo año, la renovación anual de $449 incluye el servicio de correo empresarial y el alojamiento y mantenimiento de la web. Si no renuevas, la web deja de estar publicada y te entregamos sus archivos para que puedas alojarla en otro lugar."}</p>
           <p>{english ? "We agree on the website and email scope before beginning so you know what will be delivered." : "Acordamos contigo el alcance de la web y del correo antes de empezar para que sepas qué recibirás."}</p>
         </div>
       </section>
@@ -64,6 +65,7 @@ export function PricingPage({ locale }: { locale: Locale }) {
         </div>
         <div className="faq-list">
           <details><summary>{english ? "When does the Annual Report renewal begin?" : "¿Cuándo comienza la renovación del Annual Report?"}</summary><p>{english ? "The first Wyoming Annual Report is filed with the $449 annual renewal, beginning in year two. The renewal includes the filing and state tax." : "El primer informe anual (Annual Report) de Wyoming se presenta con la renovación de $449, desde el segundo año. La renovación incluye la presentación y la tasa estatal."}</p></details>
+          <details><summary>{english ? "Does the annual renewal include business email?" : "¿La renovación anual incluye el correo empresarial?"}</summary><p>{english ? "Yes. The $449 renewal from year two includes business email service, along with website hosting and maintenance." : "Sí. La renovación de $449 desde el segundo año incluye el servicio de correo empresarial, además del alojamiento y mantenimiento de la web."}</p></details>
           <details><summary>{english ? "Is the Wyoming formation fee included in $699?" : "¿La tasa de formación de Wyoming está incluida en los $699?"}</summary><p>{english ? "Yes. The published $699 package includes the Wyoming state formation filing fee." : "Sí. El paquete publicado de $699 incluye la tasa estatal de formación en Wyoming."}</p></details>
           <details><summary>{english ? "Do you open the bank account for the company?" : "¿Abrís la cuenta bancaria de la empresa?"}</summary><p>{english ? "We help you prepare the application and explain the process. You apply directly to the provider, which makes its own decision." : "Te ayudamos a preparar la solicitud y te explicamos el proceso. Tú la presentas directamente al proveedor, que toma su propia decisión."}</p></details>
         </div>

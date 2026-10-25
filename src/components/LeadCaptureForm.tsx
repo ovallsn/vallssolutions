@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
-import { CONTACT_EMAIL, type Locale } from "@/lib/site";
+import { useState, type FormEvent, type MouseEvent } from "react";
+import { CONTACT_EMAIL, type Locale, whatsappHref } from "@/lib/site";
 import { ContactIcon } from "@/components/ContactIcons";
 
 export function LeadCaptureForm({ locale }: { locale: Locale }) {
   const english = locale === "en";
   const [status, setStatus] = useState("");
+  const [fallbackLinks, setFallbackLinks] = useState<{ email: string; whatsapp: string | null } | null>(null);
 
-  function submitLead(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = new FormData(event.currentTarget);
+  function createMessage(formElement: HTMLFormElement) {
+    const form = new FormData(formElement);
     const value = (key: string) => {
       const entry = form.get(key);
       return typeof entry === "string" ? entry.trim() : "";
@@ -22,13 +22,43 @@ export function LeadCaptureForm({ locale }: { locale: Locale }) {
       ? `Name: ${value("name")}\nEmail: ${value("email")}\nCountry or U.S. state: ${value("residence")}\nBusiness activity: ${value("business")}\n\nAdditional details:\n${value("details")}`
       : `Nombre: ${value("name")}\nEmail: ${value("email")}\nPaís o estado de EE. UU.: ${value("residence")}\nActividad del negocio: ${value("business")}\n\nDetalles adicionales:\n${value("details")}`;
     const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const whatsapp = whatsappHref(locale, body);
+    return { mailto, whatsapp };
+  }
 
+  function openEmailDraft(event: MouseEvent<HTMLButtonElement>) {
+    const form = event.currentTarget.form;
+    if (!form || !form.reportValidity()) return;
+    const links = createMessage(form);
+    setFallbackLinks({ email: links.mailto, whatsapp: links.whatsapp });
     setStatus(
       english
-        ? "Your email app is opening with your message. Review it and press Send."
-        : "Se abrirá tu aplicación de correo con el mensaje. Revísalo y pulsa Enviar.",
+        ? "Your email draft is opening. Review it and press Send to deliver your enquiry."
+        : "Se abrirá el borrador de email. Revísalo y pulsa Enviar para enviar la consulta.",
     );
-    window.setTimeout(() => window.location.assign(mailto), 100);
+    window.location.assign(links.mailto);
+  }
+
+  function submitLead(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const links = createMessage(event.currentTarget);
+
+    setFallbackLinks({ email: links.mailto, whatsapp: links.whatsapp });
+    if (links.whatsapp) {
+      window.open(links.whatsapp, "_blank", "noopener,noreferrer");
+      setStatus(
+        english
+          ? "WhatsApp is opening with your message ready. Review it and tap Send; your enquiry is not sent until you do."
+          : "WhatsApp se abrirá con el mensaje preparado. Revísalo y pulsa Enviar; la consulta no se envía hasta que lo hagas.",
+      );
+    } else {
+      setStatus(
+        english
+          ? "Your email draft is ready. Review it and press Send to deliver your enquiry."
+          : "El borrador de email está listo. Revísalo y pulsa Enviar para enviar la consulta.",
+      );
+      window.location.assign(links.mailto);
+    }
   }
 
   return (
@@ -68,13 +98,30 @@ export function LeadCaptureForm({ locale }: { locale: Locale }) {
           : "No incluyas SSN, ITIN, número de pasaporte, fecha de nacimiento ni documentos de identidad. Si hace falta algún documento, te explicaremos cómo proceder más adelante."}
       </p>
       <button className="button button-dark button-full lead-submit" type="submit">
-        <ContactIcon name="mail" />
-        {english ? "Continue by email" : "Continuar por email"}
+        <ContactIcon name={"whatsapp"} />
+        {english ? "Continue on WhatsApp" : "Continuar por WhatsApp"}
+      </button>
+      <button className="lead-email-alternative" type="button" onClick={openEmailDraft}>
+        {english ? "Prefer email? Write to us directly." : "¿Prefieres el email? Escríbenos directamente."}
       </button>
       <p className="lead-price-note">
         {english ? "$699 one time · $449/year from year two" : "$699 pago único · $449/año desde el segundo año"}
       </p>
       {status && <p className="lead-form-status" role="status" aria-live="polite">{status}</p>}
+      {fallbackLinks && (
+        <div className="lead-form-fallback-links" aria-label={english ? "Message alternatives" : "Alternativas de contacto"}>
+          {fallbackLinks.whatsapp && (
+            <a href={fallbackLinks.whatsapp} target="_blank" rel="noopener noreferrer">
+              <ContactIcon name="whatsapp" />
+              {english ? "Open WhatsApp message" : "Abrir mensaje de WhatsApp"}
+            </a>
+          )}
+          <a href={fallbackLinks.email}>
+            <ContactIcon name="mail" />
+            {english ? "Open email draft" : "Abrir borrador de email"}
+          </a>
+        </div>
+      )}
     </form>
   );
 }

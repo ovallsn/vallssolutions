@@ -61,9 +61,14 @@
 .lead-privacy-note { margin: 20px 0; padding: 14px 16px; display: flex; align-items: flex-start; gap: 11px; background: #e8ece6; border-radius: 12px; color: #465550; font-size: 12px; line-height: 1.65; }
 .lead-privacy-icon { padding-top: 1px; color: var(--green); }
 .lead-submit { min-height: 56px; gap: 10px; border-radius: 999px; cursor: pointer; }
+.lead-email-alternative { width: fit-content; margin: 13px auto 0; padding: 0; display: block; border: 0; background: transparent; color: var(--green-deep); font-family: inherit; font-size: 12px; font-weight: 650; text-align: center; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .lead-price-note { margin: 15px 0 0; color: #69736e; font-size: 12px; text-align: center; }
 .lead-form-status { margin: 14px 0 0; color: var(--green-deep); font-size: 13px; line-height: 1.5; }
+.lead-form-fallback-links { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 12px 20px; }
+.lead-form-fallback-links a { min-height: 40px; display: inline-flex; align-items: center; gap: 7px; color: var(--green-deep); font-size: 12px; font-weight: 650; text-underline-offset: 3px; }
+.lead-form-fallback-links svg { width: 16px; height: 16px; }
 .contact-page-hero { padding-bottom: clamp(34px, 4vw, 52px); }
+.contact-next-steps { padding-top: clamp(58px, 7vw, 88px); }
 
 @media (max-width: 960px) {
   .site-header .nav-shell { display: flex; justify-content: space-between; width: min(100% - 40px, var(--shell)); gap: 12px; }
@@ -542,7 +547,7 @@
 }
 
 .footer-disclaimer {
-  max-width: 820px;
+  max-width: none;
   margin: 0;
   color: var(--ink-soft);
   font-size: 12px;

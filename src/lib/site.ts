@@ -20,14 +20,14 @@ export function mailtoHref(locale: Locale, subject?: string): string {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject ?? defaultSubject)}&body=${encodeURIComponent(body)}`;
 }
 
-export function whatsappHref(locale: Locale): string | null {
+export function whatsappHref(locale: Locale, message?: string): string | null {
   if (!WHATSAPP_NUMBER) return null;
   const phone = WHATSAPP_NUMBER.replace(/\D/g, "");
-  const message =
+  const defaultMessage =
     locale === "es"
       ? "Hola, quiero información sobre la creación de una LLC en Estados Unidos."
       : "Hello, I would like information about forming an LLC in the United States.";
-  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message ?? defaultMessage)}`;
 }
 
 export function absoluteUrl(path: string): string {

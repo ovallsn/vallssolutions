@@ -34,7 +34,7 @@ export function PriceCard({ locale }: { locale: Locale }) {
         {included.map((item) => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}
       </ul>
       <ContactActions locale={locale} ctaLabel={english ? "Start my LLC" : "Empezar mi LLC"} />
-      <div className="price-renewal"><strong>{english ? "$449/year from year two" : "$449/año desde el segundo año"}</strong><p>{english ? "Renewal includes Registered Agent, Wyoming mailing address, Annual Report filing and state tax, and website hosting and maintenance." : "La renovación incluye agente registrado (Registered Agent), dirección postal de Wyoming, presentación y tasa estatal del informe anual (Annual Report), y alojamiento y mantenimiento de la web."}</p></div>
+      <div className="price-renewal"><strong>{english ? "$449/year from year two" : "$449/año desde el segundo año"}</strong><p>{english ? "Renewal includes Registered Agent, Wyoming mailing address, Annual Report filing and state tax, website hosting and maintenance, and business email." : "La renovación incluye agente registrado (Registered Agent), dirección postal de Wyoming, presentación y tasa estatal del informe anual (Annual Report), alojamiento y mantenimiento de la web y correo empresarial."}</p></div>
       <p className="price-legal">{english ? "The first Annual Report is filed with your first annual renewal in year two." : "El primer informe anual (Annual Report) se presenta con la primera renovación, desde el segundo año."}</p>
     </div>
   );

@@ -178,7 +178,7 @@ const copy: Record<Locale, HomeCopy> = {
       {
         question: "What does the $449 annual renewal include?",
         answer:
-          "From year two, the $449 annual renewal includes Registered Agent service, Wyoming mailing address, the Wyoming Annual Report filing and state tax, and website hosting and maintenance. If you do not renew, the website is taken offline and we provide its files.",
+          "From year two, the $449 annual renewal includes Registered Agent service, Wyoming mailing address, the Wyoming Annual Report filing and state tax, website hosting and maintenance, and business email service. If you do not renew, the website is taken offline and we provide its files.",
       },
       {
         question: "Can U.S. citizens and residents use the service?",
@@ -324,7 +324,7 @@ const copy: Record<Locale, HomeCopy> = {
       {
         question: "¿Qué incluye la renovación anual de $449?",
         answer:
-          "Desde el segundo año, incluye Registered Agent, dirección postal de Wyoming, presentación y tasa estatal del Annual Report, y alojamiento y mantenimiento de la página web. Si no renuevas, la web deja de estar publicada y te entregamos sus archivos.",
+          "Desde el segundo año, incluye Registered Agent, dirección postal de Wyoming, presentación y tasa estatal del Annual Report, alojamiento y mantenimiento de la página web y servicio de correo empresarial. Si no renuevas, la web deja de estar publicada y te entregamos sus archivos.",
       },
       {
         question:
@@ -543,8 +543,8 @@ export function HomePage({ locale }: { locale: Locale }) {
               </strong>
               <p>
                 {english
-                  ? "Registered Agent, mailing address, Annual Report filing and state tax, plus website hosting and maintenance."
-                  : "Agente registrado, dirección postal, presentación y tasa estatal del Annual Report, alojamiento y mantenimiento web."}
+                  ? "Registered Agent, mailing address, Annual Report filing and state tax, website hosting and maintenance, and business email."
+                  : "Agente registrado, dirección postal, presentación y tasa estatal del Annual Report, alojamiento y mantenimiento web y correo empresarial."}
               </p>
             </div>
             <div className="premium-price-actions">

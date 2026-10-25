@@ -9,14 +9,14 @@ const details: Record<Locale, FormationDetail[]> = {
     { title: "Wyoming LLC formation", body: "We prepare and submit the state filing. The Wyoming formation fee is included in the $699 package." },
     { title: "EIN application handling", body: "We coordinate the application for your federal Employer Identification Number. The IRS issues the EIN; timing depends on the application method and the IRS." },
     { title: "Registered Agent and Wyoming mailing address", body: "The first year of Registered Agent service and the Wyoming mailing address are included. The mailing address is for correspondence, not a physical operating office." },
-    { title: "Company website and business email", body: "A company website and business email are included with formation. The $449 annual renewal from year two keeps the website hosted and maintained." },
+    { title: "Company website and business email", body: "A company website and business email are included with formation. From year two, the $449 annual renewal includes business email service and keeps the website hosted and maintained." },
     { title: "Business banking application guidance", body: "We explain the process and help you prepare application documents. You apply directly to the provider, which reviews your application under its own requirements." },
   ],
   es: [
     { title: "Formación de LLC en Wyoming", body: "Preparamos y presentamos el trámite estatal. La tasa de creación de Wyoming está incluida en el paquete de $699." },
     { title: "Gestión de la solicitud del EIN", body: "Coordinamos la solicitud del número federal de identificación empresarial. El IRS emite el EIN y el plazo depende de la vía de solicitud y del IRS." },
     { title: "Agente registrado (Registered Agent) y dirección postal de Wyoming", body: "El Registered Agent recibe notificaciones oficiales de la LLC. El primer año y la dirección postal de Wyoming están incluidos. La dirección postal sirve para recibir correspondencia, no es una oficina física de operaciones." },
-    { title: "Página web y correo empresarial", body: "La formación incluye una página web y un correo empresarial. La renovación anual de $449 desde el segundo año mantiene el alojamiento y mantenimiento de la web." },
+    { title: "Página web y correo empresarial", body: "La formación incluye una página web y un correo empresarial. Desde el segundo año, la renovación anual de $449 incluye el servicio de correo y mantiene el alojamiento y mantenimiento de la web." },
     { title: "Orientación para solicitar una cuenta empresarial", body: "Te explicamos el proceso y te ayudamos a preparar los documentos de la solicitud. Tú solicitas directamente al proveedor, que revisa la solicitud según sus propios requisitos." },
   ],
 };
@@ -55,7 +55,7 @@ export function LLCFormationPage({ locale }: { locale: Locale }) {
           <p>{english ? "Formation fee and state filing fee included." : "Incluye la formación y la tasa estatal de creación."}</p>
           <div className="formation-price-divider" />
           <p className="formation-renewal-price"><strong>{english ? "$449/year from year two" : "$449/año desde el segundo año"}</strong></p>
-          <p>{english ? "Registered Agent, mailing address, Annual Report and state tax, plus website hosting and maintenance." : "Registered Agent, dirección postal, Annual Report y tasa estatal, además del alojamiento y mantenimiento de la web."}</p>
+          <p>{english ? "Registered Agent, mailing address, Annual Report and state tax, website hosting and maintenance, and business email." : "Registered Agent, dirección postal, Annual Report y tasa estatal, alojamiento y mantenimiento de la web y correo empresarial."}</p>
           <ContactActions locale={locale} ctaLabel={english ? "Get started" : "Empezar"} />
         </aside>
       </section>
