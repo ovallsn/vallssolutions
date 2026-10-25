@@ -26,6 +26,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   const compactHeaderRef = useRef(false);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
+  const isHomePage = normalizedPath === "/" || normalizedPath === "/es/";
   const currentArticle = BLOG_ARTICLES.find(
     (article) => blogPath(article.locale, article.slug) === normalizedPath,
   );
@@ -93,8 +94,9 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       <a className="skip-link" href="#contenido">
         {english ? "Skip to content" : "Saltar al contenido"}
       </a>
+      {!isHomePage && <div className="site-header-spacer" aria-hidden="true" />}
       <header
-        className={`site-header${normalizedPath === "/" || normalizedPath === "/es/" ? " site-header-home" : ""}`}
+        className="site-header"
         data-compact={compactHeader}
         onKeyDown={(event) => {
           if (event.key === "Escape" && mobileMenuOpen) {

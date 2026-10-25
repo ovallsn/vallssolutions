@@ -1591,6 +1591,21 @@
     box-shadow .48s cubic-bezier(.4, 0, .2, 1);
 }
 
+.site-header:not([data-compact="true"]) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  transform: none;
+  border: 0;
+  border-bottom: 1px solid rgba(23, 44, 50, .08);
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: none;
+}
+
 .site-header-home:not([data-compact="true"]) {
   top: 0;
   left: 0;
@@ -1657,5 +1672,154 @@
 @media (max-width: 360px) {
   .site-header-home:not([data-compact="true"]) .nav-shell {
     padding-inline: 8px;
+  }
+}
+
+/* One public masthead contract across the homepage and every content route. */
+.site-header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  transform: none;
+  border: 0;
+  border-bottom: 1px solid rgba(23, 44, 50, .08);
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: none;
+  transition:
+    width .48s cubic-bezier(.4, 0, .2, 1),
+    top .48s cubic-bezier(.4, 0, .2, 1),
+    left .48s cubic-bezier(.4, 0, .2, 1),
+    transform .48s cubic-bezier(.4, 0, .2, 1),
+    border-radius .48s cubic-bezier(.4, 0, .2, 1),
+    border-color .48s cubic-bezier(.4, 0, .2, 1),
+    box-shadow .48s cubic-bezier(.4, 0, .2, 1);
+}
+
+.site-header-spacer { height: 97px; }
+
+.site-header .nav-shell {
+  width: min(1540px, calc(100% - 64px));
+  min-height: 96px;
+  padding-inline: 0;
+  transition: min-height .48s cubic-bezier(.4, 0, .2, 1), padding .48s cubic-bezier(.4, 0, .2, 1);
+}
+
+.site-header:not([data-compact="true"]) .nav-shell {
+  width: min(1540px, calc(100% - 64px));
+  min-height: 96px;
+  padding-inline: 0;
+}
+
+.site-header .brand-mark {
+  width: 42px;
+  height: 42px;
+}
+
+.site-header[data-compact="true"] {
+  top: 12px;
+  left: 50%;
+  width: min(1450px, calc(100% - 48px));
+  transform: translateX(-50%);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(16, 47, 44, .1);
+}
+
+.site-header[data-compact="true"] .nav-shell {
+  width: 100%;
+  min-height: 70px;
+  padding-inline: clamp(18px, 2.5vw, 34px);
+}
+
+.site-header[data-compact="true"] .brand-mark {
+  width: 36px;
+  height: 36px;
+}
+
+@media (max-width: 960px) {
+  .site-header:not(.site-header-home):not([data-compact="true"]) {
+    width: 100%;
+    right: auto;
+    margin: 0;
+    top: 0;
+    left: 0;
+    transform: none;
+  }
+
+  .site-header:not([data-compact="true"]) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    transform: none;
+    border: 0;
+    border-bottom: 1px solid rgba(23, 44, 50, .08);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .site-header:not([data-compact="true"]) .nav-shell {
+    width: 100%;
+    min-height: 84px;
+    padding-inline: 20px;
+  }
+
+  .site-header:not([data-compact="true"]) .brand-mark,
+  .site-header[data-compact="true"] .brand-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .site-header .brand-wordmark { font-size: 17px; }
+
+  .site-header-spacer { height: 85px; }
+
+  .site-header[data-compact="true"] {
+    top: 8px;
+    width: calc(100% - 24px);
+    border-radius: 22px;
+  }
+
+  .site-header[data-compact="true"] .nav-shell {
+    min-height: 64px;
+    padding-inline: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header:not([data-compact="true"]) .nav-shell {
+    min-height: 78px;
+    padding-inline: 14px;
+  }
+
+  .site-header-spacer { height: 79px; }
+
+  .site-header[data-compact="true"] .nav-shell { padding-inline: 10px; }
+}
+
+@media (max-width: 390px) {
+  .site-header .brand { gap: 5px; }
+  .site-header:not([data-compact="true"]) .brand-mark,
+  .site-header[data-compact="true"] .brand-mark { width: 32px; height: 32px; }
+  .site-header .brand-wordmark { font-size: 15px; }
+}
+
+@media (max-width: 360px) {
+  .site-header:not([data-compact="true"]) .nav-shell { padding-inline: 8px; }
+  .site-header[data-compact="true"] .nav-shell { padding-inline: 8px; }
+  .site-header .brand-wordmark { font-size: 13.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header .nav-shell,
+  .site-header .brand-mark,
+  .site-header .client-login-link {
+    transition: none !important;
   }
 }
