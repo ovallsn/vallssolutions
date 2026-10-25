@@ -60,7 +60,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </nav>
         <div className="footer-contact-col">
           <strong className="footer-contact-eyebrow">
-            {english ? "Start with a note" : "Empecemos por un mensaje"}
+            {english ? "Start with a message" : "Empecemos por un mensaje"}
           </strong>
           <div className="footer-contact-links">
             <a className="footer-contact-link" href={mailtoHref(locale)}>
@@ -76,6 +76,16 @@ export function SiteFooter({ locale }: { locale: Locale }) {
           </div>
           <ConsentPreferencesButton locale={locale} />
         </div>
+      </div>
+      <div className="section-shell footer-scope-note">
+        <span className="footer-scope-label">
+          {english ? "SERVICE SCOPE" : "ALCANCE DEL SERVICIO"}
+        </span>
+        <p className="footer-disclaimer">
+          {english
+            ? "Valls Solutions provides company formation and administrative support. For legal or tax advice specific to your situation, consult a qualified professional."
+            : "Valls Solutions ofrece servicios de formación de empresas y apoyo administrativo. Para asesoramiento legal o fiscal específico, consulta a un profesional cualificado."}
+        </p>
       </div>
       <div className="section-shell footer-bottom">
         <span className="footer-copyright">© 2026 Valls Solutions LLC</span>
@@ -96,11 +106,6 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             {english ? "Terms" : "Términos"}
           </Link>
         </nav>
-        <span className="footer-disclaimer">
-          {english
-            ? "Company formation and administrative support. Consult a qualified professional for legal or tax advice."
-            : "Formación de empresas y apoyo administrativo. Para asesoramiento legal o fiscal, consulta a un profesional cualificado."}
-        </span>
       </div>
     </footer>
   );
