@@ -1352,3 +1352,199 @@
     scroll-behavior: auto;
   }
 }
+
+/* The navigation opens wider and taller at the top, then settles into its current pill. */
+.site-header {
+  transition: width .48s cubic-bezier(.4, 0, .2, 1);
+}
+
+.site-header .nav-shell {
+  transition: min-height .48s cubic-bezier(.4, 0, .2, 1), padding .48s cubic-bezier(.4, 0, .2, 1);
+}
+
+.site-header .brand {
+  padding-block: 0;
+}
+
+.site-header .brand-mark {
+  transition: width .48s cubic-bezier(.4, 0, .2, 1), height .48s cubic-bezier(.4, 0, .2, 1);
+}
+
+.site-header:not([data-compact="true"]) {
+  width: min(1360px, calc(100% - 32px));
+}
+
+.site-header:not([data-compact="true"]) .nav-shell {
+  min-height: 84px;
+}
+
+.site-header[data-compact="true"] {
+  width: min(1240px, calc(100% - 40px));
+}
+
+.site-header[data-compact="true"] .nav-shell {
+  min-height: 70px;
+}
+
+.site-header-home:not([data-compact="true"]) {
+  width: min(1540px, calc(100% - 32px));
+}
+
+.site-header-home[data-compact="true"] {
+  width: min(1450px, calc(100% - 48px));
+}
+
+.site-header:not([data-compact="true"]) .brand-mark {
+  width: 42px;
+  height: 42px;
+}
+
+.site-header[data-compact="true"] .brand-mark {
+  width: 36px;
+  height: 36px;
+}
+
+.site-header .client-login-link {
+  min-height: 40px;
+  padding: 0 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--green-deep);
+  font-size: 12px;
+  font-weight: 680;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+}
+
+.site-header .client-login-link:hover {
+  background: var(--paper-deep);
+  border-color: #b6c3b8;
+  color: var(--green);
+}
+
+.site-header .client-login-link:focus-visible {
+  outline: 3px solid rgba(31, 93, 79, .3);
+  outline-offset: 3px;
+}
+
+.site-header .client-login-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.site-header .client-login-mobile-label {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .site-header:not([data-compact="true"]) .nav-shell {
+    min-height: 74px;
+  }
+
+  .site-header[data-compact="true"] .nav-shell {
+    min-height: 64px;
+  }
+
+  .site-header:not(.site-header-home):not([data-compact="true"]) {
+    width: calc(100% - 16px);
+  }
+
+  .site-header:not(.site-header-home)[data-compact="true"] {
+    width: calc(100% - 24px);
+  }
+
+  .site-header:not(.site-header-home) .nav-shell,
+  .site-header-home .nav-shell {
+    width: 100%;
+  }
+
+  .site-header .client-login-link {
+    min-height: 36px;
+    padding-inline: 9px;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .site-header .client-login-icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .site-header .client-login-desktop-label {
+    display: none;
+  }
+
+  .site-header .client-login-mobile-label {
+    display: inline;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header-home:not([data-compact="true"]) {
+    width: calc(100% - 16px);
+  }
+
+  .site-header-home[data-compact="true"] {
+    width: calc(100% - 24px);
+  }
+
+  .site-header:not([data-compact="true"]) .nav-shell {
+    min-height: 72px;
+  }
+
+  .site-header[data-compact="true"] .nav-shell {
+    min-height: 64px;
+  }
+
+  .site-header .brand-mark {
+    width: 40px;
+    height: 40px;
+  }
+
+  .site-header[data-compact="true"] .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-header .nav-shell,
+  .site-header-home .nav-shell {
+    gap: 6px;
+    padding-inline: 8px;
+  }
+
+  .site-header .brand { gap: 4px; }
+  .site-header .brand-wordmark { font-size: 13.5px; }
+  .site-header .header-tools { gap: 3px; }
+
+  .site-header .client-login-link {
+    width: 36px;
+    min-width: 36px;
+    padding: 0;
+  }
+
+  .site-header .client-login-mobile-label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header .nav-shell,
+  .site-header .brand-mark,
+  .site-header .client-login-link {
+    transition: none !important;
+  }
+}

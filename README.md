@@ -36,9 +36,9 @@ English is the default language; all Spanish content lives under `/es/`. The lan
 
 After `next build`, the postbuild script emits compatibility redirects for historical `/en/` pages, old Spanish article paths and `index.html` bookmarks. They point directly to current canonical pages and remain outside the sitemap. GitHub Pages does not support custom HTTP 301/308 rules, so these use immediate HTML refresh plus `location.replace`, a canonical link and a manual fallback link. Unrecognized URLs remain real 404s; do not redirect unrelated URLs to the homepage.
 
-## Future customer portal
+## Customer portal
 
-The marketing site is a static export and does not provide customer authentication or store LLC records. Header and footer portal links are rendered only when `NEXT_PUBLIC_CLIENT_PORTAL_URL` is set during the build. Configure that public URL after the separate client dashboard is ready; authentication, LLC documents and customer data belong in that secure application.
+The marketing site is a static export and does not provide customer authentication or store LLC records. Header and footer links point to `https://app.vallssolutions.com/` by default; `NEXT_PUBLIC_CLIENT_PORTAL_URL` can override that destination during the build. Authentication, LLC documents and customer data belong in the separate client application.
 
 ## Offer facts — review before changing public copy
 

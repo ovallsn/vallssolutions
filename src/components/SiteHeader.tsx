@@ -22,6 +22,8 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
   const pathname = usePathname();
   const english = locale === "en";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [compactHeader, setCompactHeader] = useState(false);
+  const compactHeaderRef = useRef(false);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const normalizedPath = pathname.endsWith("/") ? pathname : `${pathname}/`;
   const currentArticle = BLOG_ARTICLES.find(
@@ -57,6 +59,35 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
     setMobileMenuOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    let frame: number | null = null;
+
+    const updateHeaderSize = () => {
+      frame = null;
+      const scrollY = window.scrollY;
+      const nextCompact = compactHeaderRef.current
+        ? scrollY > 20
+        : scrollY > 64;
+
+      if (nextCompact !== compactHeaderRef.current) {
+        compactHeaderRef.current = nextCompact;
+        setCompactHeader(nextCompact);
+      }
+    };
+
+    const handleScroll = () => {
+      if (frame !== null) return;
+      frame = window.requestAnimationFrame(updateHeaderSize);
+    };
+
+    updateHeaderSize();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (frame !== null) window.cancelAnimationFrame(frame);
+    };
+  }, [pathname]);
+
   return (
     <>
       <a className="skip-link" href="#contenido">
@@ -64,6 +95,7 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
       </a>
       <header
         className={`site-header${normalizedPath === "/" || normalizedPath === "/es/" ? " site-header-home" : ""}`}
+        data-compact={compactHeader}
         onKeyDown={(event) => {
           if (event.key === "Escape" && mobileMenuOpen) {
             closeMobileMenu();
@@ -103,16 +135,6 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 {item.label}
               </Link>
             ))}
-            {CLIENT_PORTAL_URL && (
-              <a
-                href={CLIENT_PORTAL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={closeMobileMenu}
-              >
-                {english ? "Client portal" : "Área de clientes"}
-              </a>
-            )}
             <Link
               className="button button-small button-dark nav-cta nav-cta-mobile"
               href={english ? "/contact/" : "/es/contacto/"}
@@ -166,6 +188,30 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                 </Link>
               )}
             </div>
+            {CLIENT_PORTAL_URL && (
+              <a
+                className="client-login-link"
+                href={CLIENT_PORTAL_URL}
+                aria-label={english ? "Client login" : "Acceso de clientes"}
+                title={english ? "Client login" : "Acceso de clientes"}
+              >
+                <svg
+                  className="client-login-icon"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  fill="none"
+                >
+                  <circle cx="12" cy="8" r="3.25" />
+                  <path d="M5.5 20a6.5 6.5 0 0 1 13 0" />
+                </svg>
+                <span className="client-login-desktop-label">
+                  {english ? "Client login" : "Área de clientes"}
+                </span>
+                <span className="client-login-mobile-label" aria-hidden="true">
+                  {english ? "Log in" : "Entrar"}
+                </span>
+              </a>
+            )}
             <Link
               className="button button-small button-dark nav-cta nav-cta-desktop"
               href={english ? "/contact/" : "/es/contacto/"}
