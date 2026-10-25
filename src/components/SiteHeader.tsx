@@ -192,8 +192,8 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
               <a
                 className="client-login-link"
                 href={CLIENT_PORTAL_URL}
-                aria-label={english ? "Client login" : "Acceso de clientes"}
-                title={english ? "Client login" : "Acceso de clientes"}
+                aria-label={english ? "Client Login" : "Acceso de clientes"}
+                title={english ? "Client Login" : "Acceso de clientes"}
               >
                 <svg
                   className="client-login-icon"
@@ -205,10 +205,10 @@ export function SiteHeader({ locale }: SiteHeaderProps) {
                   <path d="M5.5 20a6.5 6.5 0 0 1 13 0" />
                 </svg>
                 <span className="client-login-desktop-label">
-                  {english ? "Client login" : "Área de clientes"}
+                  {english ? "Client Login" : "Área de clientes"}
                 </span>
                 <span className="client-login-mobile-label" aria-hidden="true">
-                  {english ? "Log in" : "Entrar"}
+                  {english ? "Login" : "Entrar"}
                 </span>
               </a>
             )}
