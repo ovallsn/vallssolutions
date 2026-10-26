@@ -7,6 +7,7 @@ export const ROUTES = {
   pricing: { en: "/pricing/", es: "/es/precios/" },
   about: { en: "/about/", es: "/es/nosotros/" },
   contact: { en: "/contact/", es: "/es/contacto/" },
+  invasionAccounts: { en: "/invasion-accounts/", es: "/es/cuentas-invasion/" },
   blog: { en: "/blog/", es: "/es/blog/" },
   legalNotice: { en: "/legal-notice/", es: "/es/aviso-legal/" },
   privacy: { en: "/privacy/", es: "/es/privacidad/" },

@@ -1579,6 +1579,272 @@
   }
 }
 
+/* Invasion listings: compact, stats-first catalog that follows the Valls identity. */
+.invasion-page {
+  --invasion-ink: #f8f6f0;
+  --invasion-muted: #c2d0c9;
+  --invasion-line: rgba(248, 246, 240, .2);
+  overflow: clip;
+  background: var(--paper);
+}
+
+.invasion-shell {
+  width: min(1180px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.invasion-hero {
+  position: relative;
+  padding: 34px 0 0;
+  background: var(--green-deep);
+  color: var(--invasion-ink);
+  isolation: isolate;
+}
+
+.invasion-hero::before,
+.invasion-hero::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.invasion-hero::before {
+  inset: 0 0 0 auto;
+  width: min(46vw, 690px);
+  background: linear-gradient(135deg, transparent 45%, rgba(184, 95, 67, .14) 45%, rgba(184, 95, 67, .14) 45.2%, transparent 45.2%);
+}
+
+.invasion-hero::after {
+  right: -160px;
+  bottom: -210px;
+  width: 540px;
+  height: 540px;
+  border: 1px solid rgba(248, 246, 240, .13);
+  border-radius: 50%;
+  box-shadow: 0 0 0 58px rgba(248, 246, 240, .025), 0 0 0 116px rgba(248, 246, 240, .02);
+}
+
+.invasion-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #bbc9c2;
+  font-size: 12px;
+}
+
+.invasion-breadcrumbs a { text-decoration: none; }
+.invasion-breadcrumbs a:hover { color: white; text-decoration: underline; text-underline-offset: 4px; }
+
+.invasion-hero-grid {
+  padding: clamp(60px, 8vw, 102px) 0 65px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, .72fr);
+  align-items: center;
+  gap: clamp(50px, 9vw, 125px);
+}
+
+.invasion-hero-copy { max-width: 700px; }
+.invasion-eyebrow,
+.invasion-section-kicker {
+  margin: 0;
+  color: #e5a181;
+  font-size: 10px;
+  font-weight: 760;
+  letter-spacing: .15em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.invasion-eyebrow { display: flex; align-items: center; gap: 10px; }
+.invasion-eyebrow > span { width: 24px; height: 1px; background: #d47c59; }
+
+.invasion-hero h1 {
+  max-width: 750px;
+  margin: 22px 0 0;
+  color: var(--invasion-ink);
+  font-family: var(--display);
+  font-size: clamp(47px, 6.2vw, 82px);
+  font-weight: 420;
+  letter-spacing: -.065em;
+  line-height: .99;
+  text-wrap: balance;
+}
+
+.invasion-hero h1 em { color: #e8a486; font-style: italic; }
+.invasion-hero-lede { max-width: 590px; margin: 25px 0 0; color: #d7e0dc; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.7; }
+.invasion-hero-actions { margin-top: 28px; display: flex; align-items: center; flex-wrap: wrap; gap: 23px; }
+.invasion-hero-actions .button { min-width: 190px; }
+.invasion-hero-actions .button svg { width: 18px; height: 18px; }
+.invasion-anchor-link { display: inline-flex; align-items: center; gap: 12px; color: var(--invasion-ink); font-size: 13px; font-weight: 680; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.invasion-anchor-link span { color: #e8a486; font-size: 18px; }
+
+.invasion-process-note {
+  padding: 23px 24px 21px;
+  background: rgba(248, 246, 240, .055);
+  border: 1px solid rgba(248, 246, 240, .19);
+  border-top: 2px solid #bd6a4b;
+}
+
+.invasion-process-topline { display: flex; justify-content: space-between; gap: 12px; color: #e8a486; font-size: 9px; font-weight: 760; letter-spacing: .12em; }
+.invasion-process-topline span:last-child { color: #c1cec8; }
+.invasion-process-title { margin: 23px 0 19px; color: white; font-family: var(--display); font-size: clamp(22px, 2.4vw, 29px); letter-spacing: -.04em; line-height: 1.15; }
+.invasion-process-note ol { margin: 0; padding: 0; list-style: none; }
+.invasion-process-note li { min-height: 43px; display: grid; grid-template-columns: 35px 1fr; align-items: center; gap: 8px; border-top: 1px solid var(--invasion-line); color: #e1e7e4; font-size: 12px; }
+.invasion-process-note li > span { color: #e8a486; font-size: 10px; font-weight: 760; }
+.invasion-process-footnote { margin: 17px 0 0; color: #bdc9c4; font-size: 11px; line-height: 1.55; }
+
+.invasion-hero-facts {
+  min-height: 91px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--invasion-line);
+}
+
+.invasion-hero-facts > div { padding: 20px 22px 21px; display: grid; grid-template-columns: 29px 1fr; align-items: start; gap: 12px; border-right: 1px solid var(--invasion-line); }
+.invasion-hero-facts > div:first-child { padding-left: 0; }
+.invasion-hero-facts > div:last-child { padding-right: 0; border-right: 0; }
+.invasion-fact-index { color: #e8a486; font-size: 10px; font-weight: 760; }
+.invasion-hero-facts p { margin: 0; color: #f8f6f0; font-size: 12px; font-weight: 700; line-height: 1.4; }
+.invasion-hero-facts small { margin-top: 3px; display: block; color: #bdc9c4; font-size: 10px; font-weight: 450; }
+
+.invasion-catalog { padding-top: 92px; padding-bottom: 105px; }
+.invasion-section-heading { display: grid; grid-template-columns: 1fr minmax(270px, .72fr); align-items: end; gap: 45px; }
+.invasion-section-heading .invasion-section-kicker,
+.invasion-group-heading .invasion-section-kicker { color: var(--orange-deep); }
+.invasion-section-heading h2,
+.invasion-contact-layout h2,
+.invasion-business-bridge h2 { margin: 12px 0 0; color: var(--ink); font-family: var(--display); font-size: clamp(34px, 4vw, 50px); font-weight: 430; letter-spacing: -.055em; line-height: 1.08; text-wrap: balance; }
+.invasion-section-heading > p { max-width: 480px; margin: 0 0 4px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+.invasion-platform-index { margin-top: 39px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #c9cac1; border-bottom: 1px solid #c9cac1; }
+.invasion-platform-index a { min-height: 58px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-right: 1px solid #c9cac1; color: var(--ink); text-decoration: none; }
+.invasion-platform-index a:first-child { padding-left: 0; }
+.invasion-platform-index a:last-child { padding-right: 0; border-right: 0; }
+.invasion-platform-index a:hover { color: var(--orange-deep); }
+.invasion-platform-index a span { font-size: 13px; font-weight: 680; }
+.invasion-platform-index small { color: var(--muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+
+.invasion-groups { margin-top: 57px; }
+.invasion-group + .invasion-group { margin-top: 67px; }
+.invasion-group-heading { margin-bottom: 21px; display: flex; align-items: end; justify-content: space-between; gap: 24px; }
+.invasion-group-heading h3 { margin: 5px 0 0; color: var(--ink); font-family: var(--display); font-size: clamp(24px, 2.7vw, 32px); font-weight: 440; letter-spacing: -.045em; line-height: 1.15; }
+.invasion-group-heading > span { padding-bottom: 3px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+
+.invasion-listing-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: stretch; }
+.invasion-listing {
+  min-width: 0;
+  padding: 18px 18px 14px;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid #dcdcd3;
+  border-bottom: 2px solid #d3d4ca;
+  transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+.invasion-listing:hover { transform: translateY(-2px); border-color: #b7c8bd; border-bottom-color: var(--green); box-shadow: 0 14px 34px rgba(23, 44, 50, .07); }
+.invasion-listing-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.invasion-listing-number { color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
+.invasion-platform-tag { padding: 4px 7px; background: #edf0e9; color: var(--green); font-size: 9px; font-weight: 700; }
+.invasion-listing-name-row { min-height: 48px; padding: 13px 0 10px; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--line); }
+.invasion-listing-name-row h4 { min-width: 0; margin: 0; overflow-wrap: anywhere; color: var(--ink); font-family: var(--display); font-size: 21px; font-weight: 500; letter-spacing: -.035em; line-height: 1.12; }
+.invasion-listing-sequence { color: #9a9d93; font-size: 9px; font-variant-numeric: tabular-nums; }
+.invasion-stats { margin: 4px 0 0; }
+.invasion-stats > div { min-height: 32px; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid #eeeee9; }
+.invasion-stats dt { color: var(--muted); font-size: 10px; line-height: 1.25; }
+.invasion-stats dd { margin: 0; color: var(--ink); font-size: 11px; font-weight: 720; font-variant-numeric: tabular-nums; text-align: right; }
+.invasion-stats .is-request { color: #747d78; font-size: 10px; font-weight: 560; }
+.invasion-listing-foot { min-height: 43px; margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 9px; }
+.invasion-listing-foot > span { color: var(--orange-deep); font-size: 10px; font-weight: 740; white-space: nowrap; }
+.invasion-listing-foot > div { display: flex; align-items: center; gap: 8px; }
+.invasion-listing-foot a { min-height: 30px; padding: 4px 6px; display: inline-flex; align-items: center; gap: 5px; color: var(--green); font-size: 10px; font-weight: 700; text-decoration: none; }
+.invasion-listing-foot a:hover { color: var(--orange-deep); text-decoration: underline; text-underline-offset: 3px; }
+.invasion-listing-foot svg { width: 14px; height: 14px; }
+
+.invasion-contact-band { padding: 66px 0; background: var(--green-deep); color: var(--invasion-ink); border-top: 2px solid #bd6a4b; }
+.invasion-contact-layout { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 55px; }
+.invasion-contact-layout h2 { max-width: 650px; color: var(--invasion-ink); font-size: clamp(32px, 4vw, 46px); }
+.invasion-contact-layout > div:first-child > p:last-child { max-width: 670px; margin: 15px 0 0; color: #d1ddd7; font-size: 13px; line-height: 1.7; }
+.invasion-contact-actions { min-width: 245px; display: grid; justify-items: start; gap: 12px; }
+.invasion-contact-actions .button { min-width: 235px; }
+.invasion-contact-actions .button svg { width: 18px; height: 18px; }
+.invasion-email-link { display: inline-flex; align-items: center; gap: 8px; color: #e2e9e5; font-size: 11px; text-decoration: none; }
+.invasion-email-link:hover { color: white; text-decoration: underline; text-underline-offset: 4px; }
+.invasion-email-link svg { width: 15px; height: 15px; color: #e8a486; }
+
+.invasion-business-bridge { padding-top: 67px; padding-bottom: 67px; display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 25px; }
+.invasion-bridge-mark { width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid #c2c6bd; color: var(--green); font-family: var(--display); font-size: 24px; font-style: italic; }
+.invasion-business-bridge h2 { margin-top: 5px; font-size: clamp(24px, 2.8vw, 32px); }
+.invasion-business-bridge > div > p:last-child { margin: 8px 0 0; color: var(--muted); font-size: 12px; }
+.invasion-business-bridge > a { min-height: 44px; padding: 10px 0 10px 20px; display: inline-flex; align-items: center; gap: 17px; border-left: 1px solid #c9cac1; color: var(--green); font-size: 12px; font-weight: 720; text-decoration: none; }
+.invasion-business-bridge > a:hover { color: var(--orange-deep); }
+.invasion-business-bridge > a span { font-size: 17px; }
+.invasion-trademark-note { max-width: 1180px; margin: 0 auto; padding: 0 0 27px; color: #737c79; font-size: 10px; text-align: center; }
+
+@media (max-width: 980px) {
+  .invasion-hero-grid { grid-template-columns: minmax(0, 1fr) minmax(275px, .72fr); gap: 40px; }
+  .invasion-listing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .invasion-contact-layout { gap: 30px; }
+}
+
+@media (max-width: 700px) {
+  .invasion-shell { width: min(100% - 36px, 560px); }
+  .invasion-hero { padding-top: 24px; }
+  .invasion-hero-grid { padding: 54px 0 45px; grid-template-columns: 1fr; gap: 36px; }
+  .invasion-hero h1 { max-width: 560px; font-size: clamp(45px, 12vw, 66px); }
+  .invasion-hero-lede { margin-top: 20px; font-size: 15px; }
+  .invasion-process-note { max-width: 510px; }
+  .invasion-hero-facts { grid-template-columns: 1fr; }
+  .invasion-hero-facts > div,
+  .invasion-hero-facts > div:first-child,
+  .invasion-hero-facts > div:last-child { min-height: 66px; padding: 15px 0; grid-template-columns: 27px 1fr; border-right: 0; border-bottom: 1px solid var(--invasion-line); }
+  .invasion-hero-facts > div:last-child { border-bottom: 0; }
+  .invasion-catalog { padding-top: 67px; padding-bottom: 75px; }
+  .invasion-section-heading { grid-template-columns: 1fr; gap: 15px; }
+  .invasion-section-heading h2 { font-size: 39px; }
+  .invasion-platform-index { margin-top: 28px; }
+  .invasion-platform-index a { min-height: 52px; padding: 10px 9px; gap: 8px; }
+  .invasion-platform-index a:first-child { padding-left: 0; }
+  .invasion-platform-index a:last-child { padding-right: 0; }
+  .invasion-platform-index a span { font-size: 11px; }
+  .invasion-groups { margin-top: 44px; }
+  .invasion-group + .invasion-group { margin-top: 49px; }
+  .invasion-listing-grid { gap: 10px; }
+  .invasion-listing { padding: 14px 13px 11px; }
+  .invasion-listing-name-row h4 { font-size: 19px; }
+  .invasion-stats dt { font-size: 9px; }
+  .invasion-stats dd { font-size: 10px; }
+  .invasion-listing-foot { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .invasion-listing-foot > div { width: 100%; justify-content: space-between; }
+  .invasion-contact-band { padding: 53px 0; }
+  .invasion-contact-layout { grid-template-columns: 1fr; gap: 26px; }
+  .invasion-contact-actions { min-width: 0; }
+  .invasion-business-bridge { padding-block: 48px; grid-template-columns: 42px minmax(0, 1fr); gap: 17px; }
+  .invasion-bridge-mark { width: 40px; height: 40px; }
+  .invasion-business-bridge > a { grid-column: 2; padding: 12px 0 0; border-left: 0; border-top: 1px solid #c9cac1; }
+  .invasion-trademark-note { width: min(100% - 36px, 560px); padding-bottom: 22px; line-height: 1.6; text-align: left; }
+}
+
+@media (max-width: 410px) {
+  .invasion-shell { width: calc(100% - 28px); }
+  .invasion-hero h1 { font-size: 44px; }
+  .invasion-hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
+  .invasion-hero-actions .button { width: 100%; }
+  .invasion-platform-index a { align-items: flex-start; flex-direction: column; justify-content: center; gap: 2px; }
+  .invasion-listing-grid { grid-template-columns: 1fr; }
+  .invasion-listing { padding: 17px 17px 13px; }
+  .invasion-listing-name-row { min-height: 48px; }
+  .invasion-listing-name-row h4 { font-size: 21px; }
+  .invasion-stats dt { font-size: 10px; }
+  .invasion-stats dd { font-size: 11px; }
+  .invasion-listing-foot { align-items: center; flex-direction: row; gap: 9px; }
+  .invasion-listing-foot > div { width: auto; justify-content: flex-end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invasion-listing { transition: none; }
+}
+
 /* Open the homepage masthead across the viewport, then settle into the existing floating pill. */
 .site-header.site-header-home {
   transition:
