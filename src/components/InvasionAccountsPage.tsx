@@ -1,48 +1,9 @@
 import Link from "next/link";
-import { INVASION_LISTINGS, type InvasionPlatform } from "@/content/invasion-listings";
+import { INVASION_LISTINGS } from "@/content/invasion-listings";
 import { ContactIcon } from "@/components/ContactIcons";
+import { InvasionCatalog } from "@/components/InvasionCatalog";
 import { CONTACT_EMAIL, whatsappHref, type Locale } from "@/lib/site";
 import { ROUTES } from "@/lib/routes";
-
-const PLATFORM_ORDER: readonly InvasionPlatform[] = ["Google", "Tap4fun", "Facebook"];
-
-function formatGameCount(value: number, locale: Locale): string {
-  const units = [
-    { limit: 1_000_000_000, suffix: "B" },
-    { limit: 1_000_000, suffix: "M" },
-    { limit: 1_000, suffix: "K" },
-  ];
-  const unit = units.find(({ limit }) => value >= limit);
-  if (!unit) return new Intl.NumberFormat(locale === "es" ? "es-ES" : "en-US").format(value);
-  const amount = (value / unit.limit).toLocaleString(locale === "es" ? "es-ES" : "en-US", {
-    maximumFractionDigits: 2,
-  });
-  return `${amount}${unit.suffix}`;
-}
-
-function platformLabel(platform: InvasionPlatform, locale: Locale): string {
-  if (locale === "en") return `${platform} login`;
-  if (platform === "Google") return "Inicio de sesión con Google";
-  if (platform === "Facebook") return "Inicio de sesión con Facebook";
-  return "Inicio de sesión con Tap4fun";
-}
-
-function listingContact(locale: Locale, id: string, displayName: string) {
-  const message =
-    locale === "es"
-      ? `Hola, me interesa la cuenta de Invasion ${id} (${displayName}). ¿Podéis confirmarme disponibilidad, precio y los datos completos?`
-      : `Hello, I'm interested in Invasion account ${id} (${displayName}). Could you confirm availability, price and the full account details?`;
-  return whatsappHref(locale, message);
-}
-
-function listingEmail(locale: Locale, id: string, displayName: string): string {
-  const subject = locale === "es" ? `Consulta sobre la cuenta ${id}` : `Question about account ${id}`;
-  const body =
-    locale === "es"
-      ? `Hola,\n\nMe interesa la cuenta de Invasion ${id} (${displayName}). ¿Podéis confirmarme disponibilidad, precio y los datos completos?`
-      : `Hello,\n\nI'm interested in Invasion account ${id} (${displayName}). Could you confirm availability, price and the full account details?`;
-  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 
 export function InvasionAccountsPage({ locale }: { locale: Locale }) {
   const english = locale === "en";
@@ -159,92 +120,7 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
           </p>
         </header>
 
-        <nav className="invasion-platform-index" aria-label={english ? "Browse by login method" : "Ver por método de acceso"}>
-          {PLATFORM_ORDER.map((platform) => {
-            const count = INVASION_LISTINGS.filter((listing) => listing.platform === platform).length;
-            return (
-              <a href={`#${platform.toLowerCase()}`} key={platform}>
-                <span>{platform}</span>
-                <small>{count.toString().padStart(2, "0")}</small>
-              </a>
-            );
-          })}
-        </nav>
-
-        <div className="invasion-groups">
-          {PLATFORM_ORDER.map((platform) => {
-            const listings = INVASION_LISTINGS.filter((listing) => listing.platform === platform);
-            return (
-              <section className="invasion-group" id={platform.toLowerCase()} key={platform} aria-labelledby={`invasion-${platform.toLowerCase()}-title`}>
-                <div className="invasion-group-heading">
-                  <div>
-                    <p className="invasion-section-kicker">{english ? "LOGIN METHOD" : "MÉTODO DE ACCESO"}</p>
-                    <h3 id={`invasion-${platform.toLowerCase()}-title`}>{platformLabel(platform, locale)}</h3>
-                  </div>
-                  <span>{listings.length.toString().padStart(2, "0")} {english ? "listings" : "cuentas"}</span>
-                </div>
-                <div className="invasion-listing-grid">
-                  {listings.map((listing, index) => {
-                    const whatsapp = listingContact(locale, listing.id, listing.displayName);
-                    return (
-                      <article className="invasion-listing" key={listing.id}>
-                        <div className="invasion-listing-head">
-                          <span className="invasion-listing-number">{listing.id}</span>
-                          <span className="invasion-platform-tag">{platform}</span>
-                        </div>
-                        <div className="invasion-listing-name-row">
-                          <h4>{listing.displayName}</h4>
-                          <span className="invasion-listing-sequence">{String(index + 1).padStart(2, "0")}</span>
-                        </div>
-                        <dl className="invasion-stats">
-                          <div>
-                            <dt>{english ? "Commander level" : "Nivel comandante"}</dt>
-                            <dd className="is-request">{english ? "Ask" : "Consultar"}</dd>
-                          </div>
-                          <div>
-                            <dt>VIP</dt>
-                            <dd>{listing.vipLevel}</dd>
-                          </div>
-                          <div>
-                            <dt>{english ? "Diamonds" : "Diamantes"}</dt>
-                            <dd>{listing.diamonds ? formatGameCount(listing.diamonds, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
-                          </div>
-                          <div>
-                            <dt>{english ? "Resources" : "Recursos"}</dt>
-                            <dd>{listing.resources ? formatGameCount(listing.resources, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
-                          </div>
-                          <div>
-                            <dt>{english ? "Zone Pass" : "Zone Pass"}</dt>
-                            <dd>{listing.zonePasses ?? <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
-                          </div>
-                          <div>
-                            <dt>{english ? "Total power" : "Poder total"}</dt>
-                            <dd className="is-request">{english ? "Ask" : "Consultar"}</dd>
-                          </div>
-                        </dl>
-                        <div className="invasion-listing-foot">
-                          <span>{english ? "Price on request" : "Precio al consultar"}</span>
-                          <div>
-                            {whatsapp && (
-                              <a href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label={english ? `Ask about ${listing.displayName} on WhatsApp` : `Consultar ${listing.displayName} por WhatsApp`}>
-                                <ContactIcon name="whatsapp" />
-                                <span>{english ? "Ask" : "Consultar"}</span>
-                              </a>
-                            )}
-                            <a href={listingEmail(locale, listing.id, listing.displayName)} aria-label={english ? `Email about ${listing.displayName}` : `Escribir sobre ${listing.displayName}`}>
-                              <ContactIcon name="mail" />
-                              <span>{english ? "Email" : "Correo"}</span>
-                            </a>
-                          </div>
-                        </div>
-                      </article>
-                    );
-                  })}
-                </div>
-              </section>
-            );
-          })}
-        </div>
+        <InvasionCatalog locale={locale} listings={INVASION_LISTINGS} />
       </section>
 
       <section className="invasion-contact-band">

@@ -23,7 +23,6 @@ test('Invasion catalogue mirrors the shared inventory without inventing sensitiv
   assert.deepEqual(INVASION_LISTINGS[0], {
     id: 'INV-GOO-001',
     platform: 'Google',
-    displayName: 'OreoBank',
     vipLevel: 7,
     diamonds: 852_000,
     resources: 554_540_000_000,
