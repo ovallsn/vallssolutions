@@ -119,6 +119,7 @@
     "id": "INV-FB-001",
     "platform": "Facebook",
     "vipLevel": 10,
+    "image": "/assets/invasion-accounts/INV-FB-001.jpg",
     "diamonds": 9500000,
     "resources": 55250000000,
     "zonePasses": 11
