@@ -8,24 +8,27 @@ const [listingTypes, catalog, styles] = await Promise.all([
   readFile(new URL("../src/app/conversion-polish.css", import.meta.url), "utf8"),
 ]);
 
-test("account listings support optional, bilingual, accessible image previews", () => {
+test("account images expand across the listing and open an accessible bilingual dialog", () => {
   assert.match(listingTypes, /image\?: string;/);
-  assert.match(catalog, /aria-expanded=\{previewOpen\}/);
-  assert.match(catalog, /aria-controls=\{previewPanelId\}/);
-  assert.match(catalog, /Preview account image/);
-  assert.match(catalog, /Ver imagen de la cuenta/);
-  assert.match(catalog, /onPointerEnter=/);
+  assert.match(catalog, /aria-haspopup="dialog"/);
+  assert.match(catalog, /aria-expanded=\{dialogOpen\}/);
+  assert.match(catalog, /aria-controls=\{dialogId\}/);
+  assert.match(catalog, /Open account image/);
+  assert.match(catalog, /Ampliar imagen de la cuenta/);
   assert.match(catalog, /onFocus=/);
   assert.match(catalog, /onClick=/);
-  assert.match(catalog, /Escape/);
-  assert.match(catalog, /focusOpenedPreview\.current/);
-  assert.doesNotMatch(catalog, /cardRef\.current\?\.contains\(document\.activeElement\)/);
-  assert.match(catalog, /<img[\s\S]*?alt=\{/);
-  assert.match(catalog, /className="invasion-listing-name-row">[\s\S]*?className="invasion-image-preview-panel"/);
+  assert.match(catalog, /dialog\.showModal\(\)/);
+  assert.match(catalog, /className="invasion-image-dialog"/);
+  assert.match(catalog, /onClose=\{\(\) => setDialogOpen\(false\)\}/);
+  assert.match(catalog, /if \(event\.target === event\.currentTarget\) closeDialog\(\)/);
+  assert.match(catalog, /Close image/);
+  assert.match(catalog, /Cerrar imagen/);
+  assert.match(catalog, /Screenshot of the \$\{place\} account/);
+  assert.match(catalog, /Captura de la cuenta \$\{place\}/);
   assert.match(styles, /\.invasion-image-preview-control[\s\S]*?min-height:\s*44px/);
-  assert.match(styles, /\.invasion-listing-name-row\s*\{[^}]*position:\s*relative/);
-  assert.match(styles, /\.invasion-listing-name-row\s*\{[^}]*justify-items:\s*center/);
-  assert.match(styles, /\.invasion-listing-name-row h3\s*\{[^}]*text-align:\s*center/);
-  assert.match(styles, /\.invasion-image-preview-panel\s*\{[^}]*top:\s*calc\(100% \+ 10px\)/);
-  assert.match(styles, /\.invasion-image-preview-panel\s*\{[^}]*left:\s*50%[^}]*transform:\s*translateX\(-50%\)/);
+  assert.match(styles, /@media \(hover: hover\) and \(pointer: fine\)/);
+  assert.match(styles, /\.invasion-image-preview-control:hover\s*\{[^}]*position:\s*absolute[^}]*inset:\s*0/);
+  assert.match(styles, /\.invasion-image-preview-control\.is-previewing\s*\{[^}]*inset:\s*0/);
+  assert.match(styles, /\.invasion-image-card-preview\s*\{[^}]*object-fit:\s*contain/);
+  assert.match(styles, /\.invasion-image-dialog-close\s*\{[^}]*width:\s*44px[^}]*min-height:\s*44px/);
 });
