@@ -34,8 +34,8 @@
   {
     "id": "INV-TAP-001",
     "platform": "Tap4fun",
-    "vipLevel": 15,
-    "zonePasses": 15
+    "vipLevel": 10,
+    "zonePasses": 10
   },
   {
     "id": "INV-TAP-002",
