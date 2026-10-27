@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { ContactIcon } from "@/components/ContactIcons";
 import type { InvasionListing, InvasionPlatform } from "@/content/invasion-listings";
 import { filterAndSortInvasionListings, getInvasionPlaceLabel, type InvasionCatalogSort } from "@/lib/invasion-catalog";
@@ -48,117 +48,72 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
   const english = locale === "en";
   const place = getInvasionPlaceLabel(listing);
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
-  const lastPointerType = useRef<"mouse" | "pen" | "touch" | null>(null);
-  const focusOpenedPreview = useRef(false);
-  const previewPanelId = useId();
-  const cardRef = useRef<HTMLElement>(null);
-  const previewLabel = english ? "Preview account image" : "Ver imagen de la cuenta";
+  const dialogId = useId();
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const previewLabel = english ? "Open account image" : "Ampliar imagen de la cuenta";
   const whatsapp = listingContact(locale, listing.id);
 
-  function handlePointerEnter(event: ReactPointerEvent<HTMLElement>) {
-    if (listing.image && (event.pointerType === "mouse" || event.pointerType === "pen")) {
-      focusOpenedPreview.current = false;
-      setPreviewOpen(true);
-    }
-  }
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
 
-  function handlePointerLeave(event: ReactPointerEvent<HTMLElement>) {
-    if (
-      (event.pointerType === "mouse" || event.pointerType === "pen") &&
-      !focusOpenedPreview.current
-    ) {
-      setPreviewOpen(false);
-    }
-  }
+    if (dialogOpen && !dialog.open) dialog.showModal();
+    else if (!dialogOpen && dialog.open) dialog.close();
+  }, [dialogOpen]);
 
-  function handleBlur(event: ReactFocusEvent<HTMLElement>) {
-    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
-      focusOpenedPreview.current = false;
-      setPreviewOpen(false);
-    }
-  }
-
-  function handlePreviewKeyDown(event: React.KeyboardEvent<HTMLElement>) {
-    if (event.key === "Escape") {
-      focusOpenedPreview.current = false;
-      setPreviewOpen(false);
-    }
+  function closeDialog() {
+    dialogRef.current?.close();
   }
 
   return (
     <article
-      ref={cardRef}
       className={`invasion-listing${previewOpen ? " has-image-preview" : ""}`}
-      onPointerEnter={handlePointerEnter}
-      onPointerLeave={handlePointerLeave}
-      onBlur={handleBlur}
-      onKeyDown={handlePreviewKeyDown}
     >
       <div className={`invasion-listing-head${listing.image ? " has-image-control" : ""}`}>
         <span className="invasion-listing-number">{listing.id}</span>
         {listing.image && (
           <button
             type="button"
-            className="invasion-image-preview-control"
+            className={`invasion-image-preview-control${previewOpen ? " is-previewing" : ""}`}
             aria-label={previewLabel}
-            aria-expanded={previewOpen}
-            aria-controls={previewPanelId}
+            aria-haspopup="dialog"
+            aria-expanded={dialogOpen}
+            aria-controls={dialogId}
             title={previewLabel}
-            onPointerDown={(event) => {
-              lastPointerType.current = event.pointerType as "mouse" | "pen" | "touch";
-              focusOpenedPreview.current = false;
+            onFocus={(event) => {
+              if (event.currentTarget.matches(":focus-visible")) setPreviewOpen(true);
             }}
-            onFocus={() => {
-              if (lastPointerType.current === null) {
-                focusOpenedPreview.current = true;
-                setPreviewOpen(true);
-              }
-            }}
-            onClick={(event) => {
-              if (event.detail === 0 || lastPointerType.current === "touch") {
-                setPreviewOpen((open) => {
-                  const nextOpen = !open;
-                  if (!nextOpen) focusOpenedPreview.current = false;
-                  else if (event.detail === 0) focusOpenedPreview.current = true;
-                  return nextOpen;
-                });
-              }
-              lastPointerType.current = null;
-            }}
+            onBlur={() => setPreviewOpen(false)}
+            onClick={() => setDialogOpen(true)}
           >
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <rect x="3.25" y="4.25" width="17.5" height="15.5" rx="1.75" />
               <circle cx="8.25" cy="9" r="1.5" />
               <path d="m4.5 17 5-4.75 3.5 3 2.5-2 4 3.75" />
             </svg>
+            {imageFailed ? (
+              <span className="invasion-image-preview-fallback">
+                {english ? "Image unavailable" : "Imagen no disponible"}
+              </span>
+            ) : (
+              <img
+                className="invasion-image-card-preview"
+                src={listing.image}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                onError={() => setImageFailed(true)}
+              />
+            )}
           </button>
         )}
         <span className="invasion-platform-tag">{listing.platform}</span>
       </div>
       <div className="invasion-listing-name-row">
         <h3>{place}</h3>
-        {listing.image && (
-          <div
-            id={previewPanelId}
-            className="invasion-image-preview-panel"
-            role="region"
-            aria-label={previewLabel}
-            hidden={!previewOpen}
-          >
-            {imageFailed ? (
-              <p>{english ? "This account image could not be loaded." : "No se pudo cargar la imagen de esta cuenta."}</p>
-            ) : (
-              <img
-                src={listing.image}
-                alt={english ? `Screenshot of the ${place} account` : `Captura de la cuenta ${place}`}
-                loading="lazy"
-                decoding="async"
-                onError={() => setImageFailed(true)}
-              />
-            )}
-          </div>
-        )}
       </div>
       <dl className="invasion-stats">
         <div>
@@ -201,6 +156,40 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
           </a>
         </div>
       </div>
+      {listing.image && (
+        <dialog
+          ref={dialogRef}
+          id={dialogId}
+          className="invasion-image-dialog"
+          aria-label={english ? `Account image for ${listing.id}` : `Imagen de la cuenta ${listing.id}`}
+          onClose={() => setDialogOpen(false)}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) closeDialog();
+          }}
+        >
+          <button
+            type="button"
+            className="invasion-image-dialog-close"
+            aria-label={english ? "Close image" : "Cerrar imagen"}
+            onClick={closeDialog}
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="m6 6 12 12M18 6 6 18" />
+            </svg>
+          </button>
+          {imageFailed ? (
+            <p>{english ? "This account image could not be loaded." : "No se pudo cargar la imagen de esta cuenta."}</p>
+          ) : (
+            <img
+              src={listing.image}
+              alt={english ? `Screenshot of the ${place} account` : `Captura de la cuenta ${place}`}
+              loading="lazy"
+              decoding="async"
+              onError={() => setImageFailed(true)}
+            />
+          )}
+        </dialog>
+      )}
     </article>
   );
 }
