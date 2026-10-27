@@ -1753,11 +1753,12 @@
 .invasion-listing:hover { transform: translateY(-2px); border-color: #b7c8bd; border-bottom-color: var(--green); box-shadow: 0 14px 34px rgba(23, 44, 50, .07); }
 .invasion-listing.has-image-preview { z-index: 4; }
 .invasion-listing-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.invasion-listing-head.has-image-control { min-height: 44px; display: grid; grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr); align-items: center; }
 .invasion-listing-number { color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .08em; font-variant-numeric: tabular-nums; }
-.invasion-platform-tag { padding: 4px 7px; background: #edf0e9; color: var(--green); font-size: 9px; font-weight: 700; }
+.invasion-platform-tag { justify-self: end; padding: 4px 7px; background: #edf0e9; color: var(--green); font-size: 9px; font-weight: 700; white-space: nowrap; }
 .invasion-listing-name-row { position: relative; min-height: 48px; padding: 11px 0 10px; display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 4px; border-bottom: 1px solid var(--line); }
 .invasion-listing-name-row h3 { width: 100%; min-width: 0; margin: 0; overflow-wrap: anywhere; color: var(--ink); font-family: var(--display); font-size: 21px; font-weight: 500; letter-spacing: -.035em; line-height: 1.12; text-align: center; }
-.invasion-image-preview-control { width: 44px; min-width: 44px; min-height: 44px; margin: 0; padding: 10px; display: grid; place-items: center; border: 1px solid #d8ddd6; border-radius: 50%; background: #f5f6f1; color: var(--green); cursor: pointer; transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
+.invasion-image-preview-control { width: 44px; min-width: 44px; min-height: 44px; justify-self: center; margin: 0; padding: 10px; display: grid; place-items: center; border: 1px solid #d8ddd6; border-radius: 50%; background: #f5f6f1; color: var(--green); cursor: pointer; transition: background-color .18s ease, border-color .18s ease, color .18s ease; }
 .invasion-image-preview-control:hover, .invasion-image-preview-control[aria-expanded="true"] { border-color: var(--green); background: #e8eee9; color: var(--green-deep); }
 .invasion-image-preview-control:focus-visible { outline: 3px solid #bd6a4b; outline-offset: 3px; }
 .invasion-image-preview-control svg { width: 19px; height: 19px; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }

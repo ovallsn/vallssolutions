@@ -95,12 +95,8 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
       onBlur={handleBlur}
       onKeyDown={handlePreviewKeyDown}
     >
-      <div className="invasion-listing-head">
+      <div className={`invasion-listing-head${listing.image ? " has-image-control" : ""}`}>
         <span className="invasion-listing-number">{listing.id}</span>
-        <span className="invasion-platform-tag">{listing.platform}</span>
-      </div>
-      <div className="invasion-listing-name-row">
-        <h3>{place}</h3>
         {listing.image && (
           <button
             type="button"
@@ -138,6 +134,10 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
             </svg>
           </button>
         )}
+        <span className="invasion-platform-tag">{listing.platform}</span>
+      </div>
+      <div className="invasion-listing-name-row">
+        <h3>{place}</h3>
         {listing.image && (
           <div
             id={previewPanelId}
