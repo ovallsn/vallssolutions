@@ -47,12 +47,11 @@ function platformName(platform: InvasionPlatform | "all", locale: Locale): strin
 function InvasionListingCard({ listing, locale }: { listing: InvasionListing; locale: Locale }) {
   const english = locale === "en";
   const place = getInvasionPlaceLabel(listing);
-  const [previewOpen, setPreviewOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [imageFailed, setImageFailed] = useState(false);
   const dialogId = useId();
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const previewLabel = english ? "Open account image" : "Ampliar imagen de la cuenta";
+  const previewLabel = english ? "View larger account image" : "Ver imagen ampliada de la cuenta";
   const whatsapp = listingContact(locale, listing.id);
 
   useEffect(() => {
@@ -68,35 +67,31 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
   }
 
   return (
-    <article
-      className={`invasion-listing${previewOpen ? " has-image-preview" : ""}`}
-    >
+    <article className="invasion-listing">
       <div className={`invasion-listing-head${listing.image ? " has-image-control" : ""}`}>
         <span className="invasion-listing-number">{listing.id}</span>
         {listing.image && (
           <button
             type="button"
-            className={`invasion-image-preview-control${previewOpen ? " is-previewing" : ""}`}
+            className="invasion-image-preview-control"
             aria-label={previewLabel}
             aria-haspopup="dialog"
             aria-expanded={dialogOpen}
             aria-controls={dialogId}
             title={previewLabel}
-            onFocus={(event) => {
-              if (event.currentTarget.matches(":focus-visible")) setPreviewOpen(true);
-            }}
-            onBlur={() => setPreviewOpen(false)}
             onClick={() => setDialogOpen(true)}
           >
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <rect x="3.25" y="4.25" width="17.5" height="15.5" rx="1.75" />
-              <circle cx="8.25" cy="9" r="1.5" />
-              <path d="m4.5 17 5-4.75 3.5 3 2.5-2 4 3.75" />
-            </svg>
             {imageFailed ? (
-              <span className="invasion-image-preview-fallback">
-                {english ? "Image unavailable" : "Imagen no disponible"}
-              </span>
+              <>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3.25" y="4.25" width="17.5" height="15.5" rx="1.75" />
+                  <circle cx="8.25" cy="9" r="1.5" />
+                  <path d="m4.5 17 5-4.75 3.5 3 2.5-2 4 3.75" />
+                </svg>
+                <span className="invasion-image-preview-fallback">
+                  {english ? "Image unavailable" : "Imagen no disponible"}
+                </span>
+              </>
             ) : (
               <img
                 className="invasion-image-card-preview"

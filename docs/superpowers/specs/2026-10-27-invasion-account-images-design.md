@@ -9,7 +9,7 @@ Let the owner add one public-safe account screenshot inside each Google Sheets a
 - Associate each image with the stable `Website ID`, never row order or private account name.
 - Read an in-cell image during the existing Apps Script sync and copy its bytes into the website repository so the public page does not depend on Google's temporary image URL.
 - Store the image at a deterministic public path based on the ID, and include only that path in the validated public inventory JSON.
-- Show an image preview on hover and keyboard focus on desktop, with a labeled tap/click control on touch devices.
+- Show a compact thumbnail inside a labeled tap/click control; open the full image only after activation.
 - Keep the feature optional: listings without an image remain unchanged.
 
 ## Non-goals and anti-goals
@@ -30,7 +30,7 @@ Let the owner add one public-safe account screenshot inside each Google Sheets a
 - In Apps Script, inspect the cell's image value at sync time, fetch its current Google-hosted content URL immediately, validate JPEG/PNG/WebP signatures and a conservative size limit, then publish changed image blobs together in one Git tree commit at `public/assets/invasion-accounts/<Website-ID>.<extension>` through the existing repository-scoped GitHub token. Compare blob SHAs to avoid commits when images are unchanged.
 - Include the deterministic image path in the repository dispatch snapshot. Validate the path against the record's ID and allow only supported raster extensions before writing inventory JSON.
 - If the image cell is empty, omit the image path; if a previously published image is replaced or removed, ensure the current public build no longer references the old path. GitHub Actions removes unreferenced image files before building and commits these removals with the sanitized inventory. Git history may retain prior public assets, so only intentionally public screenshots should be uploaded.
-- Render a compact, labeled preview control in each listing. Desktop hover or keyboard focus expands the image across the account card; activating it opens a larger native dialog. Touch opens the dialog directly. The dialog closes with its X, Escape, or a click on the backdrop. Supply useful alt text from the public listing ID, preserve aspect ratio, and keep empty listings unchanged.
+- Render a compact, labeled thumbnail control in each listing. Hovering does not expand the image or cover account details; activating the control opens a larger native dialog. The dialog closes with its X, Escape, or a click on the backdrop. Supply useful alt text from the public listing ID, preserve aspect ratio, and keep empty listings unchanged.
 - Update the sheet-sync instructions with the exact insert-in-cell workflow, supported image types/size, and public visibility warning.
 
 ## Constraints and open implementation choices
@@ -44,5 +44,5 @@ Let the owner add one public-safe account screenshot inside each Google Sheets a
 ## Success criteria
 
 - Tests prove that an in-cell image is associated with its stable Website ID, supported image paths are accepted, malformed paths and image payloads are rejected, and records without images remain valid.
-- The public English and Spanish listings render previews with mouse, keyboard, and touch-accessible controls without horizontal overflow or a broken image state.
+- The public English and Spanish listings render compact thumbnails with mouse, keyboard, and touch-accessible controls without horizontal overflow or a broken image state; full-size previews open only on activation.
 - Existing inventory fields and private-name exclusion continue to work.
