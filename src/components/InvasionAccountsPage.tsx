@@ -82,8 +82,8 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
               </ol>
               <p className="invasion-process-footnote">
                 {english
-                  ? "Commander level and total power are confirmed on request."
-                  : "El nivel de comandante y el poder total se confirman al consultar."}
+                  ? "Commander level is confirmed on request."
+                  : "El nivel de comandante se confirma al consultar."}
               </p>
             </aside>
           </div>

@@ -154,7 +154,7 @@ export function InvasionCatalog({ locale, listings }: { locale: Locale; listings
                   </div>
                   <div>
                     <dt>{english ? "Total power" : "Poder total"}</dt>
-                    <dd className="is-request">{english ? "Ask" : "Consultar"}</dd>
+                    <dd>{listing.power != null ? formatGameCount(listing.power, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
                   </div>
                 </dl>
                 <div className="invasion-listing-foot">

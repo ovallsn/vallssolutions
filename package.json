@@ -10,6 +10,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "audit:seo": "node --experimental-strip-types scripts/audit-export.mjs",
+    "sync:invasion-inventory": "node scripts/normalize-invasion-inventory.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.mjs"
   },
   "dependencies": {

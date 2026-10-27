@@ -1,0 +1,49 @@
+# Automatic Invasion inventory updates
+
+This integration reads the selected inventory tab in Google Sheets, maps rows by their stable `Website ID`, and publishes only the approved public statistics to the Valls Solutions catalogue. The `Name` column is deliberately omitted before anything is sent to GitHub.
+
+## One-time setup
+
+The website repository must contain the workflow change from this integration on `main` before installing the trigger.
+
+1. In GitHub, create a **fine-grained personal access token** scoped only to `ovallsn/vallssolutions`. Grant **Contents: Read and write**; no other repository permission is needed. Set an expiry and keep the token private.
+2. Open the inventory spreadsheet, then select **Extensions → Apps Script**. Add the contents of [`Code.gs`](./Code.gs) to the project and save it.
+3. In Apps Script, open **Project Settings → Script Properties** and add:
+
+   | Property | Value |
+   | --- | --- |
+   | `INVASION_GITHUB_TOKEN` | The fine-grained token from step 1 |
+
+   Do not put the token in the sheet, website, repository, or a chat message.
+4. Return to the spreadsheet and select the tab that contains the inventory. In Apps Script, choose `installInventorySync` and run it once. Review the Google authorization prompt and authorize access to the spreadsheet and external GitHub request.
+5. Confirm the installable `handleInventoryEdit` trigger appears in Apps Script's **Triggers** page.
+
+The setup stores the spreadsheet and tab IDs as Script Properties. If you replace the spreadsheet or use another tab, select that tab and run `installInventorySync` again.
+
+## Sheet format
+
+The selected tab uses three sections, each preceded by one of these labels in column A:
+
+- `Gifters Google`
+- `Gifters Tap4fun`
+- `Gifters Facebook`
+
+Each section must have a header row containing `Name`, `Website ID`, `Power`, `VIP Level`, `Diamonds`, `Resources`, and `Zone Pass`. The script finds the columns by header text, so keep those labels and keep each account's `Website ID` unchanged when editing its stats.
+
+Existing IDs are `INV-GOO-001` through `INV-GOO-004`, `INV-TAP-001` through `INV-TAP-014`, and `INV-FB-001` through `INV-FB-003`. Assign a new unique ID with the matching prefix when adding a listing; do not reuse IDs for a different account. A row without a Website ID is not published. Removing an ID removes that account from the next full inventory snapshot.
+
+Numbers can be entered as full numbers or shorthand, for example `2.47M`, `852K`, or `554,54B`. Blank optional stats remain blank on the website. `VIP Level` is required for each published row. Power is shown on the listing when supplied; commander level is not in the current sheet and remains available by enquiry.
+
+## What happens after an edit
+
+Edits to columns C–H in the configured tab schedule a full snapshot about one minute later. Further edits during that minute reset the timer. The snapshot is validated before it can change public data. Invalid IDs, duplicates, malformed numbers, or missing VIP levels stop the update; the previously published catalogue stays in place.
+
+For an accepted snapshot, GitHub Actions validates and sanitizes the data, uses it for the existing checks and static build, then commits only `src/content/invasion-listings-data.json` and deploys that same build to GitHub Pages. The write permission is isolated to the small commit job; the dependency install and build use read-only repository access. Look in the repository's **Actions** tab for the `Deploy Next.js site to GitHub Pages` run if an update does not appear. A successful update is normally visible after that workflow finishes.
+
+Apps Script edit triggers respond to direct spreadsheet edits. Changes made only by a formula recalculation or an external API do not count as a user edit event; edit a cell in the sheet to schedule a snapshot after such changes.
+
+## Privacy and access
+
+Only these fields are accepted by the public data validator: `id`, `platform`, `vipLevel`, `power`, `diamonds`, `resources`, and `zonePasses`. Account names and any extra fields are discarded, including if they are accidentally added to a dispatch payload. The website's public build contains listing IDs and stats only, never the sheet's account names.
+
+Anyone who can access the spreadsheet may still be able to view its `Name` column. Restrict spreadsheet sharing to the people who need the private inventory; Apps Script runs with the authorizing owner's access.

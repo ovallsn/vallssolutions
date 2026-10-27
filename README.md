@@ -62,6 +62,7 @@ Confirm these details against the current provider terms before changing the off
 - Original English/Spanish social previews: `public/assets/media/social-*.png`; editable SVG sources are in `docs/assets/`.
 - Media provenance is kept in `docs/assets/media-sources.md`, outside the public export.
 - Tax, state-formation, visa and compliance guides cite official sources and should be rechecked before substantive edits.
+- The private inventory sync setup and its privacy rules are documented in [`integrations/invasion-sheet/README.md`](integrations/invasion-sheet/README.md).
 
 ## GitHub Pages
 
