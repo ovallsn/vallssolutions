@@ -6,6 +6,16 @@ import { INVASION_LISTINGS } from '../src/content/invasion-listings.ts';
 const catalogModule = await import('../src/lib/invasion-catalog.ts').catch(() => ({}));
 const { filterAndSortInvasionListings, getInvasionPlaceLabel } = catalogModule;
 
+const CATALOG_FIXTURE = [
+  { id: 'INV-GOO-001', platform: 'Google', vipLevel: 7, diamonds: 2_000, resources: 10_000 },
+  { id: 'INV-GOO-002', platform: 'Google', vipLevel: 10, diamonds: 3_000, resources: 7_000 },
+  { id: 'INV-GOO-004', platform: 'Google', vipLevel: 10, resources: 4_000 },
+  { id: 'INV-TAP-001', platform: 'Tap4fun', vipLevel: 10, diamonds: 1_000 },
+  { id: 'INV-TAP-002', platform: 'Tap4fun', vipLevel: 10 },
+  { id: 'INV-TAP-004', platform: 'Tap4fun', vipLevel: 10 },
+  { id: 'INV-FB-001', platform: 'Facebook', vipLevel: 10, diamonds: 4_000, resources: 10_000 },
+];
+
 function relativeLuminance(hex) {
   const channels = hex.match(/[a-f\d]{2}/gi).map((channel) => parseInt(channel, 16) / 255);
   const linear = channels.map((channel) => channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4);
@@ -42,7 +52,7 @@ test('catalog filters combine login platform and VIP level', () => {
   assert.equal(typeof filterAndSortInvasionListings, 'function');
   if (typeof filterAndSortInvasionListings !== 'function') return;
 
-  const results = filterAndSortInvasionListings(INVASION_LISTINGS, {
+  const results = filterAndSortInvasionListings(CATALOG_FIXTURE, {
     platform: 'Tap4fun',
     vipLevel: 10,
     sortBy: 'default',
@@ -55,7 +65,7 @@ test('catalog sorts diamonds high to low and puts unlisted values last', () => {
   assert.equal(typeof filterAndSortInvasionListings, 'function');
   if (typeof filterAndSortInvasionListings !== 'function') return;
 
-  const results = filterAndSortInvasionListings(INVASION_LISTINGS, {
+  const results = filterAndSortInvasionListings(CATALOG_FIXTURE, {
     platform: 'all',
     vipLevel: 'all',
     sortBy: 'diamonds-desc',
@@ -69,8 +79,8 @@ test('catalog sorts resources high to low with deterministic original order for 
   assert.equal(typeof filterAndSortInvasionListings, 'function');
   if (typeof filterAndSortInvasionListings !== 'function') return;
 
-  const tiedListing = { ...INVASION_LISTINGS.find((listing) => listing.id === 'INV-GOO-004'), id: 'INV-TIE-001' };
-  const results = filterAndSortInvasionListings([...INVASION_LISTINGS, tiedListing], {
+  const tiedListing = { ...CATALOG_FIXTURE.find((listing) => listing.id === 'INV-GOO-004'), id: 'INV-TIE-001' };
+  const results = filterAndSortInvasionListings([...CATALOG_FIXTURE, tiedListing], {
     platform: 'all',
     vipLevel: 'all',
     sortBy: 'resources-desc',
