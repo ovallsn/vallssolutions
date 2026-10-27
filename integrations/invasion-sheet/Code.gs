@@ -34,7 +34,7 @@ function syncInventoryNow() {
   spreadsheet.toast(
     message,
     'Valls Solutions',
-    10,
+    8,
   );
 }
 
