@@ -103,5 +103,5 @@
 
 - [x] Run `npm test`, `npm run typecheck`, `npm run build`, and `npm run audit:seo`.
 - [x] Review English and Spanish catalogues at desktop, tablet, and mobile; verify image previews and no-image listing behavior.
-- [ ] Commit the scoped changes, integrate remote `main` without overwriting unrelated work, push `main`, and verify the Pages workflow and `/invasion-accounts/` routes.
-- [ ] Report that the live bound Apps Script project must be updated from `integrations/invasion-sheet/Code.gs` before sheet images can sync; do not claim the live spreadsheet workflow is updated unless confirmed.
+- [x] Commit the scoped changes, integrate remote `main` without overwriting unrelated work, push `main`, and verify the Pages workflow and `/invasion-accounts/` routes.
+- [x] Report that the live bound Apps Script project must be updated from `integrations/invasion-sheet/Code.gs` before sheet images can sync; do not claim the live spreadsheet workflow is updated unless confirmed.
