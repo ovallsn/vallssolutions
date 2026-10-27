@@ -114,5 +114,29 @@
     "platform": "Tap4fun",
     "vipLevel": 5,
     "zonePasses": 1
+  },
+  {
+    "id": "INV-FB-001",
+    "platform": "Facebook",
+    "vipLevel": 10,
+    "diamonds": 9500000,
+    "resources": 55250000000,
+    "zonePasses": 11
+  },
+  {
+    "id": "INV-FB-002",
+    "platform": "Facebook",
+    "vipLevel": 15,
+    "zonePasses": 13
+  },
+  {
+    "id": "INV-FB-003",
+    "platform": "Facebook",
+    "vipLevel": 15
+  },
+  {
+    "id": "INV-FB-004",
+    "platform": "Facebook",
+    "vipLevel": 10
   }
 ]
