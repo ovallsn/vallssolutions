@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { ContactIcon } from "@/components/ContactIcons";
 import type { InvasionListing, InvasionPlatform } from "@/content/invasion-listings";
-import { filterAndSortInvasionListings, type InvasionCatalogSort } from "@/lib/invasion-catalog";
+import { filterAndSortInvasionListings, getInvasionPlaceLabel, type InvasionCatalogSort } from "@/lib/invasion-catalog";
 import { CONTACT_EMAIL, whatsappHref, type Locale } from "@/lib/site";
 
 const PLATFORM_OPTIONS: readonly (InvasionPlatform | "all")[] = ["all", "Google", "Facebook", "Tap4fun"];
@@ -122,7 +122,6 @@ export function InvasionCatalog({ locale, listings }: { locale: Locale; listings
         <div className="invasion-listing-grid">
           {results.map((listing) => {
             const whatsapp = listingContact(locale, listing.id);
-            const profileNumber = listing.id.split("-").at(-1) ?? listing.id;
             return (
               <article className="invasion-listing" key={listing.id}>
                 <div className="invasion-listing-head">
@@ -130,7 +129,7 @@ export function InvasionCatalog({ locale, listings }: { locale: Locale; listings
                   <span className="invasion-platform-tag">{listing.platform}</span>
                 </div>
                 <div className="invasion-listing-name-row">
-                  <h3>{english ? `Account profile ${profileNumber}` : `Perfil de cuenta ${profileNumber}`}</h3>
+                  <h3>{getInvasionPlaceLabel(listing)}</h3>
                 </div>
                 <dl className="invasion-stats">
                   <div>

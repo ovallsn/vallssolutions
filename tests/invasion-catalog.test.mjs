@@ -4,7 +4,7 @@ import test from 'node:test';
 import { INVASION_LISTINGS } from '../src/content/invasion-listings.ts';
 
 const catalogModule = await import('../src/lib/invasion-catalog.ts').catch(() => ({}));
-const { filterAndSortInvasionListings } = catalogModule;
+const { filterAndSortInvasionListings, getInvasionPlaceLabel } = catalogModule;
 
 function relativeLuminance(hex) {
   const channels = hex.match(/[a-f\d]{2}/gi).map((channel) => parseInt(channel, 16) / 255);
@@ -25,6 +25,17 @@ test('catalog inquiry values meet normal-text contrast on listing cards', () => 
 
 test('public Invasion listings do not contain account nicknames', () => {
   assert.ok(INVASION_LISTINGS.every((listing) => !Object.hasOwn(listing, 'displayName')));
+});
+
+test('public listing labels use stable place names instead of account profile numbers', () => {
+  assert.equal(typeof getInvasionPlaceLabel, 'function');
+  if (typeof getInvasionPlaceLabel !== 'function') return;
+
+  const labels = INVASION_LISTINGS.map((listing) => getInvasionPlaceLabel(listing));
+  assert.equal(getInvasionPlaceLabel(INVASION_LISTINGS[0]), 'Kyoto');
+  assert.equal(getInvasionPlaceLabel(INVASION_LISTINGS.find((listing) => listing.id === 'INV-TAP-001')), 'Batumi');
+  assert.equal(new Set(labels).size, labels.length);
+  assert.ok(labels.every((label) => !/^Account profile|^Perfil de cuenta/i.test(label)));
 });
 
 test('catalog filters combine login platform and VIP level', () => {

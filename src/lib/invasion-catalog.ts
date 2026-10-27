@@ -8,6 +8,28 @@ export type InvasionCatalogFilters = {
   sortBy: InvasionCatalogSort;
 };
 
+const PLACE_LABELS: Record<InvasionPlatform, readonly string[]> = {
+  Google: [
+    "Kyoto", "Lisbon", "Reykjavik", "Marrakech", "Tallinn", "Quito", "Osaka", "Valencia", "Verona", "Muscat",
+    "Dresden", "Ulaanbaatar", "Antwerp", "Nantes", "Vilnius", "Fukuoka", "Nairobi", "Riga", "La Paz", "Lecce",
+  ],
+  Facebook: [
+    "Sapporo", "Naples", "Antigua", "Granada", "Taipei", "Dakar", "Bergen", "Cusco", "Cork", "Tulum",
+    "Ubud", "Kigali", "Samarkand", "Antalya", "Baku", "Incheon", "Gdansk", "Tunis", "Bristol", "Bruges",
+  ],
+  Tap4fun: [
+    "Batumi", "Florence", "Jaipur", "Tbilisi", "Oslo", "Singapore", "Adelaide", "Porto", "Helsinki", "Siena",
+    "Cebu", "Lyon", "Doha", "Zagreb", "Salzburg", "Malaga", "Milan", "Auckland", "Seville", "Vancouver",
+  ],
+};
+
+export function getInvasionPlaceLabel(listing: Pick<InvasionListing, "id" | "platform">): string {
+  const serial = Number(listing.id.match(/-(\d+)$/)?.[1]);
+  const labels = PLACE_LABELS[listing.platform];
+  const index = Number.isSafeInteger(serial) && serial > 0 ? (serial - 1) % labels.length : 0;
+  return labels[index] ?? labels[0];
+}
+
 export function filterAndSortInvasionListings(
   listings: readonly InvasionListing[],
   filters: InvasionCatalogFilters,
