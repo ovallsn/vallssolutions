@@ -21,6 +21,11 @@ test("account listings support optional, bilingual, accessible image previews", 
   assert.match(catalog, /focusOpenedPreview\.current/);
   assert.doesNotMatch(catalog, /cardRef\.current\?\.contains\(document\.activeElement\)/);
   assert.match(catalog, /<img[\s\S]*?alt=\{/);
+  assert.match(catalog, /className="invasion-listing-name-row">[\s\S]*?className="invasion-image-preview-panel"/);
   assert.match(styles, /\.invasion-image-preview-control[\s\S]*?min-height:\s*44px/);
-  assert.match(styles, /\.invasion-image-preview-panel\s*\{[^}]*top:\s*94px/);
+  assert.match(styles, /\.invasion-listing-name-row\s*\{[^}]*position:\s*relative/);
+  assert.match(styles, /\.invasion-listing-name-row\s*\{[^}]*justify-items:\s*center/);
+  assert.match(styles, /\.invasion-listing-name-row h3\s*\{[^}]*text-align:\s*center/);
+  assert.match(styles, /\.invasion-image-preview-panel\s*\{[^}]*top:\s*calc\(100% \+ 10px\)/);
+  assert.match(styles, /\.invasion-image-preview-panel\s*\{[^}]*left:\s*50%[^}]*transform:\s*translateX\(-50%\)/);
 });

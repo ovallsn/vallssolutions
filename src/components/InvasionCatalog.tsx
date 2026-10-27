@@ -138,28 +138,28 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
             </svg>
           </button>
         )}
+        {listing.image && (
+          <div
+            id={previewPanelId}
+            className="invasion-image-preview-panel"
+            role="region"
+            aria-label={previewLabel}
+            hidden={!previewOpen}
+          >
+            {imageFailed ? (
+              <p>{english ? "This account image could not be loaded." : "No se pudo cargar la imagen de esta cuenta."}</p>
+            ) : (
+              <img
+                src={listing.image}
+                alt={english ? `Screenshot of the ${place} account` : `Captura de la cuenta ${place}`}
+                loading="lazy"
+                decoding="async"
+                onError={() => setImageFailed(true)}
+              />
+            )}
+          </div>
+        )}
       </div>
-      {listing.image && (
-        <div
-          id={previewPanelId}
-          className="invasion-image-preview-panel"
-          role="region"
-          aria-label={previewLabel}
-          hidden={!previewOpen}
-        >
-          {imageFailed ? (
-            <p>{english ? "This account image could not be loaded." : "No se pudo cargar la imagen de esta cuenta."}</p>
-          ) : (
-            <img
-              src={listing.image}
-              alt={english ? `Screenshot of the ${place} account` : `Captura de la cuenta ${place}`}
-              loading="lazy"
-              decoding="async"
-              onError={() => setImageFailed(true)}
-            />
-          )}
-        </div>
-      )}
       <dl className="invasion-stats">
         <div>
           <dt>{english ? "Commander level" : "Nivel comandante"}</dt>
