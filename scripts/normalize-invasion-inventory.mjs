@@ -7,6 +7,11 @@ const PLATFORM_BY_PREFIX = {
   TAP: 'Tap4fun',
   FB: 'Facebook',
 };
+const PLATFORM_ORDER = {
+  Google: 0,
+  Tap4fun: 1,
+  Facebook: 2,
+};
 const OPTIONAL_FIELDS = ['power', 'diamonds', 'resources', 'zonePasses'];
 
 export function normalizeInventoryPayload(payload) {
@@ -65,7 +70,10 @@ export function normalizeInventoryPayload(payload) {
     return record;
   });
 
-  return records.sort((left, right) => left.id.localeCompare(right.id));
+  return records.sort((left, right) => (
+    PLATFORM_ORDER[left.platform] - PLATFORM_ORDER[right.platform]
+    || left.id.localeCompare(right.id)
+  ));
 }
 
 async function writeNormalizedInventory() {
