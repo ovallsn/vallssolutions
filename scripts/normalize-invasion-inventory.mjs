@@ -46,6 +46,15 @@ export function normalizeInventoryPayload(payload) {
     }
 
     const record = { id, platform: expectedPlatform, vipLevel: input.vipLevel };
+    if (input.image !== undefined) {
+      const imageMatch = typeof input.image === 'string'
+        ? /^\/assets\/invasion-accounts\/(INV-(?:GOO|TAP|FB)-\d{3})\.(?:jpg|png|webp)$/.exec(input.image)
+        : null;
+      if (!imageMatch || imageMatch[1] !== id) {
+        throw new Error(`Record ${id} has an invalid image path`);
+      }
+      record.image = input.image;
+    }
     for (const field of OPTIONAL_FIELDS) {
       if (input[field] === undefined) continue;
       if (!Number.isSafeInteger(input[field]) || input[field] < 0) {

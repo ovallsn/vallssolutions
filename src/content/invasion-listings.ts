@@ -10,6 +10,7 @@ export type InvasionListing = {
   diamonds?: number;
   resources?: number;
   zonePasses?: number;
+  image?: string;
 };
 
 // This JSON is updated by the validated Google Sheets → GitHub Actions sync.

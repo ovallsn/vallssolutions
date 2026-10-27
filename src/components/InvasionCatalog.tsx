@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useRef, useState, type FocusEvent as ReactFocusEvent, type PointerEvent as ReactPointerEvent } from "react";
 import { ContactIcon } from "@/components/ContactIcons";
 import type { InvasionListing, InvasionPlatform } from "@/content/invasion-listings";
 import { filterAndSortInvasionListings, getInvasionPlaceLabel, type InvasionCatalogSort } from "@/lib/invasion-catalog";
@@ -42,6 +42,167 @@ function listingEmail(locale: Locale, id: string): string {
 function platformName(platform: InvasionPlatform | "all", locale: Locale): string {
   if (platform !== "all") return platform;
   return locale === "es" ? "Todas" : "All platforms";
+}
+
+function InvasionListingCard({ listing, locale }: { listing: InvasionListing; locale: Locale }) {
+  const english = locale === "en";
+  const place = getInvasionPlaceLabel(listing);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [imageFailed, setImageFailed] = useState(false);
+  const lastPointerType = useRef<"mouse" | "pen" | "touch" | null>(null);
+  const focusOpenedPreview = useRef(false);
+  const previewPanelId = useId();
+  const cardRef = useRef<HTMLElement>(null);
+  const previewLabel = english ? "Preview account image" : "Ver imagen de la cuenta";
+  const whatsapp = listingContact(locale, listing.id);
+
+  function handlePointerEnter(event: ReactPointerEvent<HTMLElement>) {
+    if (listing.image && (event.pointerType === "mouse" || event.pointerType === "pen")) {
+      focusOpenedPreview.current = false;
+      setPreviewOpen(true);
+    }
+  }
+
+  function handlePointerLeave(event: ReactPointerEvent<HTMLElement>) {
+    if (
+      (event.pointerType === "mouse" || event.pointerType === "pen") &&
+      !focusOpenedPreview.current
+    ) {
+      setPreviewOpen(false);
+    }
+  }
+
+  function handleBlur(event: ReactFocusEvent<HTMLElement>) {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      focusOpenedPreview.current = false;
+      setPreviewOpen(false);
+    }
+  }
+
+  function handlePreviewKeyDown(event: React.KeyboardEvent<HTMLElement>) {
+    if (event.key === "Escape") {
+      focusOpenedPreview.current = false;
+      setPreviewOpen(false);
+    }
+  }
+
+  return (
+    <article
+      ref={cardRef}
+      className={`invasion-listing${previewOpen ? " has-image-preview" : ""}`}
+      onPointerEnter={handlePointerEnter}
+      onPointerLeave={handlePointerLeave}
+      onBlur={handleBlur}
+      onKeyDown={handlePreviewKeyDown}
+    >
+      <div className="invasion-listing-head">
+        <span className="invasion-listing-number">{listing.id}</span>
+        <span className="invasion-platform-tag">{listing.platform}</span>
+      </div>
+      <div className="invasion-listing-name-row">
+        <h3>{place}</h3>
+        {listing.image && (
+          <button
+            type="button"
+            className="invasion-image-preview-control"
+            aria-label={previewLabel}
+            aria-expanded={previewOpen}
+            aria-controls={previewPanelId}
+            title={previewLabel}
+            onPointerDown={(event) => {
+              lastPointerType.current = event.pointerType as "mouse" | "pen" | "touch";
+              focusOpenedPreview.current = false;
+            }}
+            onFocus={() => {
+              if (lastPointerType.current === null) {
+                focusOpenedPreview.current = true;
+                setPreviewOpen(true);
+              }
+            }}
+            onClick={(event) => {
+              if (event.detail === 0 || lastPointerType.current === "touch") {
+                setPreviewOpen((open) => {
+                  const nextOpen = !open;
+                  if (!nextOpen) focusOpenedPreview.current = false;
+                  else if (event.detail === 0) focusOpenedPreview.current = true;
+                  return nextOpen;
+                });
+              }
+              lastPointerType.current = null;
+            }}
+          >
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3.25" y="4.25" width="17.5" height="15.5" rx="1.75" />
+              <circle cx="8.25" cy="9" r="1.5" />
+              <path d="m4.5 17 5-4.75 3.5 3 2.5-2 4 3.75" />
+            </svg>
+          </button>
+        )}
+      </div>
+      {listing.image && (
+        <div
+          id={previewPanelId}
+          className="invasion-image-preview-panel"
+          role="region"
+          aria-label={previewLabel}
+          hidden={!previewOpen}
+        >
+          {imageFailed ? (
+            <p>{english ? "This account image could not be loaded." : "No se pudo cargar la imagen de esta cuenta."}</p>
+          ) : (
+            <img
+              src={listing.image}
+              alt={english ? `Screenshot of the ${place} account` : `Captura de la cuenta ${place}`}
+              loading="lazy"
+              decoding="async"
+              onError={() => setImageFailed(true)}
+            />
+          )}
+        </div>
+      )}
+      <dl className="invasion-stats">
+        <div>
+          <dt>{english ? "Commander level" : "Nivel comandante"}</dt>
+          <dd className="is-request">{english ? "Ask" : "Consultar"}</dd>
+        </div>
+        <div>
+          <dt>VIP</dt>
+          <dd>{listing.vipLevel}</dd>
+        </div>
+        <div>
+          <dt>{english ? "Diamonds" : "Diamantes"}</dt>
+          <dd>{listing.diamonds != null ? formatGameCount(listing.diamonds, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
+        </div>
+        <div>
+          <dt>{english ? "Resources" : "Recursos"}</dt>
+          <dd>{listing.resources != null ? formatGameCount(listing.resources, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
+        </div>
+        <div>
+          <dt>Zone Pass</dt>
+          <dd>{listing.zonePasses ?? <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
+        </div>
+        <div>
+          <dt>{english ? "Total power" : "Poder total"}</dt>
+          <dd>{listing.power != null ? formatGameCount(listing.power, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
+        </div>
+      </dl>
+      <div className="invasion-listing-foot">
+        <span>{english ? "Price on request" : "Precio al consultar"}</span>
+        <div>
+          {whatsapp && (
+            <a href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label={english ? `Ask about ${listing.id} on WhatsApp` : `Consultar ${listing.id} por WhatsApp`}>
+              <ContactIcon name="whatsapp" />
+              <span>{english ? "Ask" : "Consultar"}</span>
+            </a>
+          )}
+          <a href={listingEmail(locale, listing.id)} aria-label={english ? `Email about ${listing.id}` : `Escribir sobre ${listing.id}`}>
+            <ContactIcon name="mail" />
+            <span>{english ? "Email" : "Correo"}</span>
+          </a>
+        </div>
+      </div>
+    </article>
+  );
 }
 
 export function InvasionCatalog({ locale, listings }: { locale: Locale; listings: readonly InvasionListing[] }) {
@@ -121,59 +282,7 @@ export function InvasionCatalog({ locale, listings }: { locale: Locale; listings
       {results.length > 0 ? (
         <div className="invasion-listing-grid">
           {results.map((listing) => {
-            const whatsapp = listingContact(locale, listing.id);
-            return (
-              <article className="invasion-listing" key={listing.id}>
-                <div className="invasion-listing-head">
-                  <span className="invasion-listing-number">{listing.id}</span>
-                  <span className="invasion-platform-tag">{listing.platform}</span>
-                </div>
-                <div className="invasion-listing-name-row">
-                  <h3>{getInvasionPlaceLabel(listing)}</h3>
-                </div>
-                <dl className="invasion-stats">
-                  <div>
-                    <dt>{english ? "Commander level" : "Nivel comandante"}</dt>
-                    <dd className="is-request">{english ? "Ask" : "Consultar"}</dd>
-                  </div>
-                  <div>
-                    <dt>VIP</dt>
-                    <dd>{listing.vipLevel}</dd>
-                  </div>
-                  <div>
-                    <dt>{english ? "Diamonds" : "Diamantes"}</dt>
-                    <dd>{listing.diamonds != null ? formatGameCount(listing.diamonds, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
-                  </div>
-                  <div>
-                    <dt>{english ? "Resources" : "Recursos"}</dt>
-                    <dd>{listing.resources != null ? formatGameCount(listing.resources, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
-                  </div>
-                  <div>
-                    <dt>Zone Pass</dt>
-                    <dd>{listing.zonePasses ?? <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
-                  </div>
-                  <div>
-                    <dt>{english ? "Total power" : "Poder total"}</dt>
-                    <dd>{listing.power != null ? formatGameCount(listing.power, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
-                  </div>
-                </dl>
-                <div className="invasion-listing-foot">
-                  <span>{english ? "Price on request" : "Precio al consultar"}</span>
-                  <div>
-                    {whatsapp && (
-                      <a href={whatsapp} target="_blank" rel="noopener noreferrer" aria-label={english ? `Ask about ${listing.id} on WhatsApp` : `Consultar ${listing.id} por WhatsApp`}>
-                        <ContactIcon name="whatsapp" />
-                        <span>{english ? "Ask" : "Consultar"}</span>
-                      </a>
-                    )}
-                    <a href={listingEmail(locale, listing.id)} aria-label={english ? `Email about ${listing.id}` : `Escribir sobre ${listing.id}`}>
-                      <ContactIcon name="mail" />
-                      <span>{english ? "Email" : "Correo"}</span>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            );
+            return <InvasionListingCard listing={listing} locale={locale} key={listing.id} />;
           })}
         </div>
       ) : (
