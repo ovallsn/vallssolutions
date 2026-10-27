@@ -18,11 +18,23 @@ function onOpen() {
 }
 
 function syncInventoryNow() {
-  sendInventorySnapshot();
-  SpreadsheetApp.getActiveSpreadsheet().toast(
-    'Inventario enviado. Espera a que termine la publicación.',
+  var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+  if (!spreadsheet) throw new Error('Open the inventory spreadsheet before syncing.');
+
+  var hasActiveSheetAccess = typeof spreadsheet.getActiveSheet === 'function';
+  var sheet = hasActiveSheetAccess ? spreadsheet.getActiveSheet() : null;
+  if (hasActiveSheetAccess && !sheet) throw new Error('Select the inventory tab before syncing.');
+
+  var counts = sendInventorySnapshot(sheet || undefined);
+  var message = counts && sheet
+    ? 'Leídas ' + counts.total + ' cuentas de "' + sheet.getName() + '": ' +
+      'Google ' + counts.Google + ' · Tap4fun ' + counts.Tap4fun + ' · Facebook ' + counts.Facebook +
+      '. Espera a que termine la publicación.'
+    : 'Inventario enviado. Espera a que termine la publicación.';
+  spreadsheet.toast(
+    message,
     'Valls Solutions',
-    8,
+    10,
   );
 }
 
@@ -86,32 +98,49 @@ function scheduleInventorySync() {
     .create();
 }
 
-function sendInventorySnapshot() {
+function sendInventorySnapshot(sheetOverride) {
   var lock = LockService.getScriptLock();
   if (!lock.tryLock(10000)) throw new Error('Inventory sync is already running.');
 
   try {
     var properties = PropertiesService.getScriptProperties();
-    var spreadsheetId = properties.getProperty(INVASION_SCRIPT_PROPERTIES.spreadsheetId);
-    var sheetId = Number(properties.getProperty(INVASION_SCRIPT_PROPERTIES.sheetId));
     var token = properties.getProperty(INVASION_SCRIPT_PROPERTIES.githubToken);
-    if (!spreadsheetId || !Number.isInteger(sheetId) || !token) {
-      throw new Error('Inventory sync configuration is incomplete.');
-    }
+    if (!token) throw new Error('Inventory sync configuration is incomplete.');
 
-    var spreadsheet = SpreadsheetApp.openById(spreadsheetId);
-    var sheet = spreadsheet.getSheets().filter(function (candidate) {
-      return candidate.getSheetId() === sheetId;
-    })[0];
-    if (!sheet) throw new Error('Configured inventory tab was not found.');
+    var sheet = sheetOverride;
+    if (!sheet) {
+      var spreadsheetId = properties.getProperty(INVASION_SCRIPT_PROPERTIES.spreadsheetId);
+      var sheetId = Number(properties.getProperty(INVASION_SCRIPT_PROPERTIES.sheetId));
+      if (!spreadsheetId || !Number.isInteger(sheetId)) {
+        throw new Error('Inventory sync configuration is incomplete.');
+      }
+
+      var spreadsheet = SpreadsheetApp.openById(spreadsheetId);
+      sheet = spreadsheet.getSheets().filter(function (candidate) {
+        return candidate.getSheetId() === sheetId;
+      })[0];
+      if (!sheet) throw new Error('Configured inventory tab was not found.');
+    }
 
     var range = sheet.getDataRange();
     var snapshot = extractInventorySnapshot(range.getValues(), range.getDisplayValues());
     if (snapshot.payload.records.length === 0) throw new Error('No rows with Website IDs were found.');
     publishInventorySnapshot_(snapshot, token);
+    return summarizeInventoryCounts_(snapshot.payload.records);
   } finally {
     lock.releaseLock();
   }
+}
+
+function summarizeInventoryCounts_(records) {
+  var counts = { Google: 0, Tap4fun: 0, Facebook: 0, total: 0 };
+  records.forEach(function (record) {
+    if (Object.prototype.hasOwnProperty.call(counts, record.platform)) {
+      counts[record.platform] += 1;
+      counts.total += 1;
+    }
+  });
+  return counts;
 }
 
 function extractInventorySnapshot(values, displayValues) {
