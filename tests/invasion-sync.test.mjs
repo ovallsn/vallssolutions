@@ -481,7 +481,9 @@ test('debounces edits to Website ID, public stats, and the optional image column
   assert.equal(appsScriptContext.isInventoryEditRelevant({ column: 3, numColumns: 1 }), true);
   assert.equal(appsScriptContext.isInventoryEditRelevant({ column: 8, numColumns: 1 }), true);
   assert.equal(appsScriptContext.isInventoryEditRelevant({ column: 9, numColumns: 1 }), true);
-  assert.equal(appsScriptContext.isInventoryEditRelevant({ column: 10, numColumns: 1 }), false);
+  assert.equal(appsScriptContext.isInventoryEditRelevant({ column: 10, numColumns: 1 }), true);
+  assert.equal(appsScriptContext.isInventoryEditRelevant({ column: 11, numColumns: 1 }), true);
+  assert.equal(appsScriptContext.isInventoryEditRelevant({ column: 12, numColumns: 1 }), false);
   assert.equal(appsScriptContext.isInventoryEditRelevant({ column: 2, numColumns: 2 }), true);
 });
 

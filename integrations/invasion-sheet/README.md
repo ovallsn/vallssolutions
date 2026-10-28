@@ -28,17 +28,17 @@ The selected tab uses three sections, each preceded by one of these labels in co
 - `Gifters Tap4fun`
 - `Gifters Facebook`
 
-Each section must have a header row containing `Name`, `Website ID`, `Power`, `VIP Level`, `Diamonds`, `Resources`, `Zone Pass`, and `Image`, in that order. Keep the labels and each account's `Website ID` unchanged when editing its stats. The `Image` column is optional; leave its cell empty if you do not want a public screenshot for that listing.
+Each section must have a header row containing `Name`, `Website ID`, `Power`, `Commander Level`, `HQ Level`, `VIP Level`, `Diamonds`, `Resources`, `Zone Pass`, and `Image`, in that order. Keep the labels and each account's `Website ID` unchanged when editing its stats. The `Image` column is optional; leave its cell empty if you do not want a public screenshot for that listing.
 
 To add a screenshot, use **Insert → Image → Insert image in cell** in the `Image` column. Do not use **Image over cells**. Use a cropped JPEG, PNG, or WebP image no larger than 1 MB per account; a complete sync may upload at most 20 MB of images. Avoid screenshots containing passwords, email addresses, recovery details, personal identifiers, or other private player information. Published images are publicly accessible on the website. The image stays associated with its account by the stable `Website ID`, even if rows move.
 
-Existing IDs are `INV-GOO-001` through `INV-GOO-004`, `INV-TAP-001` through `INV-TAP-014`, and `INV-FB-001` through `INV-FB-003`. Assign a new unique ID with the matching prefix when adding a listing; do not reuse IDs for a different account. A row without a Website ID is not published. Removing an ID removes that account from the next full inventory snapshot.
+Existing IDs are `INV-GOO-001` through `INV-GOO-004`, `INV-TAP-001` through `INV-TAP-014`, and `INV-FB-001` through `INV-FB-004`. Assign a new unique ID with the matching prefix when adding a listing; do not reuse IDs for a different account. A row without a Website ID is not published. Removing an ID removes that account from the next full inventory snapshot.
 
-Numbers can be entered as full numbers or shorthand, for example `2.47M`, `852K`, or `554,54B`. Blank optional stats remain blank on the website. `VIP Level` is required for each published row. Power is shown on the listing when supplied; commander level is not in the current sheet and remains available by enquiry.
+Numbers can be entered as full numbers or shorthand, for example `2.47M`, `852K`, or `554,54B`. Blank optional stats remain blank on the website. `VIP Level` is required for each published row. Power and Commander Level are numeric fields; HQ Level accepts a short text value such as `VI` or `24`. These optional values are displayed in the same order as the sheet when supplied.
 
 ## What happens after an edit
 
-Edits to columns C–I in the configured tab schedule a full snapshot about one minute later. Further edits during that minute reset the timer. The snapshot is validated before it can change public data. Invalid IDs, duplicates, malformed numbers, unsupported images, oversized files, or missing VIP levels stop the update; the previously published catalogue stays in place.
+Edits to columns C–K in the configured tab schedule a full snapshot about one minute later. Further edits during that minute reset the timer. The snapshot is validated before it can change public data. Invalid IDs, duplicates, malformed numbers or HQ levels, unsupported images, oversized files, or missing VIP levels stop the update; the previously published catalogue stays in place.
 
 For an accepted snapshot, Apps Script fetches each temporary Google image URL immediately, checks its file signature and MIME type, and uploads changed image files to `public/assets/invasion-accounts/<Website-ID>.<extension>` in one Git commit. It then dispatches only the public statistics and stable image paths; temporary Google URLs and account names are never sent. GitHub Actions validates and sanitizes the data, removes image files no longer used by a listing, runs the existing checks and static build, and deploys that build to GitHub Pages. Asset-only commits do not start an extra Pages build; the validated inventory dispatch builds and deploys the complete update. The write permission is isolated to the small commit job; dependency installation and build use read-only repository access. Look in the repository's **Actions** tab for the `Deploy Next.js site to GitHub Pages` run if an update does not appear. A successful update is normally visible after that workflow finishes.
 
@@ -48,6 +48,6 @@ Apps Script edit triggers respond to direct spreadsheet edits. Changes made only
 
 ## Privacy and access
 
-Only these fields are accepted by the public data validator: `id`, `platform`, `vipLevel`, `power`, `diamonds`, `resources`, `zonePasses`, and the optional validated public image path. Account names and any extra fields are discarded, including if they are accidentally added to a dispatch payload. The website's public build contains listing IDs, stats, and optional screenshots only, never the sheet's account names or temporary image URLs.
+Only these fields are accepted by the public data validator: `id`, `platform`, `vipLevel`, `power`, `commanderLevel`, `hqLevel`, `diamonds`, `resources`, `zonePasses`, and the optional validated public image path. Account names and any extra fields are discarded, including if they are accidentally added to a dispatch payload. The website's public build contains listing IDs, stats, and optional screenshots only, never the sheet's account names or temporary image URLs.
 
 Anyone who can access the spreadsheet may still be able to view its `Name` column. Restrict spreadsheet sharing to the people who need the private inventory; Apps Script runs with the authorizing owner's access.

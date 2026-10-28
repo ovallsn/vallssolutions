@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/invasion-accounts/",
   translatedPath: "/es/cuentas-invasion/",
   title: "Invasion Account Listings & Stats",
-  description: "Browse Invasion account listings by VIP level, diamonds, resources and Zone Pass. Ask for current availability, total power, price and transfer details.",
+  description: "Compare Invasion account power, commander and HQ levels, VIP, diamonds, resources and Zone Pass. Ask about availability, price and transfer details.",
 });
 
 export default function InvasionAccountsRoute() {

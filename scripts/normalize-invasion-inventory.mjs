@@ -12,7 +12,7 @@ const PLATFORM_ORDER = {
   Tap4fun: 1,
   Facebook: 2,
 };
-const OPTIONAL_FIELDS = ['power', 'diamonds', 'resources', 'zonePasses'];
+const OPTIONAL_FIELDS = ['power', 'commanderLevel', 'diamonds', 'resources', 'zonePasses'];
 
 export function normalizeInventoryPayload(payload) {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) {
@@ -51,6 +51,13 @@ export function normalizeInventoryPayload(payload) {
     }
 
     const record = { id, platform: expectedPlatform, vipLevel: input.vipLevel };
+    if (input.hqLevel !== undefined) {
+      const hqLevel = typeof input.hqLevel === 'string' ? input.hqLevel.trim() : '';
+      if (!/^[A-Za-z0-9 -]{1,24}$/.test(hqLevel)) {
+        throw new Error(`Record ${id} has an invalid hqLevel`);
+      }
+      record.hqLevel = hqLevel;
+    }
     if (input.image !== undefined) {
       const imageMatch = typeof input.image === 'string'
         ? /^\/assets\/invasion-accounts\/(INV-(?:GOO|TAP|FB)-\d{3})\.(?:jpg|png|webp)$/.exec(input.image)

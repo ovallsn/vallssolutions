@@ -83,7 +83,7 @@ function isInventoryEditRelevant(range) {
   if (!range || !Number.isInteger(range.column) || !Number.isInteger(range.numColumns)) return false;
   var firstColumn = range.column;
   var lastColumn = firstColumn + range.numColumns - 1;
-  return firstColumn <= 9 && lastColumn >= 3;
+  return firstColumn <= 11 && lastColumn >= 3;
 }
 
 function scheduleInventorySync() {
@@ -188,6 +188,7 @@ function extractInventorySnapshot(values, displayValues) {
     var record = { id: id, platform: platform, vipLevel: vipLevel };
     var optionalColumns = [
       ['power', columns.power, 'Power'],
+      ['commanderLevel', columns.commanderLevel, 'Commander Level'],
       ['diamonds', columns.diamonds, 'Diamonds'],
       ['resources', columns.resources, 'Resources'],
       ['zonePasses', columns.zonePasses, 'Zone Pass'],
@@ -197,6 +198,8 @@ function extractInventorySnapshot(values, displayValues) {
       var number = readInventoryNumber_(rawRow, row, entry[1], rowIndex, entry[2], false);
       if (number !== null) record[entry[0]] = number;
     });
+    var hqLevel = readInventoryText_(rawRow, row, columns.hqLevel, rowIndex, 'HQ Level');
+    if (hqLevel !== null) record.hqLevel = hqLevel;
     if (columns.image >= 0 && isInventoryCellImage_(rawRow[columns.image])) {
       imageCells[id] = rawRow[columns.image];
     }
@@ -226,12 +229,26 @@ function getInventoryHeaderIndexes(row) {
   return {
     websiteId: websiteId,
     power: normalized.indexOf('power'),
+    commanderLevel: normalized.indexOf('commander level'),
+    hqLevel: normalized.indexOf('hq level'),
     vipLevel: normalized.indexOf('vip level'),
     diamonds: normalized.indexOf('diamonds'),
     resources: normalized.indexOf('resources'),
     zonePasses: normalized.indexOf('zone pass'),
     image: normalized.indexOf('image'),
   };
+}
+
+function readInventoryText_(rawRow, displayRow, column, rowIndex, label) {
+  if (column < 0) return null;
+  var rawValue = rawRow[column];
+  var displayed = displayRow[column] == null ? '' : String(displayRow[column]).trim();
+  var value = displayed || String(rawValue == null ? '' : rawValue).trim();
+  if (!value) return null;
+  if (value.length > 24 || !/^[A-Za-z0-9 -]+$/.test(value)) {
+    throw new Error('Invalid ' + label + ' at row ' + (rowIndex + 1) + '.');
+  }
+  return value;
 }
 
 function readInventoryNumber_(rawRow, displayRow, column, rowIndex, label, required) {

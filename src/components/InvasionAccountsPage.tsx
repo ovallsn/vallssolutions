@@ -82,8 +82,8 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
               </ol>
               <p className="invasion-process-footnote">
                 {english
-                  ? "Commander level is confirmed on request."
-                  : "El nivel de comandante se confirma al consultar."}
+                  ? "Commander and HQ levels are shown when available."
+                  : "Los niveles de comandante y HQ se muestran cuando están disponibles."}
               </p>
             </aside>
           </div>
@@ -91,7 +91,7 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
           <div className="invasion-hero-facts" aria-label={english ? "Listing details" : "Detalles del catálogo"}>
             <div>
               <span className="invasion-fact-index">A</span>
-              <p>{english ? "Account details" : "Datos de la cuenta"}<small>{english ? "VIP, diamonds, resources and passes" : "VIP, diamantes, recursos y pases"}</small></p>
+              <p>{english ? "Account details" : "Datos de la cuenta"}<small>{english ? "Power, commander, HQ, VIP and resources" : "Poder, comandante, HQ, VIP y recursos"}</small></p>
             </div>
             <div>
               <span className="invasion-fact-index">B</span>
@@ -115,8 +115,8 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
           </div>
           <p>
             {english
-              ? "Browse 21 account profiles across three login methods. We show only the figures available for each listing; message us for current availability, price and any additional details."
-              : "Consulta 21 perfiles de cuenta con tres métodos de acceso. Mostramos solo los datos disponibles; escríbenos para confirmar disponibilidad, precio y cualquier detalle adicional."}
+              ? `Browse ${INVASION_LISTINGS.length} account profiles across three login methods. We show power, commander and HQ levels, plus the other figures available for each listing. Message us to confirm availability, price and any additional details.`
+              : `Consulta ${INVASION_LISTINGS.length} perfiles de cuenta con tres métodos de acceso. Mostramos el poder, los niveles de comandante y HQ, y los demás datos disponibles de cada cuenta. Escríbenos para confirmar disponibilidad, precio y cualquier detalle adicional.`}
           </p>
         </header>
 

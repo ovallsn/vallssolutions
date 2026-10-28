@@ -10,7 +10,7 @@ test('Invasion account listings use private, localized, descriptive routes', () 
   });
 });
 
-const allowedFields = new Set(['id', 'platform', 'vipLevel', 'power', 'diamonds', 'resources', 'zonePasses', 'image']);
+const allowedFields = new Set(['id', 'platform', 'vipLevel', 'power', 'commanderLevel', 'hqLevel', 'diamonds', 'resources', 'zonePasses', 'image']);
 const platformByPrefix = { GOO: 'Google', TAP: 'Tap4fun', FB: 'Facebook' };
 
 function isPublicListing(listing) {
@@ -22,9 +22,10 @@ function isPublicListing(listing) {
     && (listing.image === undefined || (typeof listing.image === 'string' && imagePattern.test(listing.image)))
     && Number.isSafeInteger(listing.vipLevel)
     && listing.vipLevel >= 0
-    && ['power', 'diamonds', 'resources', 'zonePasses'].every((field) => (
+    && ['power', 'commanderLevel', 'diamonds', 'resources', 'zonePasses'].every((field) => (
       listing[field] === undefined || (Number.isSafeInteger(listing[field]) && listing[field] >= 0)
-    ));
+    ))
+    && (listing.hqLevel === undefined || (typeof listing.hqLevel === 'string' && /^[A-Za-z0-9 -]{1,24}$/.test(listing.hqLevel)));
 }
 
 test('Invasion catalogue mirrors the shared inventory without inventing sensitive or missing data', () => {

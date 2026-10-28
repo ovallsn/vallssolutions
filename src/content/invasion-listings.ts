@@ -7,6 +7,8 @@ export type InvasionListing = {
   platform: InvasionPlatform;
   vipLevel: number;
   power?: number;
+  commanderLevel?: number;
+  hqLevel?: string;
   diamonds?: number;
   resources?: number;
   zonePasses?: number;

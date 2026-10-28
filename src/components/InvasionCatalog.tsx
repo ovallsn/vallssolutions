@@ -112,8 +112,16 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
       </div>
       <dl className="invasion-stats">
         <div>
-          <dt>{english ? "Commander level" : "Nivel comandante"}</dt>
-          <dd className="is-request">{english ? "Ask" : "Consultar"}</dd>
+          <dt>{english ? "Power" : "Poder"}</dt>
+          <dd>{listing.power != null ? formatGameCount(listing.power, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
+        </div>
+        <div>
+          <dt>{english ? "Commander level" : "Nivel de comandante"}</dt>
+          <dd>{listing.commanderLevel != null ? formatGameCount(listing.commanderLevel, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
+        </div>
+        <div>
+          <dt>{english ? "HQ level" : "Nivel HQ"}</dt>
+          <dd>{listing.hqLevel ?? <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
         </div>
         <div>
           <dt>VIP</dt>
@@ -130,10 +138,6 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
         <div>
           <dt>Zone Pass</dt>
           <dd>{listing.zonePasses ?? <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
-        </div>
-        <div>
-          <dt>{english ? "Total power" : "Poder total"}</dt>
-          <dd>{listing.power != null ? formatGameCount(listing.power, locale) : <span className="is-request">{english ? "Ask" : "Consultar"}</span>}</dd>
         </div>
       </dl>
       <div className="invasion-listing-foot">

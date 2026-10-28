@@ -3,6 +3,8 @@
     "id": "INV-GOO-001",
     "platform": "Google",
     "vipLevel": 7,
+    "commanderLevel": 55,
+    "hqLevel": "I",
     "diamonds": 852000,
     "resources": 554540000000,
     "zonePasses": 1
@@ -35,24 +37,31 @@
     "id": "INV-TAP-001",
     "platform": "Tap4fun",
     "vipLevel": 10,
+    "commanderLevel": 65,
+    "hqLevel": "VI",
     "zonePasses": 10
   },
   {
     "id": "INV-TAP-002",
     "platform": "Tap4fun",
     "vipLevel": 10,
+    "commanderLevel": 65,
+    "hqLevel": "VI",
     "zonePasses": 4
   },
   {
     "id": "INV-TAP-003",
     "platform": "Tap4fun",
     "vipLevel": 8,
+    "commanderLevel": 56,
+    "hqLevel": "I",
     "zonePasses": 1
   },
   {
     "id": "INV-TAP-004",
     "platform": "Tap4fun",
     "vipLevel": 10,
+    "commanderLevel": 53,
     "zonePasses": 1
   },
   {
@@ -77,6 +86,7 @@
     "id": "INV-TAP-008",
     "platform": "Tap4fun",
     "vipLevel": 5,
+    "commanderLevel": 50,
     "zonePasses": 1
   },
   {
@@ -119,6 +129,8 @@
     "id": "INV-FB-001",
     "platform": "Facebook",
     "vipLevel": 10,
+    "commanderLevel": 70,
+    "hqLevel": "V",
     "image": "/assets/invasion-accounts/INV-FB-001.jpg",
     "diamonds": 9500000,
     "resources": 55250000000,
@@ -128,16 +140,22 @@
     "id": "INV-FB-002",
     "platform": "Facebook",
     "vipLevel": 15,
+    "commanderLevel": 68,
+    "hqLevel": "VI",
     "zonePasses": 13
   },
   {
     "id": "INV-FB-003",
     "platform": "Facebook",
-    "vipLevel": 15
+    "vipLevel": 15,
+    "commanderLevel": 64,
+    "hqLevel": "V"
   },
   {
     "id": "INV-FB-004",
     "platform": "Facebook",
-    "vipLevel": 10
+    "vipLevel": 10,
+    "commanderLevel": 50,
+    "hqLevel": "24"
   }
 ]
