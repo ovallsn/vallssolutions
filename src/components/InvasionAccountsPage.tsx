@@ -3,7 +3,6 @@ import Image from "next/image";
 import { INVASION_LISTINGS } from "@/content/invasion-listings";
 import { ContactIcon } from "@/components/ContactIcons";
 import { InvasionCatalog } from "@/components/InvasionCatalog";
-import { getInvasionPlaceLabel } from "@/lib/invasion-catalog";
 import { CONTACT_EMAIL, whatsappHref, type Locale } from "@/lib/site";
 import { ROUTES } from "@/lib/routes";
 
@@ -11,8 +10,6 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
   const english = locale === "en";
   const homePath = ROUTES.home[locale];
   const formationPath = ROUTES.formation[locale];
-  const featuredListing = INVASION_LISTINGS.find((listing) => listing.image);
-  const featuredListingName = featuredListing ? getInvasionPlaceLabel(featuredListing) : null;
   const whatsapp = whatsappHref(
     locale,
     english
@@ -30,7 +27,7 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
             <span>{english ? "Invasion accounts" : "Cuentas de Invasion"}</span>
           </nav>
 
-          <div className={`invasion-hero-grid${featuredListing ? " has-preview" : " is-text-only"}`}>
+          <div className="invasion-hero-grid has-preview">
             <div className="invasion-hero-copy">
               <h1>
                 {english ? "Invasion account listings" : "Cuentas de Invasion"}
@@ -59,29 +56,26 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
               </p>
             </div>
 
-            {featuredListing?.image && featuredListingName && (
-              <figure className="invasion-featured-listing">
-                <div className="invasion-featured-media">
-                  <Image
-                    src={featuredListing.image}
-                    alt={
-                      english
-                        ? `In-game screenshot from the ${featuredListingName} account listing`
-                        : `Captura del juego de la cuenta ${featuredListingName}`
-                    }
-                    fill
-                    priority
-                    sizes="(max-width: 700px) 100vw, (max-width: 1100px) 42vw, 440px"
-                    unoptimized
-                  />
-                </div>
-                <figcaption>
-                  <span>{english ? "ACCOUNT PREVIEW" : "VISTA DE LA CUENTA"}</span>
-                  <strong>{featuredListingName}</strong>
-                  <span className="invasion-featured-platform">{featuredListing.platform}</span>
-                </figcaption>
-              </figure>
-            )}
+            <figure className="invasion-featured-listing">
+              <div className="invasion-featured-media">
+                <Image
+                  src="/assets/invasion-accounts/mobile-strategy-stock.jpg"
+                  alt={
+                    english
+                      ? "A player holding a smartphone with a strategy game on screen"
+                      : "Una persona juega a un juego de estrategia en un teléfono móvil"
+                  }
+                  fill
+                  priority
+                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 44vw, 500px"
+                  unoptimized
+                />
+              </div>
+              <figcaption className="invasion-featured-caption">
+                <strong>{english ? "Mobile strategy" : "Estrategia móvil"}</strong>
+                <span>{english ? "Illustrative photo" : "Imagen ilustrativa"}</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>

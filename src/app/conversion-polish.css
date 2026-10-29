@@ -1652,12 +1652,11 @@
 
 .invasion-hero-note { max-width: 560px; margin: 17px 0 0; color: #bdc9c4; font-size: 11px; line-height: 1.55; }
 .invasion-featured-listing { min-width: 0; margin: 0; }
-.invasion-featured-media { position: relative; height: clamp(360px, 37vw, 448px); overflow: hidden; background: #e9eae4; }
-.invasion-featured-media img { object-fit: contain; object-position: center; }
-.invasion-featured-listing figcaption { min-height: 47px; padding-top: 12px; display: grid; grid-template-columns: auto 1fr auto; align-items: baseline; gap: 12px; border-top: 1px solid var(--invasion-line); color: var(--invasion-ink); }
-.invasion-featured-listing figcaption > span:first-child { color: #e8a486; font-size: 9px; font-weight: 760; letter-spacing: .1em; }
-.invasion-featured-listing figcaption strong { font-family: var(--display); font-size: 17px; font-weight: 500; }
-.invasion-featured-platform { justify-self: end; color: #bdc9c4; font-size: 10px; }
+.invasion-featured-media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; border: 1px solid rgba(248, 246, 240, .18); background: #173a32; }
+.invasion-featured-media img { object-fit: cover; object-position: center; }
+.invasion-featured-caption { min-height: 39px; padding-top: 10px; display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 14px; border-top: 1px solid var(--invasion-line); color: var(--invasion-ink); }
+.invasion-featured-caption strong { color: var(--invasion-ink); font-size: 12px; font-weight: 680; }
+.invasion-featured-caption span { color: #bdc9c4; font-size: 10px; }
 
 .invasion-catalog { padding-top: 74px; padding-bottom: 105px; }
 .invasion-section-heading { display: grid; grid-template-columns: 1fr minmax(270px, .72fr); align-items: end; gap: 45px; }
@@ -1757,7 +1756,6 @@
 
 @media (max-width: 980px) {
   .invasion-hero-grid.has-preview { grid-template-columns: minmax(0, 1fr) minmax(235px, .72fr); gap: 32px; }
-  .invasion-featured-media { height: 360px; }
   .invasion-catalog-tools { grid-template-columns: 1fr; gap: 18px; }
   .invasion-catalog-selects { justify-content: flex-start; }
   .invasion-listing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1773,8 +1771,6 @@
   .invasion-hero h1 { max-width: 560px; font-size: clamp(42px, 10.5vw, 58px); }
   .invasion-hero-lede { margin-top: 18px; font-size: 15px; }
   .invasion-featured-listing { width: min(100%, 500px); }
-  .invasion-featured-media { height: 320px; }
-  .invasion-featured-listing figcaption { grid-template-columns: auto 1fr auto; }
   .invasion-catalog { padding-top: 59px; padding-bottom: 75px; }
   .invasion-section-heading { grid-template-columns: 1fr; gap: 15px; }
   .invasion-section-heading h2 { font-size: 39px; }
@@ -1806,7 +1802,6 @@
   .invasion-hero h1 { font-size: 42px; }
   .invasion-hero-actions { align-items: flex-start; flex-direction: column; gap: 16px; }
   .invasion-hero-actions .button { width: 100%; }
-  .invasion-featured-media { height: 292px; }
   .invasion-listing-grid { grid-template-columns: 1fr; }
   .invasion-listing { padding: 17px 17px 13px; }
   .invasion-listing-name-row { min-height: 48px; }
