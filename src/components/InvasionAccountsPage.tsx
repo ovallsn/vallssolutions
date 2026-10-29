@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { INVASION_LISTINGS } from "@/content/invasion-listings";
 import { ContactIcon } from "@/components/ContactIcons";
 import { InvasionCatalog } from "@/components/InvasionCatalog";
@@ -27,15 +26,19 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
             <span>{english ? "Invasion accounts" : "Cuentas de Invasion"}</span>
           </nav>
 
-          <div className="invasion-hero-grid has-preview">
-            <div className="invasion-hero-copy">
+          <div className="invasion-hero-grid">
+            <div className="invasion-hero-title">
               <h1>
-                {english ? "Invasion account listings" : "Cuentas de Invasion"}
+                <span>Invasion Gifters</span>
+                <em>{english ? "account listings" : "catálogo de cuentas"}</em>
               </h1>
+            </div>
+
+            <div className="invasion-hero-copy">
               <p className="invasion-hero-lede">
                 {english
-                  ? "Compare profiles by login platform and review the stats shown for each account. Message us to confirm current availability, price and transfer details."
-                  : "Compara los perfiles por plataforma de acceso y revisa los datos de cada cuenta. Escríbenos para confirmar disponibilidad, precio y detalles de la transferencia."}
+                  ? "Browse listings across Google, Facebook and Tap4fun. Compare power, Commander level, HQ level, VIP, diamonds, resources and Zone Passes. Message us to confirm current availability, price and transfer details."
+                  : "Explora perfiles de Google, Facebook y Tap4fun. Compara poder, nivel de comandante, nivel de HQ, VIP, diamantes, recursos y Zone Passes. Escríbenos para confirmar disponibilidad, precio y detalles de la transferencia."}
               </p>
               <div className="invasion-hero-actions">
                 {whatsapp && (
@@ -45,37 +48,30 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
                   </a>
                 )}
                 <a className="invasion-anchor-link" href="#available-accounts">
-                  {english ? "Browse the listings" : "Ver el catálogo"}
-                  <span aria-hidden="true">↓</span>
+                  {english ? "Explore the listings" : "Explorar el catálogo"}
                 </a>
               </div>
               <p className="invasion-hero-note">
                 {english
-                  ? "Price and availability are confirmed by message. There is no online checkout; transfers are arranged directly."
-                  : "El precio y la disponibilidad se confirman por mensaje. No hay pago online; la transferencia se coordina directamente."}
+                  ? "No online checkout. Each sale is arranged directly after you confirm the account details."
+                  : "No hay pago online. Cada venta se coordina directamente después de confirmar los datos de la cuenta."}
               </p>
             </div>
 
-            <figure className="invasion-featured-listing">
-              <div className="invasion-featured-media">
-                <Image
-                  src="/assets/invasion-accounts/mobile-strategy-stock.jpg"
-                  alt={
-                    english
-                      ? "A player holding a smartphone with a strategy game on screen"
-                      : "Una persona juega a un juego de estrategia en un teléfono móvil"
-                  }
-                  fill
-                  priority
-                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 44vw, 500px"
-                  unoptimized
-                />
+            <dl className="invasion-hero-index">
+              <div>
+                <dt>{english ? "Login platforms" : "Plataformas"}</dt>
+                <dd>Google <span aria-hidden="true">·</span> Facebook <span aria-hidden="true">·</span> Tap4fun</dd>
               </div>
-              <figcaption className="invasion-featured-caption">
-                <strong>{english ? "Mobile strategy" : "Estrategia móvil"}</strong>
-                <span>{english ? "Illustrative photo" : "Imagen ilustrativa"}</span>
-              </figcaption>
-            </figure>
+              <div>
+                <dt>{english ? "Account details" : "Datos de cuenta"}</dt>
+                <dd>
+                  {english
+                    ? "Power · Commander · HQ · VIP · Diamonds · Resources · Zone Passes"
+                    : "Poder · Comandante · HQ · VIP · Diamantes · Recursos · Zone Passes"}
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
       </section>
@@ -84,13 +80,13 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
         <header className="invasion-section-heading">
           <div>
             <h2 id="invasion-catalog-title">
-              {english ? "Browse account listings" : "Catálogo de cuentas"}
+              {english ? "Available account listings" : "Cuentas disponibles"}
             </h2>
           </div>
           <p>
             {english
-              ? `Compare ${INVASION_LISTINGS.length} profiles across Google, Facebook and Tap4fun. Message us to confirm current availability, the full stats and price.`
-              : `Compara ${INVASION_LISTINGS.length} perfiles de Google, Facebook y Tap4fun. Escríbenos para confirmar disponibilidad, todos los datos y el precio.`}
+              ? `Browse ${INVASION_LISTINGS.length} profiles across three login platforms. Ask us about any detail marked “Ask” and confirm availability before arranging a transfer.`
+              : `Consulta ${INVASION_LISTINGS.length} perfiles de tres plataformas. Pregúntanos por cualquier dato marcado como «Consultar» y confirma la disponibilidad antes de coordinar la transferencia.`}
           </p>
         </header>
 
