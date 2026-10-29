@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { INVASION_LISTINGS } from "@/content/invasion-listings";
 import { ContactIcon } from "@/components/ContactIcons";
 import { InvasionCatalog } from "@/components/InvasionCatalog";
+import { getInvasionPlaceLabel } from "@/lib/invasion-catalog";
 import { CONTACT_EMAIL, whatsappHref, type Locale } from "@/lib/site";
 import { ROUTES } from "@/lib/routes";
 
@@ -9,6 +11,8 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
   const english = locale === "en";
   const homePath = ROUTES.home[locale];
   const formationPath = ROUTES.formation[locale];
+  const featuredListing = INVASION_LISTINGS.find((listing) => listing.image);
+  const featuredListingName = featuredListing ? getInvasionPlaceLabel(featuredListing) : null;
   const whatsapp = whatsappHref(
     locale,
     english
@@ -26,81 +30,58 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
             <span>{english ? "Invasion accounts" : "Cuentas de Invasion"}</span>
           </nav>
 
-          <div className="invasion-hero-grid">
+          <div className={`invasion-hero-grid${featuredListing ? " has-preview" : " is-text-only"}`}>
             <div className="invasion-hero-copy">
-              <p className="invasion-eyebrow">
-                <span aria-hidden="true" />
-                {english ? "Invasion account listings" : "Cuentas de Invasion"}
-              </p>
               <h1>
-                {english ? (
-                  <>Find your next <em>Invasion account.</em></>
-                ) : (
-                  <>Encuentra tu próxima <em>cuenta de Invasion.</em></>
-                )}
+                {english ? "Invasion account listings" : "Cuentas de Invasion"}
               </h1>
               <p className="invasion-hero-lede">
                 {english
-                  ? "Compare the account details available, then message us to confirm current availability, price and transfer steps. Every sale is arranged directly; there is no online checkout."
-                  : "Compara los datos disponibles y escríbenos para confirmar disponibilidad, precio y cómo se realiza la transferencia. La venta se coordina directamente, sin pago online."}
+                  ? "Compare profiles by login platform and review the stats shown for each account. Message us to confirm current availability, price and transfer details."
+                  : "Compara los perfiles por plataforma de acceso y revisa los datos de cada cuenta. Escríbenos para confirmar disponibilidad, precio y detalles de la transferencia."}
               </p>
               <div className="invasion-hero-actions">
                 {whatsapp && (
                   <a className="button button-dark" href={whatsapp} target="_blank" rel="noopener noreferrer">
                     <ContactIcon name="whatsapp" />
-                    {english ? "Ask on WhatsApp" : "Consultar por WhatsApp"}
+                    {english ? "Ask about an account" : "Consultar una cuenta"}
                   </a>
                 )}
                 <a className="invasion-anchor-link" href="#available-accounts">
-                  {english ? "Browse accounts" : "Ver cuentas"}
+                  {english ? "Browse the listings" : "Ver el catálogo"}
                   <span aria-hidden="true">↓</span>
                 </a>
               </div>
-            </div>
-
-            <aside className="invasion-process-note" aria-label={english ? "How inquiries work" : "Cómo consultar"}>
-              <div className="invasion-process-topline">
-                <span>{english ? "DIRECT INQUIRIES" : "CONSULTA DIRECTA"}</span>
-                <span aria-hidden="true">01 — 03</span>
-              </div>
-              <p className="invasion-process-title">
-                {english ? "A clear listing. A real conversation." : "Datos claros. Conversación directa."}
-              </p>
-              <ol>
-                <li>
-                  <span>01</span>
-                  {english ? "Choose a listing" : "Elige una cuenta"}
-                </li>
-                <li>
-                  <span>02</span>
-                  {english ? "Ask for price and full stats" : "Pregunta por el precio y todos los datos"}
-                </li>
-                <li>
-                  <span>03</span>
-                  {english ? "Agree on the transfer directly" : "Coordina la transferencia directamente"}
-                </li>
-              </ol>
-              <p className="invasion-process-footnote">
+              <p className="invasion-hero-note">
                 {english
-                  ? "Commander and HQ levels are shown when available."
-                  : "Los niveles de comandante y HQ se muestran cuando están disponibles."}
+                  ? "Price and availability are confirmed by message. There is no online checkout; transfers are arranged directly."
+                  : "El precio y la disponibilidad se confirman por mensaje. No hay pago online; la transferencia se coordina directamente."}
               </p>
-            </aside>
-          </div>
+            </div>
 
-          <div className="invasion-hero-facts" aria-label={english ? "Listing details" : "Detalles del catálogo"}>
-            <div>
-              <span className="invasion-fact-index">A</span>
-              <p>{english ? "Account details" : "Datos de la cuenta"}<small>{english ? "Power, commander, HQ, VIP and resources" : "Poder, comandante, HQ, VIP y recursos"}</small></p>
-            </div>
-            <div>
-              <span className="invasion-fact-index">B</span>
-              <p>{english ? "Price by message" : "Precio por mensaje"}<small>{english ? "Confirm availability before deciding" : "Confirma disponibilidad antes de decidir"}</small></p>
-            </div>
-            <div>
-              <span className="invasion-fact-index">C</span>
-              <p>{english ? "Manual transfer" : "Transferencia manual"}<small>{english ? "No automated payment or checkout" : "Sin pago automatizado ni proceso de compra"}</small></p>
-            </div>
+            {featuredListing?.image && featuredListingName && (
+              <figure className="invasion-featured-listing">
+                <div className="invasion-featured-media">
+                  <Image
+                    src={featuredListing.image}
+                    alt={
+                      english
+                        ? `In-game screenshot from the ${featuredListingName} account listing`
+                        : `Captura del juego de la cuenta ${featuredListingName}`
+                    }
+                    fill
+                    priority
+                    sizes="(max-width: 700px) 100vw, (max-width: 1100px) 42vw, 440px"
+                    unoptimized
+                  />
+                </div>
+                <figcaption>
+                  <span>{english ? "ACCOUNT PREVIEW" : "VISTA DE LA CUENTA"}</span>
+                  <strong>{featuredListingName}</strong>
+                  <span className="invasion-featured-platform">{featuredListing.platform}</span>
+                </figcaption>
+              </figure>
+            )}
           </div>
         </div>
       </section>
@@ -108,15 +89,14 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
       <section id="available-accounts" className="invasion-catalog invasion-shell" aria-labelledby="invasion-catalog-title">
         <header className="invasion-section-heading">
           <div>
-            <p className="invasion-section-kicker">{english ? "THE CATALOGUE" : "EL CATÁLOGO"}</p>
             <h2 id="invasion-catalog-title">
-              {english ? "Available account profiles" : "Perfiles de cuenta"}
+              {english ? "Browse account listings" : "Catálogo de cuentas"}
             </h2>
           </div>
           <p>
             {english
-              ? `Browse ${INVASION_LISTINGS.length} account profiles across three login methods. We show power, commander and HQ levels, plus the other figures available for each listing. Message us to confirm availability, price and any additional details.`
-              : `Consulta ${INVASION_LISTINGS.length} perfiles de cuenta con tres métodos de acceso. Mostramos el poder, los niveles de comandante y HQ, y los demás datos disponibles de cada cuenta. Escríbenos para confirmar disponibilidad, precio y cualquier detalle adicional.`}
+              ? `Compare ${INVASION_LISTINGS.length} profiles across Google, Facebook and Tap4fun. Message us to confirm current availability, the full stats and price.`
+              : `Compara ${INVASION_LISTINGS.length} perfiles de Google, Facebook y Tap4fun. Escríbenos para confirmar disponibilidad, todos los datos y el precio.`}
           </p>
         </header>
 
