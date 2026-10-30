@@ -1608,26 +1608,26 @@
 .invasion-catalog-intro {
   margin: 29px 0 24px;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(330px, .8fr);
-  align-items: end;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .8fr);
+  align-items: start;
   gap: clamp(32px, 5vw, 72px);
 }
 .invasion-catalog-intro h1 {
-  max-width: 690px;
+  max-width: 650px;
   margin: 0;
   color: var(--ink);
   font-family: var(--display);
-  font-size: clamp(42px, 5vw, 62px);
+  font-size: clamp(42px, 4.6vw, 58px);
   font-weight: 430;
   letter-spacing: -.055em;
   line-height: 1.04;
   text-wrap: balance;
 }
-.invasion-catalog-summary { max-width: 540px; padding-bottom: 4px; }
-.invasion-catalog-summary p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.68; }
+.invasion-catalog-summary { max-width: 480px; padding-top: 2px; }
+.invasion-catalog-summary p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.62; }
 .invasion-catalog-contact-link {
   min-height: 42px;
-  margin-top: 14px;
+  margin-top: 10px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1742,6 +1742,9 @@
 .invasion-trademark-note { max-width: 1180px; margin: 0 auto; padding: 0 0 27px; color: #737c79; font-size: 10px; text-align: center; }
 
 @media (max-width: 980px) {
+  .invasion-catalog-intro { grid-template-columns: minmax(0, 1fr); gap: 17px; }
+  .invasion-catalog-intro h1 { max-width: 800px; font-size: clamp(42px, 6.4vw, 58px); }
+  .invasion-catalog-summary { max-width: 620px; padding: 0; }
   .invasion-catalog-tools { grid-template-columns: 1fr; gap: 18px; }
   .invasion-catalog-selects { justify-content: flex-start; }
   .invasion-listing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
