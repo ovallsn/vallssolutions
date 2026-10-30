@@ -1,6 +1,5 @@
 export const SITE_URL = "https://vallssolutions.com";
 export const CONTACT_EMAIL = "info@vallssolutions.com";
-export const LINE_ID = "vallsvallso";
 // Allow a deployment-specific override while keeping the production portal discoverable in static exports.
 export const CLIENT_PORTAL_URL =
   process.env.NEXT_PUBLIC_CLIENT_PORTAL_URL?.trim() ||
@@ -8,10 +7,6 @@ export const CLIENT_PORTAL_URL =
 
 // WhatsApp Business number supplied by the owner, in international format.
 export const WHATSAPP_NUMBER: string | null = "+66 63 897 5596";
-
-export function lineHref(): string {
-  return `https://line.me/ti/p/~${encodeURIComponent(LINE_ID)}`;
-}
 
 export type Locale = "es" | "en";
 

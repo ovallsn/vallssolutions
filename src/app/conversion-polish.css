@@ -17,10 +17,6 @@
 .link-chevron { width: 16px; height: 16px; flex: 0 0 auto; vertical-align: middle; }
 .contact-actions .button { gap: 10px; }
 .contact-actions svg, .lead-contact-icon svg, .lead-privacy-icon svg, .lead-submit svg { width: 18px; height: 18px; flex: 0 0 auto; }
-.contact-action-line { min-height: 44px; padding: 8px 2px; display: inline-flex; align-items: center; gap: 8px; color: var(--paper); font-size: 12px; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(247, 245, 239, .55); text-underline-offset: 4px; }
-.contact-action-line svg { width: 17px; height: 17px; flex: 0 0 auto; }
-.contact-action-line:hover { color: #f0c0a5; text-decoration-color: currentColor; }
-.contact-action-line:focus-visible { border-radius: 3px; }
 .hero-scroll-cue { gap: 12px; }
 .hero-scroll-rule { width: 25px; height: 1px; background: #e9b08f; }
 
@@ -1629,6 +1625,7 @@
 }
 .invasion-catalog-summary { max-width: 480px; padding-top: 2px; }
 .invasion-catalog-summary p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.62; }
+.invasion-catalog-contact-options { display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px; }
 .invasion-catalog-contact-link {
   min-height: 42px;
   margin-top: 10px;
@@ -1776,6 +1773,10 @@
 .invasion-contact-actions { min-width: 245px; display: grid; justify-items: start; gap: 12px; }
 .invasion-contact-actions .button { min-width: 235px; }
 .invasion-contact-actions .button svg { width: 18px; height: 18px; }
+.invasion-line-link { min-height: 40px; display: inline-flex; align-items: center; gap: 8px; color: #e8a486; font-size: 11px; font-weight: 650; text-decoration: none; }
+.invasion-line-link:hover { color: white; text-decoration: underline; text-underline-offset: 4px; }
+.invasion-line-link:focus-visible { outline: 3px solid #e8a486; outline-offset: 3px; }
+.invasion-line-link svg { width: 16px; height: 16px; }
 .invasion-email-link { display: inline-flex; align-items: center; gap: 8px; color: #e2e9e5; font-size: 11px; text-decoration: none; }
 .invasion-email-link:hover { color: white; text-decoration: underline; text-underline-offset: 4px; }
 .invasion-email-link svg { width: 15px; height: 15px; color: #e8a486; }
@@ -1806,6 +1807,7 @@
   .invasion-catalog-intro h1 { max-width: 520px; font-size: clamp(38px, 10vw, 52px); }
   .invasion-catalog-summary { max-width: 560px; padding: 0; }
   .invasion-catalog-summary p { font-size: 13px; line-height: 1.62; }
+  .invasion-catalog-contact-options { gap: 0 14px; }
   .invasion-catalog-contact-link { min-height: 40px; margin-top: 8px; }
   .invasion-catalog-tools { padding: 17px 0; gap: 17px; }
   .invasion-platform-options { gap: 6px; }

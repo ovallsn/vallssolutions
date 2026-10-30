@@ -4,6 +4,7 @@ import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { ContactIcon } from "@/components/ContactIcons";
 import type { InvasionListing, InvasionPlatform } from "@/content/invasion-listings";
 import { filterAndSortInvasionListings, getInvasionPlaceLabel, type InvasionCatalogSort } from "@/lib/invasion-catalog";
+import { invasionLineHref, INVASION_LINE_ID } from "@/lib/invasion-contact";
 import { CONTACT_EMAIL, whatsappHref, type Locale } from "@/lib/site";
 
 const PLATFORM_OPTIONS: readonly (InvasionPlatform | "all")[] = ["all", "Google", "Facebook", "Tap4fun"];
@@ -149,6 +150,16 @@ function InvasionListingCard({ listing, locale }: { listing: InvasionListing; lo
               <span>{english ? "Ask" : "Consultar"}</span>
             </a>
           )}
+          <a
+            href={invasionLineHref()}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={english ? `Ask about ${listing.id} on LINE. Include this account code in your message.` : `Consultar ${listing.id} por LINE. Incluye este código de cuenta en el mensaje.`}
+            title={english ? `LINE ID: ${INVASION_LINE_ID}` : `ID de LINE: ${INVASION_LINE_ID}`}
+          >
+            <ContactIcon name="line" />
+            <span>LINE</span>
+          </a>
           <a href={listingEmail(locale, listing.id)} aria-label={english ? `Email about ${listing.id}` : `Escribir sobre ${listing.id}`}>
             <ContactIcon name="mail" />
             <span>{english ? "Email" : "Correo"}</span>

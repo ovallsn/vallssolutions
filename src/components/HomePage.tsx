@@ -102,7 +102,7 @@ const copy: Record<Locale, HomeCopy> = {
     offerBody:
       "Here is exactly what the $699 Wyoming formation package covers, with one point of contact from filing through banking preparation.",
     offerNote:
-      "Start with a brief email, WhatsApp or LINE message. No call or document upload is needed to get started.",
+      "Start with a brief email or WhatsApp message. No call or document upload is needed to get started.",
     stateChoiceNote:
       "We also form LLCs in other U.S. states. Tell us where your business will operate, and we will confirm the scope and price for that state before we begin.",
     audienceEyebrow: "For founders wherever they live",
@@ -248,7 +248,7 @@ const copy: Record<Locale, HomeCopy> = {
     offerBody:
       "Esto es exactamente lo que cubre el paquete de formación de $699 en Wyoming, con un contacto directo desde la presentación hasta la preparación bancaria.",
     offerNote:
-      "Puedes empezar con un mensaje breve por correo electrónico, WhatsApp o LINE. No hace falta una llamada ni subir documentos para iniciar la consulta.",
+      "Puedes empezar con un mensaje breve por correo electrónico o WhatsApp. No hace falta una llamada ni subir documentos para iniciar la consulta.",
     stateChoiceNote:
       "También creamos LLC en otros estados de EE. UU. Cuéntanos dónde operará tu negocio y confirmaremos el alcance y el precio antes de empezar.",
     audienceEyebrow: "Para fundadores, vivan donde vivan",
@@ -455,7 +455,7 @@ export function HomePage({ locale }: { locale: Locale }) {
             </h1>
             <p className="premium-lede">{content.lede}</p>
             <div className="hero-actions">
-              <ContactActions locale={locale} ctaLabel={content.primaryCta} showLine />
+              <ContactActions locale={locale} ctaLabel={content.primaryCta} />
               <div className="hero-secondary-action">
                 <Link className="text-link" href="#package">
                   {content.secondaryCta}

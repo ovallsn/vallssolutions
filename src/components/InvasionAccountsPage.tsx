@@ -3,6 +3,7 @@ import { INVASION_LISTINGS } from "@/content/invasion-listings";
 import { ContactIcon } from "@/components/ContactIcons";
 import { InvasionCatalog } from "@/components/InvasionCatalog";
 import { CONTACT_EMAIL, whatsappHref, type Locale } from "@/lib/site";
+import { invasionLineHref, INVASION_LINE_ID } from "@/lib/invasion-contact";
 import { ROUTES } from "@/lib/routes";
 
 export function InvasionAccountsPage({ locale }: { locale: Locale }) {
@@ -36,12 +37,24 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
                   ? "Explore Invasion accounts with Google, Facebook or Tap4fun logins. Compare Commander level, HQ level, VIP, diamonds, resources and Zone Passes. Message us to confirm availability and pricing."
                   : "Explora cuentas de Invasion con acceso mediante Google, Facebook o Tap4fun. Compara el nivel de comandante, el nivel de HQ, VIP, diamantes, recursos y Zone Passes. Escríbenos para confirmar disponibilidad y precio."}
               </p>
-              {whatsapp && (
-                <a className="invasion-catalog-contact-link" href={whatsapp} target="_blank" rel="noopener noreferrer">
-                  <ContactIcon name="whatsapp" />
-                  {english ? "Ask about an account" : "Consultar una cuenta"}
+              <div className="invasion-catalog-contact-options">
+                {whatsapp && (
+                  <a className="invasion-catalog-contact-link" href={whatsapp} target="_blank" rel="noopener noreferrer">
+                    <ContactIcon name="whatsapp" />
+                    {english ? "Ask about an account" : "Consultar una cuenta"}
+                  </a>
+                )}
+                <a
+                  className="invasion-catalog-contact-link"
+                  href={invasionLineHref()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={english ? `Message us on LINE about an Invasion account. LINE ID: ${INVASION_LINE_ID}` : `Escríbenos por LINE sobre una cuenta de Invasion. ID de LINE: ${INVASION_LINE_ID}`}
+                >
+                  <ContactIcon name="line" />
+                  {english ? "Message on LINE" : "Escribir por LINE"}
                 </a>
-              )}
+              </div>
             </div>
           </header>
 
@@ -67,6 +80,16 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
                 {english ? "Message on WhatsApp" : "Escribir por WhatsApp"}
               </a>
             )}
+            <a
+              className="invasion-line-link"
+              href={invasionLineHref()}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={english ? `Message about an Invasion account on LINE. LINE ID: ${INVASION_LINE_ID}` : `Escribir por LINE sobre una cuenta de Invasion. ID de LINE: ${INVASION_LINE_ID}`}
+            >
+              <ContactIcon name="line" />
+              <span>{english ? `Message on LINE · ${INVASION_LINE_ID}` : `Escribir por LINE · ${INVASION_LINE_ID}`}</span>
+            </a>
             <a className="invasion-email-link" href={`mailto:${CONTACT_EMAIL}`}>
               <ContactIcon name="mail" /> {CONTACT_EMAIL}
             </a>
