@@ -247,6 +247,7 @@ export function InvasionCatalog({ locale, listings }: { locale: Locale; listings
               <option value="default">{english ? "Original order" : "Orden original"}</option>
               <option value="diamonds-desc">{english ? "Diamonds: high to low" : "Diamantes: de mayor a menor"}</option>
               <option value="resources-desc">{english ? "Resources: high to low" : "Recursos: de mayor a menor"}</option>
+              <option value="vip-desc">{english ? "VIP: high to low" : "VIP: de mayor a menor"}</option>
             </select>
           </label>
         </div>

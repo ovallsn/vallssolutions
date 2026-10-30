@@ -1,6 +1,6 @@
 import type { InvasionListing, InvasionPlatform } from "../content/invasion-listings";
 
-export type InvasionCatalogSort = "default" | "diamonds-desc" | "resources-desc";
+export type InvasionCatalogSort = "default" | "diamonds-desc" | "resources-desc" | "vip-desc";
 
 export type InvasionCatalogFilters = {
   platform: InvasionPlatform | "all";
@@ -42,7 +42,12 @@ export function filterAndSortInvasionListings(
 
   if (filters.sortBy === "default") return matchingListings;
 
-  const field = filters.sortBy === "diamonds-desc" ? "diamonds" : "resources";
+  const field =
+    filters.sortBy === "diamonds-desc"
+      ? "diamonds"
+      : filters.sortBy === "resources-desc"
+        ? "resources"
+        : "vipLevel";
   return matchingListings
     .map((listing, index) => ({ listing, index }))
     .sort((a, b) => {
