@@ -33,8 +33,8 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
             <div className="invasion-catalog-summary">
               <p>
                 {english
-                  ? "Compare profiles across Google, Facebook and Tap4fun by Commander and HQ level, VIP, diamonds, resources and Zone Passes. Message us to confirm availability, price and transfer details."
-                  : "Compara perfiles de Google, Facebook y Tap4fun por nivel de comandante y HQ, VIP, diamantes, recursos y Zone Passes. Escríbenos para confirmar disponibilidad, precio y detalles de la transferencia."}
+                  ? "Explore Invasion accounts with Google, Facebook or Tap4fun logins. Compare Commander level, HQ level, VIP, diamonds, resources and Zone Passes. Message us to confirm availability and pricing."
+                  : "Explora cuentas de Invasion con acceso mediante Google, Facebook o Tap4fun. Compara el nivel de comandante, el nivel de HQ, VIP, diamantes, recursos y Zone Passes. Escríbenos para confirmar disponibilidad y precio."}
               </p>
               {whatsapp && (
                 <a className="invasion-catalog-contact-link" href={whatsapp} target="_blank" rel="noopener noreferrer">

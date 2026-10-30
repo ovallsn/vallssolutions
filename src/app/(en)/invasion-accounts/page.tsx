@@ -7,7 +7,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/invasion-accounts/",
   translatedPath: "/es/cuentas-invasion/",
   title: "Invasion Gifters Account Listings",
-  description: "Browse Invasion account listings across Google, Facebook and Tap4fun. Compare power, Commander and HQ levels, VIP, diamonds, resources and Zone Passes. Ask about availability and price.",
+  description: "Explore Invasion accounts with Google, Facebook or Tap4fun logins. Compare Commander and HQ levels, VIP, diamonds, resources and Zone Passes. Contact us to check availability and pricing.",
 });
 
 export default function InvasionAccountsRoute() {
