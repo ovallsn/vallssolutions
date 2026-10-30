@@ -1658,9 +1658,9 @@
     max-width: none;
     padding: 0;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 32px;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    gap: 6px;
   }
 
   .invasion-catalog-summary p {
