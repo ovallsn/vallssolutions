@@ -18,7 +18,7 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
 
   return (
     <main id="contenido" className="invasion-page">
-      <section className="invasion-hero">
+      <section id="available-accounts" className="invasion-catalog" aria-labelledby="invasion-page-title">
         <div className="invasion-shell">
           <nav className="invasion-breadcrumbs" aria-label={english ? "Breadcrumb" : "Ruta de navegación"}>
             <Link href={homePath}>{english ? "Home" : "Inicio"}</Link>
@@ -26,71 +26,27 @@ export function InvasionAccountsPage({ locale }: { locale: Locale }) {
             <span>{english ? "Invasion accounts" : "Cuentas de Invasion"}</span>
           </nav>
 
-          <div className="invasion-hero-grid">
-            <div className="invasion-hero-title">
-              <h1>
-                <span>Invasion Gifters</span>
-                <em>{english ? "account listings" : "catálogo de cuentas"}</em>
-              </h1>
-            </div>
-
-            <div className="invasion-hero-copy">
-              <p className="invasion-hero-lede">
+          <header className="invasion-catalog-intro">
+            <h1 id="invasion-page-title">
+              {english ? "Invasion Gifters account listings" : "Cuentas de Invasion Gifters"}
+            </h1>
+            <div className="invasion-catalog-summary">
+              <p>
                 {english
-                  ? "Browse listings across Google, Facebook and Tap4fun. Compare power, Commander level, HQ level, VIP, diamonds, resources and Zone Passes. Message us to confirm current availability, price and transfer details."
-                  : "Explora perfiles de Google, Facebook y Tap4fun. Compara poder, nivel de comandante, nivel de HQ, VIP, diamantes, recursos y Zone Passes. Escríbenos para confirmar disponibilidad, precio y detalles de la transferencia."}
+                  ? "Compare profiles across Google, Facebook and Tap4fun by Commander and HQ level, VIP, diamonds, resources and Zone Passes. Message us to confirm availability, price and transfer details."
+                  : "Compara perfiles de Google, Facebook y Tap4fun por nivel de comandante y HQ, VIP, diamantes, recursos y Zone Passes. Escríbenos para confirmar disponibilidad, precio y detalles de la transferencia."}
               </p>
-              <div className="invasion-hero-actions">
-                {whatsapp && (
-                  <a className="button button-dark" href={whatsapp} target="_blank" rel="noopener noreferrer">
-                    <ContactIcon name="whatsapp" />
-                    {english ? "Ask about an account" : "Consultar una cuenta"}
-                  </a>
-                )}
-                <a className="invasion-anchor-link" href="#available-accounts">
-                  {english ? "Explore the listings" : "Explorar el catálogo"}
+              {whatsapp && (
+                <a className="invasion-catalog-contact-link" href={whatsapp} target="_blank" rel="noopener noreferrer">
+                  <ContactIcon name="whatsapp" />
+                  {english ? "Ask about an account" : "Consultar una cuenta"}
                 </a>
-              </div>
-              <p className="invasion-hero-note">
-                {english
-                  ? "No online checkout. Each sale is arranged directly after you confirm the account details."
-                  : "No hay pago online. Cada venta se coordina directamente después de confirmar los datos de la cuenta."}
-              </p>
+              )}
             </div>
+          </header>
 
-            <dl className="invasion-hero-index">
-              <div>
-                <dt>{english ? "Login platforms" : "Plataformas"}</dt>
-                <dd>Google <span aria-hidden="true">·</span> Facebook <span aria-hidden="true">·</span> Tap4fun</dd>
-              </div>
-              <div>
-                <dt>{english ? "Account details" : "Datos de cuenta"}</dt>
-                <dd>
-                  {english
-                    ? "Power · Commander · HQ · VIP · Diamonds · Resources · Zone Passes"
-                    : "Poder · Comandante · HQ · VIP · Diamantes · Recursos · Zone Passes"}
-                </dd>
-              </div>
-            </dl>
-          </div>
+          <InvasionCatalog locale={locale} listings={INVASION_LISTINGS} />
         </div>
-      </section>
-
-      <section id="available-accounts" className="invasion-catalog invasion-shell" aria-labelledby="invasion-catalog-title">
-        <header className="invasion-section-heading">
-          <div>
-            <h2 id="invasion-catalog-title">
-              {english ? "Available account listings" : "Cuentas disponibles"}
-            </h2>
-          </div>
-          <p>
-            {english
-              ? `Browse ${INVASION_LISTINGS.length} profiles across three login platforms. Ask us about any detail marked “Ask” and confirm availability before arranging a transfer.`
-              : `Consulta ${INVASION_LISTINGS.length} perfiles de tres plataformas. Pregúntanos por cualquier dato marcado como «Consultar» y confirma la disponibilidad antes de coordinar la transferencia.`}
-          </p>
-        </header>
-
-        <InvasionCatalog locale={locale} listings={INVASION_LISTINGS} />
       </section>
 
       <section className="invasion-contact-band">
