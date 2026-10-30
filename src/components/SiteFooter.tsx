@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { ConsentPreferencesButton } from "@/components/ConsentManager";
 import { ContactIcon } from "@/components/ContactIcons";
-import { CLIENT_PORTAL_URL, CONTACT_EMAIL, mailtoHref, type Locale, whatsappHref } from "@/lib/site";
+import { CLIENT_PORTAL_URL, CONTACT_EMAIL, LINE_ID, lineHref, mailtoHref, type Locale, whatsappHref } from "@/lib/site";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const english = locale === "en";
   const whatsapp = whatsappHref(locale);
+  const line = lineHref();
   return (
     <footer className="site-footer">
       <div className="section-shell footer-main">
@@ -73,6 +74,10 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 <span>WhatsApp Business</span>
               </a>
             )}
+            <a className="footer-contact-link" href={line} target="_blank" rel="noopener noreferrer">
+              <ContactIcon name="line" />
+              <span>LINE · {LINE_ID}</span>
+            </a>
           </div>
           <ConsentPreferencesButton locale={locale} />
         </div>

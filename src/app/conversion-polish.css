@@ -17,6 +17,10 @@
 .link-chevron { width: 16px; height: 16px; flex: 0 0 auto; vertical-align: middle; }
 .contact-actions .button { gap: 10px; }
 .contact-actions svg, .lead-contact-icon svg, .lead-privacy-icon svg, .lead-submit svg { width: 18px; height: 18px; flex: 0 0 auto; }
+.contact-action-line { min-height: 44px; padding: 8px 2px; display: inline-flex; align-items: center; gap: 8px; color: var(--paper); font-size: 12px; font-weight: 650; text-decoration: underline; text-decoration-color: rgba(247, 245, 239, .55); text-underline-offset: 4px; }
+.contact-action-line svg { width: 17px; height: 17px; flex: 0 0 auto; }
+.contact-action-line:hover { color: #f0c0a5; text-decoration-color: currentColor; }
+.contact-action-line:focus-visible { border-radius: 3px; }
 .hero-scroll-cue { gap: 12px; }
 .hero-scroll-rule { width: 25px; height: 1px; background: #e9b08f; }
 

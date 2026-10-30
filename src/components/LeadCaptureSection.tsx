@@ -1,6 +1,6 @@
 import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { ContactIcon } from "@/components/ContactIcons";
-import { CONTACT_EMAIL, mailtoHref, type Locale, whatsappHref } from "@/lib/site";
+import { CONTACT_EMAIL, LINE_ID, lineHref, mailtoHref, type Locale, whatsappHref } from "@/lib/site";
 
 type LeadCaptureSectionProps = {
   locale: Locale;
@@ -12,6 +12,7 @@ type LeadCaptureSectionProps = {
 export function LeadCaptureSection({ locale, eyebrow, title, body }: LeadCaptureSectionProps) {
   const english = locale === "en";
   const whatsapp = whatsappHref(locale);
+  const line = lineHref();
 
   return (
     <section className="lead-capture-band" aria-labelledby="lead-capture-title">
@@ -37,6 +38,10 @@ export function LeadCaptureSection({ locale, eyebrow, title, body }: LeadCapture
               <span><strong>WhatsApp</strong><small>{english ? "Continue the conversation there" : "Continúa la conversación por allí"}</small></span>
             </a>
           )}
+          <a href={line} target="_blank" rel="noopener noreferrer">
+            <span className="lead-contact-icon"><ContactIcon name="line" /></span>
+            <span><strong>LINE · {LINE_ID}</strong><small>{english ? "Message us on LINE" : "Escríbenos por LINE"}</small></span>
+          </a>
         </div>
 
         <div className="lead-form-panel">
