@@ -111,37 +111,52 @@
     "id": "INV-TAP-009",
     "platform": "Tap4fun",
     "vipLevel": 7,
+    "power": 66000000,
+    "diamonds": 750000,
+    "resources": 17000000000,
     "zonePasses": 1
   },
   {
     "id": "INV-TAP-010",
     "platform": "Tap4fun",
     "vipLevel": 6,
+    "power": 60000000,
+    "diamonds": 1000000,
+    "resources": 6200000000,
     "zonePasses": 1
   },
   {
     "id": "INV-TAP-011",
     "platform": "Tap4fun",
     "vipLevel": 6,
+    "power": 60000000,
+    "diamonds": 1100000,
+    "resources": 8000000000,
     "zonePasses": 1
   },
   {
     "id": "INV-TAP-012",
     "platform": "Tap4fun",
     "vipLevel": 6,
+    "power": 63000000,
+    "diamonds": 1100000,
+    "resources": 8000000000,
     "zonePasses": 1
   },
   {
     "id": "INV-TAP-013",
     "platform": "Tap4fun",
     "vipLevel": 5,
+    "power": 60000000,
+    "diamonds": 1400000,
+    "resources": 6500000000,
     "zonePasses": 1
   },
   {
     "id": "INV-TAP-014",
     "platform": "Tap4fun",
     "vipLevel": 5,
-    "power": 67,
+    "power": 67000000,
     "diamonds": 1400000,
     "resources": 16000000000,
     "zonePasses": 1
