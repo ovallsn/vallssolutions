@@ -6,6 +6,7 @@ export const metadata: Metadata = pageMetadata({
   locale: "en",
   path: "/blog/",
   translatedPath: "/es/blog/",
+  feedPath: "/blog/rss.xml",
   title: "U.S. LLC Guides: Wyoming, EIN, Taxes & Formation",
   description: "Practical, source-backed guides to U.S. LLC formation, Wyoming requirements, EIN applications, tax classification and business operations.",
 });

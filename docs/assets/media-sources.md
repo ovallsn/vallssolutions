@@ -29,6 +29,8 @@
 - Typography: system Georgia and Arial, rasterized locally with the existing Sharp installation.
 - Usage: English and Spanish Open Graph/Twitter metadata. No attribution required.
 
+Blog cards use the same original Valls Solutions mark, palette, and typographic layout as the English and Spanish previews above. `scripts/generate-blog-social-cards.ts` renders one 1200 × 630 PNG for each published catalog article into the ignored `public/assets/media/blog/` directory before the static build. Cards contain no external imagery or templates; their headline and category come from the localized blog catalog. The rasterized system fonts can vary slightly across build environments.
+
 ## Previous generated logo symbol (retained, not in active use)
 
 - Web asset: public/assets/media/valls-monogram.webp (961 × 743, transparent WebP; approximately 42 KB).

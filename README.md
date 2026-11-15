@@ -28,7 +28,7 @@ npm run audit:seo
 - `/about/` and `/es/nosotros/` — experience and service scope
 - `/contact/` and `/es/contacto/` — email contact without document collection
 - `/legal-notice/`, `/privacy/`, `/cookies/`, `/terms/` and their `/es/` translations — legal, privacy, cookie and service information
-- `/blog/` and `/es/blog/` — localized article archives
+- `/blog/` and `/es/blog/` — localized article archives with RSS feeds at `/blog/rss.xml` and `/es/blog/rss.xml`
 - `/blog/[slug]/` and `/es/blog/[slug]/` — localized MDX guides
 - `/sitemap.xml` and `/robots.txt` — generated crawl files
 
@@ -59,10 +59,21 @@ Confirm these details against the current provider terms before changing the off
 - Editorial source in Markdown/MDX: `src/content/blog/articles/`
 - Shared styles: `src/app/globals.css` (ported from the former `assets/css/site.css`)
 - Self-hosted hero video and poster: `public/assets/media/`
-- Original English/Spanish social previews: `public/assets/media/social-*.png`; editable SVG sources are in `docs/assets/`.
+- Original English/Spanish social previews: `public/assets/media/social-*.png`; editable SVG sources are in `docs/assets/`. Blog-specific 1200×630 cards are generated from the published article catalog during `prebuild` into the ignored `public/assets/media/blog/` directory.
 - Media provenance is kept in `docs/assets/media-sources.md`, outside the public export.
 - Tax, state-formation, visa and compliance guides cite official sources and should be rechecked before substantive edits.
 - The private inventory sync setup and its privacy rules are documented in [`integrations/invasion-sheet/README.md`](integrations/invasion-sheet/README.md).
+
+## Social publishing pilot
+
+The website supplies two public RSS feeds for a bilingual Metricool publishing pilot:
+
+- English: <https://vallssolutions.com/blog/rss.xml>
+- Spanish: <https://vallssolutions.com/es/blog/rss.xml>
+
+Each published catalog article has its own Open Graph and Twitter image. RSS item links carry campaign UTMs for the pilot; page canonical URLs remain clean. The detailed setup, publishing cadence, Instagram link-in-bio behavior, Reddit ad draft, and reporting limits are in [`docs/marketing/social-publishing-pilot.md`](docs/marketing/social-publishing-pilot.md).
+
+Connect only authorized VALLS Solutions company profiles. Metricool Autolists can publish imported RSS items directly when enabled; do not impersonate customers or automate promotional replies in Reddit communities. Reddit advertising remains inactive until the owner selects a spend cap and connects the ad account.
 
 ## GitHub Pages
 

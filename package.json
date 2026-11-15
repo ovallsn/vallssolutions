@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node --experimental-strip-types scripts/generate-blog-social-cards.ts",
     "build": "next build",
     "postbuild": "node --experimental-strip-types scripts/write-redirects.mjs",
     "start": "next start",

@@ -6,6 +6,7 @@ export const metadata: Metadata = pageMetadata({
   locale: "es",
   path: "/es/blog/",
   translatedPath: "/blog/",
+  feedPath: "/es/blog/rss.xml",
   title: "Guías sobre LLC, Wyoming, EIN e impuestos de EE. UU.",
   description: "Artículos prácticos sobre cómo crear una LLC en EE. UU., los requisitos de Wyoming, la solicitud del EIN y la clasificación fiscal empresarial.",
 });

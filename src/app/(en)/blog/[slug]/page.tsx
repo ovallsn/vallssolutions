@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlogArticlePage } from "@/components/BlogArticlePage";
 import { findBlogPost, listBlogPosts } from "@/content/blog/articles";
+import { blogSocialImagePath } from "@/lib/blog-social";
 import { pageMetadata } from "@/lib/seo";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -25,6 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     metaTitle: post.seoTitle,
     description: post.description,
     kind: "article",
+    socialImagePath: blogSocialImagePath("en", post.slug),
   });
 }
 
