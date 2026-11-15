@@ -15,7 +15,7 @@
 - Keep Reddit ads inactive until an ad account and spending cap are configured by the owner.
 - Generate social copy only from published catalog titles, descriptions, and verified offer information already recorded in the README.
 - Do not add dependencies or change the website architecture.
-- Do not add or run the project's test suite for this task. Validate with the documented typecheck and production build, then inspect generated output directly.
+- Do not add tests. The original plan excluded the existing test suite; the owner later explicitly authorized `npm test` on 2026-11-16 to permit publishing to `main` (recorded in the SDD ledger).
 
 ## Tasks
 
@@ -90,9 +90,9 @@
 - Inspect `out/blog/rss.xml` and `out/es/blog/rss.xml` for valid localized items and canonical links.
 - Confirm every catalog article has a 1200×630 PNG in the generated output and that article HTML references the correct locale-specific card in Open Graph and Twitter metadata.
 - Confirm non-article pages still use the existing language-level social image.
-- Do not run `npm test` or add tests as part of this task.
+- Run `npm test` under the owner's explicit authorization; do not add test files as part of this task.
 
-**Expected:** Typecheck, build, and SEO audit exit successfully; manual output inspection confirms both feed files, all localized cards, article metadata, and non-article fallback metadata.
+**Expected:** The authorized test suite, typecheck, build, and SEO audit exit successfully; manual output inspection confirms both feed files, all localized cards, article metadata, and non-article fallback metadata.
 
 ## Acceptance criteria
 
